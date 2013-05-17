@@ -2,10 +2,6 @@ package battleship;
 
 public class Bot extends Player{
 	
-	/*
-	public int numberShips;
-	public Playboard playboard;
-	*/
 	private int[] lasthit;
 	
 	public Bot() {
@@ -20,10 +16,10 @@ public class Bot extends Player{
 	
 	protected int[] initRandomNumber() {
 		int[] randPos = new int[2];
-		int X = (int) (Math.random() * getPlayboard().getSize());
-		int Y = (int) (Math.random() * getPlayboard().getSize());
-		randPos[0] = X;
-		randPos[1] = Y;
+		int x = (int) (Math.random() * getPlayboard().getSize());
+		int y = (int) (Math.random() * getPlayboard().getSize());
+		randPos[0] = x;
+		randPos[1] = y;
 		return randPos;
 	}
 	
@@ -34,6 +30,7 @@ public class Bot extends Player{
 			shot = initRandomNumber();
 		}
 		while (shots[shot[0]][shot[1]] == 1);
+		
 		playboard.getBoard()[shot[0]][shot[1]].shoot();
 		shots[shot[0]][shot[1]] = 1;
 	}

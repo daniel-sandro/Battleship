@@ -11,7 +11,7 @@ public class Field {
 	
 	private Ships ship;
 	private state stat;
-	public String s;
+	private String s;
 
 	
 	public Field(){
@@ -32,7 +32,6 @@ public class Field {
 			this.stat = state.hit;
 			return state.hit;
 		default:
-			System.out.println("Depp\n");
 			return null;
 		}
 	}

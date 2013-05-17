@@ -1,10 +1,7 @@
 package battleship;
 
 public class Human extends Player {
-	/*
-	public int numberShips;
-	public Playboard playboard;
-	*/
+
 
 	public Human(){
 	}

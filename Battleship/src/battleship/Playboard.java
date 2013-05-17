@@ -22,7 +22,6 @@ public class Playboard {
 		int[] posi = a.getPosition();
 		for (int i = 0; i < a.getSize(); i++) {
 			this.board[posi[0]][posi[1]+i].setShip(a);
-			//System.out.printf("board[%d][%d].state: %s", posi[0], posi[1], board[posi[0]][posi[1]].getStat().toString()  );
 		}
 	}
 
