@@ -1,4 +1,4 @@
-package battleship;
+package Model;
 
 public class Flattop extends Ships {
 	

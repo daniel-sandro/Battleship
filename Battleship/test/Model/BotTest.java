@@ -1,13 +1,14 @@
-package battleship;
+package Model;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import battleship.Bot;
-import battleship.Field;
-import battleship.Field.state;
+import Model.Bot;
+import Model.Field;
+import Model.Playboard;
+import Model.Field.state;
 
 public class BotTest {
 	

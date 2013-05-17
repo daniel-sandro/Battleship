@@ -1,12 +1,12 @@
-package battleship;
+package Model;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import battleship.Destructor;
-import battleship.Ships;
+import Model.Destructor;
+import Model.Ships;
 
 public class DestructorTest {
 	Ships a;

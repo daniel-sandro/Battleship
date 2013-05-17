@@ -1,4 +1,4 @@
-package battleship;
+package Model;
 
 import static org.junit.Assert.*;
 

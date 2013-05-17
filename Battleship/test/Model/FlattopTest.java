@@ -1,12 +1,12 @@
-package battleship;
+package Model;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import battleship.Flattop;
-import battleship.Ships;
+import Model.Flattop;
+import Model.Ships;
 
 public class FlattopTest {
 	

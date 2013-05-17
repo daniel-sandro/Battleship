@@ -1,4 +1,4 @@
-package battleship;
+package Model;
 
 public class Destructor extends Ships {
 	public Destructor(int row, int col) {

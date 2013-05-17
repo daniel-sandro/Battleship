@@ -1,4 +1,4 @@
-package battleship;
+package Model;
 
 import static org.junit.Assert.*;
 import junit.framework.Assert;
@@ -6,7 +6,7 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import battleship.Rowboat;
+import Model.Rowboat;
 
 public class ShipsTest {
 	public Rowboat a;

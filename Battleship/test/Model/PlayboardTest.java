@@ -1,11 +1,14 @@
-package battleship;
+package Model;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import battleship.Field.state;
+import Model.Playboard;
+import Model.Rowboat;
+import Model.Ships;
+import Model.Field.state;
 
 public class PlayboardTest {
 	

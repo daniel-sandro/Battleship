@@ -1,11 +1,9 @@
-package battleship;
+package Model;
 
 public abstract class Player {
 	
-	protected int numberShips;
+	protected int numberShips = 3;
 	protected Playboard playboard;
-	protected int[][] shots;
-	
 
 	public abstract void initPlayboard(int size);
 	
@@ -31,18 +29,6 @@ public abstract class Player {
 
 	public void setPlayboard(Playboard playboard) {
 		this.playboard = playboard;
-	}
-
-
-
-	public int[][] getShots() {
-		return shots;
-	}
-
-
-
-	public void setShots(int a, int b) {
-		this.shots = new int[a][b];
 	}
 
 }

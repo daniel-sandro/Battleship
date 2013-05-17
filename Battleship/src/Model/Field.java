@@ -1,4 +1,4 @@
-package battleship;
+package Model;
 
 public class Field {
 	
@@ -29,6 +29,7 @@ public class Field {
 			this.stat = state.emptyhit;
 			return state.emptyhit;
 		case ship:
+			this.ship.setSize(ship.getSize()-1);
 			this.stat = state.hit;
 			return state.hit;
 		default:
