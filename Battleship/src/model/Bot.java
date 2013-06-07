@@ -4,6 +4,9 @@ import model.Field.state;
 
 public class Bot extends Player{
 	
+	Playboard playboard = getPlayboard();
+	
+	
 	public Bot(int fieldsize) {
 		initPlayboard(fieldsize);
 	}

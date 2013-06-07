@@ -2,7 +2,8 @@ package model;
 
 public class Human extends Player {
 
-
+	Playboard playboard = getPlayboard();
+	
 	public Human(int size){
 		initPlayboard(size);
 	}
