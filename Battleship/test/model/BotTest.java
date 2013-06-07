@@ -3,7 +3,6 @@ package model;
 import static org.junit.Assert.*;
 
 import model.Bot;
-import model.Field;
 import model.Playboard;
 import model.Rowboat;
 import model.Ships;

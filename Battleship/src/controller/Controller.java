@@ -6,11 +6,31 @@ import model.Flattop;
 import model.Human;
 import model.Rowboat;
 import model.Field.state;
+import model.Utils;
 
 public class Controller {
 	
-	public Human player;
-	public Bot bot;	
+	private Human player;
+	private Bot bot;	
+	
+	public Human getPlayer() {
+		return player;
+	}
+
+
+	public void setPlayer(Human player) {
+		this.player = player;
+	}
+
+
+	public Bot getBot() {
+		return bot;
+	}
+
+
+	public void setBot(Bot bot) {
+		this.bot = bot;
+	}
 	
 	public Controller(int fieldsize){
 		player = new Human(fieldsize);		 
@@ -27,9 +47,9 @@ public class Controller {
 			if(bot.getPlayboard().getField()[row][col].getShip().getSize() == 0){
 				bot.setNumberShips(bot.getNumberShips()-1);
 			}
-			System.out.println("TREFFER!!!!!!!!!");
+			Utils.output("TREFFER!!!!!!!!!");
 		} else{
-			System.out.println("Nichts getroffen");
+			Utils.output("Nichts getroffen");
 		}
 	}
 	

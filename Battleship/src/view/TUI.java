@@ -1,7 +1,4 @@
-/*
- * Aus irgendeinem grund setzt der Computer nur ein Schiff und das immer bei 0/0 horizontal, aber Horizontal vertikal funktioniert eigentlich!!
- * */package view;
-
+package view;
 
 import java.util.Scanner;
 
@@ -10,103 +7,105 @@ import controller.Controller;
 import model.Field.state;
 
 public class TUI {
-
+ 
 	private static Controller c;
 	private static int fieldsize;
 
-	public static void showBotField() {
+	public static StringBuilder showBotField() {
+		
+		StringBuilder sb = new StringBuilder();
+		
 		for (int i = 0; i < fieldsize; i++) {
 			if (i == 0) {
-				System.out.print(" ");
+				sb.append(" ");
 				for (int k = 65; k < fieldsize + 65; k++) {
-					System.out.printf(" | %s", (char) k);
+					sb.append(" | ").append((char) k);
 				}
-				System.out.println();
+				sb.append("%n");
 			}
 			if (i <= 9) {
-				System.out.printf("%d | ", i); 
-			} else { 
-				System.out.printf("%d| ", i);
-
+				sb.append(i).append(" | "); 
+			} else {
+				sb.append(i).append("| ");
 			}
 			for (int j = 0; j < fieldsize; j++) {
-				if (c.bot.getPlayboard().getField()[i][j].getStat() == state.empty
-						|| c.bot.getPlayboard().getField()[i][j].getStat() == state.ship) {
-					System.out.print("_ | ");
-				} else if (c.bot.getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
-					System.out.print("O | ");
-				} else if (c.bot.getPlayboard().getField()[i][j].getStat() == state.hit) {
-					System.out.print("X | ");
+				if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.empty
+						|| c.getBot().getPlayboard().getField()[i][j].getStat() == state.ship) {
+					sb.append("_ | ");
+				} else if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
+					sb.append("O | ");
+				} else if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.hit) {
+					sb.append("X | ");
 				}
-
 			}
-			System.out.println("");
+			sb.append("%n");
 		}
+		return sb;
 	}
 	
-	public static void CHEATshowBotField() {
+	public static StringBuilder CHEATshowBotField() {
+		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < fieldsize; i++) {
 			if (i == 0) {
-				System.out.print(" ");
+				sb.append(" ");
 				for (int k = 65; k < fieldsize + 65; k++) {
-					System.out.printf(" | %s", (char) k);
+					sb.append(" | ").append((char) k);
 				}
-				System.out.println();
+				sb.append("%n");
 			}
 			if (i <= 9) {
-				System.out.printf("%d | ", i);
+				sb.append(i).append(" | ");
 			} else {
-				System.out.printf("%d| ", i);
-
+				sb.append(i).append("| ");
 			}
 			for (int j = 0; j < fieldsize; j++) {
 				/*if (c.bot.getPlayboard().getField()[i][j].getStat() == state.empty
 						|| c.bot.getPlayboard().getField()[i][j].getStat() == state.ship) {*/
-				if (c.bot.getPlayboard().getField()[i][j].getStat() == state.empty){
-					System.out.print("_ | ");
-				} else if (c.bot.getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
-					System.out.print("O | ");
-				} else if (c.bot.getPlayboard().getField()[i][j].getStat() == state.hit) {
-					System.out.print("X | ");
+				if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.empty){
+					sb.append("_ | ");
+				} else if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
+					sb.append("O | ");
+				} else if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.hit) {
+					sb.append("X | ");
 				}
-				else if(c.bot.getPlayboard().getField()[i][j].getStat() == state.ship){
-					System.out.print("S | ");
+				else if(c.getBot().getPlayboard().getField()[i][j].getStat() == state.ship){
+					sb.append("S | ");
 				}
-
 			}
-			System.out.println("");
+			sb.append("%n");
 		}
+		return sb;
 	}
 
-	public static void showField() {
+	public static StringBuilder showField() {
+		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < fieldsize; i++) {
 			if (i == 0) {
-				System.out.print(" ");
+				sb.append(" ");
 				for (int k = 65; k < fieldsize + 65; k++) {
-					System.out.printf(" | %s", (char) k);
+					sb.append(" | ").append((char) k);
 				}
-				System.out.println();
+				sb.append("%n");
 			}
 			if (i <= 9) {
-				System.out.printf("%d | ", i);
+				sb.append(i).append(" | ");
 			} else {
-				System.out.printf("%d| ", i);
-
+				sb.append(i).append("| ");
 			}
 			for (int j = 0; j < fieldsize; j++) {
-				if (c.player.getPlayboard().getField()[i][j].getStat() == state.empty) {
-					System.out.print("~ | ");
-				} else if (c.player.getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
-					System.out.print("O | ");
-				} else if (c.player.getPlayboard().getField()[i][j].getStat() == state.hit) {
-					System.out.print("X | ");
-				} else if (c.player.getPlayboard().getField()[i][j].getStat() == state.ship) {
-					System.out.print("S | ");
+				if (c.getPlayer().getPlayboard().getField()[i][j].getStat() == state.empty) {
+					sb.append("~ | ");
+				} else if (c.getPlayer().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
+					sb.append("O | ");
+				} else if (c.getPlayer().getPlayboard().getField()[i][j].getStat() == state.hit) {
+					sb.append("X | ");
+				} else if (c.getPlayer().getPlayboard().getField()[i][j].getStat() == state.ship) {
+					sb.append("S | ");
 				}
-
 			}
-			System.out.println("");
+			sb.append("%n");
 		}
+		return sb;
 	}
 
 	public static void main(final String[] args) throws InterruptedException {
@@ -123,19 +122,19 @@ public class TUI {
 		
 		c = new Controller(fieldsize);
 		
-		if(c.bot.vertical()){
+		if(c.getBot().vertical()){
 			c.setBotRowboat(true, false);
 		}else{
 			c.setBotRowboat(false, true);
 		}
 		
-		if(c.bot.vertical()){
+		if(c.getBot().vertical()){
 			c.setBotDestructor(true, false);
 		}else{
 			c.setBotDestructor(false, true);
 		}
 		
-		if(c.bot.vertical()){
+		if(c.getBot().vertical()){
 			c.setBotFlattop(true, false);
 		}else{
 			c.setBotFlattop(false, true);
@@ -194,7 +193,7 @@ public class TUI {
 		System.out.println("Alles klar!");
 		System.out.println("Dein Feld sieht aus wie folgt:");
 		showField();
-		while (c.player.getNumberShips() > 0 && c.bot.getNumberShips() > 0) {
+		while (c.getPlayer().getNumberShips() > 0 && c.getBot().getNumberShips() > 0) {
 			System.out.println("Du bist dran!!!!!!!!!!!!!! KNALL IHN AB MAAAAAAAAAAAAAAAAAAN");
 			System.out.println("Deine Optionen im Spiel sind:\nEIGENES FELD ANZEIGEN (1)\nAUF FELD DES COMPUTERS SCHIEßEN (2)\n");
 
@@ -205,15 +204,15 @@ public class TUI {
 			case 2:
 				System.out.println("Nenne die Position auf die geschossen werden soll: ([X/Y])");
 				c.shootBot(scanner.nextInt(), scanner.nextInt());
-				showBotField();
-				if (c.bot.getNumberShips() == 0) {
+				System.out.println(showBotField());
+				if (c.getBot().getNumberShips() == 0) {
 					System.out.println("Glückwunsch!! Du hast gewonnen!!!!");
 					break;
 				}
 				System.out.println("Bot ist am Zug!");
 				Thread.sleep(1000);
 				c.shootHuman();
-				if (c.player.getNumberShips() == 0) {
+				if (c.getPlayer().getNumberShips() == 0) {
 					System.out.println("Hasch verkackt wa!!!!");
 					break;
 				}

@@ -20,7 +20,7 @@ public class Playboard {
 
 	public void setShip(Ships a) {
 		int[] posi = a.getPosition();
-		if(a.vertical){
+		if(a.isVertical()){
 			for(int i = 0; i<a.getSize(); i++){
 				this.field[posi[0]+i][posi[1]].setShip(a);
 			}

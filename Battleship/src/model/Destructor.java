@@ -4,14 +4,14 @@ public class Destructor extends Ships {
 	
 	public Destructor(boolean vertikal, boolean horizontal){
 		this.setSize(3);
-		this.vertical = vertikal;
-		this.horizontal = horizontal;
+		this.setVertical(vertikal);
+		this.setHorizontal(horizontal);
 	}
 	
 	public Destructor(int row, int col, boolean vertikal, boolean horizontal) {
 		this.setSize(3);
-		this.vertical = vertikal;
-		this.horizontal = horizontal;
+		this.setVertical(vertikal);
+		this.setHorizontal(horizontal);
 		setPosition(row, col);
 	}	
 }
