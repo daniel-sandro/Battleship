@@ -4,10 +4,7 @@ import model.Field.state;
 
 public class Bot extends Player{
 	
-	private int[] lasthit;
-	
 	public Bot(int fieldsize) {
-		lasthit = new int[2];
 		initPlayboard(fieldsize);
 	}
 	
@@ -17,8 +14,7 @@ public class Bot extends Player{
 	}
 	
 	protected int initRandomNumber() {
-		int x = (int) (Math.random() * getPlayboard().getSize());
-		return x;
+		return (int) (Math.random() * getPlayboard().getSize());
 	}
 	
 
@@ -54,12 +50,9 @@ public class Bot extends Player{
 	}
 	
 	public boolean vertical(){
-		int x = initRandomNumber();
-		if(x <= playboard.getSize()/2){
+		if(initRandomNumber() <= (playboard.getSize() / 2)){
 			return true;
-		}
-		else{
-			return false;
-		}
+		} 
+		return false;
 	}
 }
