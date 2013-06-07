@@ -2,7 +2,7 @@ package Model;
 
 public abstract class Player {
 	
-	protected int numberShips = 3;
+	protected int numberShips = 0;
 	protected Playboard playboard;
 
 	public abstract void initPlayboard(int size);

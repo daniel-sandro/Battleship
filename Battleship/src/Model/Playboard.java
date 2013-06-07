@@ -2,27 +2,34 @@ package Model;
 
 public class Playboard {
 	private int size;
-	private Field[][] board;
+	private Field[][] field;
 	
 	public Playboard(int size) {
 		this.size = size;
-		board = new Field[size][size];
+		field = new Field[size][size];
 		for(int i=0;i<size;i++){
 			for(int j=0;j<size;j++){
-				board[i][j] = new Field();
+				field[i][j] = new Field();
 			}
 		}		
 	}
 	
-	public Field[][] getBoard() {
-		return board;
+	public Field[][] getField() {
+		return field;
 	}
 
 	public void setShip(Ships a) {
 		int[] posi = a.getPosition();
-		for (int i = 0; i < a.getSize(); i++) {
-			this.board[posi[0]][posi[1]+i].setShip(a);
+		if(a.vertical == true){
+			for(int i = 0; i<a.getSize(); i++){
+				this.field[posi[0]+i][posi[1]].setShip(a);
+			}
+		}else{
+			for (int i = 0; i < a.getSize(); i++) {
+				this.field[posi[0]][posi[1]+i].setShip(a);
+			}
 		}
+		
 	}
 
 	public int getSize() {

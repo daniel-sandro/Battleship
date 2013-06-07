@@ -1,19 +1,25 @@
 package Model;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
-public class HumanTest {
+import Model.Field.state;
 
-	@Test
-	public void testHuman() {
-		//fail("Not yet implemented");
-	}
+public class HumanTest {
+	
+	public Human a;
+	public Bot b;
 
 	@Test
 	public void testShoot() {
-		//fail("Not yet implemented");
+		a = new Human(1);
+		b = new Bot(1);
+		
+		b.getPlayboard().setShip(new Rowboat(false, true));
+		a.shoot(b.getPlayboard().getField()[0][0]);
+		
+		assertTrue(b.getPlayboard().getField()[0][0].getStat() == state.hit);
+		
 	}
 
 }

@@ -24,15 +24,15 @@ public class PlayboardTest {
 	public void testGetBoard() {
 		a = new Playboard(1);
 		assertNotNull(a);
-		assertNotNull(a.getBoard());
+		assertNotNull(a.getField());
 	}
 
 	@Test
 	public void testSetShip() {
-		Ships b = new Rowboat(0, 0);
+		Ships b = new Rowboat(0, 0, true, false);
 		a.setShip(b);
 		for(int i = 0; i < b.getSize(); i++){
-			assertTrue(a.getBoard()[b.getPosition()[0]][b.getPosition()[1]+i].getStat() == state.ship);
+			assertTrue(a.getField()[b.getPosition()[0]][b.getPosition()[1]+i].getStat() == state.ship);
 		}
 		assertNotNull(a);
 	}

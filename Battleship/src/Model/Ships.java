@@ -4,6 +4,8 @@ public abstract class Ships {
 	
 	private int size;
 	private int[] position = new int[2];
+	public boolean vertical = false;
+	public boolean horizontal = false;
 	
 	public int getSize(){
 		return this.size;

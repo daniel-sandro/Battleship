@@ -3,12 +3,12 @@ package Model;
 public class Human extends Player {
 
 
-	public Human(){
-		
+	public Human(int size){
+		initPlayboard(size);
 	}
 	
-	public void shoot(int row, int col, Playboard board){
-		board.getBoard()[row][col].shoot();
+	public void shoot(Field field){
+		field.shoot();
 	}
 
 	@Override

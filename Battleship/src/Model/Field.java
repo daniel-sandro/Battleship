@@ -11,12 +11,9 @@ public class Field {
 	
 	private Ships ship;
 	private state stat;
-	private String s;
-
 	
 	public Field(){
 		this.stat = state.empty;
-		this.s = "test";
 	}
 	
 	public state getStat() {
@@ -32,6 +29,7 @@ public class Field {
 			this.ship.setSize(ship.getSize()-1);
 			this.stat = state.hit;
 			return state.hit;
+			
 		default:
 			return null;
 		}

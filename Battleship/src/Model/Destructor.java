@@ -1,8 +1,17 @@
 package Model;
 
 public class Destructor extends Ships {
-	public Destructor(int row, int col) {
-		this.setSize(4);
+	
+	public Destructor(boolean vertikal, boolean horizontal){
+		this.setSize(3);
+		this.vertical = vertikal;
+		this.horizontal = horizontal;
+	}
+	
+	public Destructor(int row, int col, boolean vertikal, boolean horizontal) {
+		this.setSize(3);
+		this.vertical = vertikal;
+		this.horizontal = horizontal;
 		setPosition(row, col);
 	}	
 }

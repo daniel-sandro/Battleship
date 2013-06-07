@@ -13,18 +13,12 @@ public class DestructorTest {
 	
 	@Before
 	public void setUp(){
-		a = new Destructor(1, 1);
+		a = new Destructor(1, 1, true, false);
 	}
 
 	@Test
 	public void testDestructor() {
-		a = new Destructor(1, 1);
+		a = new Destructor(true, false);
 		assertNotNull(a);
-	}
-
-	@Test
-	public void testSetPosition() {
-		a.setPosition(2, 2);
-		assert(a.getPosition()[0] == 2 && a.getPosition()[1] == 2);
 	}
 }

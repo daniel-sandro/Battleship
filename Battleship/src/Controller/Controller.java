@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Bot;
 import Model.Destructor;
+import Model.Field.state;
 import Model.Flattop;
 import Model.Human;
 import Model.Rowboat;
@@ -11,61 +12,67 @@ public class Controller {
 	public Human player;
 	public Bot bot;	
 	
-	public Controller(){
-		player = new Human();		
-		bot = new Bot();
+	public Controller(int fieldsize){
+		player = new Human(fieldsize);		 
+		bot = new Bot(fieldsize);
 	}
 	
 	
 	//Methods for shooting each other via the controller
+	//shoot at bot
 	public void shootBot(int row, int col){
-		player.shoot(row, col, bot.getPlayboard());
-		if(player.getPlayboard().getBoard()[row][col].getShip().getSize() <= 0){
-			player.setNumberShips(player.getNumberShips()-1);
+		player.shoot(bot.getPlayboard().getField()[row][col]);
+		
+		if(bot.getPlayboard().getField()[row][col].getStat() == state.hit){ 
+			if(bot.getPlayboard().getField()[row][col].getShip().getSize() == 0){
+				bot.setNumberShips(bot.getNumberShips()-1);
+			}
+			System.out.println("TREFFER!!!!!!!!!");
+		} else{
+			System.out.println("Nichts getroffen");
 		}
 	}
 	
+	//shoot at human
 	public void shootHuman(){
-		bot.shoot(player.getPlayboard());
+		int[] botshot = bot.shoot(player.getPlayboard());
+		if(player.getPlayboard().getField()[botshot[0]][botshot[1]].getShip() != null){
+			player.setNumberShips(player.getNumberShips()-1);
+		}
+		
 	}
 	
 	
 	
 	//Methods for setting the ships via the controller
-	public void setHumanRowboat(int row, int col){
-		player.getPlayboard().setShip(new Rowboat(row, col));
+	public void setHumanRowboat(int row, int col, boolean vertikal, boolean horizontal){
+		player.getPlayboard().setShip(new Rowboat(row, col, vertikal, horizontal));
+		player.setNumberShips(player.getNumberShips()+1);
 	}
 	
-	public void setHumanFlattop(int row, int col){
-		player.getPlayboard().setShip(new Flattop(row, col));
+	public void setHumanFlattop(int row, int col, boolean vertikal, boolean horizontal){
+		player.getPlayboard().setShip(new Flattop(row, col, vertikal, horizontal));
+		player.setNumberShips(player.getNumberShips()+1);
 	}
 	
-	public void setHumanDestructor(int row, int col){
-		player.getPlayboard().setShip(new Destructor(row, col));
+	public void setHumanDestructor(int row, int col, boolean vertikal, boolean horizontal){
+		player.getPlayboard().setShip(new Destructor(row, col, vertikal, horizontal));
+		player.setNumberShips(player.getNumberShips()+1);
 	}
 	
 	//Ships for bot
-	public void setBotRowboat(int row, int col){
-		bot.getPlayboard().setShip(new Rowboat(row, col));
+	public void setBotRowboat(boolean vertikal, boolean horizontal){
+		bot.setShip(new Rowboat(vertikal, horizontal));
+		bot.setNumberShips(bot.getNumberShips()+1);
 	}
 	
-	public void setBotFlattop(int row, int col){
-		bot.getPlayboard().setShip(new Flattop(row, col));
+	public void setBotFlattop(boolean vertikal, boolean horizontal){
+		bot.setShip(new Flattop(vertikal, horizontal));
+		bot.setNumberShips(bot.getNumberShips()+1);
 	}
 	
-	public void setBotDestructor(int row, int col){
-		bot.getPlayboard().setShip(new Destructor(row, col));
+	public void setBotDestructor(boolean vertikal, boolean horizontal){
+		bot.setShip(new Destructor(vertikal, horizontal));
+		bot.setNumberShips(bot.getNumberShips()+1);
 	}
-	
-	
-	//Methods for initialising the Playboards via the Cobntroller	
-	public void initPlayboard(int size){
-		bot.initPlayboard(size);
-		player.initPlayboard(size);
-	}
-	
-	
-	
-	
-
 }

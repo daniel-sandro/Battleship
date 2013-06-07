@@ -13,7 +13,7 @@ public class ShipsTest {
 	
 	@Before
 	public void createRowboat(){
-		a = new Rowboat(1,1);
+		a = new Rowboat(1,1, true, false);
 		assertNotNull(a);
 	}
 	
@@ -22,7 +22,7 @@ public class ShipsTest {
 	public void testGetSize() {
 		
 		assertTrue(a.getSize() >= 1);
-	}
+	} 
 
 	@Test
 	public void testGetPosition() {

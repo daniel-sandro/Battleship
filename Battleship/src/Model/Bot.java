@@ -6,8 +6,9 @@ public class Bot extends Player{
 	
 	private int[] lasthit;
 	
-	public Bot() {
+	public Bot(int fieldsize) {
 		lasthit = new int[2];
+		initPlayboard(fieldsize);
 	}
 	
 	@Override
@@ -15,33 +16,50 @@ public class Bot extends Player{
 		playboard = new Playboard(size);
 	}
 	
-	protected int[] initRandomNumber() {
-		int[] randPos = new int[2];
+	protected int initRandomNumber() {
 		int x = (int) (Math.random() * getPlayboard().getSize());
-		int y = (int) (Math.random() * getPlayboard().getSize());
-		randPos[0] = x;
-		randPos[1] = y;
-		return randPos;
+		return x;
 	}
 	
 
-	public void shoot(Playboard board) {
-		int[] shot;
+	public int[] shoot(Playboard board) {
+		int[] shot = {0, 0};
 		do{
-			shot = initRandomNumber();
+			shot[0] = initRandomNumber();
+			shot[1] = initRandomNumber();
 		}
-		while (board.getBoard()[shot[0]][shot[1]].getStat() != state.hit && 
-				board.getBoard()[shot[0]][shot[1]].getStat() != state.emptyhit);
+		while (board.getField()[shot[0]][shot[1]].getStat() == state.hit || 
+				board.getField()[shot[0]][shot[1]].getStat() == state.emptyhit);
 		
-		board.getBoard()[shot[0]][shot[1]].shoot();
+		board.getField()[shot[0]][shot[1]].shoot();
+		return shot;  
+	}
+	 
+	public void setShip(Ships s){
+		int[] posi = {0, 0};		
+		
+		do {
+			do{
+				posi[0] = initRandomNumber();
+			}while(posi[0]+s.getSize() > playboard.getSize());
+
+			do{
+				posi[1] = initRandomNumber();
+			}while(posi[1]+s.getSize() > playboard.getSize());
+			
+			
+		} while(playboard.getField()[posi[0]][posi[1]].getStat() == state.ship);
+		s.setPosition(posi[0], posi[1]);
+		playboard.setShip(s);
 	}
 	
-	public void setShip(Ships s){
-		int[] posi;
-		do{
-			posi = initRandomNumber();
-		}while(playboard.getBoard()[posi[0]][posi[1]].getStat()!= state.ship);
-		
-		playboard.setShip(s);
+	public boolean vertical(){
+		int x = initRandomNumber();
+		if(x <= playboard.getSize()/2){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 }

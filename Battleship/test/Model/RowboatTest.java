@@ -13,11 +13,12 @@ public class RowboatTest {
 	
 	@Before
 	public void setUp(){
-		a = new Rowboat(1, 1);
+		a = new Rowboat(true, false);
 	}
 	
 	@Test
 	public void testRowboat() {
+		a = new Rowboat(1, 1, true, false);
 		assertNotNull(a);
 	}
 

@@ -17,7 +17,7 @@ public class BotTest {
 	
 	@Before
 	public void testBot() {
-		a = new Bot();
+		a = new Bot(1);
 		assertNotNull(a);
 		
 	}
@@ -26,11 +26,11 @@ public class BotTest {
 	public void testshoot() {
 		a.initPlayboard(1);
 		assertNotNull(a);
-		a.shoot();
-		assertTrue((a.playboard.getBoard()[0][0].getStat() != state.empty && ( a.playboard.getBoard()[0][0].getStat() == state.hit) 
-				|| a.playboard.getBoard()[0][0].getStat() == state.emptyhit));
-		assertTrue((a.playboard.getBoard()[0][0].getStat() != state.emptyhit && (a.playboard.getBoard()[0][0].getStat() == state.hit)
-				|| a.playboard.getBoard()[0][0].getStat() == state.emptyhit));
+		a.shoot(a.playboard);
+		assertTrue((a.playboard.getField()[0][0].getStat() != state.empty && ( a.playboard.getField()[0][0].getStat() == state.hit) 
+				|| a.playboard.getField()[0][0].getStat() == state.emptyhit));
+		assertTrue((a.playboard.getField()[0][0].getStat() != state.emptyhit && (a.playboard.getField()[0][0].getStat() == state.hit)
+				|| a.playboard.getField()[0][0].getStat() == state.emptyhit));
 		}
 	
 	@Test
@@ -43,7 +43,31 @@ public class BotTest {
 	public void testinitrandomNumber() {
 		a.initPlayboard(1);
 		assertNotNull(a);
-		int[] x = a.initRandomNumber();
-		assertEquals(2, x.length);
+		int x = a.initRandomNumber();
+		assertNotNull(x);
+	}
+	
+	@Test
+	public void testsetShip(){
+		Ships b = new Rowboat(false, true);
+		a.setShip(b);
+		assertTrue(b.getPosition()[0] == 0 && b.getPosition()[1] == 0);
+	}
+	
+	@Test
+	public void testvertical(){
+		Bot b = new Bot(26);
+		boolean tr = false;
+		boolean fl = false;
+		boolean i;
+		while(tr == false || fl == false){
+			if((i = b.vertical()) == true){
+				tr = true;
+				assertTrue(i == true || i == false);
+			}else{
+				fl = true;
+				assertTrue(i == true || i == false);
+			}
+		}
 	}
 }
