@@ -4,16 +4,13 @@ import model.Field.state;
 
 public class Bot extends Player{
 	
-	Playboard playboard = getPlayboard();
-	
-	
 	public Bot(int fieldsize) {
 		initPlayboard(fieldsize);
 	}
 	
 	@Override
 	public void initPlayboard(int size) {
-		playboard = new Playboard(size);
+		setPlayboard(new Playboard(size));
 	}
 	
 	protected int initRandomNumber() {
@@ -40,20 +37,20 @@ public class Bot extends Player{
 		do {
 			do{
 				posi[0] = initRandomNumber();
-			}while(posi[0]+s.getSize() > playboard.getSize());
+			}while(posi[0]+s.getSize() > getPlayboard().getSize());
 
 			do{
 				posi[1] = initRandomNumber();
-			}while(posi[1]+s.getSize() > playboard.getSize());
+			}while(posi[1]+s.getSize() > getPlayboard().getSize());
 			
 			
-		} while(playboard.getField()[posi[0]][posi[1]].getStat() == state.ship);
+		} while(getPlayboard().getField()[posi[0]][posi[1]].getStat() == state.ship);
 		s.setPosition(posi[0], posi[1]);
-		playboard.setShip(s);
+		getPlayboard().setShip(s);
 	}
 	
 	public boolean vertical(){
-		if(initRandomNumber() <= (playboard.getSize() / 2)){
+		if(initRandomNumber() <= (getPlayboard().getSize() / 2)){
 			return true;
 		} 
 		return false;

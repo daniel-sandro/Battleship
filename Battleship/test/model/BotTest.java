@@ -29,11 +29,11 @@ public class BotTest {
 	public void testshoot() {
 		a.initPlayboard(1);
 		assertNotNull(a);
-		a.shoot(a.playboard);
-		assertTrue((a.playboard.getField()[0][0].getStat() != state.empty && ( a.playboard.getField()[0][0].getStat() == state.hit) 
-				|| a.playboard.getField()[0][0].getStat() == state.emptyhit));
-		assertTrue((a.playboard.getField()[0][0].getStat() != state.emptyhit && (a.playboard.getField()[0][0].getStat() == state.hit)
-				|| a.playboard.getField()[0][0].getStat() == state.emptyhit));
+		a.shoot(a.getPlayboard());
+		assertTrue((a.getPlayboard().getField()[0][0].getStat() != state.empty && ( a.getPlayboard().getField()[0][0].getStat() == state.hit) 
+				|| a.getPlayboard().getField()[0][0].getStat() == state.emptyhit));
+		assertTrue((a.getPlayboard().getField()[0][0].getStat() != state.emptyhit && (a.getPlayboard().getField()[0][0].getStat() == state.hit)
+				|| a.getPlayboard().getField()[0][0].getStat() == state.emptyhit));
 		}
 	
 	@Test

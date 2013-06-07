@@ -30,7 +30,7 @@ public class ControllerTest {
 		assertNotNull(c);
 		assertTrue(c.player != null && c.bot != null);
 	}
-	
+	 
 	@Test
 	public void testShootBot() {
 		assertTrue(c.bot.getPlayboard().getField()[0][0].getStat() == state.empty);

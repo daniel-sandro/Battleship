@@ -40,7 +40,7 @@ public class Controller {
 			player.setNumberShips(player.getNumberShips()-1);
 		}
 		
-	}
+	} 
 	
 	
 	
