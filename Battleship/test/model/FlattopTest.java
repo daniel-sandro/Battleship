@@ -2,11 +2,12 @@ package model;
 
 import static org.junit.Assert.*;
 
+import model.Flattop;
+import model.Ships;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import Model.Flattop;
-import Model.Ships;
 
 public class FlattopTest {
 	

@@ -3,10 +3,11 @@ package model;
 import static org.junit.Assert.*;
 import junit.framework.Assert;
 
+import model.Rowboat;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import Model.Rowboat;
 
 public class ShipsTest {
 	public Rowboat a;

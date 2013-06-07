@@ -2,13 +2,14 @@ package model;
 
 import static org.junit.Assert.*;
 
+import model.Playboard;
+import model.Rowboat;
+import model.Ships;
+import model.Field.state;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import Model.Playboard;
-import Model.Rowboat;
-import Model.Ships;
-import Model.Field.state;
 
 public class PlayboardTest {
 	

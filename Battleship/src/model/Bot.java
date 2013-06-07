@@ -1,6 +1,6 @@
-package Model;
+package model;
 
-import Model.Field.state;
+import model.Field.state;
 
 public class Bot extends Player{
 	

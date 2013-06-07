@@ -2,11 +2,12 @@ package model;
 
 import static org.junit.Assert.*;
 
+import model.Destructor;
+import model.Ships;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import Model.Destructor;
-import Model.Ships;
 
 public class DestructorTest {
 	Ships a;

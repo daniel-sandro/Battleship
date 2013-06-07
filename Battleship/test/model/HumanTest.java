@@ -1,12 +1,13 @@
 package model;
 
 import static org.junit.Assert.*;
+import model.Bot;
+import model.Human;
+import model.Rowboat;
+import model.Field.state;
+
 import org.junit.Test;
 
-import Model.Bot;
-import Model.Human;
-import Model.Rowboat;
-import Model.Field.state;
 
 public class HumanTest {
 	

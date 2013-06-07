@@ -2,12 +2,13 @@ package model;
 
 import static org.junit.Assert.*;
 
+import model.Human;
+import model.Playboard;
+import model.Player;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import Model.Human;
-import Model.Playboard;
-import Model.Player;
 
 public class PlayerTest {
 	Player a;

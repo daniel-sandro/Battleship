@@ -1,11 +1,11 @@
-package Controller;
+package controller;
 
-import Model.Bot;
-import Model.Destructor;
-import Model.Field.state;
-import Model.Flattop;
-import Model.Human;
-import Model.Rowboat;
+import model.Bot;
+import model.Destructor;
+import model.Flattop;
+import model.Human;
+import model.Rowboat;
+import model.Field.state;
 
 public class Controller {
 	

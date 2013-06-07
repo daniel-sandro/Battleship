@@ -1,11 +1,13 @@
 /*
  * Aus irgendeinem grund setzt der Computer nur ein Schiff und das immer bei 0/0 horizontal, aber Horizontal vertikal funktioniert eigentlich!!
- * */package View;
+ * */package view;
 
-import Controller.Controller;
-import Model.Field.state;
 
 import java.util.Scanner;
+
+import controller.Controller;
+
+import model.Field.state;
 
 public class TUI {
 
