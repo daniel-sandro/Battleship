@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Model.Human;
+import Model.Playboard;
 import Model.Player;
 
 public class PlayerTest {

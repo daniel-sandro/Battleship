@@ -1,8 +1,11 @@
-package Model;
+package model;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import Model.Bot;
+import Model.Human;
+import Model.Rowboat;
 import Model.Field.state;
 
 public class HumanTest {
