@@ -5,6 +5,7 @@ import java.util.Scanner;
 import controller.Controller;
 
 import model.Field.state;
+import model.Utils;
 
 public class TUI {
  
@@ -143,7 +144,7 @@ public class TUI {
 		int nextX =0;
 		int nextY =0;
 		int nextbool =0;
-		System.out.println("Setzen Sie ihre Schiffe!! \nRuderboot: ([X/Y])\n");
+		Utils.output("Setzen Sie ihre Schiffe!! \nRuderboot: ([X/Y])\n");
 		nextX = scanner.nextInt();
 		nextY = scanner.nextInt();
 		System.out.println("vertikal oder horizontal setzen ? (1 oder 2)");
@@ -185,7 +186,7 @@ public class TUI {
 		}else if(nextbool == 2){
 			c.setHumanFlattop(nextX, nextY, false, true);
 		}else{
-			System.out.println("So nich Kollege!!!!!!!!!!!!!!!!!!!!!");
+			Utils.output("So nich Kollege!!!!!!!!!!!!!!!!!!!!!");
 			System.exit(0);
 		}
 		
@@ -194,26 +195,27 @@ public class TUI {
 		System.out.println("Dein Feld sieht aus wie folgt:");
 		showField();
 		while (c.getPlayer().getNumberShips() > 0 && c.getBot().getNumberShips() > 0) {
-			System.out.println("Du bist dran!!!!!!!!!!!!!! KNALL IHN AB MAAAAAAAAAAAAAAAAAAN");
-			System.out.println("Deine Optionen im Spiel sind:\nEIGENES FELD ANZEIGEN (1)\nAUF FELD DES COMPUTERS SCHIEßEN (2)\n");
+			Utils.output("Du bist dran!!!!!!!!!!!!!! KNALL IHN AB MAAAAAAAAAAAAAAAAAAN");
+			Utils.output("Deine Optionen im Spiel sind:\nEIGENES FELD ANZEIGEN (1)\nAUF FELD DES COMPUTERS SCHIEßEN (2)\n");
 
 			switch (scanner.nextInt()) {
 			case 1:
 				showField();
 				break;
 			case 2:
-				System.out.println("Nenne die Position auf die geschossen werden soll: ([X/Y])");
+				Utils.output("Nenne die Position auf die geschossen werden soll: ([X/Y])");
 				c.shootBot(scanner.nextInt(), scanner.nextInt());
 				System.out.println(showBotField());
 				if (c.getBot().getNumberShips() == 0) {
-					System.out.println("Glückwunsch!! Du hast gewonnen!!!!");
+					Utils.output("Glückwunsch!! Du hast gewonnen!!!!");
 					break;
 				}
+				Utils.output("Bot ist am Zug!");
 				System.out.println("Bot ist am Zug!");
 				Thread.sleep(1000);
 				c.shootHuman();
 				if (c.getPlayer().getNumberShips() == 0) {
-					System.out.println("Hasch verkackt wa!!!!");
+					Utils.output("Hasch verkackt wa!!!!");
 					break;
 				}
 				break;
