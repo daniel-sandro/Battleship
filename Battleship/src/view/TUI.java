@@ -9,10 +9,10 @@ import model.Field.state;
 
 public class TUI {
 	
-	private static int hex = 65;
-	private static int lineLen = 9;
-	private static int maxFieldsize = 26;
-	private static int wait = 1000;
+	private static final int HEX = 65;
+	private static final int LINELEN = 9;
+	private static final int MAXFIELDSIZE = 26;
+	private static final int WAIT = 1000;
 	
  
 	private static Controller c;
@@ -27,12 +27,12 @@ public class TUI {
 		for (int i = 0; i < fieldsize; i++) {
 			if (i == 0) {
 				sb.append(" ");
-				for (int k = hex; k < fieldsize + hex; k++) {
+				for (int k = HEX; k < fieldsize + HEX; k++) {
 					sb.append(" | ").append((char) k);
 				}
 				sb.append("\n");
 			}
-			if (i <= lineLen) {
+			if (i <= LINELEN) {
 				sb.append(i).append(" | "); 
 			} else {
 				sb.append(i).append("| ");
@@ -59,12 +59,12 @@ public class TUI {
 		for (int i = 0; i < fieldsize; i++) {
 			if (i == 0) {
 				sb.append(" ");
-				for (int k = hex; k < fieldsize + hex; k++) {
+				for (int k = HEX; k < fieldsize + HEX; k++) {
 					sb.append(" | ").append((char) k);
 				}
 				sb.append("\n");
 			}
-			if (i <= lineLen) {
+			if (i <= LINELEN) {
 				sb.append(i).append(" | ");
 			} else {
 				sb.append(i).append("| ");
@@ -94,12 +94,12 @@ public class TUI {
 		for (int i = 0; i < fieldsize; i++) {
 			if (i == 0) {
 				sb.append(" ");
-				for (int k = hex; k < fieldsize + hex; k++) {
+				for (int k = HEX; k < fieldsize + HEX; k++) {
 					sb.append(" | ").append((char) k);
 				}
 				sb.append("\n");
 			}
-			if (i <= lineLen) {
+			if (i <= LINELEN) {
 				sb.append(i).append(" | ");
 			} else {
 				sb.append(i).append("| ");
@@ -125,7 +125,7 @@ public class TUI {
 		Utils.output("Willkommen zu Battleship!!!! \n\nInitialisieren Sie zunächst die Feldgröße: ");
 		do{
 			fieldsize = scanner.nextInt();
-			if(fieldsize > maxFieldsize || fieldsize < 1){
+			if(fieldsize > MAXFIELDSIZE || fieldsize < 1){
 				Utils.output("Die Feldgröße muss zwischen 1 & 26 liegen!!!!");
 				continue;
 			}
@@ -224,7 +224,7 @@ public class TUI {
 				}
 				Utils.output("Bot ist am Zug!");
 				Utils.output("Bot ist am Zug!");
-				Thread.sleep(wait);
+				Thread.sleep(WAIT);
 				c.shootHuman();
 				if (c.getPlayer().getNumberShips() == 0) {
 					Utils.output("Hasch verkackt wa!!!!");
