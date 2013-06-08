@@ -37,10 +37,9 @@ public class Controller {
 	// shoot at bot
 	public void shootBot(int row, int col) {
 		player.shoot(bot.getPlayboard().getField()[row][col]);
-		if (bot.getPlayboard().getField()[row][col].getStat() == state.hit) {
-			if (bot.getPlayboard().getField()[row][col].getShip().getSize() == 0) {
-				bot.setNumberShips(bot.getNumberShips() - 1);
-			}
+		if (bot.getPlayboard().getField()[row][col].getStat() == state.hit
+				&& bot.getPlayboard().getField()[row][col].getShip().getSize() == 0) {
+			bot.setNumberShips(bot.getNumberShips() - 1);
 		}
 	}
 

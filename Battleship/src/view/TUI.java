@@ -10,6 +10,7 @@ public final class TUI {
 
 	private static final int HEX = 65;
 	private static final int LINELEN = 9;
+	private static final int THREE = 3;
 	private static final int MAXFIELDSIZE = 26;
 	private static final int WAIT = 1000;
 	private static final String SEP = " | ";
@@ -17,7 +18,7 @@ public final class TUI {
 	private static Controller c;
 	private static int fieldsize;
 	private static StringBuilder sb = new StringBuilder();
-	static Scanner scanner = new Scanner(System.in);
+	private static Scanner scanner = new Scanner(System.in);
 
 	private static int nextX, nextY, nextbool;
 
@@ -232,10 +233,6 @@ public final class TUI {
 	}
 
 	private static void menu() throws InterruptedException {
-
-		@SuppressWarnings("resource")
-		Scanner scanner = new Scanner(System.in);
-
 		while (c.getPlayer().getNumberShips() > 0
 				&& c.getBot().getNumberShips() > 0) {
 			print("Du bist dran!!!!!!!!!!!!!! KNALL IHN AB MAAAAAAAAAAAAAAAAAAN");
@@ -271,7 +268,7 @@ public final class TUI {
 					break;
 				}
 				break;
-			case 3:
+			case THREE:
 				print("Vielen Dank für's Spielen! Bis bald!");
 				System.exit(0);
 			default:
