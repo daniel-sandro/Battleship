@@ -7,17 +7,20 @@ import controller.Utils;
 
 import model.Field.state;
 
-public class TUI {
+public final class TUI {
 	
 	private static final int HEX = 65;
 	private static final int LINELEN = 9;
 	private static final int MAXFIELDSIZE = 26;
 	private static final int WAIT = 1000;
+	private static final String SEP = " | ";
 	
  
 	private static Controller c;
 	private static int fieldsize;
 	private static StringBuilder sb = new StringBuilder();
+	
+	private TUI () {}
 
 	public static StringBuilder showBotField() {
 		
@@ -28,12 +31,12 @@ public class TUI {
 			if (i == 0) {
 				sb.append(" ");
 				for (int k = HEX; k < fieldsize + HEX; k++) {
-					sb.append(" | ").append((char) k);
+					sb.append(SEP).append((char) k);
 				}
 				sb.append("\n");
 			}
 			if (i <= LINELEN) {
-				sb.append(i).append(" | "); 
+				sb.append(i).append(SEP); 
 			} else {
 				sb.append(i).append("| ");
 			}
@@ -60,26 +63,23 @@ public class TUI {
 			if (i == 0) {
 				sb.append(" ");
 				for (int k = HEX; k < fieldsize + HEX; k++) {
-					sb.append(" | ").append((char) k);
+					sb.append(SEP).append((char) k);
 				}
 				sb.append("\n");
 			}
 			if (i <= LINELEN) {
-				sb.append(i).append(" | ");
+				sb.append(i).append(SEP);
 			} else {
 				sb.append(i).append("| ");
 			}
 			for (int j = 0; j < fieldsize; j++) {
-				/*if (c.bot.getPlayboard().getField()[i][j].getStat() == state.empty
-						|| c.bot.getPlayboard().getField()[i][j].getStat() == state.ship) {*/
 				if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.empty){
 					sb.append("_ | ");
 				} else if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
 					sb.append("O | ");
 				} else if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.hit) {
 					sb.append("X | ");
-				}
-				else if(c.getBot().getPlayboard().getField()[i][j].getStat() == state.ship){
+				} else if(c.getBot().getPlayboard().getField()[i][j].getStat() == state.ship){
 					sb.append("S | ");
 				}
 			}
@@ -95,12 +95,12 @@ public class TUI {
 			if (i == 0) {
 				sb.append(" ");
 				for (int k = HEX; k < fieldsize + HEX; k++) {
-					sb.append(" | ").append((char) k);
+					sb.append(SEP).append((char) k);
 				}
 				sb.append("\n");
 			}
 			if (i <= LINELEN) {
-				sb.append(i).append(" | ");
+				sb.append(i).append(SEP);
 			} else {
 				sb.append(i).append("| ");
 			}
@@ -119,8 +119,51 @@ public class TUI {
 		}
 		return sb;
 	}
+	
+	private static void menu() {
+		
+		@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
+		
+		while (c.getPlayer().getNumberShips() > 0 && c.getBot().getNumberShips() > 0) {
+			Utils.output("Du bist dran!!!!!!!!!!!!!! KNALL IHN AB MAAAAAAAAAAAAAAAAAAN");
+			Utils.output("Deine Optionen im Spiel sind:");
+			Utils.output("(1) EIGENES FELD ANZEIGEN");
+			Utils.output("(2) AUF FELD DES COMPUTERS SCHIEßEN");
+			
+			switch (scanner.nextInt()) {
+			case 1:
+				Utils.output(showField().toString());
+				break;
+			case 2:
+				Utils.output("Nenne die Position auf die geschossen werden soll: ([X/Y])");
+				c.shootBot(scanner.nextInt(), scanner.nextInt());
+				Utils.output(showBotField().toString());
+				if (c.getBot().getNumberShips() == 0) {
+					Utils.output("Glückwunsch!! Du hast gewonnen!!!!");
+					break;
+				}
+				Utils.output("Bot ist am Zug!");
+				try {
+					Thread.sleep(WAIT);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				c.shootHuman();
+				if (c.getPlayer().getNumberShips() == 0) {
+					Utils.output("Hasch verkackt wa!!!!");
+					break;
+				}
+				break;
+			default: 
+				Utils.output(cheatShowBotField().toString());
+				break;
+			}
+		}
+	}
 
 	public static void main(final String[] args) throws InterruptedException {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		Utils.output("Willkommen zu Battleship!!!! \n\nInitialisieren Sie zunächst die Feldgröße: ");
 		do{
@@ -202,39 +245,8 @@ public class TUI {
 			System.exit(0);
 		}*/
 		
-
-		Utils.output("Alles klar!");
 		Utils.output("Dein Feld sieht aus wie folgt:");
 		Utils.output(showField().toString());
-		while (c.getPlayer().getNumberShips() > 0 && c.getBot().getNumberShips() > 0) {
-			Utils.output("Du bist dran!!!!!!!!!!!!!! KNALL IHN AB MAAAAAAAAAAAAAAAAAAN");
-			Utils.output("Deine Optionen im Spiel sind:\nEIGENES FELD ANZEIGEN (1)\nAUF FELD DES COMPUTERS SCHIEßEN (2)\n");
-
-			switch (scanner.nextInt()) {
-			case 1:
-				Utils.output(showField().toString());
-				break;
-			case 2:
-				Utils.output("Nenne die Position auf die geschossen werden soll: ([X/Y])");
-				c.shootBot(scanner.nextInt(), scanner.nextInt());
-				Utils.output(showBotField().toString());
-				if (c.getBot().getNumberShips() == 0) {
-					Utils.output("Glückwunsch!! Du hast gewonnen!!!!");
-					break;
-				}
-				Utils.output("Bot ist am Zug!");
-				Utils.output("Bot ist am Zug!");
-				Thread.sleep(WAIT);
-				c.shootHuman();
-				if (c.getPlayer().getNumberShips() == 0) {
-					Utils.output("Hasch verkackt wa!!!!");
-					break;
-				}
-				break;
-			default: 
-				Utils.output(cheatShowBotField().toString());
-				break;
-			}
-		}
+		menu();
 	}
 }
