@@ -1,7 +1,7 @@
 package model;
 
 /**
- * @author Sandro, Julian
+ * @author Sandro, Julian 
  * Field Class. A Playboard is build of x (Fieldsize) Fields.
  */
 public class Field {
@@ -14,8 +14,8 @@ public class Field {
 	private state stat;
 
 	/**
-	 * Standard constructor for the Field class.
-	 * Initializes a new field with state.empty.
+	 * Standard constructor for the Field class. Initializes a new field with
+	 * state.empty.
 	 */
 	public Field() {
 		this.stat = state.empty;
@@ -23,6 +23,7 @@ public class Field {
 
 	/**
 	 * Getter for the state of the field.
+	 * 
 	 * @return state of the field
 	 */
 	public state getStat() {
@@ -31,6 +32,7 @@ public class Field {
 
 	/**
 	 * Changes the state of the field if got shot.
+	 * 
 	 * @return the new state of the field
 	 */
 	public state shoot() {
@@ -49,6 +51,7 @@ public class Field {
 
 	/**
 	 * Getter for the containing Ship.
+	 * 
 	 * @return the containing Ship
 	 */
 	public Ships getShip() {
@@ -56,8 +59,9 @@ public class Field {
 	}
 
 	/**
-	 * Changes the state to state.ship if the human/bot places a
-	 * Ship on the field.
+	 * Changes the state to state.ship if the human/bot places a Ship on the
+	 * field.
+	 * 
 	 * @param ship
 	 */
 	public void setShip(Ships ship) {

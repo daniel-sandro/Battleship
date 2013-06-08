@@ -1,7 +1,8 @@
 package model;
 
 /**
- * @author Sandro, Julian Flattop Class. Subclass of Ships.
+ * @author Sandro, Julian 
+ * Flattop Class. Subclass of Ships.
  */
 public class Flattop extends Ships {
 

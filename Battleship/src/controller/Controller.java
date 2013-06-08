@@ -7,34 +7,66 @@ import model.Human;
 import model.Rowboat;
 import model.Field.state;
 
+/**
+ * @author Sandro, Julian Our Controller Class!
+ */
 public class Controller {
 
 	private Human player;
 	private Bot bot;
 
+	/**
+	 * Getter for the Player-Object.
+	 * 
+	 * @return the player
+	 */
 	public Human getPlayer() {
 		return player;
 	}
 
+	/**
+	 * Setter for the Player.
+	 * 
+	 * @param player
+	 */
 	public void setPlayer(Human player) {
 		this.player = player;
 	}
 
+	/**
+	 * Getter for the Bot-Object.
+	 * 
+	 * @return the Bot
+	 */
 	public Bot getBot() {
 		return bot;
 	}
 
+	/**
+	 * Setter for the Bot.
+	 * 
+	 * @param bot
+	 */
 	public void setBot(Bot bot) {
 		this.bot = bot;
 	}
 
+	/**
+	 * Constructor for a new Controller. Needs fieldsize to create new Humans
+	 * and Bots.
+	 * 
+	 * @param fieldsize
+	 */
 	public Controller(int fieldsize) {
 		player = new Human(fieldsize);
 		bot = new Bot(fieldsize);
 	}
 
-	// Methods for shooting each other via the controller
-	// shoot at bot
+	/**
+	 * ShootBot shoots at the Bot's Playboard.
+	 * @param row
+	 * @param col
+	 */
 	public void shootBot(int row, int col) {
 		player.shoot(bot.getPlayboard().getField()[row][col]);
 		if (bot.getPlayboard().getField()[row][col].getStat() == state.hit
@@ -43,7 +75,9 @@ public class Controller {
 		}
 	}
 
-	// shoot at human
+	/**
+	 * ShootHuman shoots at the Human's Playboard.
+	 */
 	public void shootHuman() {
 		int[] botshot = bot.shoot(player.getPlayboard());
 		if (player.getPlayboard().getField()[botshot[0]][botshot[1]].getShip() != null) {
@@ -52,6 +86,14 @@ public class Controller {
 	}
 
 	// Methods for setting the ships via the controller
+	/**
+	 * Sets a Rowboat onto the Human's Playboard.
+	 * 
+	 * @param row the Row
+	 * @param col the Column
+	 * @param vertikal whether the ship shall be set vertical
+	 * @param horizontal whether the ship shall be set horizontal
+	 */
 	public void setHumanRowboat(int row, int col, boolean vertikal,
 			boolean horizontal) {
 		player.getPlayboard().setShip(
@@ -59,6 +101,14 @@ public class Controller {
 		player.setNumberShips(player.getNumberShips() + 1);
 	}
 
+	/**
+	  * Sets a Flattop onto the Human's Playboard.
+	 * 
+	 * @param row the Row
+	 * @param col the Column
+	 * @param vertikal whether the ship shall be set vertical
+	 * @param horizontal whether the ship shall be set horizontal
+	 */
 	public void setHumanFlattop(int row, int col, boolean vertikal,
 			boolean horizontal) {
 		player.getPlayboard().setShip(
@@ -66,6 +116,14 @@ public class Controller {
 		player.setNumberShips(player.getNumberShips() + 1);
 	}
 
+	/**
+	 * * Sets a Destructor onto the Human's Playboard.
+	 * 
+	 * @param row the Row
+	 * @param col the Column
+	 * @param vertikal whether the ship shall be set vertical
+	 * @param horizontal whether the ship shall be set horizontal
+	 */
 	public void setHumanDestructor(int row, int col, boolean vertikal,
 			boolean horizontal) {
 		player.getPlayboard().setShip(
@@ -73,17 +131,34 @@ public class Controller {
 		player.setNumberShips(player.getNumberShips() + 1);
 	}
 
-	// Ships for bot
+	/**
+	 * Sets a Rowboat onto the Bot's Playboard.
+	 * 
+	 * @param vertikal whether the ship shall be set vertical
+	 * @param horizontal whether the ship shall be set horizontal
+	 */
 	public void setBotRowboat(boolean vertikal, boolean horizontal) {
 		bot.setShip(new Rowboat(vertikal, horizontal));
 		bot.setNumberShips(bot.getNumberShips() + 1);
 	}
 
+	/**
+	 * Sets a Flattop onto the Bot's Playboard.
+	 * 
+	 * @param vertikal whether the ship shall be set vertical
+	 * @param horizontal whether the ship shall be set horizontal
+	 */
 	public void setBotFlattop(boolean vertikal, boolean horizontal) {
 		bot.setShip(new Flattop(vertikal, horizontal));
 		bot.setNumberShips(bot.getNumberShips() + 1);
 	}
 
+	/**
+	 * Sets a Destructor onto the Bot's Playboard.
+	 * 
+	 * @param vertikal whether the ship shall be set vertical
+	 * @param horizontal whether the ship shall be set horizontal
+	 */
 	public void setBotDestructor(boolean vertikal, boolean horizontal) {
 		bot.setShip(new Destructor(vertikal, horizontal));
 		bot.setNumberShips(bot.getNumberShips() + 1);

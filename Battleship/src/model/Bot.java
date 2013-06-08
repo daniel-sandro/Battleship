@@ -2,6 +2,10 @@ package model;
 
 import model.Field.state;
 
+/**
+ * @author Sandro, Julian
+ * Bot-Class. Subclass of Player. The AI.
+ */
 public class Bot extends Player {
 
 	/**

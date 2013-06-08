@@ -1,7 +1,8 @@
 package model;
 
 /**
- * @author Sandro, Julian Destructor Class. Subclass of Ships.
+ * @author Sandro, Julian 
+ * Destructor Class. Subclass of Ships.
  */
 public class Destructor extends Ships {
 
