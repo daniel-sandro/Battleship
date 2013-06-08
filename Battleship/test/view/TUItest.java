@@ -11,12 +11,6 @@ public class TUItest {
 	public void setup() {
 		TUI.setFieldsize(10);
 	}
-
-	@Test
-	public void testSetRowboat() {
-		TUI.setRowboat();
-		assertTrue(true);
-	}
 	
 	@Test
 	public void testShowBotField() {
