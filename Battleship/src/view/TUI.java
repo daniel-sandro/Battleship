@@ -22,7 +22,7 @@ public class TUI {
 				for (int k = 65; k < fieldsize + 65; k++) {
 					sb.append(" | ").append((char) k);
 				}
-				sb.append("%n");
+				sb.append("\n");
 			}
 			if (i <= 9) {
 				sb.append(i).append(" | "); 
@@ -39,7 +39,7 @@ public class TUI {
 					sb.append("X | ");
 				}
 			}
-			sb.append("%n");
+			sb.append("\n");
 		}
 		return sb;
 	}
@@ -52,7 +52,7 @@ public class TUI {
 				for (int k = 65; k < fieldsize + 65; k++) {
 					sb.append(" | ").append((char) k);
 				}
-				sb.append("%n");
+				sb.append("\n");
 			}
 			if (i <= 9) {
 				sb.append(i).append(" | ");
@@ -73,7 +73,7 @@ public class TUI {
 					sb.append("S | ");
 				}
 			}
-			sb.append("%n");
+			sb.append("\n");
 		}
 		return sb;
 	}
@@ -86,7 +86,7 @@ public class TUI {
 				for (int k = 65; k < fieldsize + 65; k++) {
 					sb.append(" | ").append((char) k);
 				}
-				sb.append("%n");
+				sb.append("\n");
 			}
 			if (i <= 9) {
 				sb.append(i).append(" | ");
@@ -104,18 +104,18 @@ public class TUI {
 					sb.append("S | ");
 				}
 			}
-			sb.append("%n");
+			sb.append("\n");
 		}
 		return sb;
 	}
 
 	public static void main(final String[] args) throws InterruptedException {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Willkommen zu Battleship!!!! \n\nInitialisieren Sie zunächst die Feldgröße: ");
+		Utils.output("Willkommen zu Battleship!!!! \n\nInitialisieren Sie zunächst die Feldgröße: ");
 		do{
 			fieldsize = scanner.nextInt();
 			if(fieldsize > 26 || fieldsize < 1){
-				System.out.println("Die Feldgröße muss zwischen 1 & 26 liegen!!!!");
+				Utils.output("Die Feldgröße muss zwischen 1 & 26 liegen!!!!");
 				continue;
 			}
 			break;
@@ -147,39 +147,40 @@ public class TUI {
 		Utils.output("Setzen Sie ihre Schiffe!! \nRuderboot: ([X/Y])\n");
 		nextX = scanner.nextInt();
 		nextY = scanner.nextInt();
-		System.out.println("vertikal oder horizontal setzen ? (1 oder 2)");
+		Utils.output("vertikal oder horizontal setzen ? (1 oder 2)");
 		do{
 			nextbool = scanner.nextInt();
 			if (nextbool == 1){
-				c.setHumanRowboat(nextX, nextY, true, false);
+				c.setHumanRowboat(nextY, nextX, true, false);
 				break;
 			}else if(nextbool == 2){
-				c.setHumanRowboat(nextX, nextY, false, true);
+				c.setHumanRowboat(nextY, nextX, false, true);
 				break;
 			}else{
-				System.out.println("Des war dein falsche Entscheidung, du kleiner " +
+				Utils.output("Des war dein falsche Entscheidung, du kleiner " +
 						"Sportsfreund!!!!!!!!!!!!!!!!!!!!! gleich nochmal\n"); 
 				}
 		}while(true);
 		
-		System.out.println("\nDestructor-Boot: ([X/Y])\n");
+		/*
+		Utils.output("\nDestructor-Boot: ([X/Y])\n");
 		nextX = scanner.nextInt();
 		nextY = scanner.nextInt();
-		System.out.println("vertikal oder horizontal setzen ? (1 oder 2)");
+		Utils.output("vertikal oder horizontal setzen ? (1 oder 2)");
 		nextbool = scanner.nextInt();
 		if (nextbool == 1){
 			c.setHumanDestructor(nextX, nextY, true, false);
 		}else if(nextbool == 2){
 			c.setHumanDestructor(nextX, nextY, false, true);
 		}else{
-			System.out.println("So nich Kollege!!!!!!!!!!!!!!!!!!!!!");
+			Utils.output("So nich Kollege!!!!!!!!!!!!!!!!!!!!!");
 			System.exit(0);
-		}
-		
-		System.out.println("\nFlattop-Boot: ([X/Y])\n");
+		}*/
+		/*
+		Utils.output("\nFlattop-Boot: ([X/Y])\n");
 		nextX = scanner.nextInt();
 		nextY = scanner.nextInt();
-		System.out.println("vertikal oder horizontal setzen ? (1 oder 2)");
+		Utils.output("vertikal oder horizontal setzen ? (1 oder 2)");
 		nextbool = scanner.nextInt();
 		if (nextbool == 1){
 			c.setHumanFlattop(nextX, nextY, true, false);
@@ -188,12 +189,12 @@ public class TUI {
 		}else{
 			Utils.output("So nich Kollege!!!!!!!!!!!!!!!!!!!!!");
 			System.exit(0);
-		}
+		}*/
 		
 
-		System.out.println("Alles klar!");
-		System.out.println("Dein Feld sieht aus wie folgt:");
-		showField();
+		Utils.output("Alles klar!");
+		Utils.output("Dein Feld sieht aus wie folgt:");
+		Utils.output(showField().toString());
 		while (c.getPlayer().getNumberShips() > 0 && c.getBot().getNumberShips() > 0) {
 			Utils.output("Du bist dran!!!!!!!!!!!!!! KNALL IHN AB MAAAAAAAAAAAAAAAAAAN");
 			Utils.output("Deine Optionen im Spiel sind:\nEIGENES FELD ANZEIGEN (1)\nAUF FELD DES COMPUTERS SCHIEßEN (2)\n");
@@ -205,13 +206,13 @@ public class TUI {
 			case 2:
 				Utils.output("Nenne die Position auf die geschossen werden soll: ([X/Y])");
 				c.shootBot(scanner.nextInt(), scanner.nextInt());
-				System.out.println(showBotField());
+				Utils.output(showBotField().toString());
 				if (c.getBot().getNumberShips() == 0) {
 					Utils.output("Glückwunsch!! Du hast gewonnen!!!!");
 					break;
 				}
 				Utils.output("Bot ist am Zug!");
-				System.out.println("Bot ist am Zug!");
+				Utils.output("Bot ist am Zug!");
 				Thread.sleep(1000);
 				c.shootHuman();
 				if (c.getPlayer().getNumberShips() == 0) {
@@ -220,7 +221,7 @@ public class TUI {
 				}
 				break;
 			case 3: 
-				CHEATshowBotField();
+				Utils.output(CHEATshowBotField().toString());
 				break;
 			}
 		}
