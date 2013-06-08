@@ -11,10 +11,11 @@ public class TUI {
  
 	private static Controller c;
 	private static int fieldsize;
+	private static StringBuilder sb = new StringBuilder();
 
 	public static StringBuilder showBotField() {
 		
-		StringBuilder sb = new StringBuilder();
+		sb.setLength(0);
 		
 		for (int i = 0; i < fieldsize; i++) {
 			if (i == 0) {
@@ -45,7 +46,8 @@ public class TUI {
 	}
 	
 	public static StringBuilder CHEATshowBotField() {
-		StringBuilder sb = new StringBuilder();
+		sb.setLength(0);
+		
 		for (int i = 0; i < fieldsize; i++) {
 			if (i == 0) {
 				sb.append(" ");
@@ -79,7 +81,8 @@ public class TUI {
 	}
 
 	public static StringBuilder showField() {
-		StringBuilder sb = new StringBuilder();
+		sb.setLength(0);
+		
 		for (int i = 0; i < fieldsize; i++) {
 			if (i == 0) {
 				sb.append(" ");
