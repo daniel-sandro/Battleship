@@ -133,34 +133,15 @@ public final class TUI {
 
 	public static StringBuilder showField(boolean bot, boolean ship) {
 		sb.setLength(0);
-
-		if (bot) {
-			sb.append("##### Spielfeld des Bots ");
-			if (ship) {
-				sb.append("(mit Schiffen) ");
-			}
-			sb.append("#####").append("\n");
-		} else {
-			sb.append("##### DEIN SPIELFELD #####\n");
-		}
+		header(bot, ship);
 		for (int i = 0; i < fieldsize; i++) {
-			if (i == 0) {
-				sb.append(" ");
-				for (int k = HEX; k < fieldsize + HEX; k++) {
-					sb.append(SEP).append((char) k);
-				}
-				sb.append("\n");
-			}
-			if (i <= LINELEN) {
-				sb.append(i).append(SEP);
-			} else {
-				sb.append(i).append("| ");
-			}
+			pattern(i, sb);
 			if (bot) {
 				for (int j = 0; j < fieldsize; j++) {
-					if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.empty
-							|| c.getBot().getPlayboard().getField()[i][j]
-									.getStat() == state.ship && ship == false) {
+					if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.empty) {
+						sb.append("_ | ");
+					} else if (c.getBot().getPlayboard().getField()[i][j]
+							.getStat() == state.ship && !ship) {
 						sb.append("_ | ");
 					} else if (c.getBot().getPlayboard().getField()[i][j]
 							.getStat() == state.emptyhit) {
@@ -169,7 +150,7 @@ public final class TUI {
 							.getStat() == state.hit) {
 						sb.append("X | ");
 					} else if (c.getBot().getPlayboard().getField()[i][j]
-							.getStat() == state.ship && ship == true) {
+							.getStat() == state.ship && ship) {
 						sb.append("S | ");
 					}
 				}
@@ -192,6 +173,33 @@ public final class TUI {
 			sb.append("\n");
 		}
 		return sb;
+	}
+
+	private static void pattern(int i, StringBuilder sb) {
+		if (i == 0) {
+			sb.append(" ");
+			for (int k = HEX; k < fieldsize + HEX; k++) {
+				sb.append(SEP).append((char) k);
+			}
+			sb.append("\n");
+		}
+		if (i <= LINELEN) {
+			sb.append(i).append(SEP);
+		} else {
+			sb.append(i).append("| ");
+		}
+	}
+
+	private static void header(boolean bot, boolean ship) {
+		if (bot) {
+			sb.append("##### Spielfeld des Bots ");
+			if (ship) {
+				sb.append("(mit Schiffen) ");
+			}
+			sb.append("#####").append("\n");
+		} else {
+			sb.append("##### DEIN SPIELFELD #####\n");
+		}
 	}
 
 	private static void menu() throws InterruptedException {
