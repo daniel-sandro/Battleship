@@ -18,7 +18,7 @@ public class TUItest {
 	
 	@Test
 	public void testCHEATshowBotField(){
-		assertNotNull(TUI.CHEATshowBotField() != null);
+		assertNotNull(TUI.cheatShowBotField() != null);
 	}
 	
 }
