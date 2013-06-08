@@ -6,7 +6,6 @@ import model.Flattop;
 import model.Human;
 import model.Rowboat;
 import model.Field.state;
-import model.Utils;
 
 public class Controller {
 	

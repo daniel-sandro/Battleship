@@ -1,6 +1,6 @@
-package model;
+package controller;
 
-public class Utils {
+public final class Utils {
 	
 	public static void output(String s) {
 		System.out.println(s);

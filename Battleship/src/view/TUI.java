@@ -3,9 +3,9 @@ package view;
 import java.util.Scanner;
 
 import controller.Controller;
+import controller.Utils;
 
 import model.Field.state;
-import model.Utils;
 
 public class TUI {
  
