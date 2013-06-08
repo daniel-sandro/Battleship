@@ -13,6 +13,12 @@ public class TUItest {
 	}
 
 	@Test
+	public void testSetRowboat() {
+		TUI.setRowboat();
+		assertTrue(true);
+	}
+	
+	@Test
 	public void testShowBotField() {
 		assertNotNull(TUI.showBotField() != null);
 	}
