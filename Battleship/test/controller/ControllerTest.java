@@ -2,9 +2,12 @@ package controller;
 
 import static org.junit.Assert.*;
 
+import model.Bot;
 import model.Field;
 import model.Flattop;
+import model.Human;
 import model.Playboard;
+import model.Player;
 import model.Rowboat;
 import model.Ships;
 import model.Field.state;
@@ -26,6 +29,18 @@ public class ControllerTest {
 	}
 	
 	@Test
+	public void testSetPlayer() {
+		c.setPlayer(new Human(1));
+		assertTrue(c.getPlayer() != null);
+	}
+	
+	@Test
+	public void testSetBot() {
+		c.setBot(new Bot(1));
+		assertTrue(c.getBot() != null);
+	}
+	
+	@Test
 	public void testController()  {
 		assertNotNull(c);
 		assertTrue(c.getPlayer() != null && c.getBot() != null);
@@ -35,9 +50,7 @@ public class ControllerTest {
 	public void testShootBot() {
 		assertTrue(c.getBot().getPlayboard().getField()[0][0].getStat() == state.empty);
 		c.shootBot(0, 0);
-		assertTrue(c.getBot().getPlayboard().getField()[0][0].getStat() == state.emptyhit ||
-				c.getBot().getPlayboard().getField()[0][0].getStat() == state.empty ||
-				c.getBot().getPlayboard().getField()[0][0].getStat() == state.ship);
+		assertTrue(c.getBot().getPlayboard().getField()[0][0].getStat() == state.emptyhit);
 		c.setBotRowboat(true, false);
 		assertTrue(c.getBot().getPlayboard().getField()[0][0].getStat() == state.emptyhit ||
 				c.getBot().getPlayboard().getField()[0][0].getStat() == state.empty ||
@@ -51,9 +64,7 @@ public class ControllerTest {
 	public void testShootHuman() {
 		assertTrue(c.getPlayer().getPlayboard().getField()[0][0].getStat() == state.empty);
 		c.shootHuman();
-		assertTrue(c.getPlayer().getPlayboard().getField()[0][0].getStat() == state.emptyhit ||
-				c.getPlayer().getPlayboard().getField()[0][0].getStat() == state.empty ||
-				c.getPlayer().getPlayboard().getField()[0][0].getStat() == state.ship);
+		assertTrue(c.getPlayer().getPlayboard().getField()[0][0].getStat() == state.emptyhit);
 		c.setHumanRowboat(0, 0, true, false);
 		assertTrue(c.getPlayer().getPlayboard().getField()[0][0].getStat() == state.emptyhit ||
 				c.getPlayer().getPlayboard().getField()[0][0].getStat() == state.empty ||

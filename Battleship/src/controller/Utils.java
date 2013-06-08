@@ -7,4 +7,9 @@ public final class Utils {
 	public static void output(String s) {
 		System.out.println(s);
 	}
+	
+	public static boolean initUtils () {
+		Utils u = new Utils();
+		return true;
+	}
 }

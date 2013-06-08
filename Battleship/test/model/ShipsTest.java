@@ -18,10 +18,13 @@ public class ShipsTest {
 		assertNotNull(a);
 	}
 	
+	@Test
+	public void testIsHorizontal() {
+		assertFalse(a.isHorizontal());
+	}
 
 	@Test
 	public void testGetSize() {
-		
 		assertTrue(a.getSize() >= 1);
 	} 
 
