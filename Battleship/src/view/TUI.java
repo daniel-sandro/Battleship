@@ -21,6 +21,10 @@ public final class TUI {
 	private static StringBuilder sb = new StringBuilder();
 	
 	private TUI () {}
+	
+	public static void setFieldsize(int x) {
+		TUI.fieldsize = x;
+	}
 
 	public static StringBuilder showBotField() {
 		

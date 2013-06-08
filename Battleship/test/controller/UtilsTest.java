@@ -8,8 +8,6 @@ public class UtilsTest {
 
 	@Test
 	public final void testInitUtils() {
-		boolean b;
-		b = Utils.initUtils();
-		assertTrue(b);
+		assertNotNull(Utils.initUtils());
 	}
 }

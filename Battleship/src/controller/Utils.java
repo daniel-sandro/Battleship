@@ -8,8 +8,8 @@ public final class Utils {
 		System.out.println(s);
 	}
 	
-	public static boolean initUtils () {
+	public static Utils initUtils () {
 		Utils u = new Utils();
-		return true;
+		return u;
 	}
 }
