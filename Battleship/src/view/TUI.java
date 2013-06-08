@@ -12,7 +12,7 @@ public final class TUI {
 	private static final int LINELEN = 9;
 	private static final int THREE = 3;
 	private static final int MAXFIELDSIZE = 26;
-	private static final int WAIT = 1000;
+	private static final int WAIT = 2000;
 	private static final String SEP = " | ";
 
 	private static Controller c;
@@ -26,7 +26,7 @@ public final class TUI {
 	}
 
 	public static void main(final String[] args) throws InterruptedException {
-		print("Willkommen zu Battleship!!!! \n\nInitialisieren Sie zunächst die Feldgröße: ");
+		print("Willkommen zu Battleship!!!! \n\nInitialisiere zunächst die Feldgröße:");
 		do {
 			fieldsize = scanner.nextInt();
 			if (fieldsize > MAXFIELDSIZE || fieldsize < 1) {
@@ -55,12 +55,12 @@ public final class TUI {
 		} else {
 			c.setBotFlattop(false, true);
 		}
-		print("Setzen Sie ihre Schiffe!!");
+		print("Setze deine Schiffe!!");
 		setRowboat();
 		setDestructor();
 		setFlattop();
-		print("Dein Feld sieht aus wie folgt:");
-		print(showField().toString());
+		print("Alles klar! LOS GEHT'S!! Und viel Glück ;)");
+		print(showField(false, false).toString());
 		menu();
 	}
 
@@ -131,43 +131,18 @@ public final class TUI {
 		}
 	}
 
-	public static StringBuilder showBotField() {
-
+	public static StringBuilder showField(boolean bot, boolean ship) {
 		sb.setLength(0);
 
-		sb.append("##### Spielfeld des Bots #####").append("\n");
-		for (int i = 0; i < fieldsize; i++) {
-			if (i == 0) {
-				sb.append(" ");
-				for (int k = HEX; k < fieldsize + HEX; k++) {
-					sb.append(SEP).append((char) k);
-				}
-				sb.append("\n");
+		if (bot) {
+			sb.append("##### Spielfeld des Bots ");
+			if (ship) {
+				sb.append("(mit Schiffen) ");
 			}
-			if (i <= LINELEN) {
-				sb.append(i).append(SEP);
-			} else {
-				sb.append(i).append("| ");
-			}
-			for (int j = 0; j < fieldsize; j++) {
-				if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.empty
-						|| c.getBot().getPlayboard().getField()[i][j].getStat() == state.ship) {
-					sb.append("_ | ");
-				} else if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
-					sb.append("O | ");
-				} else if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.hit) {
-					sb.append("X | ");
-				}
-			}
-			sb.append("\n");
+			sb.append("#####").append("\n");
+		} else {
+			sb.append("##### DEIN SPIELFELD #####\n");
 		}
-		return sb;
-	}
-
-	public static StringBuilder cheatShowBotField() {
-		sb.setLength(0);
-
-		sb.append("##### Spielfeld des Bots (mit Schiffen) #####").append("\n");
 		for (int i = 0; i < fieldsize; i++) {
 			if (i == 0) {
 				sb.append(" ");
@@ -181,50 +156,37 @@ public final class TUI {
 			} else {
 				sb.append(i).append("| ");
 			}
-			for (int j = 0; j < fieldsize; j++) {
-				if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.empty) {
-					sb.append("_ | ");
-				} else if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
-					sb.append("O | ");
-				} else if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.hit) {
-					sb.append("X | ");
-				} else if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.ship) {
-					sb.append("S | ");
+			if (bot) {
+				for (int j = 0; j < fieldsize; j++) {
+					if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.empty
+							|| c.getBot().getPlayboard().getField()[i][j]
+									.getStat() == state.ship && ship == false) {
+						sb.append("_ | ");
+					} else if (c.getBot().getPlayboard().getField()[i][j]
+							.getStat() == state.emptyhit) {
+						sb.append("O | ");
+					} else if (c.getBot().getPlayboard().getField()[i][j]
+							.getStat() == state.hit) {
+						sb.append("X | ");
+					} else if (c.getBot().getPlayboard().getField()[i][j]
+							.getStat() == state.ship && ship == true) {
+						sb.append("S | ");
+					}
 				}
-			}
-			sb.append("\n");
-		}
-		return sb;
-	}
-
-	public static StringBuilder showField() {
-		sb.setLength(0);
-
-		for (int i = 0; i < fieldsize; i++) {
-			if (i == 0) {
-				sb.append(" ");
-				for (int k = HEX; k < fieldsize + HEX; k++) {
-					sb.append(SEP).append((char) k);
-				}
-				sb.append("\n");
-			}
-			if (i <= LINELEN) {
-				sb.append(i).append(SEP);
 			} else {
-				sb.append(i).append("| ");
-			}
-			for (int j = 0; j < fieldsize; j++) {
-				if (c.getPlayer().getPlayboard().getField()[i][j].getStat() == state.empty) {
-					sb.append("~ | ");
-				} else if (c.getPlayer().getPlayboard().getField()[i][j]
-						.getStat() == state.emptyhit) {
-					sb.append("O | ");
-				} else if (c.getPlayer().getPlayboard().getField()[i][j]
-						.getStat() == state.hit) {
-					sb.append("X | ");
-				} else if (c.getPlayer().getPlayboard().getField()[i][j]
-						.getStat() == state.ship) {
-					sb.append("S | ");
+				for (int j = 0; j < fieldsize; j++) {
+					if (c.getPlayer().getPlayboard().getField()[i][j].getStat() == state.empty) {
+						sb.append("~ | ");
+					} else if (c.getPlayer().getPlayboard().getField()[i][j]
+							.getStat() == state.emptyhit) {
+						sb.append("O | ");
+					} else if (c.getPlayer().getPlayboard().getField()[i][j]
+							.getStat() == state.hit) {
+						sb.append("X | ");
+					} else if (c.getPlayer().getPlayboard().getField()[i][j]
+							.getStat() == state.ship) {
+						sb.append("S | ");
+					}
 				}
 			}
 			sb.append("\n");
@@ -243,7 +205,7 @@ public final class TUI {
 
 			switch (scanner.nextInt()) {
 			case 1:
-				print(showField().toString());
+				print(showField(false, false).toString());
 				break;
 			case 2:
 				print("Nenne die Position auf die geschossen werden soll: ([X/Y])");
@@ -255,7 +217,7 @@ public final class TUI {
 				} else {
 					print("Nichts getroffen");
 				}
-				print(showBotField().toString());
+				print(showField(true, false).toString());
 				if (c.getBot().getNumberShips() == 0) {
 					print("Glückwunsch!! Du hast gewonnen!!!!");
 					break;
@@ -272,7 +234,7 @@ public final class TUI {
 				print("Vielen Dank für's Spielen! Bis bald!");
 				System.exit(0);
 			default:
-				print(cheatShowBotField().toString());
+				print(showField(true, true).toString());
 				break;
 			}
 		}

@@ -13,17 +13,9 @@ public class TUItest {
 	}
 	
 	@Test
-	public void testShowBotField() {
-		assertNotNull(TUI.showBotField() != null);
-	}
-
-	@Test
 	public void testShowField() {
-		assertNotNull(TUI.showField() != null);
-	}
-
-	@Test
-	public void testCHEATshowBotField() {
-		assertNotNull(TUI.cheatShowBotField() != null);
+		assertNotNull(TUI.showField(true, false) != null);
+		assertNotNull(TUI.showField(true, true) != null);
+		assertNotNull(TUI.showField(false, false) != null);
 	}
 }
