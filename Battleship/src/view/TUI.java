@@ -120,7 +120,7 @@ public final class TUI {
 		return sb;
 	}
 	
-	private static void menu() {
+	private static void menu() throws InterruptedException {
 		
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
@@ -144,11 +144,7 @@ public final class TUI {
 					break;
 				}
 				Utils.output("Bot ist am Zug!");
-				try {
-					Thread.sleep(WAIT);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				Thread.sleep(WAIT);
 				c.shootHuman();
 				if (c.getPlayer().getNumberShips() == 0) {
 					Utils.output("Hasch verkackt wa!!!!");
