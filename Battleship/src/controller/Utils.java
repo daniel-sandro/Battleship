@@ -1,9 +1,8 @@
 package controller;
 
 public final class Utils {
-	
-	@SuppressWarnings("unused")
-	private void Main() {}
+
+    private Utils() {}
 	
 	public static void output(String s) {
 		System.out.println(s);
