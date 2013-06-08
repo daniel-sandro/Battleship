@@ -136,43 +136,49 @@ public final class TUI {
 		header(bot, ship);
 		for (int i = 0; i < fieldsize; i++) {
 			pattern(i, sb);
-			if (bot) {
-				for (int j = 0; j < fieldsize; j++) {
-					if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.empty) {
-						sb.append("_ | ");
-					} else if (c.getBot().getPlayboard().getField()[i][j]
-							.getStat() == state.ship && !ship) {
-						sb.append("_ | ");
-					} else if (c.getBot().getPlayboard().getField()[i][j]
-							.getStat() == state.emptyhit) {
-						sb.append("O | ");
-					} else if (c.getBot().getPlayboard().getField()[i][j]
-							.getStat() == state.hit) {
-						sb.append("X | ");
-					} else if (c.getBot().getPlayboard().getField()[i][j]
-							.getStat() == state.ship && ship) {
-						sb.append("S | ");
-					}
-				}
-			} else {
-				for (int j = 0; j < fieldsize; j++) {
-					if (c.getPlayer().getPlayboard().getField()[i][j].getStat() == state.empty) {
-						sb.append("~ | ");
-					} else if (c.getPlayer().getPlayboard().getField()[i][j]
-							.getStat() == state.emptyhit) {
-						sb.append("O | ");
-					} else if (c.getPlayer().getPlayboard().getField()[i][j]
-							.getStat() == state.hit) {
-						sb.append("X | ");
-					} else if (c.getPlayer().getPlayboard().getField()[i][j]
-							.getStat() == state.ship) {
-						sb.append("S | ");
-					}
+			for (int j = 0; j < fieldsize; j++) {
+				if (bot) {
+					checkStateBot(i, j, sb, ship);
+				} else {
+					checkStateHuman(i, j, sb);
 				}
 			}
 			sb.append("\n");
 		}
 		return sb;
+	}
+	
+	private static void checkStateBot(int i, int j, StringBuilder sb, boolean ship) {
+		if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.empty) {
+			sb.append("_ | ");
+		} else if (c.getBot().getPlayboard().getField()[i][j]
+				.getStat() == state.ship && !ship) {
+			sb.append("_ | ");
+		} else if (c.getBot().getPlayboard().getField()[i][j]
+				.getStat() == state.emptyhit) {
+			sb.append("O | ");
+		} else if (c.getBot().getPlayboard().getField()[i][j]
+				.getStat() == state.hit) {
+			sb.append("X | ");
+		} else if (c.getBot().getPlayboard().getField()[i][j]
+				.getStat() == state.ship && ship) {
+			sb.append("S | ");
+		}
+	}
+	
+	private static void checkStateHuman(int i, int j, StringBuilder sb) {
+		if (c.getPlayer().getPlayboard().getField()[i][j].getStat() == state.empty) {
+			sb.append("~ | ");
+		} else if (c.getPlayer().getPlayboard().getField()[i][j]
+				.getStat() == state.emptyhit) {
+			sb.append("O | ");
+		} else if (c.getPlayer().getPlayboard().getField()[i][j]
+				.getStat() == state.hit) {
+			sb.append("X | ");
+		} else if (c.getPlayer().getPlayboard().getField()[i][j]
+				.getStat() == state.ship) {
+			sb.append("S | ");
+		}
 	}
 
 	private static void pattern(int i, StringBuilder sb) {
