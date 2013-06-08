@@ -214,7 +214,7 @@ public final class TUI {
 			print("Du bist dran!!!!!!!!!!!!!! KNALL IHN AB MAAAAAAAAAAAAAAAAAAN");
 			print("Deine Optionen im Spiel sind:");
 			print("(1) EIGENES FELD ANZEIGEN");
-			print("(2) AUF FELD DES COMPUTERS SCHIEßEN");
+			print("(2) AUF DAS SPIELFELD DES BOTS SCHIESSEN");
 			print("(3) SPIEL BEENDEN");
 
 			switch (scanner.nextInt()) {
@@ -238,6 +238,7 @@ public final class TUI {
 				}
 				print("Bot ist am Zug!");
 				Thread.sleep(WAIT);
+				print("Der Bot hat geschossen!");
 				c.shootHuman();
 				if (c.getPlayer().getNumberShips() == 0) {
 					print("Hasch verkackt wa!!!!");
