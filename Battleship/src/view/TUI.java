@@ -212,7 +212,7 @@ public class TUI {
 
 			switch (scanner.nextInt()) {
 			case 1:
-				showField();
+				Utils.output(showField().toString());
 				break;
 			case 2:
 				Utils.output("Nenne die Position auf die geschossen werden soll: ([X/Y])");

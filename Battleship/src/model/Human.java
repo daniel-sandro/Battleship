@@ -3,7 +3,7 @@ package model;
 public class Human extends Player {
 	
 	public Human(int size){
-		initPlayboard(size);
+		setPlayboard(new Playboard(size));
 	}
 	
 	public void shoot(Field field){

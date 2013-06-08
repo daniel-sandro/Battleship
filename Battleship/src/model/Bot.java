@@ -5,7 +5,7 @@ import model.Field.state;
 public class Bot extends Player{
 	
 	public Bot(int fieldsize) {
-		initPlayboard(fieldsize);
+		setPlayboard(new Playboard(fieldsize));
 	}
 	
 	@Override
