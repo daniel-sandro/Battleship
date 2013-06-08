@@ -225,8 +225,7 @@ public final class TUI {
 		}else{
 			Utils.output("So nich Kollege!!!!!!!!!!!!!!!!!!!!!");
 			System.exit(0);
-		}*/
-		/*
+		}
 		Utils.output("\nFlattop-Boot: ([X/Y])\n");
 		nextX = scanner.nextInt();
 		nextY = scanner.nextInt();
