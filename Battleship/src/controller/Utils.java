@@ -9,7 +9,6 @@ public final class Utils {
 	}
 	
 	public static Utils initUtils () {
-		Utils u = new Utils();
-		return u;
+		return new Utils();
 	}
 }
