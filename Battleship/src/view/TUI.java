@@ -1,32 +1,38 @@
 package view;
 
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Scanner;
 
 import controller.*;
 
 import model.Field.state;
 
-public final class TUI {
 
-	private static final int HEX = 65;
-	private static final int LINELEN = 9;
-	private static final int THREE = 3;
-	private static final int MAXFIELDSIZE = 26;
-	private static final int WAIT = 2000;
-	private static final String SEP = " | ";
+public final class TUI implements Observer {
 
-	private static Controller c;
-	private static int fieldsize;
-	private static StringBuilder sb = new StringBuilder();
-	private static Scanner scanner = new Scanner(System.in);
-
-	private static int nextX, nextY, nextbool;
+	private Controller controller;
 
 	private TUI() {
 	}
-
+	
+	public TUI (Controller controller) {
+		this.controller = controller;
+		controller.addObserver(this);
+	}
+	
+	public void update(Observable o, Object arg) {
+		System.out.println("bla");
+		printTUI();
+	}
+	
+	public void printTUI() {
+		print(controller.getStatus());
+	}
+	
+	/*
 	public static void main(final String[] args) throws InterruptedException {
-		print("Willkommen zu Battleship!!!! \n\nInitialisiere zunächst die Feldgröße:");
+		
 		do {
 			fieldsize = scanner.nextInt();
 			if (fieldsize > MAXFIELDSIZE || fieldsize < 1) {
@@ -51,68 +57,7 @@ public final class TUI {
 		TUI.fieldsize = x;
 	}
 
-	public static void setRowboat() {
-		print("");
-		print("Bitte das Ruderboot setzen: ([X/Y])");
-		nextX = scanner.nextInt();
-		nextY = scanner.nextInt();
-		print("Das Ruderboot vertikal (1) oder horizontal (2) setzen?");
-		while (true) {
-			nextbool = scanner.nextInt();
-			if (nextbool == 1) {
-				c.setHumanRowboat(nextX, nextY, true, false);
-				break;
-			} else if (nextbool == 2) {
-				c.setHumanRowboat(nextX, nextY, false, true);
-				break;
-			} else {
-				print("Falsche Eingabe! Bitte 1 (vertikal) oder 2 (horizontal) eingeben!");
-				continue;
-			}
-		}
-	}
-
-	private static void setFlattop() {
-		print("");
-		print("Bitten den Flugzeugträger setzen: ([X/Y])");
-		nextX = scanner.nextInt();
-		nextY = scanner.nextInt();
-		print("Den Flugzeugträger vertikal (1) oder horizontal (2) setzen?");
-		while (true) {
-			nextbool = scanner.nextInt();
-			if (nextbool == 1) {
-				c.setHumanFlattop(nextX, nextY, true, false);
-				break;
-			} else if (nextbool == 2) {
-				c.setHumanFlattop(nextX, nextY, false, true);
-				break;
-			} else {
-				print("Falsche Eingabe! Bitte 1 (vertikal) oder 2 (horizontal) eingeben!");
-				continue;
-			}
-		}
-	}
-
-	private static void setDestructor() {
-		print("");
-		print("Bitte den Zerstörer setzen: ([X/Y])");
-		nextX = scanner.nextInt();
-		nextY = scanner.nextInt();
-		print("Den Zerstörer vertikal (1) oder horizontal (2) setzen?");
-		while (true) {
-			nextbool = scanner.nextInt();
-			if (nextbool == 1) {
-				c.setHumanDestructor(nextX, nextY, true, false);
-				break;
-			} else if (nextbool == 2) {
-				c.setHumanDestructor(nextX, nextY, false, true);
-				break;
-			} else {
-				print("Falsche Eingabe! Bitte 1 (vertikal) oder 2 (horizontal) eingeben!");
-				continue;
-			}
-		}
-	}
+	
 
 	public static StringBuilder showField(boolean bot, boolean ship) {
 		sb.setLength(0);
@@ -240,68 +185,12 @@ public final class TUI {
 		}
 	}
 
+	
+	
+	
+	*/
+	
 	private static void print(String string) {
 		System.out.println(string);
-	}
-	
-	public static void howManyShipsBot()
-	{
-		if(fieldsize >= 1 && fieldsize < 3)
-		{
-			if (c.getBot().vertical()) {
-				c.setBotRowboat(true, false);
-			} else {
-				c.setBotRowboat(false, true);
-			}
-		}
-		else if(fieldsize >= 3 && fieldsize < 8)
-		{
-			if (c.getBot().vertical()) {
-				c.setBotRowboat(true, false);
-			} else {
-				c.setBotRowboat(false, true);
-			}
-			if (c.getBot().vertical()) {
-				c.setBotDestructor(true, false);
-			} else {
-				c.setBotDestructor(false, true);
-			}
-		}
-		else{
-			if (c.getBot().vertical()) {
-				c.setBotRowboat(true, false);
-			} else {
-				c.setBotRowboat(false, true);
-			}
-			if (c.getBot().vertical()) {
-				c.setBotDestructor(true, false);
-			} else {
-				c.setBotDestructor(false, true);
-			}
-			if (c.getBot().vertical()) {
-				c.setBotFlattop(true, false);
-			} else {
-				c.setBotFlattop(false, true);
-			}
-		}
-	}
-	
-	public static void howManyShipsHuman()
-	{	
-		if(fieldsize >= 1 && fieldsize < 3){
-			setRowboat();
-		}
-		else if(fieldsize >= 3 && fieldsize < 8)
-		{
-			setRowboat();
-			setDestructor();
-		}
-		else
-		{
-			setRowboat();
-			setDestructor();
-			setFlattop();
-		}
-		
 	}
 }

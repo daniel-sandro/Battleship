@@ -116,4 +116,9 @@ public class ControllerTest {
 		c.setBotDestructor(true, false);
 		assertTrue(c.getBot().getPlayboard().getField()[0][0]. getStat() == state.ship);
 	}
+	
+	@Test
+	public void howManyShipsHuman() {
+		
+	}
 }
