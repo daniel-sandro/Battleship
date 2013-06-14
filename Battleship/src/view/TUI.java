@@ -37,28 +37,11 @@ public final class TUI {
 		} while (true);
 
 		c = new Controller(fieldsize);
-
-		if (c.getBot().vertical()) {
-			c.setBotRowboat(true, false);
-		} else {
-			c.setBotRowboat(false, true);
-		}
-
-		if (c.getBot().vertical()) {
-			c.setBotDestructor(true, false);
-		} else {
-			c.setBotDestructor(false, true);
-		}
-
-		if (c.getBot().vertical()) {
-			c.setBotFlattop(true, false);
-		} else {
-			c.setBotFlattop(false, true);
-		}
+		howManyShipsBot();
+		
+		
 		print("Setze deine Schiffe!!");
-		setRowboat();
-		setDestructor();
-		setFlattop();
+		howManyShipsHuman();
 		print("Alles klar! LOS GEHT'S!! Und viel Glück ;)");
 		print(showField(false, false).toString());
 		menu();
@@ -225,10 +208,12 @@ public final class TUI {
 				print("Nenne die Position auf die geschossen werden soll: ([X/Y])");
 				int x = scanner.nextInt();
 				int y = scanner.nextInt();
-				c.shootBot(y, x);
-				if (c.getBot().getPlayboard().getField()[x][y].getStat() == state.hit) {
+				if(c.shootBot(y, x) == true)
+				{
 					print("TREFFER!!!!!!!!!");
-				} else {
+				}
+				else 
+				{
 					print("Nichts getroffen");
 				}
 				print(showField(true, false).toString());
@@ -257,5 +242,66 @@ public final class TUI {
 
 	private static void print(String string) {
 		System.out.println(string);
+	}
+	
+	public static void howManyShipsBot()
+	{
+		if(fieldsize >= 1 && fieldsize < 3)
+		{
+			if (c.getBot().vertical()) {
+				c.setBotRowboat(true, false);
+			} else {
+				c.setBotRowboat(false, true);
+			}
+		}
+		else if(fieldsize >= 3 && fieldsize < 8)
+		{
+			if (c.getBot().vertical()) {
+				c.setBotRowboat(true, false);
+			} else {
+				c.setBotRowboat(false, true);
+			}
+			if (c.getBot().vertical()) {
+				c.setBotDestructor(true, false);
+			} else {
+				c.setBotDestructor(false, true);
+			}
+		}
+		else{
+			if (c.getBot().vertical()) {
+				c.setBotRowboat(true, false);
+			} else {
+				c.setBotRowboat(false, true);
+			}
+			if (c.getBot().vertical()) {
+				c.setBotDestructor(true, false);
+			} else {
+				c.setBotDestructor(false, true);
+			}
+			if (c.getBot().vertical()) {
+				c.setBotFlattop(true, false);
+			} else {
+				c.setBotFlattop(false, true);
+			}
+		}
+	}
+	
+	public static void howManyShipsHuman()
+	{	
+		if(fieldsize >= 1 && fieldsize < 3){
+			setRowboat();
+		}
+		else if(fieldsize >= 3 && fieldsize < 8)
+		{
+			setRowboat();
+			setDestructor();
+		}
+		else
+		{
+			setRowboat();
+			setDestructor();
+			setFlattop();
+		}
+		
 	}
 }

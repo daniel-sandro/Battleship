@@ -20,7 +20,7 @@ public class Field {
 	public Field() {
 		this.stat = state.empty;
 	}
-
+	
 	/**
 	 * Getter for the state of the field.
 	 * 

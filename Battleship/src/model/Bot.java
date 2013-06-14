@@ -56,15 +56,20 @@ public class Bot extends Player {
 	 */
 	public void setShip(Ships s) {
 		int[] posi = { 0, 0 };
-
+		
 		do {
-			do {
-				posi[0] = initRandomNumber();
-			} while (posi[0] + s.getSize() > getPlayboard().getSize());
-
-			do {
-				posi[1] = initRandomNumber();
-			} while (posi[1] + s.getSize() > getPlayboard().getSize());
+			if(s.isHorizontal()){
+				do {
+					posi[0] = initRandomNumber();
+				} while (posi[0] + s.getSize() > getPlayboard().getSize());
+			}else{posi[0] = initRandomNumber();}
+			
+			if(s.isVertical()){
+				do {
+					posi[1] = initRandomNumber();
+				} while (posi[1] + s.getSize() > getPlayboard().getSize());
+			}else{posi[1] = initRandomNumber();}
+			
 		} while (getPlayboard().getField()[posi[0]][posi[1]].getStat() == state.ship);
 		s.setPosition(posi[0], posi[1]);
 		getPlayboard().setShip(s);

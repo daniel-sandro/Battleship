@@ -42,11 +42,11 @@ public class Playboard {
 		int[] posi = a.getPosition();
 		if (a.isVertical()) {
 			for (int i = 0; i < a.getSize(); i++) {
-				this.field[posi[0] + i][posi[1]].setShip(a);
+				this.field[posi[1] + i][posi[0]].setShip(a);
 			}
 		} else {
 			for (int i = 0; i < a.getSize(); i++) {
-				this.field[posi[0]][posi[1] + i].setShip(a);
+				this.field[posi[1]][posi[0] + i].setShip(a);
 			}
 		}
 

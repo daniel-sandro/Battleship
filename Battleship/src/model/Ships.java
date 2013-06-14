@@ -31,9 +31,9 @@ public abstract class Ships {
 		return this.position;
 	}
 	
-	public void setPosition(int row, int col){
-		this.position[0] = row;
-		this.position[1] = col;
+	public void setPosition(int x, int y){
+		this.position[0] = x;
+		this.position[1] = y;
 	}
 	
 	public void setSize(int a){

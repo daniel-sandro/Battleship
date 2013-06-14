@@ -2,10 +2,11 @@ package controller;
 
 import model.Bot;
 import model.Destructor;
+import model.Field;
+import model.Field.state;
 import model.Flattop;
 import model.Human;
 import model.Rowboat;
-import model.Field.state;
 
 /**
  * @author Sandro, Julian Our Controller Class!
@@ -67,12 +68,14 @@ public class Controller {
 	 * @param row
 	 * @param col
 	 */
-	public void shootBot(int row, int col) {
+	public boolean shootBot(int row, int col) {
 		player.shoot(bot.getPlayboard().getField()[row][col]);
 		if (bot.getPlayboard().getField()[row][col].getStat() == state.hit
-				&& bot.getPlayboard().getField()[row][col].getShip().getSize() == 0) {
+				&& bot.getPlayboard().getField()[row][col].getShip().getSize() == 0)
+		{
 			bot.setNumberShips(bot.getNumberShips() - 1);
 		}
+		return hit(bot.getPlayboard().getField()[row][col]);
 	}
 
 	/**
@@ -163,4 +166,15 @@ public class Controller {
 		bot.setShip(new Destructor(vertikal, horizontal));
 		bot.setNumberShips(bot.getNumberShips() + 1);
 	}
+	
+	public boolean hit(Field f)
+	{
+		if(f.getStat() == state.hit)
+		{
+			return true;
+		}
+		return false;
+	}
 }
+
+
