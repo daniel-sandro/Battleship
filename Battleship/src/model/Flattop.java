@@ -11,13 +11,11 @@ public class Flattop extends Ships {
 	/**
 	 * Constructor for the bot's Flattop.
 	 * 
-	 * @param vertikal
-	 * @param horizontal
+	 * @param alignment
 	 */
-	public Flattop(boolean vertikal, boolean horizontal) {
+	public Flattop(boolean alignment) {
 		this.setSize(SIZE);
-		this.setVertical(vertikal);
-		this.setHorizontal(horizontal);
+		this.setAlignment(alignment);
 	}
 
 	/**
@@ -25,14 +23,12 @@ public class Flattop extends Ships {
 	 * 
 	 * @param row
 	 * @param col
-	 * @param vertikal
-	 * @param horizontal
+	 * @param alignment
 	 */
-	public Flattop(int row, int col, boolean vertikal, boolean horizontal) {
+	public Flattop(int row, int col, boolean alignment) {
 		this.setSize(SIZE);
 		setPosition(row, col);
-		this.setVertical(vertikal);
-		this.setHorizontal(horizontal);
+		this.setAlignment(alignment);
 	}
 
 }

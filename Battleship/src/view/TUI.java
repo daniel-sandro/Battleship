@@ -1,17 +1,25 @@
 package view;
 
 import java.util.Observable;
-import java.util.Observer;
 import java.util.Scanner;
 
+/*import observer.Event;
+import observer.IObserver;
+import observer.IObservable;
+import observer.Observable;*/
+import java.util.*;
+
+import observer.IObserver;
 import controller.*;
 
-import model.Field.state;
 
+public final class TUI implements IObserver {
 
-public final class TUI implements Observer {
-
+	private static final int MAXFIELDSIZE = 26;
+	private int x, y;
 	private Controller controller;
+	private Scanner scanner = new Scanner(System.in);
+	private static StringBuilder sb = new StringBuilder();
 
 	private TUI() {
 	}
@@ -19,11 +27,18 @@ public final class TUI implements Observer {
 	public TUI (Controller controller) {
 		this.controller = controller;
 		controller.addObserver(this);
+		print(controller.getStatus());
+		print("\n");
 	}
 	
-	public void update(Observable o, Object arg) {
+	/*
+	public void update(Event e) {
 		System.out.println("bla");
-		printTUI();
+		printTUI();		
+	}*/
+	
+	public void update(Observable arg0, Object arg1) {
+		//checkObject(arg1);	
 	}
 	
 	public void printTUI() {
@@ -184,13 +199,94 @@ public final class TUI implements Observer {
 			}
 		}
 	}
-
-	
-	
 	
 	*/
 	
+	public boolean onSetFieldsize() {
+		int fieldsize;
+		System.out.println("Bitte Feldgröße eingeben!");
+		while (true) {
+			fieldsize = scanner.nextInt();
+			if (fieldsize < 0 || fieldsize > MAXFIELDSIZE) {
+				print("Die Feldgröße muss zwischen 0 und 26 liegen! " +
+						"Bitte erneut eingeben!\n");
+				continue;
+			}
+			return true;
+		}
+	}
+
+	public boolean onSetRowboat() {
+		System.out.println("Bitte Ruderboot setzten (X/Y):");
+		x = scanner.nextInt();
+		y = scanner.nextInt();
+		controller.setHumanRowboat(y, x, setAlignment());
+		return true;
+	}
+	
+	public boolean onSetDestructor() {
+		System.out.println("Bitte Zerstörer setzten (X/Y):");
+		controller.setHumanDestructor(setYPos(), setXPos(), setAlignment());
+		return true;
+	}
+	
+	public boolean onSetFlattop() {
+		System.out.println("Bitte Flugzeugträger setzten (X/Y):");		
+		controller.setHumanFlattop(setYPos(), setXPos(), setAlignment());
+		return true;
+	}
+	
+	public int setXPos() {
+		int x;
+		while (true) {
+			x = scanner.nextInt();
+			if (x < 0 || x > controller.getFieldsize()) {
+				System.out.printf("Die X-Koordinate muss zwischen 0 und " +
+						"%d liegen!\nBitte erneut eingeben!", controller.getFieldsize());
+				continue;
+			}
+			break;
+		}
+		return x;
+	}
+	
+	public int setYPos() {
+		int y;
+		while (true) {
+			y = scanner.nextInt();
+			if (y < 0 || y > controller.getFieldsize()) {
+				print("Die Y-Koordinate muss zwischen 0 und ");
+				sb.append("Die Y-Koordinate muss zwischen 0 und ").append(controller.getFieldsize())
+					.append( "liegen!\nBitte erneut eingeben!\n");
+				print(sb.toString());
+				sb.setLength(0);
+				continue;
+			}
+			break;
+		}
+		return y;
+	}
+	
+	/*
+	 * Returns true if ship has be set horizontal, false if vertical
+	 */
+	public boolean setAlignment() {
+		int nextBool;
+		while (true) {
+			print("Horizontal (1) oder vertikal (2) setzen?\n");
+			nextBool = scanner.nextInt();
+			if (nextBool == 1) {
+				return true;
+			} else if (nextBool == 2) {
+				return false;
+			} else {
+				print("Falsche Eingabe!\n");
+				continue;
+			}
+		}
+	}
+	
 	private static void print(String string) {
-		System.out.println(string);
+		System.out.printf(string);
 	}
 }

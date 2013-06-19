@@ -11,13 +11,11 @@ public class Destructor extends Ships {
 	/**
 	 * Constructor for the bot's Destructor.
 	 * 
-	 * @param vertikal
-	 * @param horizontal
+	 * @param alignment
 	 */
-	public Destructor(boolean vertikal, boolean horizontal) {
+	public Destructor(boolean alignment) {
 		this.setSize(SIZE);
-		this.setVertical(vertikal);
-		this.setHorizontal(horizontal);
+		this.setAlignment(alignment);
 	}
 
 	/**
@@ -25,13 +23,11 @@ public class Destructor extends Ships {
 	 * 
 	 * @param row
 	 * @param col
-	 * @param vertikal
-	 * @param horizontal
+	 * @param alignment
 	 */
-	public Destructor(int row, int col, boolean vertikal, boolean horizontal) {
+	public Destructor(int row, int col, boolean alignment) {
 		this.setSize(SIZE);
-		this.setVertical(vertikal);
-		this.setHorizontal(horizontal);
+		this.setAlignment(alignment);
 		setPosition(row, col);
 	}
 }

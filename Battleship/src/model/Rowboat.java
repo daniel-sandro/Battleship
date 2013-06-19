@@ -2,18 +2,32 @@ package model;
 
 public class Rowboat extends Ships {
 
+	/**
+	 * @author Sandro, Julian 
+	 * Rowboat Class. Subclass of Ships.
+	 */
 	private static final int SIZE = 1;
 	
-	public Rowboat(boolean vertikal, boolean horizontal){
+	/**
+	 * Constructor for the bot's Rowboat.
+	 * 
+	 * @param alignment
+	 */
+	public Rowboat(boolean alignment){
 		this.setSize(SIZE);
-		this.setVertical(vertikal);
-		this.setHorizontal(horizontal);	
+		this.setAlignment(alignment);	
 	}
 	
-	public Rowboat(int row, int col, boolean vertikal, boolean horizontal) {
+	/**
+	 * Constructor for the Human's Rowboat.
+	 * 
+	 * @param row
+	 * @param col
+	 * @param alignment
+	 */
+	public Rowboat(int row, int col, boolean alignment) {
 		this.setSize(SIZE);
 		setPosition(row, col);
-		this.setVertical(vertikal);
-		this.setHorizontal(horizontal);
+		this.setAlignment(alignment);
 	}
 }

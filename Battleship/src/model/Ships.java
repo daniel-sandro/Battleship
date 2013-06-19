@@ -4,23 +4,15 @@ public abstract class Ships {
 	
 	private int size;
 	private int[] position = new int[2];
-	private boolean vertical = false;
-	private boolean horizontal = false;
-	
-	public boolean isVertical() {
-		return vertical;
-	}
-	
-	public void setVertical(boolean v) {
-		this.vertical = v;
+	// Alignment false = horizontal, true = vertical
+	private boolean alignment = false;
+
+	public boolean getAlignment() {
+		return alignment;
 	}
 
-	public boolean isHorizontal() {
-		return horizontal;
-	}
-
-	public void setHorizontal(boolean h) {
-		this.horizontal = h;
+	public void setAlignment(boolean a) {
+		this.alignment = a;
 	}
 	
 	public int getSize(){
