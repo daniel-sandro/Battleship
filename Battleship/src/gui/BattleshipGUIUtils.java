@@ -14,4 +14,9 @@ public class BattleshipGUIUtils extends JFrame {
 		JOptionPane.showMessageDialog(BattleshipGUI.getMainPanel(), "Bitte etwas in das Eingabefeld" +
 				" eingeben!", "Fehler!", JOptionPane.ERROR_MESSAGE);
 	}
+
+    public static int exit() {
+    	System.exit(0);
+    	return 0;
+    }
 }

@@ -2,19 +2,31 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package test;
+package gui;
+
+import java.util.Enumeration;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
+
+import controller.Controller;
 
 /**
  *
  * @author Sandro
  */
-public class NewJDialog extends javax.swing.JDialog {
+public class SetBattleshipDialog extends javax.swing.JDialog {
 
+	private final int ONE = 1;
+	private final int TWO = 2;
+	private int ship;
+	private Controller controller;
     /**
-     * Creates new form NewJDialog
+     * Creates new form Dialog
      */
-    public NewJDialog(java.awt.Frame parent, boolean modal) {
+    public SetBattleshipDialog(java.awt.Frame parent, boolean modal, int x) {
         super(parent, modal);
+        this.ship = x;
         initComponents();
     }
 
@@ -28,33 +40,35 @@ public class NewJDialog extends javax.swing.JDialog {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        JLship = new javax.swing.JLabel();
+        JTFxPos = new javax.swing.JLabel();
+        JTFyPos = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        JRBhorizontal = new javax.swing.JRadioButton();
+        JRBvertical = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
 
-        jLabel1.setText("Bitte schiff X setzen!");
+        JLship.setText("Bitte schiff X setzen!");
+        JTFxPos.setText("X-Position");
+        JTFyPos.setText("Y-Position");
 
-        jLabel2.setText("X-Position");
+        buttonGroup1.add(JRBhorizontal);
+        JRBhorizontal.setSelected(true);
+        JRBhorizontal.setText("Horizontal");
 
-        jLabel3.setText("Y-Position");
+        buttonGroup1.add(JRBvertical);
+        JRBvertical.setText("Vertikal");
+        String s = "Bitte das Ruderboot setzen!";
 
-        jTextField1.setToolTipText("");
-
-        jTextField2.setToolTipText("");
-
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setSelected(true);
-        jRadioButton1.setText("Horizontal");
-
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Vertikal");
+        if (ship == ONE) {
+        	s = "Bitte den Zerstörer setzen!";
+        } else if (ship == TWO) {
+        	s = "Bitte den Flugzeugträger setzen!";
+        }
+        JLship.setText(s);
 
         jButton1.setText("OK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -74,16 +88,16 @@ public class NewJDialog extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(33, 33, 33)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)))
+                                    .addComponent(JTFxPos)
+                                    .addComponent(JTFyPos)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(53, 53, 53)
-                                .addComponent(jRadioButton1)))
+                                .addComponent(JRBhorizontal)))
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jRadioButton2))
+                                .addComponent(JRBvertical))
                             .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                             .addComponent(jTextField2)))
                     .addGroup(layout.createSequentialGroup()
@@ -91,26 +105,26 @@ public class NewJDialog extends javax.swing.JDialog {
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addComponent(jLabel1)))
+                        .addComponent(JLship)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jLabel1)
+                .addComponent(JLship)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addComponent(JTFxPos)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(JTFyPos)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(JRBhorizontal)
+                    .addComponent(JRBvertical))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap(22, Short.MAX_VALUE))
@@ -120,58 +134,48 @@ public class NewJDialog extends javax.swing.JDialog {
     }// </editor-fold>                        
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-    }                                        
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                NewJDialog dialog = new NewJDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
+    	String s, t;
+    	boolean alignment = false;
+    	s = JTFxPos.getText();
+    	t = JTFyPos.getText();
+    	if (getSelectedRadio(buttonGroup1) == JRBvertical) {
+    		alignment = true;
+    	}
+    	if (s == null || t == null) {
+    		BattleshipGUIUtils.noInputerror();
+    	} else if (controller.checkSetShipPosition(alignment) != 0) {
+    		// Error
+    	} else {
+    		if (ship == ONE) {
+    			controller.setHumanDestructor(Integer.parseInt(s), Integer.parseInt(t), alignment);
+    		} else if (ship == TWO) {
+    			controller.setHumanFlattop(Integer.parseInt(s), Integer.parseInt(t), alignment);
+    		} else {
+    			controller.setHumanRowboat(Integer.parseInt(s), Integer.parseInt(t));
+    		}
+    	}
     }
+    
+    private static JRadioButton getSelectedRadio(ButtonGroup group) {
+        for (Enumeration eRadio=group.getElements(); eRadio.hasMoreElements(); ) {
+            //Iterating over the Radio Buttons
+            JRadioButton radioButton = (JRadioButton)eRadio.nextElement();
+            //Comparing radioButtons model with groups selection
+            if (radioButton.getModel() == group.getSelection()) {
+                return radioButton;
+            }
+        }
+        return null;
+    }
+    
     // Variables declaration - do not modify                     
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JLabel JLship;
+    private javax.swing.JLabel JTFxPos;
+    private javax.swing.JLabel JTFyPos;
+    private javax.swing.JRadioButton JRBhorizontal;
+    private javax.swing.JRadioButton JRBvertical;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration                   

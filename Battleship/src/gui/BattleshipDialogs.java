@@ -112,7 +112,8 @@ public class BattleshipDialogs extends JFrame {
 	}
 	
 	public boolean setShip(int x) {
-		BattleshipShipSetter setter = new BattleshipShipSetter(x, gui.getController());
+		SetBattleshipDialog d = new SetBattleshipDialog(this, true, x);
+		d.setVisible(true);
 		return true;
 	}
 }

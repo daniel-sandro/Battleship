@@ -9,7 +9,7 @@ import javax.swing.JRadioButton;
 
 import controller.Controller;
 
-public class BattleshipShipSetter extends JFrame {
+public class BattleshipShipSetterOld extends JFrame {
 	
 	private final int ONE = 1;
 	private final int TWO = 2;
@@ -18,7 +18,7 @@ public class BattleshipShipSetter extends JFrame {
 	/**
      * Creates new form NewJFrame
      */
-    public BattleshipShipSetter(int ship, Controller controller) {
+    public BattleshipShipSetterOld(int ship, Controller controller) {
     	this.controller = controller;
     	this.ship = ship;
         initComponents();
