@@ -14,13 +14,13 @@ public class ShipsTest {
 	
 	@Before
 	public void createRowboat(){
-		a = new Rowboat(1,1, true, false);
+		a = new Rowboat(1,1);
 		assertNotNull(a);
 	}
 	
 	@Test
 	public void testIsHorizontal() {
-		assertFalse(a.isHorizontal());
+		assertFalse(!a.getAlignment());
 	}
 
 	@Test

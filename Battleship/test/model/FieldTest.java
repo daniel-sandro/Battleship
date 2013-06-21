@@ -30,7 +30,7 @@ public class FieldTest {
 	
 	@Test
 	public void testShoot() {
-		Ships x = new Flattop(0, 0, true, false);
+		Ships x = new Flattop(0, 0, true);
 		assertTrue(a.getStat() == state.empty);
 		a.shoot();
 		assertTrue(a.getStat() == state.emptyhit);
@@ -51,7 +51,7 @@ public class FieldTest {
 
 	@Test
 	public void testSetShip() {
-		Ships b = new Flattop(1, 1, true, false);
+		Ships b = new Flattop(1, 1, true);
 		assertNotNull(b);
 		a.setShip(b);	
 		assertNotNull(a.getShip());

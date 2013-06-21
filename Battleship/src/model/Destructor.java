@@ -25,9 +25,9 @@ public class Destructor extends Ships {
 	 * @param col
 	 * @param alignment
 	 */
-	public Destructor(int row, int col, boolean alignment) {
+	public Destructor(int col, int row, boolean alignment) {
 		this.setSize(SIZE);
 		this.setAlignment(alignment);
-		setPosition(row, col);
+		setPosition(col, row);
 	}
 }

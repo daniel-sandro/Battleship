@@ -7,15 +7,16 @@ public class Rowboat extends Ships {
 	 * Rowboat Class. Subclass of Ships.
 	 */
 	private static final int SIZE = 1;
+	private static final boolean ALIGNMENT = true;
 	
 	/**
 	 * Constructor for the bot's Rowboat.
 	 * 
 	 * @param alignment
 	 */
-	public Rowboat(boolean alignment){
-		this.setSize(SIZE);
-		this.setAlignment(alignment);	
+	public Rowboat(){
+		this.setSize(SIZE);	
+		this.setAlignment(ALIGNMENT);
 	}
 	
 	/**
@@ -25,9 +26,9 @@ public class Rowboat extends Ships {
 	 * @param col
 	 * @param alignment
 	 */
-	public Rowboat(int row, int col, boolean alignment) {
+	public Rowboat(int col, int row) {
 		this.setSize(SIZE);
-		setPosition(row, col);
-		this.setAlignment(alignment);
+		this.setAlignment(ALIGNMENT);
+		setPosition(col, row);
 	}
 }

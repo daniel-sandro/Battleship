@@ -15,12 +15,12 @@ public class FlattopTest {
 	
 	@Before
 	public void setUp(){
-		a = new Flattop(1, 1, true, false);
+		a = new Flattop(1, 1, true);
 	}
 	
 	@Test
 	public void testFlattop() {
-		a = new Flattop(true, false);
+		a = new Flattop(true);
 		assertNotNull(a);
 	}
 

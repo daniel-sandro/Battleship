@@ -36,17 +36,17 @@ public class Playboard {
 	/**
 	 * SetShip sets the state of a field to ship a at the position stored in a.
 	 * 
-	 * @param a
+	 * @param s
 	 */
-	public void setShip(Ships a) {
-		int[] posi = a.getPosition();
-		if (a.isVertical()) {
-			for (int i = 0; i < a.getSize(); i++) {
-				this.field[posi[1] + i][posi[0]].setShip(a);
+	public void setShip(Ships s) {
+		int[] posi = s.getPosition();
+		if (s.getAlignment()) {
+			for (int i = 0; i < s.getSize(); i++) {
+				this.field[posi[0]][posi[1] + i].setShip(s);
 			}
 		} else {
-			for (int i = 0; i < a.getSize(); i++) {
-				this.field[posi[1]][posi[0] + i].setShip(a);
+			for (int i = 0; i < s.getSize(); i++) {
+				this.field[posi[0] + 1][posi[1]].setShip(s);
 			}
 		}
 

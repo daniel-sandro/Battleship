@@ -16,20 +16,25 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import observer.IObserver;
+
 import controller.Controller;
 
-public class BattleshipGUI extends JFrame {
+public class BattleshipGUI extends JFrame implements IObserver {
 
-	private JPanel mainPanel;
-    private JButton JBsize;
+	public static JPanel mainPanel;
+	private JButton JBsize;
     private JTextField JTFsize;
 	BattleshipStatus statusPanel;
 	BattleshipInfos infoPanel;
 	private int fieldsize;
 	Controller controller;
+	BattleshipDialogs dialogs;
 	
 	
 	public BattleshipGUI(Controller controller) {
+		dialogs = new BattleshipDialogs(this);
+		
 		mainPanel = new JPanel();
 	    mainPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 	    mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
@@ -55,96 +60,73 @@ public class BattleshipGUI extends JFrame {
         this.go();
 	}
 	
-	public void setFieldsize() {
-		final JDialog enterFieldsize = new JDialog();
-		enterFieldsize.setTitle("Bitte die Feldgröße eingeben!");
-		enterFieldsize.setLayout(new FlowLayout());
-		JBsize = new JButton("OK");
-		JTFsize = new JTextField(2);
-		enterFieldsize.add(new JLabel("Feldgröße:"));
-		enterFieldsize.add(JTFsize);
-		enterFieldsize.add(JBsize);
-		enterFieldsize.setSize(300, 80);
-		enterFieldsize.setLocationRelativeTo(null);
-		JBsize.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == JBsize) {
-					String s;
-					s = JTFsize.getText();
-					if (s == null) {
-						error();
-					} else {
-						if (fieldsize < 1 || fieldsize > 26) {
-							error();
-						} else {
-							fieldsize = Integer.valueOf(s);
-							controller.setFieldsize(fieldsize);
-						}
-					}
-				}
-			}
-		});
-		enterFieldsize.setModal(true);
-		enterFieldsize.setVisible(true);
-		enterFieldsize.dispose();
+    public static JPanel getMainPanel() {
+		return mainPanel;
+	}
+
+	public static void setMainPanel(JPanel mainPanel) {
+		BattleshipGUI.mainPanel = mainPanel;
 	}
 	
-	public void setShip(int x) {
-		int nr = x;
-		final JDialog setShip = new JDialog();
-		setShip.setModal(true);
-		JLabel des = new JLabel("Bitte die Position des Zerstörers angeben!");
-		JLabel fla = new JLabel("Bitte die Position des Flugzeugträgers angeben!");
-		JLabel row = new JLabel("Bitte die Position des Ruderbootes angeben!");
-		JLabel xCol = new JLabel("X-Position: ");
-		JTextField JTxCol = new JTextField(2);
-		JLabel yRow = new JLabel("Y-Position: ");
-		JTextField JTyRow = new JTextField(2);
-		JPanel text = new JPanel();
-		if (nr == 1) {
-			text.add(row);
-		} else if (nr == 2) {
-			text.add(des);
-		} else if (nr == 3) {
-			text.add(fla);
-		}
-		setShip.setLayout(new BorderLayout(5, 5));
-		setShip.setTitle("Bitte die Position angeben!");
-		setShip.add(text, BorderLayout.NORTH);
-		setShip.add(xCol, BorderLayout.WEST);
-		setShip.add(JTxCol, BorderLayout.EAST);
-		setShip.add(yRow, BorderLayout.WEST);
-		setShip.add(JTyRow, BorderLayout.EAST);
-		JBsize = new JButton("OK");
-		JBsize.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == JBsize) {
-					fieldsize = Integer.parseInt(JTFsize.getText());
-					if (fieldsize < 1 || fieldsize > 26) {
-						error();
-					} else {
-						setShip.dispose();
-					}
-				}
-			}
-		});
-		setShip.add(JBsize, BorderLayout.SOUTH);
-		setShip.setVisible(true);
-		setShip.setSize(300, 200);
-		setShip.setLocationRelativeTo(null);
+	public boolean onSetRowboat () {
+		dialogs.setFieldsize();
+		return true;
 	}
 	
-	private void error() {
-		JOptionPane.showMessageDialog(this, "Bitte eine Feldgröße zwischen 1 und 26" +
-				" eingeben!", "Fehler!", JOptionPane.ERROR_MESSAGE);
+	public boolean onSetFieldsize() {
+		dialogs.setFieldsize();
+		return true;
 	}
 	
 	public void go() {
-		setFieldsize();
-		setShip(1);
+		onSetFieldsize();
+	}
+	
+	public int getFieldsize() {
+		return controller.getFieldsize();
 	}
 	
 	public static void main(String args[]) {
 		BattleshipGUI gui = new BattleshipGUI(new Controller(0));
+	}
+
+	public boolean onSetDestructor() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean onSetFlattop() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void onShowMenu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onAction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onShowPlayersField() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onShowBotsField(boolean withShip) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onShootOnBot() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onStatus() {
+		// TODO Auto-generated method stub
+		
 	}
 }

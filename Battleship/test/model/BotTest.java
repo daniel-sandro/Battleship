@@ -51,7 +51,7 @@ public class BotTest {
 	
 	@Test
 	public void testsetShip(){
-		Ships b = new Rowboat(false, true);
+		Ships b = new Rowboat();
 		a.setShip(b);
 		assertTrue(b.getPosition()[0] == 0 && b.getPosition()[1] == 0);
 	}

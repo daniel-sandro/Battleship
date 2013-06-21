@@ -14,12 +14,12 @@ public class DestructorTest {
 	
 	@Before
 	public void setUp(){
-		a = new Destructor(1, 1, true, false);
+		a = new Destructor(1, 1, true);
 	}
 
 	@Test
 	public void testDestructor() {
-		a = new Destructor(true, false);
+		a = new Destructor(true);
 		assertNotNull(a);
 	}
 }

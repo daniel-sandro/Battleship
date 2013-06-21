@@ -19,7 +19,7 @@ public class HumanTest {
 		a = new Human(1);
 		b = new Bot(1);
 		
-		b.getPlayboard().setShip(new Rowboat(false, true));
+		b.getPlayboard().setShip(new Rowboat());
 		a.shoot(b.getPlayboard().getField()[0][0]);
 		
 		assertTrue(b.getPlayboard().getField()[0][0].getStat() == state.hit);

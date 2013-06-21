@@ -19,4 +19,16 @@ public interface IObservable {
 	void notifyOnSetDestructor();
 	
 	void notifyOnSetFlattop();
+	
+	void notifyOnShowMenu();
+	
+	void notifyOnAction();
+	
+	void notifyOnShowPlayersField();
+	
+	void notifyOnShowBotsField(boolean withShip);
+	
+	void notifyOnShootOnBot();
+	
+	void notifyOnStatus();
 }

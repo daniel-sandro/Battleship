@@ -3,20 +3,20 @@ package view;
 import java.util.Observable;
 import java.util.Scanner;
 
-/*import observer.Event;
-import observer.IObserver;
-import observer.IObservable;
-import observer.Observable;*/
-import java.util.*;
+import model.Field.state;
 
 import observer.IObserver;
-import controller.*;
+import controller.Controller;
+/*import observer.Event;*/
 
 
 public final class TUI implements IObserver {
 
 	private static final int MAXFIELDSIZE = 26;
-	private int x, y;
+	private static final int HEX = 65;
+	private static final int LINELEN = 9;
+	private static final String SEP = " | ";
+	
 	private Controller controller;
 	private Scanner scanner = new Scanner(System.in);
 	private static StringBuilder sb = new StringBuilder();
@@ -41,167 +41,6 @@ public final class TUI implements IObserver {
 		//checkObject(arg1);	
 	}
 	
-	public void printTUI() {
-		print(controller.getStatus());
-	}
-	
-	/*
-	public static void main(final String[] args) throws InterruptedException {
-		
-		do {
-			fieldsize = scanner.nextInt();
-			if (fieldsize > MAXFIELDSIZE || fieldsize < 1) {
-				print("Die Feldgröße muss zwischen 1 & 26 liegen!!!!");
-				continue;
-			}
-			break;
-		} while (true);
-
-		c = new Controller(fieldsize);
-		howManyShipsBot();
-		
-		
-		print("Setze deine Schiffe!!");
-		howManyShipsHuman();
-		print("Alles klar! LOS GEHT'S!! Und viel Glück ;)");
-		print(showField(false, false).toString());
-		menu();
-	}
-
-	public static void setFieldsize(int x) {
-		TUI.fieldsize = x;
-	}
-
-	
-
-	public static StringBuilder showField(boolean bot, boolean ship) {
-		sb.setLength(0);
-		header(bot, ship);
-		for (int i = 0; i < fieldsize; i++) {
-			pattern(i, sb);
-			for (int j = 0; j < fieldsize; j++) {
-				if (bot) {
-					checkStateBot(i, j, sb, ship);
-				} else {
-					checkStateHuman(i, j, sb);
-				}
-			}
-			sb.append("\n");
-		}
-		return sb;
-	}
-	
-	private static void checkStateBot(int i, int j, StringBuilder sb, boolean ship) {
-		if (c.getBot().getPlayboard().getField()[i][j].getStat() == state.empty) {
-			sb.append("_ | ");
-		} else if (c.getBot().getPlayboard().getField()[i][j]
-				.getStat() == state.ship && !ship) {
-			sb.append("_ | ");
-		} else if (c.getBot().getPlayboard().getField()[i][j]
-				.getStat() == state.emptyhit) {
-			sb.append("O | ");
-		} else if (c.getBot().getPlayboard().getField()[i][j]
-				.getStat() == state.hit) {
-			sb.append("X | ");
-		} else if (c.getBot().getPlayboard().getField()[i][j]
-				.getStat() == state.ship && ship) {
-			sb.append("S | ");
-		}
-	}
-	
-	private static void checkStateHuman(int i, int j, StringBuilder sb) {
-		if (c.getPlayer().getPlayboard().getField()[i][j].getStat() == state.empty) {
-			sb.append("~ | ");
-		} else if (c.getPlayer().getPlayboard().getField()[i][j]
-				.getStat() == state.emptyhit) {
-			sb.append("O | ");
-		} else if (c.getPlayer().getPlayboard().getField()[i][j]
-				.getStat() == state.hit) {
-			sb.append("X | ");
-		} else if (c.getPlayer().getPlayboard().getField()[i][j]
-				.getStat() == state.ship) {
-			sb.append("S | ");
-		}
-	}
-
-	private static void pattern(int i, StringBuilder sb) {
-		if (i == 0) {
-			sb.append(" ");
-			for (int k = HEX; k < fieldsize + HEX; k++) {
-				sb.append(SEP).append((char) k);
-			}
-			sb.append("\n");
-		}
-		if (i <= LINELEN) {
-			sb.append(i).append(SEP);
-		} else {
-			sb.append(i).append("| ");
-		}
-	}
-
-	private static void header(boolean bot, boolean ship) {
-		if (bot) {
-			sb.append("##### Spielfeld des Bots ");
-			if (ship) {
-				sb.append("(mit Schiffen) ");
-			}
-			sb.append("#####").append("\n");
-		} else {
-			sb.append("##### DEIN SPIELFELD #####\n");
-		}
-	}
-
-	private static void menu() throws InterruptedException {
-		while (c.getPlayer().getNumberShips() > 0
-				&& c.getBot().getNumberShips() > 0) {
-			print("Du bist dran!!!!!!!!!!!!!! KNALL IHN AB MAAAAAAAAAAAAAAAAAAN");
-			print("Deine Optionen im Spiel sind:");
-			print("(1) EIGENES FELD ANZEIGEN");
-			print("(2) AUF DAS SPIELFELD DES BOTS SCHIESSEN");
-			print("(3) SPIEL BEENDEN");
-
-			switch (scanner.nextInt()) {
-			case 1:
-				print(showField(false, false).toString());
-				break;
-			case 2:
-				print("Nenne die Position auf die geschossen werden soll: ([X/Y])");
-				int x = scanner.nextInt();
-				int y = scanner.nextInt();
-				if(c.shootBot(y, x) == true)
-				{
-					print("TREFFER!!!!!!!!!");
-				}
-				else 
-				{
-					print("Nichts getroffen");
-				}
-				print(showField(true, false).toString());
-				if (c.getBot().getNumberShips() == 0) {
-					print("Glückwunsch!! Du hast gewonnen!!!!");
-					break;
-				}
-				print("Bot ist am Zug!");
-				Thread.sleep(WAIT);
-				print("Der Bot hat geschossen!");
-				c.shootHuman();
-				if (c.getPlayer().getNumberShips() == 0) {
-					print("Hasch verkackt wa!!!!");
-					break;
-				}
-				break;
-			case THREE:
-				print("Vielen Dank für's Spielen! Bis bald!");
-				System.exit(0);
-			default:
-				print(showField(true, true).toString());
-				break;
-			}
-		}
-	}
-	
-	*/
-	
 	public boolean onSetFieldsize() {
 		int fieldsize;
 		System.out.println("Bitte Feldgröße eingeben!");
@@ -212,27 +51,26 @@ public final class TUI implements IObserver {
 						"Bitte erneut eingeben!\n");
 				continue;
 			}
+			controller.setFieldsize(fieldsize);
 			return true;
 		}
 	}
 
 	public boolean onSetRowboat() {
 		System.out.println("Bitte Ruderboot setzten (X/Y):");
-		x = scanner.nextInt();
-		y = scanner.nextInt();
-		controller.setHumanRowboat(y, x, setAlignment());
+		controller.setHumanRowboat(setXPos(), setYPos());
 		return true;
 	}
 	
 	public boolean onSetDestructor() {
 		System.out.println("Bitte Zerstörer setzten (X/Y):");
-		controller.setHumanDestructor(setYPos(), setXPos(), setAlignment());
+		controller.setHumanDestructor(setXPos(), setYPos(), setAlignment());
 		return true;
 	}
 	
 	public boolean onSetFlattop() {
 		System.out.println("Bitte Flugzeugträger setzten (X/Y):");		
-		controller.setHumanFlattop(setYPos(), setXPos(), setAlignment());
+		controller.setHumanFlattop(setXPos(), setYPos(), setAlignment());
 		return true;
 	}
 	
@@ -283,6 +121,125 @@ public final class TUI implements IObserver {
 				print("Falsche Eingabe!\n");
 				continue;
 			}
+		}
+	}
+	
+	public void onStatus() {
+		print(controller.getStatus());
+		print("\n");
+	}
+	
+	public void onShowMenu() {
+		print("\n");
+		print("Du bist am Zug!\n");
+		print("Deine Optionen im Spiel sind:\n");
+		print("(1) EIGENES FELD ANZEIGEN\n");
+		print("(2) AUF DAS SPIELFELD DES BOTS SCHIESSEN\n");
+		print("(3) SPIEL BEENDEN\n");
+		print("\n");
+	}
+	
+	public void onAction() {
+		controller.setInput(scanner.nextInt());
+	}
+	
+	public void onShowPlayersField() {
+		print(showField(false, false).toString());		
+	}
+	
+	public void onShowBotsField(boolean withShip) {
+		print(showField(true, withShip).toString());
+	}
+	
+	public void onShootOnBot() {
+		print("Nenne die Position auf die geschossen werden soll: ([X/Y])\n");
+		int x = scanner.nextInt();
+		int y = scanner.nextInt();
+		if(controller.shootBot(y, x) == true)
+		{
+			print("\n");
+			print("TREFFER!!\n");
+		}
+		else 
+		{
+			print("Leider nichts getroffen!\n");
+		}
+	}
+	
+	public StringBuilder showField(boolean bot, boolean ship) {
+		sb.setLength(0);
+		printHeader(bot, ship);
+		for (int i = 0; i < controller.getFieldsize(); i++) {
+			printPattern(i);
+			for (int j = 0; j < controller.getFieldsize(); j++) {
+				if (bot) {
+					checkStateBot(i, j, ship);
+				} else {
+					checkStateHuman(i, j);
+				}
+			}
+			sb.append("\n");
+		}
+		return sb;
+	}
+	
+	private void printHeader(boolean bot, boolean ship) {
+		if (bot) {
+			sb.append("##### Spielfeld des Bots ");
+			if (ship) {
+				sb.append("(mit Schiffen) ");
+			}
+			sb.append("#####").append("\n");
+		} else {
+			sb.append("##### DEIN SPIELFELD #####\n");
+		}
+	}
+	
+	private void printPattern(int i) {
+		if (i == 0) {
+			sb.append(" ");
+			for (int k = HEX; k < controller.getFieldsize() + HEX; k++) {
+				sb.append(SEP).append((char) k);
+			}
+			sb.append("\n");
+		}
+		if (i <= LINELEN) {
+			sb.append(i).append(SEP);
+		} else {
+			sb.append(i).append("| ");
+		}
+	}
+	
+	private void checkStateBot(int i, int j, boolean ship) {
+		if (controller.getBot().getPlayboard().getField()[i][j].getStat() == state.empty) {
+			sb.append("_ | ");
+		} else if (controller.getBot().getPlayboard().getField()[i][j]
+				.getStat() == state.ship && !ship) {
+			sb.append("_ | ");
+		} else if (controller.getBot().getPlayboard().getField()[i][j]
+				.getStat() == state.emptyhit) {
+			sb.append("O | ");
+		} else if (controller.getBot().getPlayboard().getField()[i][j]
+				.getStat() == state.hit) {
+			sb.append("X | ");
+		} else if (controller.getBot().getPlayboard().getField()[i][j]
+				.getStat() == state.ship && ship) {
+			sb.append("S | ");
+		}
+	}
+	
+	private void checkStateHuman(int i, int j) {
+		if (controller.getPlayer().getPlayboard().getField()[i][j].getStat() == state.empty) {
+			sb.append("~ | ");
+		} else if (controller.getPlayer().getPlayboard().getField()[i][j]
+				.getStat() == state.emptyhit) {
+			sb.append("O | ");
+		} else if (controller.getPlayer().getPlayboard().getField()[i][j]
+				.getStat() == state.hit) {
+			sb.append("X | ");
+		} else if (controller.getPlayer().getPlayboard().getField()[i][j]
+				.getStat() == state.ship) {
+			sb.append("S | ");
 		}
 	}
 	

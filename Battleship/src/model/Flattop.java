@@ -25,9 +25,9 @@ public class Flattop extends Ships {
 	 * @param col
 	 * @param alignment
 	 */
-	public Flattop(int row, int col, boolean alignment) {
+	public Flattop(int col, int row, boolean alignment) {
 		this.setSize(SIZE);
-		setPosition(row, col);
+		setPosition(col, row);
 		this.setAlignment(alignment);
 	}
 

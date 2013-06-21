@@ -1,51 +1,96 @@
 package controller;
 
-import java.io.ObjectInputStream.GetField;
-import observer.*;
-
-import view.TUI;
-
 import model.Bot;
 import model.Destructor;
 import model.Field;
 import model.Field.state;
 import model.Flattop;
 import model.Human;
-import model.Player;
 import model.Rowboat;
+import observer.Observable;
 
 /**
  * @author Sandro, Julian Our Controller Class!
  */
 public class Controller extends Observable {
-	
-	private static final int HEX = 65;
-	private static final int LINELEN = 9;
+
+	private int fieldsize;
+	private static int input;
+	private static final int ONE = 1;
+	private static final int TWO = 2;
 	private static final int THREE = 3;
+	private static final int FOUR = 4;
 	private static final int WAIT = 2000;
-	private static final String SEP = " | ";
-	private static int fieldsize;
-	
-	private static Human player;
+
+	private Human player;
 	private Bot bot;
 	private String statusLine = "Willkommen bei Battleship!";
-	
+
+	private Controller() {
+	}
+
+	/**
+	 * Constructor for a new Controller. Needs fieldsize to create new Humans
+	 * and Bots.
+	 * 
+	 * @param fieldsize
+	 */
+	public Controller(int x) {
+	}
+
+	/**
+	 * Getter for the local "Status" of the game.
+	 * 
+	 * @return a String - the status.
+	 */
 	public String getStatus() {
 		return this.statusLine;
 	}
-	
+
+	/**
+	 * Setter for the local "Status" of the game.
+	 * 
+	 * @param s is the Status-string
+	 */
 	public void setStatus(String s) {
 		this.statusLine = s;
 	}
-	
+
+	/**
+	 * Setter for the game's fieldsize.
+	 * 
+	 * @param x an integer - the fieldsize
+	 */
 	public void setFieldsize(int x) {
 		this.fieldsize = x;
 	}
-	
+
+	/**
+	 * Getter for the game's fieldsize.
+	 * 
+	 * @return an integer for the fieldsize
+	 */
 	public int getFieldsize() {
 		return fieldsize;
 	}
-	
+
+	/**
+	 * Getter for the user input.
+	 * 
+	 * @return returns an integer for the user's input
+	 */
+	public int getInput() {
+		return this.input;
+	}
+
+	/**
+	 * Sets the global variable to the given input.
+	 * 
+	 * @param input is the user's input
+	 */
+	public void setInput(int input) {
+		this.input = input;
+	}
 
 	/**
 	 * Getter for the Player-Object.
@@ -84,17 +129,10 @@ public class Controller extends Observable {
 	}
 
 	/**
-	 * Constructor for a new Controller. Needs fieldsize to create new Humans
-	 * and Bots.
+	 * Inits the Players. A bot and a human.
 	 * 
-	 * @param fieldsize
+	 * @param fieldsize - the fieldsize of the playboard
 	 */
-	private Controller() {
-	}
-	
-	public Controller(int x) {
-	}
-	
 	public void initPlayers(int fieldsize) {
 		player = new Human(fieldsize);
 		bot = new Bot(fieldsize);
@@ -102,6 +140,7 @@ public class Controller extends Observable {
 
 	/**
 	 * ShootBot shoots at the Bot's Playboard.
+	 * 
 	 * @param row
 	 * @param col
 	 */
@@ -113,7 +152,7 @@ public class Controller extends Observable {
 		}
 		return hit(bot.getPlayboard().getField()[row][col]);
 	}
- 
+
 	/**
 	 * ShootHuman shoots at the Human's Playboard.
 	 */
@@ -130,26 +169,22 @@ public class Controller extends Observable {
 	 * 
 	 * @param row the Row
 	 * @param col the Column
-	 * @param vertikal whether the ship shall be set vertical
-	 * @param horizontal whether the ship shall be set horizontal
+	 * @param alignment horizontal or vertical
 	 */
-	public void setHumanRowboat(int row, int col, boolean alignment) {
-		player.getPlayboard().setShip(
-				new Rowboat(row, col, alignment));
+	public void setHumanRowboat(int col, int row) {
+		player.getPlayboard().setShip(new Rowboat(col, row));
 		player.setNumberShips(player.getNumberShips() + 1);
 	}
 
 	/**
-	  * Sets a Flattop onto the Human's Playboard.
+	 * Sets a Flattop onto the Human's Playboard.
 	 * 
 	 * @param row the Row
 	 * @param col the Column
-	 * @param vertikal whether the ship shall be set vertical
-	 * @param horizontal whether the ship shall be set horizontal
+	 * @param alignment horizontal or vertical
 	 */
-	public void setHumanFlattop(int row, int col, boolean alignment) {
-		player.getPlayboard().setShip(
-				new Flattop(row, col, alignment));
+	public void setHumanFlattop(int col, int row, boolean alignment) {
+		player.getPlayboard().setShip(new Flattop(col, row, alignment));
 		player.setNumberShips(player.getNumberShips() + 1);
 	}
 
@@ -158,31 +193,25 @@ public class Controller extends Observable {
 	 * 
 	 * @param row the Row
 	 * @param col the Column
-	 * @param vertikal whether the ship shall be set vertical
-	 * @param horizontal whether the ship shall be set horizontal
+	 * @param alignment horizontal or vertical
 	 */
-	public void setHumanDestructor(int row, int col, boolean alignment) {
-		player.getPlayboard().setShip(
-				new Destructor(row, col, alignment));
+	public void setHumanDestructor(int col, int row, boolean alignment) {
+		player.getPlayboard().setShip(new Destructor(col, row, alignment));
 		player.setNumberShips(player.getNumberShips() + 1);
 	}
 
 	/**
 	 * Sets a Rowboat onto the Bot's Playboard.
-	 * 
-	 * @param vertikal whether the ship shall be set vertical
-	 * @param horizontal whether the ship shall be set horizontal
 	 */
-	public void setBotRowboat(boolean alignment) {
-		bot.setShip(new Rowboat(alignment));
+	public void setBotRowboat() {
+		bot.setShip(new Rowboat());
 		bot.setNumberShips(bot.getNumberShips() + 1);
 	}
 
 	/**
 	 * Sets a Flattop onto the Bot's Playboard.
 	 * 
-	 * @param vertikal whether the ship shall be set vertical
-	 * @param horizontal whether the ship shall be set horizontal
+	 * @param alignment horizontal or vertical
 	 */
 	public void setBotFlattop(boolean alignment) {
 		bot.setShip(new Flattop(alignment));
@@ -192,65 +221,118 @@ public class Controller extends Observable {
 	/**
 	 * Sets a Destructor onto the Bot's Playboard.
 	 * 
-	 * @param vertikal whether the ship shall be set vertical
-	 * @param horizontal whether the ship shall be set horizontal
+	 * @param alignment horizontal or vertical
 	 */
 	public void setBotDestructor(boolean alignment) {
 		bot.setShip(new Destructor(alignment));
 		bot.setNumberShips(bot.getNumberShips() + 1);
 	}
-	
-	public boolean hit(Field f)
-	{
-		if(f.getStat() == state.hit) {
+
+	/**
+	 * Checks if the shot hit a field or nor
+	 * 
+	 * @param f the field to be checked
+	 * @return true if hit, false if not
+	 */
+	public boolean hit(Field f) {
+		if (f.getStat() == state.hit) {
 			return true;
 		}
 		return false;
 	}
-	
-	public void howManyShipsBot() {
-		setBotRowboat(true);
+
+	/**
+	 * Sets the bot's ships - gets randomly horizontal or vertical and sets it.
+	 */
+	public void setShipsBot() {
+		setBotRowboat();
 		if (fieldsize >= 3) {
-			if (bot.vertical()) {
-				setBotDestructor(true);
-			} else {
-				setBotDestructor(false);
-			}
-		} 
-		if (fieldsize >= 8) {
-			if (bot.vertical()) {
-				setBotFlattop(true);
-			} else {
-				setBotFlattop(false);
+			setBotDestructor(bot.vertical());
+			if (fieldsize >= 8) {
+				setBotFlattop(bot.vertical());
 			}
 		}
 	}
-	
-	public void howManyShipsHuman() {	
+
+	/**
+	 * Checks if the Bot or the Player has won
+	 * 
+	 * @return 0 if nobody won, 1 if player, 2 if bot
+	 */
+	public boolean isGameOver() {
+		if (player.getNumberShips() == 0) {
+			setStatus("Game Over! Der Bot hat gewonnen!");
+			return true;
+		} else if (bot.getNumberShips() == 0) {
+			setStatus("Glückwunsch, du hast gewonnen!");
+			return true;
+		}
+		return false;
 	}
-	
+
+	/**
+	 * The "game-Loop" function.
+	 * Starts the playable game.
+	 */
 	public void gameLoop() {
 		// TODO Events schicken die dann in der View oben ausgewertet werden!
 		// z.b. sende eins (notify...(1)) um die begrüßung zu printen
-		// der string wird oben in der tui komplett gebaut, also hier das setStatus weg machen!
-		// Import vom marko observer zeug
-		// bei der dialoganzeige nen rückgabewert machen, damit die main wartet, bis der user 
-		// was eingegeben hat
+		// der string wird oben in der tui komplett gebaut, also hier das
+		// setStatus weg machen!
 
+		int turn = 0;
 		this.notifyOnSetFieldsize();
-		
+		initPlayers(getFieldsize());
 		this.notifyOnSetRowboat();
-		this.notifyOnSetDestructor();
-		this.notifyOnSetFlattop();
-		
+		if (fieldsize >= 3) {
+			this.notifyOnSetDestructor();
+			if (fieldsize >= 8) {
+				this.notifyOnSetFlattop();
+			}
+		}
+		// set the bot's ships
+		setShipsBot();
+		setStatus("\nOkay, los geht's!");
+		this.notifyOnStatus();
+
 		while (true) {
-			if (player.getNumberShips() == 0) {
-				break;
-			} else if (bot.getNumberShips() == 0) {
-				break;
+			if (turn == 0) {
+				this.notifyOnShowMenu();
+				this.notifyOnAction();
+
+				if (input == ONE) {
+					System.out.println("in case 1");
+					this.notifyOnShowPlayersField();
+					continue;
+				} else if (input == TWO) {
+					this.notifyOnShootOnBot();
+					this.notifyOnShowBotsField(false);
+				} else if (input == THREE) {
+					setStatus("Vielen Dank für's Spielen! Bis Bald!\n");
+					this.notifyOnStatus();
+					break;
+				} else if (input == FOUR) {
+					this.notifyOnShowBotsField(true);
+					continue;
+				}
+				turn = 1;
+			} else {
+				setStatus("Der Bot ist am Zug!");
+				this.notifyOnStatus();
+				shootHuman();
+				try {
+					Thread.sleep(WAIT);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				setStatus("Okay, der Bot hat geschossen");
+				turn = 0;
+			}
+			this.notifyOnStatus();
+			if (isGameOver()) {
+				this.notifyOnStatus();
+				System.exit(0);
 			}
 		}
 	}
 }
-
-
