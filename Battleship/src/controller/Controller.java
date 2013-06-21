@@ -253,6 +253,10 @@ public class Controller extends Observable {
 			}
 		}
 	}
+	
+	public int checkSetShipPosition(boolean alignment) {
+		return 0;
+	}
 
 	/**
 	 * Checks if the Bot or the Player has won

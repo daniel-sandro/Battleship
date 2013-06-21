@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.Dialog.ModalExclusionType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,14 +21,15 @@ public class BattleshipDialogs extends JFrame {
 	private JTextField JTFsize;
 	private JTextField JTxCol;
 	private JTextField JTyRow;
+	private JDialog enterFieldsize;
 	private int fieldsize, x, y;
-	BattleshipGUI gui;
+	private BattleshipGUI gui;
 	
 	public BattleshipDialogs(BattleshipGUI gui) {
 		this.gui = gui;
 	}
 	
-	public void setShip(int nr, boolean x) {
+	public void setShip(int nr, boolean t) {
 		JDialog setShip = new JDialog();
 		JBgo = new JButton("OK");
 		setShip.setSize(300, 200);
@@ -76,7 +78,7 @@ public class BattleshipDialogs extends JFrame {
 	}
 	
 	public void setFieldsize() {
-		JDialog enterFieldsize = new JDialog();
+		enterFieldsize = new JDialog();
 		enterFieldsize.setTitle("Bitte die Feldgröße eingeben!");
 		enterFieldsize.setLayout(new FlowLayout());
 		JBgo = new JButton("OK");
@@ -94,11 +96,12 @@ public class BattleshipDialogs extends JFrame {
 					if (s == null) {
 						BattleshipGUIUtils.noInputerror();
 					} else {
+						fieldsize = Integer.valueOf(s);
 						if (fieldsize < 1 || fieldsize > 26) {
 							BattleshipGUIUtils.fieldsizeError();
 						} else {
-							fieldsize = Integer.valueOf(s);
-							gui.controller.setFieldsize(fieldsize);
+							gui.getController().setFieldsize(fieldsize);
+							enterFieldsize.dispose();
 						}
 					}
 				}
@@ -106,11 +109,10 @@ public class BattleshipDialogs extends JFrame {
 		});
 		enterFieldsize.setModal(true);
 		enterFieldsize.setVisible(true);
-		enterFieldsize.dispose();
 	}
 	
-	public static boolean setShip(int x, Controller controller) {
-		new BattleshipSetShip(1, controller).setVisible(true);
+	public boolean setShip(int x) {
+		BattleshipShipSetter setter = new BattleshipShipSetter(x, gui.getController());
 		return true;
 	}
 }

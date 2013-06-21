@@ -28,11 +28,14 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	BattleshipStatus statusPanel;
 	BattleshipInfos infoPanel;
 	private int fieldsize;
-	Controller controller;
+	private Controller controller;
 	BattleshipDialogs dialogs;
-	
+ 	
 	
 	public BattleshipGUI(Controller controller) {
+		this.controller = controller;
+		controller.addObserver(this);
+		
 		dialogs = new BattleshipDialogs(this);
 		
 		mainPanel = new JPanel();
@@ -56,48 +59,42 @@ public class BattleshipGUI extends JFrame implements IObserver {
         this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        
-        this.go();
 	}
 	
-    public static JPanel getMainPanel() {
+	public Controller getController() {
+		return this.controller;
+	}
+	
+	public static JPanel getMainPanel() {
 		return mainPanel;
 	}
 
 	public static void setMainPanel(JPanel mainPanel) {
 		BattleshipGUI.mainPanel = mainPanel;
 	}
-	
-	public boolean onSetRowboat () {
-		dialogs.setFieldsize();
-		return true;
-	}
-	
+
 	public boolean onSetFieldsize() {
 		dialogs.setFieldsize();
 		return true;
-	}
-	
-	public void go() {
-		onSetFieldsize();
 	}
 	
 	public int getFieldsize() {
 		return controller.getFieldsize();
 	}
 	
-	public static void main(String args[]) {
-		BattleshipGUI gui = new BattleshipGUI(new Controller(0));
+	public boolean onSetRowboat () {
+		dialogs.setShip(0);
+		return true;
 	}
 
 	public boolean onSetDestructor() {
-		// TODO Auto-generated method stub
-		return false;
+		dialogs.setShip(1);
+		return true;
 	}
 
 	public boolean onSetFlattop() {
-		// TODO Auto-generated method stub
-		return false;
+		dialogs.setShip(2);
+		return true;
 	}
 
 	public void onShowMenu() {
