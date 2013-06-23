@@ -44,19 +44,18 @@ public class BattleshipDialogs extends JFrame {
 		JBgo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == JBgo) {
-					String s;
-					s = JTFsize.getText();
-					if (s == null) {
-						BattleshipGUIUtils.noInputerror();
-					} else {
-						fieldsize = Integer.valueOf(s);
-						if (fieldsize < 1 || fieldsize > 26) {
-							BattleshipGUIUtils.fieldsizeError();
-						} else {
-							gui.getController().setFieldsize(fieldsize);
-							enterFieldsize.dispose();
-						}
-					}
+					try {  
+						Integer.getInteger(JTFsize.getText());  
+				        Integer value = new Integer(JTFsize.getText());  
+				        if(value.intValue() <= 0 || value.intValue() > 26) {
+					    	BattleshipGUIUtils.fieldsizeError();
+				        } else {
+				        	gui.getController().setFieldsize(value);
+				        	enterFieldsize.dispose();
+				        }
+				    } catch (NumberFormatException e1) {
+				    	BattleshipGUIUtils.noInputerror();
+				    }
 				}
 			}
 		});
@@ -71,8 +70,7 @@ public class BattleshipDialogs extends JFrame {
 		} else if (x == 2) {
 			s = " den Flugzeugträger ";
 		}
-		JOptionPane.showMessageDialog(BattleshipGUI.getMainPanel(), "Bitte" + s + "setzen!",
-				"Bitte Schiff setzen!", JOptionPane.INFORMATION_MESSAGE);
+		BattleshipGUIUtils.setShip(s);
 		return true;
 	}
 }

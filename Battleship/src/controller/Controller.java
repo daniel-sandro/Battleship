@@ -16,6 +16,7 @@ public class Controller extends Observable {
 
 	private int fieldsize;
 	private static int input;
+	public static int cont = 0;
 	private static final int ONE = 1;
 	private static final int TWO = 2;
 	private static final int THREE = 3;

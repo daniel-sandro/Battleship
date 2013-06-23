@@ -1,23 +1,18 @@
 package gui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.net.URL;
-import java.awt.BorderLayout;
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 import model.Field.state;
@@ -30,13 +25,9 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	// action: 0 = eigenes feld nur anzeigen; 1 = ruderboot setzen
 	private int action = 0;
 	private JPanel fieldsPanel;
-	private JButton JBsize;
-	private JLabelE[][] labelField;
-    private JTextField JTFsize;
 	BattleshipInfos infoPanel;
 	private int fieldsize;
 	private static final int HEX = 65;
-	private JPanel fieldPanel;
 	private Controller controller;
 	BattleshipDialogs dialogs;
 	int i, j;
@@ -48,12 +39,13 @@ public class BattleshipGUI extends JFrame implements IObserver {
     Icon icon2 = new ImageIcon(resourceSelected);
     Icon pattern = new ImageIcon(resourcePattern);
     Icon rowboatNormal = new ImageIcon(resourceRowboatNormal);
+    private Color background;
  	
-	
 	public BattleshipGUI(Controller controller) {
 		this.controller = controller;
 		controller.addObserver(this);
 		
+		background = new Color(255, 255, 255);
 		dialogs = new BattleshipDialogs(this);
 	}
 	
@@ -65,12 +57,14 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	    showPlayboards();
 	    mainPanel.add(infoPanel, BorderLayout.NORTH);
 	    mainPanel.add(fieldsPanel, BorderLayout.SOUTH);
+	    mainPanel.setBackground(background);
 
 	    Dimension d = new Dimension(285, 118);
         mainPanel.setMaximumSize(d);
         mainPanel.setMinimumSize(d);
 	    this.setContentPane(mainPanel);
         this.setMaximumSize(d);
+        this.setBackground(background);
         this.setMinimumSize(d);
         this.setTitle("Battleship");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,6 +76,10 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	
 	public Controller getController() {
 		return this.controller;
+	}
+	
+	private Dimension calcSize() {
+		return new Dimension(fieldsize * 25 + 25, fieldsize * 25 + 25);
 	}
 	
 	public static JPanel getMainPanel() {
@@ -146,19 +144,21 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	
 	public void showPlayboards() {
 		fieldsPanel = new JPanel();
-		//fieldsPanel.setMinimumSize(new Dimension(304, 313));
-		fieldsPanel.setLayout(new BorderLayout(0, 0));
-		fieldsPanel.add(printPlayboard(), BorderLayout.WEST);
-		fieldsPanel.add(printPlayboard(), BorderLayout.EAST);
+		fieldsPanel.setLayout(new BorderLayout());
+		fieldsPanel.setBackground(background);
+		JPanel left = new JPanel();
+		left.add(printPlayboard());
+		left.setBackground(background);
+		JPanel right = new JPanel();
+		right.add(printPlayboard());
+		right.setBackground(background);
+		fieldsPanel.add(left, BorderLayout.WEST);
+		fieldsPanel.add(right, BorderLayout.EAST);
 	}
 	
 	private JPanel printPlayboard() {
 		JPanel playboardPanel = new JPanel();
-		int pattern = 25;
-		int width = 25 * fieldsize + pattern;
-		Border borderLT = BorderFactory.createMatteBorder(1, 1, 0, 0, new Color(135, 180, 255));
-		Border borderTop = BorderFactory.createMatteBorder(1, 0, 0, 0, new Color(135, 180, 255));
-		Border borderLeft = BorderFactory.createMatteBorder(0, 1, 0, 0, new Color(135, 180, 255));
+		int width = 25 * fieldsize + 25;
 		Border borderRB = BorderFactory.createMatteBorder(0, 0, 1, 1, new Color(135, 180, 255));
 	    playboardPanel.setLayout(new GridLayout(fieldsize+1, fieldsize+1));
 	    playboardPanel.setSize(width, width);
@@ -168,6 +168,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 				if (i == 0) {
 					if (j == 0) {
 						fields[i][j] = new JLabelE(this.pattern);
+						fields[i][j].setBorder(borderRB);
 						playboardPanel.add(fields[i][j]);
 					} else {
 					fields[i][j + 1] = new JLabelE(this.pattern);
@@ -176,7 +177,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 							String.valueOf((char) (j - 1 + HEX)) + "</font></html>");
 					fields[i][j + 1].setHorizontalTextPosition(JLabel.CENTER);
 					fields[i][j + 1].setVerticalTextPosition(JLabel.CENTER);
-					fields[i][j + 1].setBorder(borderLeft);
+					fields[i][j + 1].setBorder(borderRB);
 					playboardPanel.add(fields[i][j + 1]);
 					}
 				} else if (j == 0) {
@@ -186,14 +187,14 @@ public class BattleshipGUI extends JFrame implements IObserver {
 							String.valueOf(i) + "</font></html>");
 					fields[i][j].setHorizontalTextPosition(JLabel.CENTER);
 					fields[i][j].setVerticalTextPosition(JLabel.CENTER);
-					fields[i][j].setBorder(borderTop);
+					fields[i][j].setBorder(borderRB);
 					playboardPanel.add(fields[i][j]);
 				} else {
 					fields[i][j] = new JLabelE(icon);
 					//checkStateHuman(fields, i, j);
 					fields[i][j].setSize(25, 25);
 					fields[i][j].setPosition(i, j);
-					fields[i][j].setBorder(borderLT);
+					fields[i][j].setBorder(borderRB);
 					fields[i][j].addMouseListener(new MouseAdapter() {
 						@Override
 						public void mouseEntered(java.awt.event.MouseEvent evt) {

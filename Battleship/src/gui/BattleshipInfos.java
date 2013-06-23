@@ -1,5 +1,7 @@
 package gui;
 
+import java.awt.Color;
+
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -13,16 +15,21 @@ public class BattleshipInfos extends JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    Color background = new Color(255, 255, 255);
 
     public BattleshipInfos() {
         
         jTextField2 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
+        jPanel1.setBackground(background);
         jTextField3 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
+        
+        setBackground(background);
 
         jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField2.setBackground(background);
         jTextField2.setForeground(new java.awt.Color(0, 0, 102));
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setText("*STATUS*");
@@ -31,9 +38,9 @@ public class BattleshipInfos extends JPanel {
         jTextField2.setName(""); // NOI18N
 
         jTextField3.setEditable(false);
-        jTextField3.setBackground(new java.awt.Color(0, 0, 153));
+        jTextField3.setBackground(background);
         jTextField3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(102, 204, 255));
+        jTextField3.setForeground(new java.awt.Color(104, 161, 255));
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setText("Flotte des Bots");
         jTextField3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -42,9 +49,9 @@ public class BattleshipInfos extends JPanel {
         jTextField3.setSelectionStart(12);
 
         jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(0, 0, 153));
+        jTextField1.setBackground(background);
         jTextField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(102, 204, 255));
+        jTextField1.setForeground(new java.awt.Color(104, 161, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Deine Flotte");
         jTextField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));

@@ -28,6 +28,11 @@ public class BattleshipGUIUtils extends JFrame {
 		JOptionPane.showMessageDialog(BattleshipGUI.getMainPanel(), sb.toString(),
 				"Fehler!", JOptionPane.ERROR_MESSAGE);
 	}
+	
+	public static void setShip(String s) {
+		JOptionPane.showMessageDialog(BattleshipGUI.getMainPanel(), "Bitte" + s + "setzen!",
+				"Bitte Schiff setzen!", JOptionPane.INFORMATION_MESSAGE);
+	}
 
     public static int exit() {
     	System.exit(0);
