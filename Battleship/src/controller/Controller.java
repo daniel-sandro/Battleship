@@ -16,7 +16,7 @@ public class Controller extends Observable {
 
 	private int fieldsize;
 	private static int input;
-	public static int cont = 0;
+	private static int cont = 0;
 	private static final int ONE = 1;
 	private static final int TWO = 2;
 	private static final int THREE = 3;
@@ -46,6 +46,14 @@ public class Controller extends Observable {
 	 */
 	public String getStatus() {
 		return this.statusLine;
+	}
+	
+	public static int getCont() {
+		return cont;
+	}
+
+	public static void setCont(int cont) {
+		Controller.cont = cont;
 	}
 
 	/**
@@ -175,6 +183,7 @@ public class Controller extends Observable {
 	public void setHumanRowboat(int col, int row) {
 		player.getPlayboard().setShip(new Rowboat(col, row));
 		player.setNumberShips(player.getNumberShips() + 1);
+		cont = 1;
 	}
 
 	/**
@@ -282,8 +291,9 @@ public class Controller extends Observable {
 	/**
 	 * The "game-Loop" function.
 	 * Starts the playable game.
+	 * @throws InterruptedException 
 	 */
-	public void gameLoop() {
+	public void gameLoop() throws InterruptedException {
 		// TODO Events schicken die dann in der View oben ausgewertet werden!
 		// z.b. sende eins (notify...(1)) um die begrüßung zu printen
 		// der string wird oben in der tui komplett gebaut, also hier das
@@ -293,6 +303,10 @@ public class Controller extends Observable {
 		this.notifyOnSetFieldsize();
 		initPlayers(getFieldsize());
 		this.notifyOnSetRowboat();
+		setStatus("Bitte das Ruderboot setzen!");
+		while (cont == 0) {
+			Thread.sleep(1000);
+		}
 		if (fieldsize >= 3) {
 			this.notifyOnSetDestructor();
 			if (fieldsize >= 8) {

@@ -1,4 +1,4 @@
-package gui;
+package view.gui;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -50,7 +50,7 @@ public class BattleshipDialogs extends JFrame {
 				        if(value.intValue() <= 0 || value.intValue() > 26) {
 					    	BattleshipGUIUtils.fieldsizeError();
 				        } else {
-				        	gui.getController().setFieldsize(value);
+				        	gui.controller.setFieldsize(value);
 				        	enterFieldsize.dispose();
 				        }
 				    } catch (NumberFormatException e1) {

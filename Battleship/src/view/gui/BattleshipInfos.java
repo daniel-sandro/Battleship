@@ -1,9 +1,11 @@
-package gui;
+package view.gui;
 
 import java.awt.Color;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import controller.Controller;
 
 /**
  *
@@ -17,13 +19,14 @@ public class BattleshipInfos extends JPanel {
     private javax.swing.JTextField jTextField3;
     Color background = new Color(255, 255, 255);
 
-    public BattleshipInfos() {
+    public BattleshipInfos(Controller controller) {
         
         jTextField2 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jPanel1.setBackground(background);
         jTextField3 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
+        String status = controller.getStatus();
         
         setBackground(background);
 
@@ -32,7 +35,7 @@ public class BattleshipInfos extends JPanel {
         jTextField2.setBackground(background);
         jTextField2.setForeground(new java.awt.Color(0, 0, 102));
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setText("*STATUS*");
+        jTextField2.setText(status);
         jTextField2.setAutoscrolls(false);
         jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Status:"));
         jTextField2.setName(""); // NOI18N

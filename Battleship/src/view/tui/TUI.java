@@ -1,4 +1,4 @@
-package view;
+package view.tui;
 
 import java.util.Observable;
 import java.util.Scanner;
@@ -113,6 +113,7 @@ public final class TUI implements IObserver {
 		while (true) {
 			print("Horizontal (1) oder vertikal (2) setzen?\n");
 			nextBool = scanner.nextInt();
+			
 			if (nextBool == 1) {
 				return true;
 			} else if (nextBool == 2) {
