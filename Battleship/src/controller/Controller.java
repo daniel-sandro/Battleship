@@ -240,6 +240,10 @@ public class Controller extends Observable {
 		}
 		return false;
 	}
+	
+	public state getState(Field f) {
+		return f.getStat();
+	}
 
 	/**
 	 * Sets the bot's ships - gets randomly horizontal or vertical and sets it.
@@ -254,7 +258,7 @@ public class Controller extends Observable {
 		}
 	}
 	
-	public int checkSetShipPosition(boolean alignment) {
+	public int checkSetShipPosition(int shiptype, int x, int y, boolean alignment) {
 		return 0;
 	}
 
@@ -273,7 +277,7 @@ public class Controller extends Observable {
 		}
 		return false;
 	}
-
+	
 	/**
 	 * The "game-Loop" function.
 	 * Starts the playable game.

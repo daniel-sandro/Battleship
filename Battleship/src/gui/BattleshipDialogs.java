@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -27,54 +28,6 @@ public class BattleshipDialogs extends JFrame {
 	
 	public BattleshipDialogs(BattleshipGUI gui) {
 		this.gui = gui;
-	}
-	
-	public void setShip(int nr, boolean t) {
-		JDialog setShip = new JDialog();
-		JBgo = new JButton("OK");
-		setShip.setSize(300, 200);
-		setShip.setLocationRelativeTo(null);
-		JLabel des = new JLabel("Bitte die Position des Zerstörers angeben!");
-		JLabel fla = new JLabel("Bitte die Position des Flugzeugträgers angeben!");
-		JLabel row = new JLabel("Bitte die Position des Ruderbootes angeben!");
-		JLabel xCol = new JLabel("X-Position: ");
-		JTxCol = new JTextField(2);
-		JLabel yRow = new JLabel("Y-Position: ");
-		JTyRow = new JTextField(2);
-		JPanel text = new JPanel();
-		if (nr == 1) {
-			text.add(row);
-		} else if (nr == 2) {
-			text.add(des);
-		} else if (nr == 3) {
-			text.add(fla);
-		}
-		setShip.setLayout(new BorderLayout(5, 5));
-		setShip.setTitle("Bitte die Position angeben!");
-		setShip.add(text, BorderLayout.NORTH);
-		setShip.add(xCol, BorderLayout.WEST);
-		setShip.add(JTxCol, BorderLayout.EAST);
-		setShip.add(yRow, BorderLayout.WEST);
-		setShip.add(JTyRow, BorderLayout.EAST);
-		setShip.add(JBgo, BorderLayout.SOUTH);
-		JBgo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == JBgo) {
-					String s, t;
-					s = JTxCol.getText();
-					t = JTyRow.getText();
-					if (s == null || t == null) {
-						BattleshipGUIUtils.noInputerror();
-					} else {
-						x = Integer.parseInt(JTxCol.getText());
-						y = Integer.parseInt(JTyRow.getText());
-					}
-				}
-			}
-		});
-		setShip.setModal(true);
-		setShip.setVisible(true);
-		setShip.dispose();
 	}
 	
 	public void setFieldsize() {
@@ -112,8 +65,14 @@ public class BattleshipDialogs extends JFrame {
 	}
 	
 	public boolean setShip(int x) {
-		SetBattleshipDialog d = new SetBattleshipDialog(this, true, x);
-		d.setVisible(true);
+		String s = " das Ruderboot ";
+		if (x == 1) {
+			s = " den Zerstörer ";
+		} else if (x == 2) {
+			s = " den Flugzeugträger ";
+		}
+		JOptionPane.showMessageDialog(BattleshipGUI.getMainPanel(), "Bitte" + s + "setzen!",
+				"Bitte Schiff setzen!", JOptionPane.INFORMATION_MESSAGE);
 		return true;
 	}
 }

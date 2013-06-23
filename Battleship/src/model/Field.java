@@ -7,7 +7,7 @@ package model;
 public class Field {
 
 	public enum state {
-		empty, ship, hit, emptyhit
+		empty, ship, hit, emptyhit, rowboat
 	}
 
 	private Ships ship;
