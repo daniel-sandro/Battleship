@@ -181,6 +181,7 @@ public class Controller extends Observable {
 	 * @param alignment horizontal or vertical
 	 */
 	public void setHumanRowboat(int col, int row) {
+		System.out.printf("col: %d row: %d\n", col, row);
 		player.getPlayboard().setShip(new Rowboat(col, row));
 		player.setNumberShips(player.getNumberShips() + 1);
 		cont = 1;
@@ -196,6 +197,7 @@ public class Controller extends Observable {
 	public void setHumanFlattop(int col, int row, boolean alignment) {
 		player.getPlayboard().setShip(new Flattop(col, row, alignment));
 		player.setNumberShips(player.getNumberShips() + 1);
+		cont = 1;
 	}
 
 	/**
@@ -206,8 +208,10 @@ public class Controller extends Observable {
 	 * @param alignment horizontal or vertical
 	 */
 	public void setHumanDestructor(int col, int row, boolean alignment) {
+		System.out.printf("col: %d row: %d\n", col, row);
 		player.getPlayboard().setShip(new Destructor(col, row, alignment));
 		player.setNumberShips(player.getNumberShips() + 1);
+		cont = 1;
 	}
 
 	/**
@@ -269,6 +273,19 @@ public class Controller extends Observable {
 	}
 	
 	public int checkSetShipPosition(int shiptype, int x, int y, boolean alignment) {
+		if (shiptype == 1) {
+			if (!alignment) { // horizontal
+				if (x + 2 > player.getPlayboard().getSize()) {
+					return player.getPlayboard().getSize() - x;
+				}
+			} else {
+				if (y + 2 > player.getPlayboard().getSize()) {
+					return player.getPlayboard().getSize() - y;
+				}
+			}
+		} else if (shiptype == 2) {
+			
+		}
 		return 0;
 	}
 
@@ -288,27 +305,29 @@ public class Controller extends Observable {
 		return false;
 	}
 	
+	public void waitForInput() throws InterruptedException {
+		while (cont == 0) {
+			Thread.sleep(1000);
+		}
+		cont = 0;
+	}
+	
 	/**
 	 * The "game-Loop" function.
 	 * Starts the playable game.
 	 * @throws InterruptedException 
 	 */
 	public void gameLoop() throws InterruptedException {
-		// TODO Events schicken die dann in der View oben ausgewertet werden!
-		// z.b. sende eins (notify...(1)) um die begrüßung zu printen
-		// der string wird oben in der tui komplett gebaut, also hier das
-		// setStatus weg machen!
 
 		int turn = 0;
 		this.notifyOnSetFieldsize();
 		initPlayers(getFieldsize());
 		this.notifyOnSetRowboat();
 		setStatus("Bitte das Ruderboot setzen!");
-		while (cont == 0) {
-			Thread.sleep(1000);
-		}
+		waitForInput();
 		if (fieldsize >= 3) {
 			this.notifyOnSetDestructor();
+			waitForInput();
 			if (fieldsize >= 8) {
 				this.notifyOnSetFlattop();
 			}
@@ -324,7 +343,6 @@ public class Controller extends Observable {
 				this.notifyOnAction();
 
 				if (input == ONE) {
-					System.out.println("in case 1");
 					this.notifyOnShowPlayersField();
 					continue;
 				} else if (input == TWO) {

@@ -22,7 +22,8 @@ import controller.Controller;
 public class BattleshipGUI extends JFrame implements IObserver {
 
 	public static JPanel mainPanel;
-	// action: 0 = eigenes feld nur anzeigen; 1 = ruderboot setzen
+	// action: 0 = eigenes feld nur anzeigen; 1 = ruderboot setzen; 2 = zerstörer setzen
+	// 3 = flugzeugträger setzen
 	private int action = 0;
 	boolean cont = false;
 	private JPanel fieldsPanel;
@@ -34,16 +35,9 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	private PlayboardPanel botPanel;
 	BattleshipDialogs dialogs;
 	int i, j;
-	URL resource = BattleshipGUI.class.getResource("/images/Field.jpg");
-    URL resourceSelected = BattleshipGUI.class.getResource("/images/FieldS.jpg");
-    URL resourcePattern = BattleshipGUI.class.getResource("/images/Pattern.jpg");
-    URL resourceRowboatNormal = BattleshipGUI.class.getResource("/images/RowboatNormal.jpg");
-    URL resourceRowboatSelected = BattleshipGUI.class.getResource("/images/RowboatSelected.jpg");
-    Icon icon = new ImageIcon(resource);
-    Icon icon2 = new ImageIcon(resourceSelected);
-    Icon pattern = new ImageIcon(resourcePattern);
-    Icon rowboatNormal = new ImageIcon(resourceRowboatNormal);
-    Icon rowboatSelected = new ImageIcon(resourceRowboatSelected);
+    Icon rowboatNormal = new ImageIcon(BattleshipGUI.class.getResource("/images/RowboatNormal.jpg"));
+    Icon rowboatSelected = new ImageIcon(BattleshipGUI.class.getResource("/images/RowboatSelected.jpg"));
+    Icon schiffPre = new ImageIcon(BattleshipGUI.class.getResource("/images/SchiffPre.jpg"));
     private Color background;
     private JLabelE[][] fields;
  	
@@ -108,7 +102,10 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	}
 
 	public boolean onSetDestructor() {
+		action = 2;
 		dialogs.setShip(1);
+		infoPanel.repaint();
+		mainPanel.repaint();
 		return true;
 	}
 
@@ -164,14 +161,38 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	}
 	
 	public void mouseClick(int[] positions) {
+		boolean align;
 		int x = positions[0];
 		int y = positions[1];
 		if (action == 1) {
-			controller.setHumanRowboat(x, y);
+			controller.setHumanRowboat(x - 1, y - 1);
 			playerPanel.setIcon(x, y, rowboatNormal, rowboatSelected);
+		} else if (action == 2) {
+			align = dialogs.setAlignment();
+			controller.setHumanDestructor(x, y, align);
+			checkSetShipPosition(1, x, y, align);
+			playerPanel.setIcon(x, y, schiffPre, schiffPre);
+			if (align) {//horizontal
+				playerPanel.setIcon(x + 1, y, schiffPre, schiffPre);
+				playerPanel.setIcon(x + 2, y, schiffPre, schiffPre);
+			} else {
+				playerPanel.setIcon(x, y + 1, schiffPre, schiffPre);
+				playerPanel.setIcon(x, y + 2, schiffPre, schiffPre);
+			}
+		} else if (action == 3) {
+			align = dialogs.setAlignment();
+			controller.checkSetShipPosition(2, x, y, dialogs.setAlignment());
 		}
 	}
 	
+	public void checkSetShipPosition(int ship, int x, int y, boolean align) {
+		int t = controller.checkSetShipPosition(ship, x, y, align);
+		if (t != 0) {
+			;
+		}
+	}
+	
+	/*
 	private void checkStateHuman(int i, int j) {
 		state stat = controller.getState(controller.getPlayer().getPlayboard().getField()[i][j]);
 		if (stat == state.empty) {
@@ -179,5 +200,5 @@ public class BattleshipGUI extends JFrame implements IObserver {
 		} else if (stat == state.rowboat) {
 			fields[i][j] = new JLabelE(rowboatNormal, rowboatSelected);
 		}
-	}
+	}*/
 }

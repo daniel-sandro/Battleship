@@ -43,7 +43,7 @@ public final class TUI implements IObserver {
 	
 	public boolean onSetFieldsize() {
 		int fieldsize;
-		System.out.println("Bitte Feldgröße eingeben!");
+		print("Bitte Feldgröße eingeben!");
 		while (true) {
 			fieldsize = scanner.nextInt();
 			if (fieldsize < 0 || fieldsize > MAXFIELDSIZE) {
@@ -57,19 +57,19 @@ public final class TUI implements IObserver {
 	}
 
 	public boolean onSetRowboat() {
-		System.out.println("Bitte Ruderboot setzten (X/Y):");
+		print("Bitte Ruderboot setzten (X/Y):\n");
 		controller.setHumanRowboat(setXPos(), setYPos());
 		return true;
 	}
 	
 	public boolean onSetDestructor() {
-		System.out.println("Bitte Zerstörer setzten (X/Y):");
+		print("Bitte Zerstörer setzten (X/Y):\n");
 		controller.setHumanDestructor(setXPos(), setYPos(), setAlignment());
 		return true;
 	}
 	
 	public boolean onSetFlattop() {
-		System.out.println("Bitte Flugzeugträger setzten (X/Y):");		
+		print("Bitte Flugzeugträger setzten (X/Y):\n");		
 		controller.setHumanFlattop(setXPos(), setYPos(), setAlignment());
 		return true;
 	}
@@ -79,8 +79,9 @@ public final class TUI implements IObserver {
 		while (true) {
 			x = scanner.nextInt();
 			if (x < 0 || x > controller.getFieldsize()) {
-				System.out.printf("Die X-Koordinate muss zwischen 0 und " +
-						"%d liegen!\nBitte erneut eingeben!", controller.getFieldsize());
+				print("Die X-Koordinate muss zwischen 0 und ");
+				print(String.valueOf(controller.getFieldsize()));
+				print("liegen!\nBitte erneut eingeben!");
 				continue;
 			}
 			break;

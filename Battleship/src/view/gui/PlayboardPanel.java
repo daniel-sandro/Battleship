@@ -24,11 +24,9 @@ public class PlayboardPanel extends JPanel {
 	URL resource = BattleshipGUI.class.getResource("/images/Field.jpg");
     URL resourceSelected = BattleshipGUI.class.getResource("/images/FieldS.jpg");
     URL resourcePattern = BattleshipGUI.class.getResource("/images/Pattern.jpg");
-    URL resourceRowboatNormal = BattleshipGUI.class.getResource("/images/RowboatNormal.jpg");
     Icon icon = new ImageIcon(resource);
     Icon selectedFieldIcon = new ImageIcon(resourceSelected);
     Icon pattern = new ImageIcon(resourcePattern);
-    Icon rowboatNormal = new ImageIcon(resourceRowboatNormal);
     JPanel playboardPanel;
 	
 	public PlayboardPanel(BattleshipGUI gui) {

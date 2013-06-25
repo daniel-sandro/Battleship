@@ -73,4 +73,16 @@ public class BattleshipDialogs extends JFrame {
 		BattleshipGUIUtils.setShip(s);
 		return true;
 	}
+	
+	public boolean setAlignment() {
+		Object[] options = {"Horizontal", "Vertikal"};
+		 
+        int selected = JOptionPane.showOptionDialog(null, "Schiff horizontal oder vertikal setzen?",
+        		"Alternativen", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, 
+        		null, options, options[0]);
+        if (selected == 0) {
+        	return false;
+        }
+        return true;
+	}
 }
