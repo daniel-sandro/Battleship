@@ -21,67 +21,39 @@ public class Observable implements IObservable {
 		subscribers.clear();
 	}
 
-	/*
-	public void notifyObservers() {
-		notifyObservers(null);
-	}
-	*/
-	
-	public void notifyOnSetFieldsize() {
+	public void notifyObservers(Event t) {
 		for (Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
 			IObserver observer = iter.next();
-			if (observer.onSetFieldsize()) {
-				break;
-			}
+			observer.onNotifyObservers(t);
 		}
+	}
+	
+	public void notifyOnSetFieldsize() {
+		notifyObservers(new Event(Event.EventType.setFieldsize));
 	}
 
 	public void notifyOnSetRowboat() {
-		for (Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
-			IObserver observer = iter.next();
-			if (observer.onSetRowboat()) {
-				break;
-			}
-		}
+		notifyObservers(new Event(Event.EventType.setRowboat));
 	}
 
 	public void notifyOnSetDestructor() {
-		for (Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
-			IObserver observer = iter.next();
-			if (observer.onSetDestructor()) {
-				break;
-			}
-		}
+		notifyObservers(new Event(Event.EventType.setDestructor));
 	}
 
 	public void notifyOnSetFlattop() {
-		for (Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
-			IObserver observer = iter.next();
-			if (observer.onSetFlattop()) {
-				break;
-			}
-		}
+		notifyObservers(new Event(Event.EventType.setFlattop));
 	}
 	
 	public void notifyOnShowMenu() {
-		for (Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
-			IObserver observer = iter.next();
-			observer.onShowMenu();
-		}
+		notifyObservers(new Event(Event.EventType.showMenu));
 	}
 	
 	public void notifyOnAction() {
-		for (Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
-			IObserver observer = iter.next();
-			observer.onAction();
-		}
+		notifyObservers(new Event(Event.EventType.onAction));
 	}
 
 	public void notifyOnShowPlayersField() {
-		for (Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
-			IObserver observer = iter.next();
-			observer.onShowPlayersField();
-		}
+		notifyObservers(new Event(Event.EventType.showPlayersField));
 	}
 	
 	public void notifyOnShowBotsField(boolean withShip) {
@@ -92,16 +64,10 @@ public class Observable implements IObservable {
 	}
 	
 	public void notifyOnShootOnBot() {
-		for (Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
-			IObserver observer = iter.next();
-			observer.onShootOnBot();
-		}	
+		notifyObservers(new Event(Event.EventType.shootBot));
 	}
 	
 	public void notifyOnStatus() {
-		for (Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
-			IObserver observer = iter.next();
-			observer.onStatus();
-		}
+		notifyObservers(new Event(Event.EventType.onStatus));
 	}
 }

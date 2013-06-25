@@ -3,6 +3,7 @@ package view.gui;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
+@SuppressWarnings("serial")
 public class JLabelE extends JLabel {
 
 	int xPos;
@@ -16,9 +17,12 @@ public class JLabelE extends JLabel {
 		this.selectedIcon = selected;
 	}
 	
-	public int[] getPosition() {
-		int[] positions = {xPos, yPos};
-		return positions;
+	public int getXPosition() {
+		return xPos;
+	}
+	
+	public int getYPosition() {
+		return yPos;
 	}
 	
 	public void setPosition(int x, int y) {

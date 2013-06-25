@@ -33,6 +33,40 @@ public class BattleshipGUIUtils extends JFrame {
 		JOptionPane.showMessageDialog(BattleshipGUI.getMainPanel(), "Bitte" + s + "setzen!",
 				"Bitte Schiff setzen!", JOptionPane.INFORMATION_MESSAGE);
 	}
+	
+	public static boolean setShip(int x) {
+		String s = " das Ruderboot ";
+		if (x == 1) {
+			s = " den Zerstörer ";
+		} else if (x == 2) {
+			s = " den Flugzeugträger ";
+		}
+		BattleshipGUIUtils.setShip(s);
+		return true;
+	}
+	
+	public static void correctShipPosition(int x, boolean al) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Das Schiff bitte ").append(x).append(" Feld(er) weiter");
+		String s = " links ";
+		if (al) {
+			s = " oben ";
+		}
+		sb.append(s).append("setzen!");
+		JOptionPane.showMessageDialog(BattleshipGUI.getMainPanel(), sb.toString(),
+				"Fehler!", JOptionPane.ERROR_MESSAGE);
+	}
+	
+	public static boolean setAlignment() {
+		Object[] options = {"Horizontal", "Vertikal"};
+        int selected = JOptionPane.showOptionDialog(null, "Schiff horizontal oder vertikal setzen?",
+        		"Alternativen", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, 
+        		null, options, options[0]);
+        if (selected == 0) {
+        	return false;
+        }
+        return true;
+	}
 
     public static int exit() {
     	System.exit(0);

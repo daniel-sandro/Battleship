@@ -2,13 +2,13 @@ package observer;
 
 public interface IObserver {
 
-	public boolean onSetFieldsize();
+	public void onSetFieldsize();
 	
-	public boolean onSetRowboat();
+	public void onSetRowboat();
 	
-	public boolean onSetDestructor();
+	public void onSetDestructor();
 	
-	public boolean onSetFlattop();
+	public void onSetFlattop();
 	
 	public void onShowMenu();
 	
@@ -21,4 +21,6 @@ public interface IObserver {
 	public void onShootOnBot();
 	
 	public void onStatus();
+	
+	public void onNotifyObservers(Event t);
 }

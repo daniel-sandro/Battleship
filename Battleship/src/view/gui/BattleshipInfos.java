@@ -3,7 +3,6 @@ package view.gui;
 import java.awt.Color;
 
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import controller.Controller;
 
@@ -11,6 +10,7 @@ import controller.Controller;
  *
  * @author Sandro
  */
+@SuppressWarnings("serial")
 public class BattleshipInfos extends JPanel {
 
 	private javax.swing.JPanel jPanel1;
@@ -26,7 +26,6 @@ public class BattleshipInfos extends JPanel {
         jPanel1.setBackground(background);
         jTextField3 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
-        String status = controller.getStatus();
         
         setBackground(background);
 
@@ -35,7 +34,7 @@ public class BattleshipInfos extends JPanel {
         jTextField2.setBackground(background);
         jTextField2.setForeground(new java.awt.Color(0, 0, 102));
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setText(status);
+        jTextField2.setText(controller.getStatus());
         jTextField2.setAutoscrolls(false);
         jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Status:"));
         jTextField2.setName(""); // NOI18N
@@ -90,5 +89,9 @@ public class BattleshipInfos extends JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+    }
+    
+    public void setT(String t) {
+    	this.jTextField2.setText(t);
     }
 }

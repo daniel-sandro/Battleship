@@ -30,7 +30,7 @@ public class BattleshipDialogs extends JFrame {
 		this.gui = gui;
 	}
 	
-	public void setFieldsize() {
+	public void setFieldsize() throws InterruptedException {
 		enterFieldsize = new JDialog();
 		enterFieldsize.setTitle("Bitte die Feldgröße eingeben!");
 		enterFieldsize.setLayout(new FlowLayout());
@@ -51,7 +51,7 @@ public class BattleshipDialogs extends JFrame {
 					    	BattleshipGUIUtils.fieldsizeError();
 				        } else {
 				        	gui.controller.setFieldsize(value);
-				        	enterFieldsize.dispose();
+				    		gui.controller.setInput(true);
 				        }
 				    } catch (NumberFormatException e1) {
 				    	BattleshipGUIUtils.noInputerror();
@@ -59,30 +59,15 @@ public class BattleshipDialogs extends JFrame {
 				}
 			}
 		});
-		enterFieldsize.setModal(true);
+		// enterFieldsize.setModal(true);
 		enterFieldsize.setVisible(true);
-	}
-	
-	public boolean setShip(int x) {
-		String s = " das Ruderboot ";
-		if (x == 1) {
-			s = " den Zerstörer ";
-		} else if (x == 2) {
-			s = " den Flugzeugträger ";
+		while (!gui.controller.isInput()) {
+			try {
+				Thread.sleep(50);
+			} catch (InterruptedException e) {
+			}
 		}
-		BattleshipGUIUtils.setShip(s);
-		return true;
-	}
-	
-	public boolean setAlignment() {
-		Object[] options = {"Horizontal", "Vertikal"};
-		 
-        int selected = JOptionPane.showOptionDialog(null, "Schiff horizontal oder vertikal setzen?",
-        		"Alternativen", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, 
-        		null, options, options[0]);
-        if (selected == 0) {
-        	return false;
-        }
-        return true;
+		enterFieldsize.setVisible(false);
+    	enterFieldsize.dispose();
 	}
 }

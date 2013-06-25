@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import model.Field.state;
 
+import observer.Event;
 import observer.IObserver;
 import controller.Controller;
 /*import observer.Event;*/
@@ -21,8 +22,8 @@ public final class TUI implements IObserver {
 	private Scanner scanner = new Scanner(System.in);
 	private static StringBuilder sb = new StringBuilder();
 
-	private TUI() {
-	}
+	@SuppressWarnings("unused")
+	private TUI() {}
 	
 	public TUI (Controller controller) {
 		this.controller = controller;
@@ -31,19 +32,33 @@ public final class TUI implements IObserver {
 		print("\n");
 	}
 	
-	/*
-	public void update(Event e) {
-		System.out.println("bla");
-		printTUI();		
-	}*/
-	
-	public void update(Observable arg0, Object arg1) {
-		//checkObject(arg1);	
+	public void onNotifyObservers(Event t) {
+		switch (t.getEventType()) {
+		case setDestructor:
+			onSetDestructor();
+			break;
+		default:
+			break;
+		}
 	}
 	
-	public boolean onSetFieldsize() {
+	public void sleep() {
+		try {
+			Thread.sleep(50);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void onSetFieldsize() {
 		int fieldsize;
 		print("Bitte Feldgröße eingeben!");
+		while (!controller.isInput() && !scanner.hasNextInt()) {
+			sleep();
+		}
+		if (controller.isInput()) {
+			return;
+		}
 		while (true) {
 			fieldsize = scanner.nextInt();
 			if (fieldsize < 0 || fieldsize > MAXFIELDSIZE) {
@@ -52,26 +67,23 @@ public final class TUI implements IObserver {
 				continue;
 			}
 			controller.setFieldsize(fieldsize);
-			return true;
+			controller.setInput(true);
 		}
 	}
 
-	public boolean onSetRowboat() {
+	public void onSetRowboat() {
 		print("Bitte Ruderboot setzten (X/Y):\n");
 		controller.setHumanRowboat(setXPos(), setYPos());
-		return true;
 	}
 	
-	public boolean onSetDestructor() {
+	public void onSetDestructor() {
 		print("Bitte Zerstörer setzten (X/Y):\n");
 		controller.setHumanDestructor(setXPos(), setYPos(), setAlignment());
-		return true;
 	}
 	
-	public boolean onSetFlattop() {
+	public void onSetFlattop() {
 		print("Bitte Flugzeugträger setzten (X/Y):\n");		
 		controller.setHumanFlattop(setXPos(), setYPos(), setAlignment());
-		return true;
 	}
 	
 	public int setXPos() {
@@ -146,15 +158,19 @@ public final class TUI implements IObserver {
 	}
 	
 	public void onShowPlayersField() {
-		print(showField(false, false).toString());		
+		print(showField(false, false).toString());
+		print(showField(true, false).toString());
+		sb.setLength(0);	
 	}
 	
 	public void onShowBotsField(boolean withShip) {
 		print(showField(true, withShip).toString());
+		sb.setLength(0);
 	}
 	
 	public void onShootOnBot() {
 		print("Nenne die Position auf die geschossen werden soll: ([X/Y])\n");
+		
 		int x = scanner.nextInt();
 		int y = scanner.nextInt();
 		if(controller.shootBot(y, x) == true)
@@ -169,7 +185,6 @@ public final class TUI implements IObserver {
 	}
 	
 	public StringBuilder showField(boolean bot, boolean ship) {
-		sb.setLength(0);
 		printHeader(bot, ship);
 		for (int i = 0; i < controller.getFieldsize(); i++) {
 			printPattern(i);

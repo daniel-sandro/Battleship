@@ -12,9 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import controller.Controller;
-import view.gui.*;
-
+@SuppressWarnings("serial")
 public class PlayboardPanel extends JPanel {
 
 	public JLabelE[][] fields;
@@ -41,8 +39,8 @@ public class PlayboardPanel extends JPanel {
 	}
 	
 	public void setIcon(int x, int y, Icon normal, Icon selected) {
-		this.fields[x][y].setNormalIcon(normal);
-		this.fields[x][y].setSelectedIcon(selected);
+		this.fields[y][x].setNormalIcon(normal);
+		this.fields[y][x].setSelectedIcon(selected);
 		playboardPanel.repaint();
 	}
 	
@@ -82,7 +80,7 @@ public class PlayboardPanel extends JPanel {
 					fields[i][j] = new JLabelE(icon, selectedFieldIcon);
 					//checkStateHuman(fields, i, j);
 					fields[i][j].setSize(25, 25);
-					fields[i][j].setPosition(i, j);
+					fields[i][j].setPosition(j, i);
 					fields[i][j].setBorder(borderRB);
 					fields[i][j].addMouseListener(new MouseAdapter() {
 						@Override
@@ -98,7 +96,7 @@ public class PlayboardPanel extends JPanel {
 						@Override
 						public void mouseClicked(java.awt.event.MouseEvent evt) {
 							JLabelE lbl = (JLabelE)evt.getSource();
-							gui.mouseClick(lbl.getPosition());
+							gui.mouseClick(lbl.getXPosition(), lbl.getYPosition());
 						}
 					});
 					playboardPanel.add(fields[i][j]);

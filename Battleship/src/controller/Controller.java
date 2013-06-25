@@ -7,6 +7,7 @@ import model.Field.state;
 import model.Flattop;
 import model.Human;
 import model.Rowboat;
+import observer.Event;
 import observer.Observable;
 
 /**
@@ -15,7 +16,7 @@ import observer.Observable;
 public class Controller extends Observable {
 
 	private int fieldsize;
-	private static int input;
+	private int input;
 	private static int cont = 0;
 	private static final int ONE = 1;
 	private static final int TWO = 2;
@@ -26,8 +27,14 @@ public class Controller extends Observable {
 	private Human player;
 	private Bot bot;
 	private String statusLine = "Willkommen bei Battleship!";
+	private boolean inp;
 
-	private Controller() {
+	public boolean isInput() {
+		return inp;
+	}
+
+	@SuppressWarnings("unused")
+	private Controller() {		
 	}
 
 	/**
@@ -63,6 +70,7 @@ public class Controller extends Observable {
 	 */
 	public void setStatus(String s) {
 		this.statusLine = s;
+		this.notifyOnStatus();
 	}
 
 	/**
@@ -181,7 +189,6 @@ public class Controller extends Observable {
 	 * @param alignment horizontal or vertical
 	 */
 	public void setHumanRowboat(int col, int row) {
-		System.out.printf("col: %d row: %d\n", col, row);
 		player.getPlayboard().setShip(new Rowboat(col, row));
 		player.setNumberShips(player.getNumberShips() + 1);
 		cont = 1;
@@ -208,7 +215,6 @@ public class Controller extends Observable {
 	 * @param alignment horizontal or vertical
 	 */
 	public void setHumanDestructor(int col, int row, boolean alignment) {
-		System.out.printf("col: %d row: %d\n", col, row);
 		player.getPlayboard().setShip(new Destructor(col, row, alignment));
 		player.setNumberShips(player.getNumberShips() + 1);
 		cont = 1;
@@ -255,6 +261,10 @@ public class Controller extends Observable {
 		return false;
 	}
 	
+	public void setInput(boolean in) {
+		this.inp = in;
+	}
+	
 	public state getState(Field f) {
 		return f.getStat();
 	}
@@ -272,19 +282,36 @@ public class Controller extends Observable {
 		}
 	}
 	
+	/**
+	 * Checks whether the given position of the ship to set is valid.
+	 * @param shiptype 0: rowboat, 1: destroyer 2: flattop
+	 * @param x x-coordinate
+	 * @param y y-coordinate
+	 * @param alignment false if horizontal, true if vertical
+	 * @return 0 if ok, x for the fields to adjust
+	 */
 	public int checkSetShipPosition(int shiptype, int x, int y, boolean alignment) {
+		int f = player.getPlayboard().getSize() - 1;
 		if (shiptype == 1) {
 			if (!alignment) { // horizontal
-				if (x + 2 > player.getPlayboard().getSize()) {
-					return player.getPlayboard().getSize() - x;
+				if (x + 2 > f + 1) {
+					return x + 2 - f;
 				}
 			} else {
-				if (y + 2 > player.getPlayboard().getSize()) {
-					return player.getPlayboard().getSize() - y;
+				if (y + 2 > f + 1) {
+					return y + 2 - f;
 				}
 			}
 		} else if (shiptype == 2) {
-			
+			if (!alignment) { // horizontal
+				if (x + 4 > f + 1) {
+					return x + 4 - f;
+				}
+			} else {
+				if (y + 4 > f + 1) {
+					return y + 4 - f;
+				}
+			}
 		}
 		return 0;
 	}
@@ -312,6 +339,14 @@ public class Controller extends Observable {
 		cont = 0;
 	}
 	
+	public void sleep(int t) {
+		try {
+			Thread.sleep(t);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * The "game-Loop" function.
 	 * Starts the playable game.
@@ -320,26 +355,32 @@ public class Controller extends Observable {
 	public void gameLoop() throws InterruptedException {
 
 		int turn = 0;
-		this.notifyOnSetFieldsize();
+		this.notifyObservers(new Event(Event.EventType.setFieldsize));
 		initPlayers(getFieldsize());
-		this.notifyOnSetRowboat();
 		setStatus("Bitte das Ruderboot setzen!");
+		this.notifyObservers(new Event(Event.EventType.setRowboat));
 		waitForInput();
 		if (fieldsize >= 3) {
+			setStatus("Bitte den Zerstörer setzen!");
 			this.notifyOnSetDestructor();
 			waitForInput();
 			if (fieldsize >= 8) {
+				setStatus("Bitte den Flugzeugträger setzen!");
 				this.notifyOnSetFlattop();
+				waitForInput();
 			}
 		}
 		// set the bot's ships
+		setStatus("Der Bot setzt seine Schiffe...");
 		setShipsBot();
+		sleep(2000);
 		setStatus("\nOkay, los geht's!");
-		this.notifyOnStatus();
 
 		while (true) {
 			if (turn == 0) {
+				System.out.println("test");
 				this.notifyOnShowMenu();
+				setStatus("Du bist am Zug! Schieße auf das Feld vom Bot!");
 				this.notifyOnAction();
 
 				if (input == ONE) {
@@ -350,7 +391,6 @@ public class Controller extends Observable {
 					this.notifyOnShowBotsField(false);
 				} else if (input == THREE) {
 					setStatus("Vielen Dank für's Spielen! Bis Bald!\n");
-					this.notifyOnStatus();
 					break;
 				} else if (input == FOUR) {
 					this.notifyOnShowBotsField(true);
@@ -359,19 +399,12 @@ public class Controller extends Observable {
 				turn = 1;
 			} else {
 				setStatus("Der Bot ist am Zug!");
-				this.notifyOnStatus();
 				shootHuman();
-				try {
-					Thread.sleep(WAIT);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+				sleep(WAIT);
 				setStatus("Okay, der Bot hat geschossen");
 				turn = 0;
 			}
-			this.notifyOnStatus();
 			if (isGameOver()) {
-				this.notifyOnStatus();
 				System.exit(0);
 			}
 		}

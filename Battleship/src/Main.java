@@ -1,5 +1,4 @@
 import view.gui.BattleshipGUI;
-import view.tui.TUI;
 import controller.Controller;
 
 public class Main {
@@ -8,6 +7,7 @@ public class Main {
 	 * @param args
 	 * @throws InterruptedException 
 	 */
+	@SuppressWarnings("unused")
 	public static void main(String[] args) throws InterruptedException {
 		
 		Controller controller = new Controller(0);
