@@ -12,7 +12,7 @@ public class Main {
 	public static void main(String[] args) throws InterruptedException {
 		
 		Controller controller = new Controller(0);
-		// TUI tui = new TUI(controller);
+		//TUI tui = new TUI(controller);
 		BattleshipGUI gui = new BattleshipGUI(controller);
 		
 		controller.gameLoop();

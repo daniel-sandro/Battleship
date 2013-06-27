@@ -14,9 +14,9 @@ import controller.Controller;
 @SuppressWarnings("serial")
 public class BattleshipInfos extends JPanel {
 
-	private javax.swing.JPanel jPanel1;
+	private JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JFormattedTextField jTextField2;
+    private JFormattedTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     Color background = new Color(255, 255, 255);
     Controller controller;
