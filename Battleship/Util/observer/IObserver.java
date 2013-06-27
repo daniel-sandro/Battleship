@@ -16,11 +16,19 @@ public interface IObserver {
 	
 	public void onShowPlayersField();
 	
-	public void onShowBotsField(boolean withShip);
+	public void onShowBotsField();
 	
 	public void onShootOnBot();
 	
 	public void onStatus();
 	
 	public void onNotifyObservers(Event t);
+	
+	public void onCheat();
+	
+	public void onGameOver();
+	
+	public void onWon();
+	
+	public void onBotShoots();
 }

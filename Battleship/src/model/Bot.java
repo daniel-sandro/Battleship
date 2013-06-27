@@ -1,10 +1,10 @@
 package model;
 
 import model.Field.state;
+import java.util.Random;
 
 /**
- * @author Sandro, Julian
- * Bot-Class. Subclass of Player. The AI.
+ * @author Sandro, Julian Bot-Class. Subclass of Player. The AI.
  */
 public class Bot extends Player {
 
@@ -17,6 +17,11 @@ public class Bot extends Player {
 		setPlayboard(new Playboard(fieldsize));
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see model.Player#initPlayboard(int)
+	 */
 	@Override
 	public void initPlayboard(int size) {
 		setPlayboard(new Playboard(size));
@@ -28,7 +33,8 @@ public class Bot extends Player {
 	 * @return the generated random number
 	 */
 	protected int initRandomNumber() {
-		return (int) (Math.random() * getPlayboard().getSize());
+		Random random = new Random();
+		return random.nextInt(getPlayboard().getSize());
 	}
 
 	/**
@@ -56,26 +62,49 @@ public class Bot extends Player {
 	 */
 	public void setShip(Ships s) {
 		int[] posi = { 0, 0 };
-		
 		do {
 			if (!s.getAlignment()) {
 				do {
-					posi[0] = initRandomNumber();
+					posi[0] = initRandomNumber(); // x-pos
+					posi[1] = initRandomNumber(); // y-pos
 				} while (posi[0] + s.getSize() > getPlayboard().getSize());
-			} else {
-				posi[0] = initRandomNumber();
-			}
-			if (s.getAlignment()){
+			} else { // vert
 				do {
+					posi[0] = initRandomNumber(); // x-pos
 					posi[1] = initRandomNumber();
 				} while (posi[1] + s.getSize() > getPlayboard().getSize());
-			} else {
-				posi[1] = initRandomNumber();
 			}
-			
-		} while (getPlayboard().getField()[posi[0]][posi[1]].getStat() == state.ship);
+		} while (!check(posi[0], posi[1], s)); // nochmal
 		s.setPosition(posi[0], posi[1]);
 		getPlayboard().setShip(s);
+	}
+
+	/**
+	 * Checks if there is a ship on the given range (x + shipsize)
+	 * 
+	 * @param x
+	 *            the x-coordinate
+	 * @param y
+	 *            the y-coordinate
+	 * @param s
+	 *            the ship
+	 * @return false if there was a ship.
+	 */
+	private boolean check(int x, int y, Ships s) {
+		if (!s.getAlignment()) { // horizontal
+			for (int i = 0; i < s.getSize(); i++) {
+				if (getPlayboard().getField()[x + i][y].getStat() == state.ship) {
+					return false;
+				}
+			}
+		} else {
+			for (int i = 0; i < s.getSize(); i++) {
+				if (getPlayboard().getField()[x][y + i].getStat() == state.ship) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
 	/**

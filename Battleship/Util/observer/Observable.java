@@ -56,11 +56,8 @@ public class Observable implements IObservable {
 		notifyObservers(new Event(Event.EventType.showPlayersField));
 	}
 	
-	public void notifyOnShowBotsField(boolean withShip) {
-		for (Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
-			IObserver observer = iter.next();
-			observer.onShowBotsField(withShip);
-		}
+	public void notifyOnShowBotsField() {
+		notifyObservers(new Event(Event.EventType.showBotsField));
 	}
 	
 	public void notifyOnShootOnBot() {
@@ -69,5 +66,21 @@ public class Observable implements IObservable {
 	
 	public void notifyOnStatus() {
 		notifyObservers(new Event(Event.EventType.onStatus));
+	}
+
+	public void notifyCheat() {
+		notifyObservers(new Event(Event.EventType.cheat));
+	}
+	
+	public void notifyOnGameOver() {
+		notifyObservers(new Event(Event.EventType.gameOver));
+	}
+	
+	public void notifyOnWon() {
+		notifyObservers(new Event(Event.EventType.won));
+	}
+	
+	public void notifyOnBotShoots() {
+		notifyObservers(new Event(Event.EventType.botShoots));
 	}
 }

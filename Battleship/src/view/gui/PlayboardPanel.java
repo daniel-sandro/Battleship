@@ -47,25 +47,25 @@ public class PlayboardPanel extends JPanel {
 	private JPanel printPlayboard() {
 		int width = 25 * fieldsize + 25;
 		Border borderRB = BorderFactory.createMatteBorder(0, 0, 1, 1, new Color(135, 180, 255));
-	    playboardPanel.setLayout(new GridLayout(fieldsize+1, fieldsize+1));
+	    playboardPanel.setLayout(new GridLayout(fieldsize + 1, fieldsize + 1));
 	    playboardPanel.setSize(width, width);
-		fields = new JLabelE[fieldsize + 2][fieldsize + 2];
-		for (int i = 0; i < fieldsize + 1; i++) {
-			for (int j = 0; j < fieldsize + 1; j++) {
+		fields = new JLabelE[fieldsize + 1][fieldsize + 1];
+		for (int i = 0; i <= fieldsize; i++) {
+			for (int j = 0; j <= fieldsize; j++) {
 				if (i == 0) {
 					if (j == 0) {
 						fields[i][j] = new JLabelE(this.pattern, null);
 						fields[i][j].setBorder(borderRB);
 						playboardPanel.add(fields[i][j]);
 					} else {
-					fields[i][j + 1] = new JLabelE(this.pattern, null);
-					fields[i][j + 1].setText("<html><font style=\"font-size:14px; font-family: " +
+					fields[i][j] = new JLabelE(this.pattern, null);
+					fields[i][j].setText("<html><font style=\"font-size:14px; font-family: " +
 							"trebuchet ms,helvetica,sans-serif; color:#3f87ff;\">" + 
 							String.valueOf((char) (j - 1 + HEX)) + "</font></html>");
-					fields[i][j + 1].setHorizontalTextPosition(JLabel.CENTER);
-					fields[i][j + 1].setVerticalTextPosition(JLabel.CENTER);
-					fields[i][j + 1].setBorder(borderRB);
-					playboardPanel.add(fields[i][j + 1]);
+					fields[i][j].setHorizontalTextPosition(JLabel.CENTER);
+					fields[i][j].setVerticalTextPosition(JLabel.CENTER);
+					fields[i][j].setBorder(borderRB);
+					playboardPanel.add(fields[i][j]);
 					}
 				} else if (j == 0) {
 					fields[i][j] = new JLabelE(this.pattern, null);
@@ -78,7 +78,6 @@ public class PlayboardPanel extends JPanel {
 					playboardPanel.add(fields[i][j]);
 				} else {
 					fields[i][j] = new JLabelE(icon, selectedFieldIcon);
-					//checkStateHuman(fields, i, j);
 					fields[i][j].setSize(25, 25);
 					fields[i][j].setPosition(j, i);
 					fields[i][j].setBorder(borderRB);

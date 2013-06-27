@@ -8,6 +8,9 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
+import model.Field.state;
 
 import observer.Event;
 import observer.IObserver;
@@ -18,7 +21,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 
 	public static JPanel mainPanel;
 	// action: 0 = eigenes feld nur anzeigen; 1 = ruderboot setzen; 2 = zerstörer setzen
-	// 3 = flugzeugträger setzen
+	// 3 = flugzeugträger setzen; 4 = auf bot schießen
 	private int action = 0;
 	boolean cont = false;
 	private JPanel fieldsPanel;
@@ -53,8 +56,6 @@ public class BattleshipGUI extends JFrame implements IObserver {
     Icon flu3NV = new ImageIcon(BattleshipGUI.class.getResource("/images/flu/flu3NV.jpg"));
     Icon flu4NV = new ImageIcon(BattleshipGUI.class.getResource("/images/flu/flu4NV.jpg"));
     Icon flu5NV = new ImageIcon(BattleshipGUI.class.getResource("/images/flu/flu5NV.jpg"));
-    //---
-
     Icon flu1SH = new ImageIcon(BattleshipGUI.class.getResource("/images/flu/Flu1SH.jpg"));
     Icon flu2SH = new ImageIcon(BattleshipGUI.class.getResource("/images/flu/Flu2SH.jpg"));
     Icon flu3SH = new ImageIcon(BattleshipGUI.class.getResource("/images/flu/Flu3SH.jpg"));
@@ -65,6 +66,9 @@ public class BattleshipGUI extends JFrame implements IObserver {
     Icon flu3SV = new ImageIcon(BattleshipGUI.class.getResource("/images/flu/flu3SV.jpg"));
     Icon flu4SV = new ImageIcon(BattleshipGUI.class.getResource("/images/flu/flu4SV.jpg"));
     Icon flu5SV = new ImageIcon(BattleshipGUI.class.getResource("/images/flu/flu5SV.jpg"));
+    Icon hit = new ImageIcon(BattleshipGUI.class.getResource("/images/Hit.jpg"));
+    Icon shot = new ImageIcon(BattleshipGUI.class.getResource("/images/Shot.jpg"));
+    Icon pre = new ImageIcon(BattleshipGUI.class.getResource("/images/SchiffPre.jpg"));
     private Color background;
  	
 	public BattleshipGUI(Controller controller) {
@@ -119,71 +123,121 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	
 	public void onNotifyObservers(Event t) {
 		switch (t.getEventType()) {
-		case setFieldsize:
-			onSetFieldsize();
-			break;
-		case setRowboat:
-			onSetRowboat();
-			break;
-		case setDestructor:
-			onSetDestructor();
-			break;
-		case setFlattop:
-			onSetFlattop();
-			break;
-		case onStatus:
-			onStatus();
-		default:
-			break;
+			case setFieldsize:
+				onSetFieldsize();
+				break;
+			case setRowboat:
+				onSetRowboat();
+				break;
+			case setDestructor:
+				onSetDestructor();
+				break;
+			case setFlattop:
+				onSetFlattop();
+				break;
+			case onAction:
+				onAction();
+				break;
+			case onStatus:
+				onStatus();
+				break;
+			case showBotsField:
+				break;
+			case shootBot:
+				onShootOnBot();
+				break;
+			case gameOver:
+				onGameOver();
+				break;
+			case won:
+				onWon();
+				break;
+			case botShoots:
+				onBotShoots();
+				break;
+			default:
+				break;
 		}
+		paint();
+	}
+	
+	public void onBotShoots() {
+		int[] shots = controller.getLastBotShot();
+		System.out.printf("shots[0]: %d, shots[1]: %d", shots[0], shots[1]);
+		if (controller.getPlayer().getPlayboard().getField()[shots[0]][shots[1]].getStat() == state.hit) {
+			playerPanel.setIcon(shots[1] + 1, shots[0] + 1, hit, hit);
+		} else if(controller.getPlayer().getPlayboard().getField()[shots[0]][shots[1]].getStat() == state.ship) { 
+			playerPanel.setIcon(shots[1] + 1, shots[0] + 1, hit, hit);
+		} else  {
+			playerPanel.setIcon(shots[1] + 1, shots[0] + 1, shot, shot);
+		}
+		paint();
 	}
 	
 	public void onSetRowboat () {
 		action = 1;
 		BattleshipGUIUtils.setShip(0);
-		paint();
 	}
 
 	public void onSetDestructor() {
 		action = 2;
 		BattleshipGUIUtils.setShip(1);
-		paint();
 	}
 
 	public void onSetFlattop() {
 		action = 3;
 		BattleshipGUIUtils.setShip(2);
-		paint();
 	}
 	
 	private void paint() {
-		infoPanel.invalidate();
 		infoPanel.revalidate();
 		infoPanel.repaint();
 		mainPanel.validate();
+		mainPanel.repaint();
 	}
 
 	public void onShowMenu() {}
 
 	public void onAction() {
-		// TODO Auto-generated method stub
-		
+		// hier auf Input des Players warten
+		action = 4;
+		controller.setInput(0);
+		controller.setInput(false);
 	}
 
 	public void onShowPlayersField() {}
 
-	public void onShowBotsField(boolean withShip) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void onShowBotsField() {}
+	
+	public void onCheat() {}
 
-	public void onShootOnBot() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void onShootOnBot() {}
 
 	public void onStatus() {
-		infoPanel.setT(controller.getStatus());
+		Thread t = new Thread(new Runnable()
+		{
+		    public void run()
+		    {
+		        SwingUtilities.invokeLater(new Runnable()
+		        {
+		            public void run()
+		            {
+		            	infoPanel.update();
+		            }
+		        });
+		    }
+		});
+		t.start();
+	}
+	
+	// Um auf eventuelle eingaben der Tui zu reagieren
+	public void waitForInput(int timeInMS) {
+		while (!controller.isInput()) {
+			try {
+				Thread.sleep(timeInMS);
+			} catch (InterruptedException e) {
+			}
+		}
 	}
 	
 	public void showPlayboards() {
@@ -204,14 +258,17 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	
 	public void mouseClick(int x, int y) {
 		boolean align;
-		if (action == 1) {
+		if (action == 0) {
+			return;
+		} else if (action == 1) {
 			controller.setHumanRowboat(x - 1, y - 1);
 			playerPanel.setIcon(x, y, rowboatNormal, rowboatSelected);
+			action = 0;
 		} else if (action == 2) {
 			align = BattleshipGUIUtils.setAlignment();
 			if (checkSetShipPosition(1, x - 1, y - 1, align)) {
 				controller.setHumanDestructor(x - 1, y - 1, align);
-				if (!align) {//horizontal
+				if (!align) { //horizontal
 					playerPanel.setIcon(x, y, des1NH, des1SH);
 					playerPanel.setIcon(x + 1, y, des2NH, des2SH);
 					playerPanel.setIcon(x + 2, y, des3NH, des3SH);
@@ -220,26 +277,47 @@ public class BattleshipGUI extends JFrame implements IObserver {
 					playerPanel.setIcon(x, y + 1, des2NV, des2SV);
 					playerPanel.setIcon(x, y + 2, des3NV, des3SV);
 				}
+				action = 0;
 			}
 		} else if (action == 3) {
 			align = BattleshipGUIUtils.setAlignment();
 			if (checkSetShipPosition(2, x - 1, y - 1, align)) {
 				controller.setHumanFlattop(x - 1, y - 1, align);
-				if (!align) {//horizontal
+				if (!align) { //horizontal
 					playerPanel.setIcon(x, y, flu1NH, flu1SH);
-						playerPanel.setIcon(x + 1, y, flu2NH, flu2SH);
-						playerPanel.setIcon(x + 2, y, flu3NH, flu3SH);
-						playerPanel.setIcon(x + 3, y, flu4NH, flu4SH);
-						playerPanel.setIcon(x + 3, y, flu5NH, flu5SH);
+					playerPanel.setIcon(x + 1, y, flu2NH, flu2SH);
+					playerPanel.setIcon(x + 2, y, flu3NH, flu3SH);
+					playerPanel.setIcon(x + 3, y, flu4NH, flu4SH);
+					playerPanel.setIcon(x + 4, y, flu5NH, flu5SH);
 				} else {
-						playerPanel.setIcon(x, y, flu1NV, flu1SV);
-						playerPanel.setIcon(x, y + 1, flu2NV, flu2SV);
-						playerPanel.setIcon(x, y + 2, flu3NV, flu3SV);
-						playerPanel.setIcon(x, y + 3, flu4NV, flu4SV);
-						playerPanel.setIcon(x, y + 4, flu5NV, flu5SV);
+					playerPanel.setIcon(x, y, flu1NV, flu1SV);
+					playerPanel.setIcon(x, y + 1, flu2NV, flu2SV);
+					playerPanel.setIcon(x, y + 2, flu3NV, flu3SV);
+					playerPanel.setIcon(x, y + 3, flu4NV, flu4SV);
+					playerPanel.setIcon(x, y + 4, flu5NV, flu5SV);
 				}
+				action = 0;
 			}
+		} else if (action == 4) {
+			// auf bot schießen
+			// feld das angeklickt wurde checken
+			// an controller die koordinaten schicken
+			// die inp (controller.setinput(true)) cariable auf true setzen
+			if (controller.shootBot(x - 1, y - 1)) {
+				botPanel.setIcon(x, y, hit, hit);
+			} else {
+				botPanel.setIcon(x, y, shot, shot);
+			}
+			action = 0;
 		}
+	}
+	
+	public void onGameOver() {
+		BattleshipGUIUtils.gameOver();
+	}
+	
+	public void onWon() {
+		BattleshipGUIUtils.won();
 	}
 	
 	public boolean checkSetShipPosition(int ship, int x, int y, boolean align) {

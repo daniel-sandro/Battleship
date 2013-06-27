@@ -26,9 +26,17 @@ public interface IObservable {
 	
 	void notifyOnShowPlayersField();
 	
-	void notifyOnShowBotsField(boolean withShip);
+	void notifyOnShowBotsField();
+	
+	void notifyCheat();
 	
 	void notifyOnShootOnBot();
 	
+	void notifyOnBotShoots();
+	
 	void notifyOnStatus();
+	
+	void notifyOnGameOver();
+	
+	void notifyOnWon();
 }

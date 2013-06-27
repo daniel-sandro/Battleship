@@ -60,16 +60,34 @@ public class BattleshipGUIUtils extends JFrame {
 	public static boolean setAlignment() {
 		Object[] options = {"Horizontal", "Vertikal"};
         int selected = JOptionPane.showOptionDialog(null, "Schiff horizontal oder vertikal setzen?",
-        		"Alternativen", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, 
+        		"Ausrichtung", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, 
         		null, options, options[0]);
         if (selected == 0) {
         	return false;
         }
         return true;
 	}
+	
+	public static void gameOver() {
+		Object[] options = {"OK"};
+		int n = JOptionPane.showOptionDialog(null, "Der Bot hat alle deine Schiffe versenkt!\n" + 
+				"Versuch es doch noch einmal!", "Game Over!", JOptionPane.YES_OPTION,
+				JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+		if (n == 0) {
+			exit();
+		}
+	}
+	
+	public static void won() {
+		Object[] options = {"YAY!"};
+		int n = JOptionPane.showOptionDialog(null, "Glückwunsch, du hast alle Schiffe des Bots versenkt! Du hast gewonnen!", 
+				"Gewonnen!", JOptionPane.YES_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+		if (n == 0) {
+			exit();
+		}
+	}
 
-    public static int exit() {
+    public static void exit() {
     	System.exit(0);
-    	return 0;
     }
 }

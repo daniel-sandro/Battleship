@@ -2,6 +2,7 @@ package view.gui;
 
 import java.awt.Color;
 
+import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
 
 import controller.Controller;
@@ -15,13 +16,16 @@ public class BattleshipInfos extends JPanel {
 
 	private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JFormattedTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     Color background = new Color(255, 255, 255);
+    Controller controller;
 
     public BattleshipInfos(Controller controller) {
+    	
+    	this.controller = controller;
         
-        jTextField2 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JFormattedTextField();
         jPanel1 = new javax.swing.JPanel();
         jPanel1.setBackground(background);
         jTextField3 = new javax.swing.JTextField();
@@ -91,7 +95,8 @@ public class BattleshipInfos extends JPanel {
         );
     }
     
-    public void setT(String t) {
-    	this.jTextField2.setText(t);
+    public void update() {
+    	jTextField2.setValue(controller.getStatus());
+    	revalidate();
     }
 }

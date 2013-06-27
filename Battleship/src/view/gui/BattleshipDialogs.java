@@ -1,8 +1,6 @@
 package view.gui;
 
-import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.Dialog.ModalExclusionType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,20 +8,14 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import controller.Controller;
-
+@SuppressWarnings("serial")
 public class BattleshipDialogs extends JFrame {
 	
 	private JButton JBgo;
 	private JTextField JTFsize;
-	private JTextField JTxCol;
-	private JTextField JTyRow;
 	private JDialog enterFieldsize;
-	private int fieldsize, x, y;
 	private BattleshipGUI gui;
 	
 	public BattleshipDialogs(BattleshipGUI gui) {
@@ -61,12 +53,7 @@ public class BattleshipDialogs extends JFrame {
 		});
 		// enterFieldsize.setModal(true);
 		enterFieldsize.setVisible(true);
-		while (!gui.controller.isInput()) {
-			try {
-				Thread.sleep(50);
-			} catch (InterruptedException e) {
-			}
-		}
+		gui.waitForInput(50);
 		enterFieldsize.setVisible(false);
     	enterFieldsize.dispose();
 	}

@@ -1,14 +1,11 @@
 package view.tui;
 
-import java.util.Observable;
 import java.util.Scanner;
 
 import model.Field.state;
-
 import observer.Event;
 import observer.IObserver;
 import controller.Controller;
-/*import observer.Event;*/
 
 
 public final class TUI implements IObserver {
@@ -34,8 +31,44 @@ public final class TUI implements IObserver {
 	
 	public void onNotifyObservers(Event t) {
 		switch (t.getEventType()) {
+		case setRowboat:
+			onSetRowboat();
+			break;
 		case setDestructor:
 			onSetDestructor();
+			break;
+		case setFlattop:
+			onSetFlattop();
+			break;
+		case setFieldsize:
+			onSetFieldsize();
+			break;
+		case showBotsField:
+			onShowBotsField();
+			break;
+		case showPlayersField:
+			onShowPlayersField();
+			break;
+		case gameOver:
+			onGameOver();
+			break;
+		case won:
+			onWon();
+			break;
+		case showMenu:
+			onShowMenu();
+			break;
+		case shootBot:
+			onShootOnBot();
+			break;
+		case onStatus:
+			onStatus();
+			break;
+		case onAction:
+			onAction();
+			break;
+		case cheat:
+			onCheat();
 			break;
 		default:
 			break;
@@ -52,7 +85,7 @@ public final class TUI implements IObserver {
 	
 	public void onSetFieldsize() {
 		int fieldsize;
-		print("Bitte Feldgröße eingeben!");
+		print("Bitte Feldgröße eingeben!\n");
 		while (!controller.isInput() && !scanner.hasNextInt()) {
 			sleep();
 		}
@@ -68,21 +101,19 @@ public final class TUI implements IObserver {
 			}
 			controller.setFieldsize(fieldsize);
 			controller.setInput(true);
+			break;
 		}
 	}
 
 	public void onSetRowboat() {
-		print("Bitte Ruderboot setzten (X/Y):\n");
 		controller.setHumanRowboat(setXPos(), setYPos());
 	}
 	
 	public void onSetDestructor() {
-		print("Bitte Zerstörer setzten (X/Y):\n");
 		controller.setHumanDestructor(setXPos(), setYPos(), setAlignment());
 	}
 	
-	public void onSetFlattop() {
-		print("Bitte Flugzeugträger setzten (X/Y):\n");		
+	public void onSetFlattop() {		
 		controller.setHumanFlattop(setXPos(), setYPos(), setAlignment());
 	}
 	
@@ -93,11 +124,12 @@ public final class TUI implements IObserver {
 			if (x < 0 || x > controller.getFieldsize()) {
 				print("Die X-Koordinate muss zwischen 0 und ");
 				print(String.valueOf(controller.getFieldsize()));
-				print("liegen!\nBitte erneut eingeben!");
+				print("liegen!\nBitte erneut eingeben!\n");
 				continue;
 			}
 			break;
 		}
+		controller.setInput(true);
 		return x;
 	}
 	
@@ -115,6 +147,7 @@ public final class TUI implements IObserver {
 			}
 			break;
 		}
+		controller.setInput(true);
 		return y;
 	}
 	
@@ -145,7 +178,6 @@ public final class TUI implements IObserver {
 	
 	public void onShowMenu() {
 		print("\n");
-		print("Du bist am Zug!\n");
 		print("Deine Optionen im Spiel sind:\n");
 		print("(1) EIGENES FELD ANZEIGEN\n");
 		print("(2) AUF DAS SPIELFELD DES BOTS SCHIESSEN\n");
@@ -154,17 +186,27 @@ public final class TUI implements IObserver {
 	}
 	
 	public void onAction() {
+		while (!controller.isInput() && !scanner.hasNextInt()) {
+			sleep();
+		}
+		if (controller.isInput()) {
+			return;
+		}
 		controller.setInput(scanner.nextInt());
+	}
+	
+	public void onCheat()  {
+		print(showField(true, true).toString());
+		sb.setLength(0);
 	}
 	
 	public void onShowPlayersField() {
 		print(showField(false, false).toString());
-		print(showField(true, false).toString());
 		sb.setLength(0);	
 	}
 	
-	public void onShowBotsField(boolean withShip) {
-		print(showField(true, withShip).toString());
+	public void onShowBotsField() {
+		print(showField(true, false).toString());
 		sb.setLength(0);
 	}
 	
@@ -262,5 +304,18 @@ public final class TUI implements IObserver {
 	
 	private static void print(String string) {
 		System.out.printf(string);
+	}
+
+	public void onGameOver() {
+		System.exit(0);		
+	}
+
+	public void onWon() {
+		System.exit(0);	
+	}
+
+	public void onBotShoots() {
+		// TODO Auto-generated method stub
+		
 	}
 }

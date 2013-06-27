@@ -1,4 +1,5 @@
 import view.gui.BattleshipGUI;
+import view.tui.TUI;
 import controller.Controller;
 
 public class Main {
