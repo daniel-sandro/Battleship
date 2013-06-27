@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import model.Field.state;
+
 @SuppressWarnings("serial")
 public class PlayboardPanel extends JPanel {
 
@@ -25,6 +27,9 @@ public class PlayboardPanel extends JPanel {
     Icon icon = new ImageIcon(resource);
     Icon selectedFieldIcon = new ImageIcon(resourceSelected);
     Icon pattern = new ImageIcon(resourcePattern);
+    Icon hit = new ImageIcon(BattleshipGUI.class.getResource("/images/Hit.jpg"));
+    Icon shot = new ImageIcon(BattleshipGUI.class.getResource("/images/Shot2.png"));
+    Icon pre = new ImageIcon(BattleshipGUI.class.getResource("/images/SchiffPre.jpg"));
     JPanel playboardPanel;
 	
 	public PlayboardPanel(BattleshipGUI gui) {
@@ -103,5 +108,42 @@ public class PlayboardPanel extends JPanel {
 			}
 		}
 		return playboardPanel;
+	}
+	
+	public void update(boolean player) {
+		for (int i = 0; i < fieldsize; i++) {
+			for (int j = 0; j < fieldsize; j++) {
+				if (player) {
+					checkstateHuman(i, j);
+				} else {
+					checkstateBot(i, j);
+				}				
+			}
+		}
+	}
+	
+	public void checkstateBot(int i, int j) {
+		if (gui.controller.getBot().getPlayboard().getField()[i][j].getStat() == state.empty) {
+		} else if (gui.controller.getBot().getPlayboard().getField()[i][j].getStat() == state.hit) {
+			fields[i + 1][j + 1].setNormalIcon(hit);
+			fields[i + 1][j + 1].setSelectedIcon(hit);
+		} else if (gui.controller.getBot().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
+			fields[i + 1][j + 1].setNormalIcon(hit);
+			fields[i + 1][j + 1].setSelectedIcon(hit);
+		}
+	}
+	
+	public void checkstateHuman(int i, int j) {
+		if (gui.controller.getPlayer().getPlayboard().getField()[i][j].getStat() == state.empty) {
+		} else if (gui.controller.getPlayer().getPlayboard().getField()[i][j].getStat() == state.hit) {
+			fields[i + 1][j + 1].setNormalIcon(hit);
+			fields[i + 1][j + 1].setSelectedIcon(hit);
+		} else if (gui.controller.getPlayer().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
+			fields[i + 1][j + 1].setNormalIcon(shot);
+			fields[i + 1][j + 1].setSelectedIcon(shot);
+		} else if(gui.controller.getPlayer().getPlayboard().getField()[i][j].getStat() == state.ship) {
+			fields[i + 1][j + 1].setNormalIcon(pre);
+			fields[i + 1][j + 1].setSelectedIcon(pre);
+		}
 	}
 }

@@ -25,7 +25,6 @@ public class ControllerTest {
 	public void setup(){
 		c = new Controller(1);
 		assertNotNull(c);
-		assertTrue(c.getPlayer() != null && c.getBot() != null);
 	}
 	
 	@Test
@@ -118,7 +117,67 @@ public class ControllerTest {
 	}
 	
 	@Test
+	public void testGetLastShot() {
+		int[] x = { 0, 0 };
+		c.initPlayers(1);
+		c.shootHuman();
+		assertEquals(x, c.getLastBotShot());
+	}
+	
+	@Test
+	public void testGetState() {
+		c.initPlayers(1);
+		assertEquals(state.empty, c.getState(c.getPlayer().getPlayboard().getField()[0][0]));
+	}
+	
+	@Test
+	public void testInitPlayers() {
+		c.initPlayers(c.getFieldsize());
+		assertNotNull(c.getBot());
+		assertNotNull(c.getPlayer());
+	}
+	
+	@Test
+	public void testGetStatusLine() {
+		assertNotNull(c.getStatus());
+	}
+	
+	@Test
+	public void testSetStatus() {
+		c.setStatus("test");
+		assertEquals("test", c.getStatus());
+	}
+	
+	@Test
 	public void howManyShipsHuman() {
 		
+	}
+	
+	@Test
+	public void testGetInput() {
+		assertEquals(0, c.getInput());
+	}
+	
+	@Test
+	public void testSetInput() {
+		c.setInput(1);
+		assertEquals(1, c.getInput());
+	}
+	
+	@Test
+	public void testIsInput() {
+		assertFalse(c.isInput());
+	}
+	
+	@Test
+	public void testSetInp() {
+		c.setInput(true);
+		assertTrue(c.isInput());
+	}
+	
+	@Test
+	public void testSetFieldsize() {
+		c.setFieldsize(4);
+		assertEquals(4, c.getFieldsize());
 	}
 }

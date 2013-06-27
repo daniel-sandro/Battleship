@@ -25,11 +25,10 @@ public final class TUI implements IObserver {
 	int x, y;
 
 	/**
-	 * private Contructor, just for jenkis...
+	 * private Contructor, just for jenkins...
 	 */
 	@SuppressWarnings("unused")
-	private TUI() {
-	}
+	private TUI() {}
 
 	public TUI(Controller controller) {
 		this.controller = controller;
@@ -48,9 +47,6 @@ public final class TUI implements IObserver {
 			break;
 		case setFlattop:
 			onSetFlattop();
-			break;
-		case setFieldsize:
-			onSetFieldsize();
 			break;
 		case showBotsField:
 			onShowBotsField();
@@ -107,24 +103,10 @@ public final class TUI implements IObserver {
 		}
 	}
 
-	public void onSetFieldsize() {
-		int fieldsize;
-		print("Bitte Feldgröße eingeben!\n");
-		checkForInput();
-		while (true) {
-			fieldsize = scanner.nextInt();
-			if (fieldsize < 1 || fieldsize > MAXFIELDSIZE) {
-				print("Die Feldgröße muss zwischen 0 und 26 liegen! "
-						+ "Bitte erneut eingeben!\n");
-				continue;
-			}
-			controller.setFieldsize(fieldsize);
-			controller.setInput(true);
-			break;
-		}
-	}
+	public void onSetFieldsize() {}
 
 	public void onSetRowboat() {
+		checkForInput();
 		controller.setHumanRowboat(setXPos(), setYPos());
 	}
 
@@ -173,7 +155,7 @@ public final class TUI implements IObserver {
 	 */
 	private boolean checkShipPos(int ship, int x, int y, boolean alignment) {
 		int t;
-		if ((t = controller.checkSetShipPosition(2, x, y, alignment)) != 0) {
+		if ((t = controller.checkSetShipPosition(ship, x, y, alignment)) != 0) {
 			print("Das Schiff bitte ");
 			print(String.valueOf(t));
 			if (alignment) {
@@ -240,9 +222,9 @@ public final class TUI implements IObserver {
 			print("Horizontal (1) oder vertikal (2) setzen?\n");
 			nextBool = scanner.nextInt();
 			if (nextBool == 1) {
-				return true;
-			} else if (nextBool == 2) {
 				return false;
+			} else if (nextBool == 2) {
+				return true;
 			} else {
 				print("Falsche Eingabe!\n");
 				continue;

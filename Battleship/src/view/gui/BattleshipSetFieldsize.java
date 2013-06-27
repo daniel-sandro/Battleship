@@ -5,34 +5,32 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
-public class BattleshipDialogs extends JFrame {
+public class BattleshipSetFieldsize extends JFrame {
 	
 	private JButton JBgo;
 	private JTextField JTFsize;
-	private JDialog enterFieldsize;
+	private JPanel enterFieldsize;
 	private BattleshipGUI gui;
 	
-	public BattleshipDialogs(BattleshipGUI gui) {
+	public BattleshipSetFieldsize(BattleshipGUI gui) {
 		this.gui = gui;
-	}
-	
-	public void setFieldsize() throws InterruptedException {
-		enterFieldsize = new JDialog();
-		enterFieldsize.setTitle("Bitte die Feldgröße eingeben!");
-		enterFieldsize.setLayout(new FlowLayout());
+		
+		enterFieldsize = new JPanel();
+		setTitle("Bitte die Feldgröße eingeben!");
+		setLayout(new FlowLayout());
 		JBgo = new JButton("OK");
 		JTFsize = new JTextField(2);
 		enterFieldsize.add(new JLabel("Feldgröße:"));
 		enterFieldsize.add(JTFsize);
 		enterFieldsize.add(JBgo);
-		enterFieldsize.setSize(300, 80);
-		enterFieldsize.setLocationRelativeTo(null);
+		setSize(350, 80);
+		setLocationRelativeTo(null);
 		JBgo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == JBgo) {
@@ -42,8 +40,9 @@ public class BattleshipDialogs extends JFrame {
 				        if(value.intValue() <= 0 || value.intValue() > 26) {
 					    	BattleshipGUIUtils.fieldsizeError();
 				        } else {
-				        	gui.controller.setFieldsize(value);
-				    		gui.controller.setInput(true);
+				        	getGui().controller.setFieldsize(value);
+				    		getGui().controller.setInput(true);
+				    		dispose();
 				        }
 				    } catch (NumberFormatException e1) {
 				    	BattleshipGUIUtils.noInputerror();
@@ -51,10 +50,11 @@ public class BattleshipDialogs extends JFrame {
 				}
 			}
 		});
-		// enterFieldsize.setModal(true);
-		enterFieldsize.setVisible(true);
-		gui.waitForInput(50);
-		enterFieldsize.setVisible(false);
-    	enterFieldsize.dispose();
+		setContentPane(enterFieldsize);
+		setVisible(true);
+	}
+	
+	private BattleshipGUI getGui() {
+		return this.gui;
 	}
 }

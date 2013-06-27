@@ -427,8 +427,8 @@ public class Controller extends Observable {
 	 */
 	public void gameLoop() throws InterruptedException {
 		int turn = 0;
-		this.notifyObservers(new Event(Event.EventType.setFieldsize));
 		waitForInput();
+		this.notifyObservers(new Event(Event.EventType.setFieldsize));
 		initPlayers(getFieldsize());
 		setStatus("Bitte das Ruderboot setzen!");
 		this.notifyObservers(new Event(Event.EventType.setRowboat));
@@ -451,11 +451,9 @@ public class Controller extends Observable {
 
 		while (true) {
 			if (turn == 0) {
-				input = 0;
 				setStatus("Du bist am Zug! Schieße auf den Bot!");
 				this.notifyOnShowMenu();
 				this.notifyOnAction();
-				waitForInput();
 				if (input == ONE) {
 					System.out.println("Input 1");
 					this.notifyOnShowPlayersField();
@@ -463,8 +461,8 @@ public class Controller extends Observable {
 				} else if (input == TWO) {
 					System.out.println("Input 2");
 					this.notifyOnShootOnBot();
-					this.notifyOnShowBotsField();
 					gameOver();
+					this.notifyOnShowBotsField();
 				} else if (input == THREE) {
 					System.out.println("Input 3");
 					setStatus("Vielen Dank für's Spielen! Bis Bald!\n");
@@ -476,8 +474,10 @@ public class Controller extends Observable {
 				} else if (input == 0) {
 					System.out.println("Input 0!");
 					turn = 1;
+					gameOver();
 					continue;
 				}
+				input = 0;
 				turn = 1;
 			} else {
 				setStatus("Der Bot ist am Zug!");
