@@ -7,7 +7,6 @@ import org.apache.log4j.PropertyConfigurator;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-import de.htwg.battleship.controller.Controller;
 import de.htwg.battleship.controller.IController;
 import de.htwg.battleship.view.gui.BattleshipGUI;
 import de.htwg.battleship.view.gui.BattleshipSetFieldsize;
@@ -25,6 +24,7 @@ public class BattleshipGame {
 
 		PropertyConfigurator.configure("log4j.properties");
 		Injector injector = Guice.createInjector(new BattleshipModule());
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		
 		IController controller = injector.getInstance(IController.class);

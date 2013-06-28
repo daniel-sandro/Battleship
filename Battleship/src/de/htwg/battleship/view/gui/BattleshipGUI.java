@@ -10,7 +10,6 @@ import javax.swing.SwingUtilities;
 
 import com.google.inject.Inject;
 
-import de.htwg.battleship.controller.Controller;
 import de.htwg.battleship.controller.IController;
 import de.htwg.battleship.model.Field.state;
 import de.htwg.battleship.observer.Event;
@@ -30,6 +29,11 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	int i, j;
     private Color background;
     private StringBuilder sb = new StringBuilder();
+	private static final int THREE = 4;
+	private static final int FOUR = 4;
+	private static final int COL = 255;
+	private static final int XA = 285;
+	private static final int XB = 118;
     
     
     /**
@@ -42,7 +46,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 		this.controller = controller;
 		controller.addObserver(this);
 		
-		background = new Color(255, 255, 255);
+		background = new Color(COL, COL, COL);
 	}
 	
 	/**
@@ -58,7 +62,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	    mainPanel.add(fieldsPanel, BorderLayout.SOUTH);
 	    mainPanel.setBackground(background);
 
-	    Dimension d = new Dimension(285, 118);
+	    Dimension d = new Dimension(XA, XB);
         mainPanel.setMaximumSize(d);
         mainPanel.setMinimumSize(d);
 	    this.setContentPane(mainPanel);
@@ -189,7 +193,8 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 * sets action to 3 (set flattop)
 	 */
 	public void onSetFlattop() {
-		action = 3;
+		final int x = 3;
+		action = x;
 	}
 
 	/* (non-Javadoc)
@@ -203,7 +208,8 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 * sets action to 4
 	 */
 	public void onAction() {
-		action = 4;
+		final int x = 4;
+		action = x;
 	}
 
 	/* (non-Javadoc)
@@ -286,11 +292,11 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	public void mouseClick(int x, int y) {
 		int align;
 		sb.append(x).append(" ").append(y);
-		if (action == 1 || action == 4) {
+		if (action == 1 || action == FOUR) {
 		} else if (action == 2) {
 			align = BattleshipGUIUtils.setAlignment();
 			sb.append(" ").append(align);
-		} else if (action == 3) {
+		} else if (action == THREE) {
 			align = BattleshipGUIUtils.setAlignment();
 			sb.append(" ").append(align);
 		} else if (action == 0) {

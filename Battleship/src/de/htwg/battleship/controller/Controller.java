@@ -31,7 +31,6 @@ public class Controller extends Observable implements IController {
 	private static final int FOUR = 4;
 	private static final int FIVE = 5;
 	private static final int EIGHT = 8;
-	private static final int WAIT = 2000;
 	private static final int EXIT = 500;
 	private int step;
 
