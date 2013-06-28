@@ -27,6 +27,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
     private Color background;
     private StringBuilder sb = new StringBuilder();
 	private static final int THREE = 4;
+	private static final int FOUR = 4;
 	private static final int COL = 255;
 	private static final int XA = 285;
 	private static final int XB = 118;
@@ -276,7 +277,11 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	public void mouseClick(int x, int y) {
 		int align;
 		sb.append(x).append(" ").append(y);
-		if (action == 2) {
+		if (action == 1 || action == FOUR) {
+			controller.input(sb.toString());
+			sb.setLength(0);
+			return;
+		} else if (action == 2) {
 			align = BattleshipGUIUtils.setAlignment();
 			sb.append(" ").append(align);
 		} else if (action == THREE) {
