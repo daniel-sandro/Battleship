@@ -284,10 +284,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 			controller.input(sb.toString());
 			sb.setLength(0);
 			return;
-		} else if (action == 2) {
-			align = BattleshipGUIUtils.setAlignment();
-			sb.append(" ").append(align);
-		} else if (action == THREE) {
+		} else if (action == 2 || action == THREE) {
 			align = BattleshipGUIUtils.setAlignment();
 			sb.append(" ").append(align);
 		} else if (action == 0) {

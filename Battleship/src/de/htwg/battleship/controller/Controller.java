@@ -411,8 +411,9 @@ public class Controller extends Observable implements IController {
 	public void botTurn() {
 		setStatus("Der Bot setzt seine Schiffe...");
 		notifyObservers(new Event(Event.EventType.onAction));
-		setStatus("Du bist am Zug! Schieﬂe auf den Bot! (X/Y)");
-		step = THREE;
+		setStatus("Okay, Los geht's!");
+		notifyObservers(new Event(Event.EventType.showMenu));
+		step = FIVE;
 	}
 
 	/**
@@ -455,7 +456,7 @@ public class Controller extends Observable implements IController {
 				int z = Integer.valueOf(split[2]);
 				if (z == 1) {
 					alignment = true;
-				} else {
+				} else if (z == 0) {
 					alignment = false;
 				}
 				break;
@@ -531,7 +532,7 @@ public class Controller extends Observable implements IController {
 				input("0 0"); 
 				break;
 			case FOUR: 
-				setStatus("Der Bot ist am Zug!");
+				setStatus("Du bist am Zug!");
 				shootHuman();
 				notifyObservers(new Event(EventType.showMenu));
 				step++;
@@ -564,6 +565,7 @@ public class Controller extends Observable implements IController {
 			return true;
 		} else if (x == FOUR) {
 			notifyObservers(new Event(EventType.cheat));
+			notifyObservers(new Event(EventType.showMenu));
 		}
 		return false;
 	}
