@@ -22,8 +22,7 @@ public final class TUI implements IObserver {
 	private IController controller;
 	private static StringBuilder sb = new StringBuilder();
 	private static Logger logger = Logger.getLogger("de.htwg.battleship.view.tui");
-	boolean alignment;
-	int x, y;
+	private boolean alignment;
 
 	/**
 	 * @param controller

@@ -6,8 +6,8 @@ import javax.swing.JLabel;
 @SuppressWarnings("serial")
 public class JLabelE extends JLabel {
 
-	int xPos;
-	int yPos;
+	private int xPos;
+	private int yPos;
 	private Icon normalIcon;
 	private Icon selectedIcon;
 	

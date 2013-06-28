@@ -17,21 +17,21 @@ import de.htwg.battleship.model.Field.state;
 @SuppressWarnings("serial")
 public class PlayboardPanel extends JPanel {
 
-	public JLabelE[][] fields;
+	private JLabelE[][] fields;
 	private BattleshipGUI gui;
-	int fieldsize;
+	private int fieldsize;
 	private static final int HEX = 65;
     private static final int PAT = 25;
     private static final int XA = 135;
     private static final int XB = 180;
     private static final int WH = 255;
-    Icon pattern = new ImageIcon(getClass().getResource("/images/Pattern.jpg"));
-    Icon hit = new ImageIcon(getClass().getResource("/images/Hit.jpg"));
-    Icon cross = new ImageIcon(getClass().getResource("/images/cross.png"));
-    Icon pre = new ImageIcon(getClass().getResource("/images/dot_white.jpg"));
-    Icon field = new ImageIcon(getClass().getResource("/images/FieldN.jpg"));
-    Icon selectedField = new ImageIcon(getClass().getResource("/images/FieldS.jpg"));
-    JPanel playboardPanel;
+    private Icon pattern = new ImageIcon(getClass().getResource("/images/Pattern.jpg"));
+    private Icon hit = new ImageIcon(getClass().getResource("/images/Hit.jpg"));
+    private Icon cross = new ImageIcon(getClass().getResource("/images/cross.png"));
+    private Icon pre = new ImageIcon(getClass().getResource("/images/dot_white.jpg"));
+    private Icon field = new ImageIcon(getClass().getResource("/images/FieldN.jpg"));
+    private Icon selectedField = new ImageIcon(getClass().getResource("/images/FieldS.jpg"));
+    private JPanel playboardPanel;
 	
 	/**
 	 * @param gui
@@ -40,7 +40,7 @@ public class PlayboardPanel extends JPanel {
 	public PlayboardPanel(BattleshipGUI gui) {
 		this.gui = gui;
 		playboardPanel = new JPanel();
-		fieldsize = gui.controller.getFieldsize();
+		fieldsize = gui.getController().getFieldsize();
 		printPlayboard();
 	}
 	
@@ -152,10 +152,10 @@ public class PlayboardPanel extends JPanel {
 	 * checks the bot´s state
 	 */
 	public void checkstateBot(int i, int j) {
-		if (gui.controller.getBot().getPlayboard().getField()[i][j].getStat() == state.hit) {
+		if (gui.getController().getBot().getPlayboard().getField()[i][j].getStat() == state.hit) {
 			fields[i + 1][j + 1].setNormalIcon(hit);
 			fields[i + 1][j + 1].setSelectedIcon(hit);
-		} else if (gui.controller.getBot().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
+		} else if (gui.getController().getBot().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
 			fields[i + 1][j + 1].setNormalIcon(cross);
 			fields[i + 1][j + 1].setSelectedIcon(cross);
 		}
@@ -167,14 +167,14 @@ public class PlayboardPanel extends JPanel {
 	 * checks the human´s state
 	 */
 	public void checkstateHuman(int i, int j) {
-		if (gui.controller.getPlayer().getPlayboard().getField()[i][j].getStat() == state.empty) {
-		} else if (gui.controller.getPlayer().getPlayboard().getField()[i][j].getStat() == state.hit) {
+		if (gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == state.empty) {
+		} else if (gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == state.hit) {
 			fields[i + 1][j + 1].setNormalIcon(hit);
 			fields[i + 1][j + 1].setSelectedIcon(hit);
-		} else if (gui.controller.getPlayer().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
+		} else if (gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
 			fields[i + 1][j + 1].setNormalIcon(cross);
 			fields[i + 1][j + 1].setSelectedIcon(cross);
-		} else if(gui.controller.getPlayer().getPlayboard().getField()[i][j].getStat() == state.ship) {
+		} else if(gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == state.ship) {
 			fields[i + 1][j + 1].setNormalIcon(pre);
 			fields[i + 1][j + 1].setSelectedIcon(pre);
 		}

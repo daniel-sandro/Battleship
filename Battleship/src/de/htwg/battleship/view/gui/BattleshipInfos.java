@@ -30,8 +30,8 @@ public class BattleshipInfos extends JPanel {
     private static final int XH = 139;
     private static final int XI = 39;
     
-    Color background = new Color(COL, COL, COL);
-    IController controller;
+    private Color background = new Color(COL, COL, COL);
+    private IController controller;
 
     /**
      * declares some minor attributes/options/information

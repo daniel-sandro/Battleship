@@ -18,15 +18,13 @@ import de.htwg.battleship.observer.IObserver;
 @SuppressWarnings("serial")
 public class BattleshipGUI extends JFrame implements IObserver {
 
-	public static JPanel mainPanel;
+	private static JPanel mainPanel;
 	private int action = 0;
-	boolean cont = false;
 	private JPanel fieldsPanel;
-	BattleshipInfos infoPanel;
-	public IController controller;
+	private BattleshipInfos infoPanel;
+	private IController controller;
 	private PlayboardPanel playerPanel;
 	private PlayboardPanel botPanel;
-	int i, j;
     private Color background;
     private StringBuilder sb = new StringBuilder();
 	private static final int THREE = 4;
@@ -47,6 +45,14 @@ public class BattleshipGUI extends JFrame implements IObserver {
 		controller.addObserver(this);
 		
 		background = new Color(COL, COL, COL);
+	}
+    
+    public IController getController() {
+		return controller;
+	}
+
+	public void setController(IController controller) {
+		this.controller = controller;
 	}
 	
 	/**
