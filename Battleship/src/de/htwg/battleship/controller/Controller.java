@@ -34,13 +34,6 @@ public class Controller extends Observable implements IController {
 	private static final int WAIT = 2000;
 	private static final int EXIT = 500;
 	private int step;
-	public int getStep() {
-		return step;
-	}
-
-	public void setStep(int step) {
-		this.step = step;
-	}
 
 	private int x = ZERO;
 	private int y = ZERO;
@@ -61,6 +54,14 @@ public class Controller extends Observable implements IController {
 	 */
 	@Inject
 	public Controller() {
+	}
+	
+	public int getStep() {
+		return step;
+	}
+
+	public void setStep(int step) {
+		this.step = step;
 	}
 
 	/**
