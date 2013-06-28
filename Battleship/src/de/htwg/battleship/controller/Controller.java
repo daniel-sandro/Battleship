@@ -37,7 +37,7 @@ public class Controller extends Observable implements IController {
 
 	private int x = ZERO;
 	private int y = ZERO;
-	private int z = ZERO;
+	private int z = 0;
 	private boolean alignment = false;
 	private int correctPos;
 	private boolean correctAl;

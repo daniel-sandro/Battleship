@@ -63,7 +63,7 @@ public class PlayboardPanel extends JPanel {
 					fields[i][j] = new JLabelE(this.pattern, null);
 					fields[i][j].setText("<html><font style=\"font-size:14px; font-family: " +
 							"trebuchet ms,helvetica,sans-serif; color:#3f87ff;\">" + 
-							String.valueOf((char) (j - 1 + HEX)) + "</font></html>");
+							(char) (j - 1 + HEX) + "</font></html>");
 					fields[i][j].setHorizontalTextPosition(JLabel.CENTER);
 					fields[i][j].setVerticalTextPosition(JLabel.CENTER);
 					fields[i][j].setBorder(borderRB);
@@ -73,7 +73,7 @@ public class PlayboardPanel extends JPanel {
 					fields[i][j] = new JLabelE(this.pattern, null);
 					fields[i][j].setText("<html><font style=\"font-size:14px; font-family: " +
 							"trebuchet ms,helvetica,sans-serif; color:#3f87ff;\">" + 
-							String.valueOf(i) + "</font></html>");
+							i + "</font></html>");
 					fields[i][j].setHorizontalTextPosition(JLabel.CENTER);
 					fields[i][j].setVerticalTextPosition(JLabel.CENTER);
 					fields[i][j].setBorder(borderRB);
