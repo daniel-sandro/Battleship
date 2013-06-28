@@ -7,7 +7,7 @@ import de.htwg.battleship.model.Field.state;
 /**
  * @author Sandro, Julian Bot-Class. Subclass of Player. The AI.
  */
-public class Bot extends Player {
+public class Bot extends Player implements IBot{
 
 	/**
 	 * Constructor for the bot. Needs the fieldsize.
@@ -33,7 +33,7 @@ public class Bot extends Player {
 	 * 
 	 * @return the generated random number
 	 */
-	protected int initRandomNumber() {
+	public int initRandomNumber() {
 		Random random = new Random();
 		return random.nextInt(getPlayboard().getSize());
 	}
@@ -91,7 +91,7 @@ public class Bot extends Player {
 	 *            the ship
 	 * @return false if there was a ship.
 	 */
-	private boolean check(int x, int y, Ships s) {
+	public boolean check(int x, int y, Ships s) {
 		if (!s.getAlignment()) { // horizontal
 			for (int i = 0; i < s.getSize(); i++) {
 				if (getPlayboard().getField()[x + i][y].getStat() == state.ship) {

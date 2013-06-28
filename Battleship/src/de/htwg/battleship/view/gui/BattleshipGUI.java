@@ -32,7 +32,13 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	int i, j;
     private Color background;
     private StringBuilder sb = new StringBuilder();
- 	
+    
+    
+    /**
+     * @param controller
+     * sets up the constructor of a BattleshipGUI and
+     * initializes its controller varibale woth the argument
+     */
     @Inject
 	public BattleshipGUI(IController controller) {
 		this.controller = controller;
@@ -41,6 +47,9 @@ public class BattleshipGUI extends JFrame implements IObserver {
 		background = new Color(255, 255, 255);
 	}
 	
+	/**
+	 * Declares the Main-Frame
+	 */
 	public void printMainFrame() {
 		infoPanel = new BattleshipInfos(controller);
 		
@@ -66,14 +75,26 @@ public class BattleshipGUI extends JFrame implements IObserver {
         this.setLocationRelativeTo(null);
 	}
 	
+	/**
+	 * 	getter for the Main-Panel
+	 * @return
+	 */
 	public static JPanel getMainPanel() {
 		return mainPanel;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onSetFieldsize()
+	 * calls the printMainFrame function
+	 */
 	public void onSetFieldsize() {
 		printMainFrame();
 	}
 	
+	/**
+	 * gtter for the fieldsize
+	 * @return
+	 */
 	public int getFieldsize() {
 		return controller.getFieldsize();
 	}
