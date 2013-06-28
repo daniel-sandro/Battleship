@@ -81,12 +81,13 @@ public class BotTest {
 	
 	@Test
 	public void testCheck() {
-		Bot b = new Bot(3);
+		
+		Bot b = new Bot(4);
 		Ships x1 = new Rowboat();
-		Ships x2 = new Rowboat();
 		b.setShip(x1);
-		b.setShip(x2);
 		Ships d = new Destructor(false);
+		Ships e = new Destructor(true);
+		b.setShip(e);
 		b.setShip(d);
 		assertTrue(true);
 	}

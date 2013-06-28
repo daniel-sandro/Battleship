@@ -1,21 +1,17 @@
 package de.htwg.battleship.controller;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.battleship.controller.Controller;
 import de.htwg.battleship.model.Bot;
-import de.htwg.battleship.model.Field;
-import de.htwg.battleship.model.Flattop;
+import de.htwg.battleship.model.Field.state;
 import de.htwg.battleship.model.Human;
 import de.htwg.battleship.model.Playboard;
-import de.htwg.battleship.model.Player;
-import de.htwg.battleship.model.Rowboat;
-import de.htwg.battleship.model.Ships;
-import de.htwg.battleship.model.Field.state;
 
 
 public class ControllerTest {
