@@ -12,7 +12,7 @@ import de.htwg.battleship.view.gui.BattleshipGUI;
 import de.htwg.battleship.view.gui.BattleshipSetFieldsize;
 import de.htwg.battleship.view.tui.TUI;
 
-public class BattleshipGame {
+public final class BattleshipGame {
 	
 	private BattleshipGame() {}
 

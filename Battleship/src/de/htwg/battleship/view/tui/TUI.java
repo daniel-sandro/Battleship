@@ -43,15 +43,6 @@ public final class TUI implements IObserver {
 	 */
 	public void onNotifyObservers(Event t) {
 		switch (t.getEventType()) {
-		case setRowboat:
-			onSetRowboat();
-			break;
-		case setDestructor:
-			onSetDestructor();
-			break;
-		case setFlattop:
-			onSetFlattop();
-			break;
 		case showBotsField:
 			onShowBotsField();
 			break;
@@ -67,14 +58,8 @@ public final class TUI implements IObserver {
 		case showMenu:
 			onShowMenu();
 			break;
-		case shootBot:
-			onShootOnBot();
-			break;
 		case onStatus:
 			onStatus();
-			break;
-		case onAction:
-			onAction();
 			break;
 		case cheat:
 			onCheat();

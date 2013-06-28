@@ -89,9 +89,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 * @see de.htwg.battleship.observer.IObserver#onSetFieldsize()
 	 * calls the printMainFrame function
 	 */
-	public void onSetFieldsize() {
-		printMainFrame();
-	}
+	public void onSetFieldsize() {}
 	
 	/**
 	 * gtter for the fieldsize
@@ -107,9 +105,6 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 */
 	public void onNotifyObservers(Event t) {
 		switch (t.getEventType()) {
-			case setFieldsize:
-				onSetFieldsize();
-				break;
 			case correctPosition:
 				onCorrectPosition();
 				break;
@@ -128,19 +123,11 @@ public class BattleshipGUI extends JFrame implements IObserver {
 			case onStatus:
 				onStatus();
 				break;
-			case showBotsField:
-				break;
-			case shootBot:
-				onShootOnBot();
-				break;
 			case gameOver:
 				onGameOver();
 				break;
 			case won:
 				onWon();
-				break;
-			case botShoots:
-				onBotShoots();
 				break;
 			case onRepaint:
 				onRepaint();
@@ -162,13 +149,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 * the reaction on the event to shoot at bot
 	 * shoots at bot
 	 */
-	public void onBotShoots() {
-		int[] shots = controller.getLastBotShot();
-		if (controller.getPlayer().getPlayboard().getField()[shots[0]][shots[1]].getStat() == state.hit) {
-		} else if(controller.getPlayer().getPlayboard().getField()[shots[0]][shots[1]].getStat() == state.ship) { 
-		} else  {
-		}
-	}
+	public void onBotShoots() {}
 	
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObserver#onSetRowboat()
