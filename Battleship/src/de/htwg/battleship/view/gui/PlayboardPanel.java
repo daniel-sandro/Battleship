@@ -21,6 +21,10 @@ public class PlayboardPanel extends JPanel {
 	private BattleshipGUI gui;
 	int fieldsize;
 	private static final int HEX = 65;
+    private static final int PAT = 25;
+    private static final int XA = 135;
+    private static final int XB = 180;
+    private static final int WH = 255;
     Icon pattern = new ImageIcon(getClass().getResource("/images/Pattern.jpg"));
     Icon hit = new ImageIcon(getClass().getResource("/images/Hit.jpg"));
     Icon cross = new ImageIcon(getClass().getResource("/images/cross.png"));
@@ -66,8 +70,8 @@ public class PlayboardPanel extends JPanel {
 	 * prints out the playboard
 	 */
 	private JPanel printPlayboard() {
-		int width = 25 * fieldsize + 25;
-		Border borderRB = BorderFactory.createMatteBorder(0, 0, 1, 1, new Color(135, 180, 255));
+		int width = PAT * fieldsize + PAT;
+		Border borderRB = BorderFactory.createMatteBorder(0, 0, 1, 1, new Color(XA, XB, WH));
 	    playboardPanel.setLayout(new GridLayout(fieldsize + 1, fieldsize + 1));
 	    playboardPanel.setSize(width, width);
 		fields = new JLabelE[fieldsize + 1][fieldsize + 1];
@@ -99,7 +103,7 @@ public class PlayboardPanel extends JPanel {
 					playboardPanel.add(fields[i][j]);
 				} else {
 					fields[i][j] = new JLabelE(field, selectedField);
-					fields[i][j].setSize(25, 25);
+					fields[i][j].setSize(PAT, PAT);
 					fields[i][j].setPosition(j, i);
 					fields[i][j].setBorder(borderRB);
 					fields[i][j].addMouseListener(new MouseAdapter() {

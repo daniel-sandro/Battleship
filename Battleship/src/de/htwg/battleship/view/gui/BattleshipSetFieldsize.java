@@ -19,7 +19,6 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 	
 	private JButton JBgo;
 	private JTextField JTFsize;
-	private JPanel enterFieldsize;
 	private IController controller;
 	private static final int MAX = 26;
 	private static final int XX = 350;
@@ -33,11 +32,11 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 	public BattleshipSetFieldsize(final IController controller) {
 		this.controller = controller;
 		
-		enterFieldsize = new JPanel();
+		JPanel enterFieldsize = new JPanel();
 		setTitle("Bitte die Feldgröße eingeben!");
 		setLayout(new FlowLayout());
 		JBgo = new JButton("OK");
-		JTFsize = new JTextField(2);
+		JTextField JTFsize = new JTextField(2);
 		enterFieldsize.add(new JLabel("Feldgröße:"));
 		enterFieldsize.add(JTFsize);
 		enterFieldsize.add(JBgo);

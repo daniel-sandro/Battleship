@@ -266,7 +266,15 @@ public interface IController extends IObservable {
 	 */
 	void setCorrectAl(boolean correctAl);
 	
-	public int getStep();
+	/**
+	 * getter for the next step
+	 * @return the step
+	 */
+	int getStep();
 
-	public void setStep(int step);
+	/**
+	 * setter for the next step
+	 * @param step int for the next step
+	 */
+	void setStep(int step);
 }
