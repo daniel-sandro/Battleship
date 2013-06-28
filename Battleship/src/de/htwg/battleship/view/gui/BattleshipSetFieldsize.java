@@ -36,7 +36,7 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 		setTitle("Bitte die Feldgröße eingeben!");
 		setLayout(new FlowLayout());
 		jbgo = new JButton("OK");
-		JTextField jtfsize = new JTextField(2);
+		JTextField jtfsize = new JTextField();
 		enterFieldsize.add(new JLabel("Feldgröße:"));
 		enterFieldsize.add(jtfsize);
 		enterFieldsize.add(jbgo);
