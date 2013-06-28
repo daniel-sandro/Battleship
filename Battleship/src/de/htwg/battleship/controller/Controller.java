@@ -181,11 +181,9 @@ public class Controller extends Observable implements IController {
 	 */
 	public void shootHuman() {
 		int[] botshot = bot.shoot(player.getPlayboard());
-		if (player.getPlayboard().getField()[botshot[0]][botshot[1]].getShip() != null) {
-			if (player.getPlayboard().getField()[botshot[0]][botshot[1]]
-					.getShip().getSize() == 0) {
+		if (player.getPlayboard().getField()[botshot[0]][botshot[1]].getShip() != null && 
+				player.getPlayboard().getField()[botshot[0]][botshot[1]].getShip().getSize() == 0) {
 				player.setNumberShips(player.getNumberShips() - 1);
-			}
 		}
 		lastBotShot = botshot;
 	}
