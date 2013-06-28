@@ -8,8 +8,6 @@ public interface IObservable {
 
 	void removeAllObservers();
 
-	//void notifyObservers();
-
 	void notifyObservers(Event e);
 	
 	void notifyOnSetFieldsize();

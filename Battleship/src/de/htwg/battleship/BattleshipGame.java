@@ -13,6 +13,8 @@ import de.htwg.battleship.view.gui.BattleshipSetFieldsize;
 import de.htwg.battleship.view.tui.TUI;
 
 public class BattleshipGame {
+	
+	private BattleshipGame() {}
 
 	/**
 	 * Main for the Battleship. Runs the game.

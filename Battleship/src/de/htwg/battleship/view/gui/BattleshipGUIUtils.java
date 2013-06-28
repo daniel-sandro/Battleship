@@ -20,7 +20,7 @@ public class BattleshipGUIUtils extends JFrame {
 	 */
 	public static void noInputerror() {
 		JOptionPane.showMessageDialog(BattleshipGUI.getMainPanel(), "Bitte etwas in das Eingabefeld" +
-				" eingeben!", "Fehler!", JOptionPane.ERROR_MESSAGE);
+				" eingeben!", "Falsche Eingabe!", JOptionPane.ERROR_MESSAGE);
 	}
 	
 	/**
@@ -37,7 +37,7 @@ public class BattleshipGUIUtils extends JFrame {
 		sb.append("Das Schiff muss um ").append(x).append(" weiter nach ").append(s)
 			.append(" verschoben werden, damit es auf das Spielfeld passt!");
 		JOptionPane.showMessageDialog(BattleshipGUI.getMainPanel(), sb.toString(),
-				"Fehler!", JOptionPane.ERROR_MESSAGE);
+				"Schiff neu setzen!", JOptionPane.ERROR_MESSAGE);
 	}
 	
 	/**
@@ -79,7 +79,7 @@ public class BattleshipGUIUtils extends JFrame {
 		}
 		sb.append(s).append("setzen!");
 		JOptionPane.showMessageDialog(BattleshipGUI.getMainPanel(), sb.toString(),
-				"Fehler!", JOptionPane.ERROR_MESSAGE);
+				"Achtung!", JOptionPane.ERROR_MESSAGE);
 	}
 	
 	/**

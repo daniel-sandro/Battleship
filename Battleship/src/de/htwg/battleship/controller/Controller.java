@@ -482,8 +482,8 @@ public class Controller extends Observable implements IController {
 			}
 			break;
 		case ONE:
-			int t;
-			if ((t = checkSetShipPosition(1, x, y, alignment)) != 0) {
+			int t = checkSetShipPosition(1, x, y, alignment);
+			if (t != 0) {
 				correctAl = alignment;
 				correctPos = t;
 				notifyObservers(new Event(EventType.correctPosition));

@@ -164,7 +164,6 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 */
 	public void onBotShoots() {
 		int[] shots = controller.getLastBotShot();
-		System.out.printf("shots[0]: %d, shots[1]: %d", shots[0], shots[1]);
 		if (controller.getPlayer().getPlayboard().getField()[shots[0]][shots[1]].getStat() == state.hit) {
 		} else if(controller.getPlayer().getPlayboard().getField()[shots[0]][shots[1]].getStat() == state.ship) { 
 		} else  {

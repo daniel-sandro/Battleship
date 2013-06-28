@@ -17,8 +17,8 @@ import de.htwg.battleship.controller.IController;
 @SuppressWarnings("serial")
 public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 	
-	private JButton JBgo;
-	private JTextField JTFsize;
+	private JButton jbgo;
+	private JTextField jtfsize;
 	private IController controller;
 	private static final int MAX = 26;
 	private static final int XX = 350;
@@ -35,14 +35,14 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 		JPanel enterFieldsize = new JPanel();
 		setTitle("Bitte die Feldgröße eingeben!");
 		setLayout(new FlowLayout());
-		JBgo = new JButton("OK");
-		JTextField JTFsize = new JTextField(2);
+		jbgo = new JButton("OK");
+		JTextField jtfsize = new JTextField(2);
 		enterFieldsize.add(new JLabel("Feldgröße:"));
-		enterFieldsize.add(JTFsize);
-		enterFieldsize.add(JBgo);
+		enterFieldsize.add(jtfsize);
+		enterFieldsize.add(jbgo);
 		setSize(XX, XY);
 		setLocationRelativeTo(null);
-		JBgo.addActionListener(this);
+		jbgo.addActionListener(this);
 		setContentPane(enterFieldsize);
 		setVisible(true);
 	}
@@ -52,11 +52,10 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 	 * fetches the source of an event so the classes can react on it
 	 */
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == JBgo) {
+		if (e.getSource() == jbgo) {
 			try {  
-				Integer.getInteger(JTFsize.getText());  
-		        Integer value = new Integer(JTFsize.getText());  
-		        if(value.intValue() <= 0 || value.intValue() > MAX) {
+		        int value = Integer.valueOf(jtfsize.getText());  
+		        if(value<= 0 || value > MAX) {
 			    	BattleshipGUIUtils.fieldsizeError();
 		        } else {
 		        	controller.setFieldsize(value);
