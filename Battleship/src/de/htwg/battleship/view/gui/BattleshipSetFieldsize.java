@@ -12,7 +12,6 @@ import javax.swing.JTextField;
 
 import com.google.inject.Inject;
 
-import de.htwg.battleship.controller.Controller;
 import de.htwg.battleship.controller.IController;
 
 @SuppressWarnings("serial")
@@ -22,6 +21,9 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 	private JTextField JTFsize;
 	private JPanel enterFieldsize;
 	private IController controller;
+	private static final int MAX = 26;
+	private static final int XX = 350;
+	private static final int XY = 80;
 	
 	/**
 	 * @param controller
@@ -39,7 +41,7 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 		enterFieldsize.add(new JLabel("Feldgröße:"));
 		enterFieldsize.add(JTFsize);
 		enterFieldsize.add(JBgo);
-		setSize(350, 80);
+		setSize(XX, XY);
 		setLocationRelativeTo(null);
 		JBgo.addActionListener(this);
 		setContentPane(enterFieldsize);
@@ -55,7 +57,7 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 			try {  
 				Integer.getInteger(JTFsize.getText());  
 		        Integer value = new Integer(JTFsize.getText());  
-		        if(value.intValue() <= 0 || value.intValue() > 26) {
+		        if(value.intValue() <= 0 || value.intValue() > MAX) {
 			    	BattleshipGUIUtils.fieldsizeError();
 		        } else {
 		        	controller.setFieldsize(value);

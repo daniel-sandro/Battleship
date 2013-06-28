@@ -7,7 +7,6 @@ import javax.swing.JPanel;
 
 import com.google.inject.Inject;
 
-import de.htwg.battleship.controller.Controller;
 import de.htwg.battleship.controller.IController;
 
 /**
