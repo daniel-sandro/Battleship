@@ -37,7 +37,7 @@ public class Controller extends Observable implements IController {
 
 	private int x = ZERO;
 	private int y = ZERO;
-	private int z = ZERO;
+	private int z = 0;
 	private boolean alignment = false;
 	private int correctPos;
 	private boolean correctAl;
@@ -202,7 +202,6 @@ public class Controller extends Observable implements IController {
 		return this.lastBotShot;
 	}
 
-	// Methods for setting the ships via the controller
 	/**
 	 * Sets a Rowboat onto the Human's Playboard.
 	 * 
@@ -334,7 +333,7 @@ public class Controller extends Observable implements IController {
 			boolean alignment) {
 		int f = player.getPlayboard().getSize() - 1;
 		if (shiptype == 1) {
-			if (!alignment) { // horizontal
+			if (!alignment) { 
 				if (x + 2 > f) {
 					return x + 2 - f;
 				}
@@ -344,7 +343,7 @@ public class Controller extends Observable implements IController {
 				}
 			}
 		} else if (shiptype == 2) {
-			if (!alignment) { // horizontal
+			if (!alignment) {
 				if (x + FOUR > f) {
 					return x + FOUR - f;
 				}
@@ -435,28 +434,28 @@ public class Controller extends Observable implements IController {
 	public boolean validateInput(String s) {
 		String[] split = s.split(" ");
 		switch (step) {
-		case ZERO: // ruderboot setzen
-		case FOUR: // bot schießt
-		case THREE: // auf bot schiessen
+		case ZERO: 
+		case FOUR:
+		case THREE:
 			if (split.length != TWO) {
 				setStatus("Falsche eingabe");
 				return false;
 			}
 			y = Integer.valueOf(split[1]);
 			break;
-		case ONE: // zerst setzen
-		case TWO: // flattop setzen
+		case ONE:
+		case TWO:
 			if (split.length != THREE) {
 				setStatus("Falsche eingabe");
 				return false;
 			}
 			y = Integer.valueOf(split[1]);
 			z = Integer.valueOf(split[2]);
-			if (z == 1) { // horizontal
+			if (z == 1) {
 				alignment = false;
 			}
 			break;
-		default: // menu
+		default: 
 			if (split.length == TWO) {
 				step = THREE;
 				y = Integer.valueOf(split[1]);
@@ -486,7 +485,7 @@ public class Controller extends Observable implements IController {
 				botTurn();
 			}
 			break;
-		case ONE: // zerstörer setzen
+		case ONE:
 			int t;
 			if ((t = checkSetShipPosition(1, x, y, alignment)) != 0) {
 				correctAl = alignment;
@@ -503,36 +502,33 @@ public class Controller extends Observable implements IController {
 				botTurn();
 			}
 			break;
-		case TWO: // flugzeugträger setzen
+		case TWO: 
 			setHumanFlattop(x, y, alignment);
 			botTurn();
 			break;
-		case THREE: // auf feld von bot schießen
+		case THREE:
 			shootBot(y, x);
 			step++;
 			gameOver();
-			input("0 0"); // jetzt schießt der bot
+			input("0 0"); 
 			break;
-		case FOUR: // bot schießt
+		case FOUR: 
 			setStatus("Der Bot ist am Zug!");
 			shootHuman();
 			notifyObservers(new Event(EventType.showMenu));
 			step++;
 			gameOver();
 			break;
-		case FIVE: // im menü
+		case FIVE: 
 			if (x == ONE) {
 				notifyObservers(new Event(EventType.showMenu));
-				// eigenes feld anzeigen
 			} else if (x == TWO) {
 				setStatus("Du bist am Zug! Schieße auf den Bot! (X/Y)");
 				step = THREE;
-				// auf bot schießen
 			} else if (x == THREE) {
 				setStatus("Danke für's Spielen! Bis bald!");
 				sleep(EXIT);
 				return false;
-				// exit
 			} else if (x == FOUR) {
 				notifyObservers(new Event(EventType.cheat));
 			}

@@ -42,18 +42,18 @@ public class BattleshipInfos extends JPanel {
         setBackground(background);
 
         jTextField2.setEditable(false);
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14));
         jTextField2.setBackground(background);
         jTextField2.setForeground(new java.awt.Color(0, 0, 102));
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setText(controller.getStatus());
         jTextField2.setAutoscrolls(false);
         jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Status:"));
-        jTextField2.setName(""); // NOI18N
+        jTextField2.setName("");
 
         jTextField3.setEditable(false);
         jTextField3.setBackground(background);
-        jTextField3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField3.setFont(new java.awt.Font("Tahoma", 1, 14));
         jTextField3.setForeground(new java.awt.Color(104, 161, 255));
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setText("Flotte des Bots");
@@ -64,7 +64,7 @@ public class BattleshipInfos extends JPanel {
 
         jTextField1.setEditable(false);
         jTextField1.setBackground(background);
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 14));
         jTextField1.setForeground(new java.awt.Color(104, 161, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Deine Flotte");

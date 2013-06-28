@@ -66,16 +66,16 @@ public class Bot extends Player implements IBot{
 		do {
 			if (!s.getAlignment()) {
 				do {
-					posi[0] = initRandomNumber(); // x-pos
-					posi[1] = initRandomNumber(); // y-pos
+					posi[0] = initRandomNumber();
+					posi[1] = initRandomNumber();
 				} while (posi[0] + s.getSize() > getPlayboard().getSize());
-			} else { // vert
+			} else {
 				do {
-					posi[0] = initRandomNumber(); // x-pos
+					posi[0] = initRandomNumber();
 					posi[1] = initRandomNumber();
 				} while (posi[1] + s.getSize() > getPlayboard().getSize());
 			}
-		} while (!check(posi[0], posi[1], s)); // nochmal
+		} while (!check(posi[0], posi[1], s));
 		s.setPosition(posi[0], posi[1]);
 		getPlayboard().setShip(s);
 	}
@@ -92,7 +92,7 @@ public class Bot extends Player implements IBot{
 	 * @return false if there was a ship.
 	 */
 	public boolean check(int x, int y, Ships s) {
-		if (!s.getAlignment()) { // horizontal
+		if (!s.getAlignment()) {
 			for (int i = 0; i < s.getSize(); i++) {
 				if (getPlayboard().getField()[x + i][y].getStat() == state.ship) {
 					return false;

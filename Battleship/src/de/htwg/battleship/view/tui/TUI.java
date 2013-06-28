@@ -1,12 +1,9 @@
 package de.htwg.battleship.view.tui;
 
-import java.util.Scanner;
-
 import org.apache.log4j.Logger;
 
 import com.google.inject.Inject;
 
-import de.htwg.battleship.controller.Controller;
 import de.htwg.battleship.controller.IController;
 import de.htwg.battleship.model.Field.state;
 import de.htwg.battleship.observer.Event;
@@ -80,35 +77,6 @@ public final class TUI implements IObserver {
 	}
 
 	public void onSetFieldsize() {}
-
-	/**
-	 * Checks if the given values are valid. they are, as long as they don't
-	 * rech the limit of the fieldsize.
-	 * 
-	 * @param ship
-	 *            0:rowboat, 1:destructor, 2:flattop
-	 * @param x
-	 *            the x-coordinate
-	 * @param y
-	 *            the y-coordinate
-	 * @param alignment
-	 *            true if vertical, false if horizontal
-	 * @return true if the position is valid, false if not
-	 */
-	private boolean checkShipPos(int ship, int x, int y, boolean alignment) {
-		int t;
-		if ((t = controller.checkSetShipPosition(ship, x, y, alignment)) != 0) {
-			print("Das Schiff bitte ");
-			print(String.valueOf(t));
-			if (alignment) {
-				print(" weiter oben setzen!\n");
-			} else {
-				print(" weiter links setzen!\n");
-			}
-			return false;
-		}
-		return true;
-	}
 
 	public void onStatus() {
 		print(controller.getStatus());

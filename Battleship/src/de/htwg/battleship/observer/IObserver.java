@@ -2,35 +2,35 @@ package de.htwg.battleship.observer;
 
 public interface IObserver {
 
-	public void onSetFieldsize();
+	void onSetFieldsize();
 	
-	public void onSetRowboat();
+	void onSetRowboat();
 	
-	public void onSetDestructor();
+	void onSetDestructor();
 	
-	public void onSetFlattop();
+	void onSetFlattop();
 	
-	public void onShowMenu();
+	void onShowMenu();
 	
-	public void onAction();
+	void onAction();
 	
-	public void onShowPlayersField();
+	void onShowPlayersField();
 	
-	public void onShowBotsField();
+	void onShowBotsField();
 	
-	public void onShootOnBot();
+	void onShootOnBot();
 	
-	public void onStatus();
+	void onStatus();
 	
-	public void onNotifyObservers(Event t);
+	void onNotifyObservers(Event t);
 	
-	public void onCheat();
+	void onCheat();
 	
-	public void onGameOver();
+	void onGameOver();
 	
-	public void onWon();
+	void onWon();
 	
-	public void onBotShoots();
+	void onBotShoots();
 	
-	public void onRepaint();
+	void onRepaint();
 }
