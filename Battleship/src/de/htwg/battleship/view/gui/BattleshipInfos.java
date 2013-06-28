@@ -24,6 +24,10 @@ public class BattleshipInfos extends JPanel {
     Color background = new Color(255, 255, 255);
     IController controller;
 
+    /**
+     * declares some minor attributes/options/information
+     * @param controller
+     */
     @Inject
     public BattleshipInfos(IController controller) {
     	
@@ -99,6 +103,9 @@ public class BattleshipInfos extends JPanel {
         );
     }
     
+    /**
+     * asks the controller for it´s statusline
+     */
     public void update() {
     	jTextField2.setValue(controller.getStatus());
     	revalidate();

@@ -23,6 +23,10 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 	private JPanel enterFieldsize;
 	private IController controller;
 	
+	/**
+	 * @param controller
+	 * sets the fieldsize
+	 */
 	@Inject
 	public BattleshipSetFieldsize(final IController controller) {
 		this.controller = controller;
@@ -42,6 +46,10 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 		setVisible(true);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 * fetches the source of an event so the classes can react on it
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == JBgo) {
 			try {  

@@ -335,6 +335,10 @@ public class BattleshipGUI extends JFrame implements IObserver {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onRepaint()
+	 * reaction on the event repaint
+	 */
 	public void onRepaint() {
 		repaintFields();		
 	}

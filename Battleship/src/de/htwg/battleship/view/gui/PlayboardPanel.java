@@ -29,6 +29,10 @@ public class PlayboardPanel extends JPanel {
     Icon selectedField = new ImageIcon(getClass().getResource("/images/FieldS.jpg"));
     JPanel playboardPanel;
 	
+	/**
+	 * @param gui
+	 * constructor
+	 */
 	public PlayboardPanel(BattleshipGUI gui) {
 		this.gui = gui;
 		playboardPanel = new JPanel();
@@ -36,16 +40,31 @@ public class PlayboardPanel extends JPanel {
 		printPlayboard();
 	}
 	
+	/**
+	 * @return
+	 * returns the panel
+	 */
 	public JPanel getPanel() {
 		return this.playboardPanel;
 	}
 	
+	/**
+	 * @param x
+	 * @param y
+	 * @param normal
+	 * @param selected
+	 * set a icon on a specific jlabel
+	 */
 	public void setIcon(int x, int y, Icon normal, Icon selected) {
 		this.fields[y][x].setNormalIcon(normal);
 		this.fields[y][x].setSelectedIcon(selected);
 		playboardPanel.repaint();
 	}
 	
+	/**
+	 * @return
+	 * prints out the playboard
+	 */
 	private JPanel printPlayboard() {
 		int width = 25 * fieldsize + 25;
 		Border borderRB = BorderFactory.createMatteBorder(0, 0, 1, 1, new Color(135, 180, 255));
@@ -107,6 +126,10 @@ public class PlayboardPanel extends JPanel {
 		return playboardPanel;
 	}
 	
+	/**
+	 * @param player
+	 * blablabla
+	 */
 	public void update(boolean player) {
 		for (int i = 0; i < fieldsize; i++) {
 			for (int j = 0; j < fieldsize; j++) {
@@ -119,6 +142,11 @@ public class PlayboardPanel extends JPanel {
 		}
 	}
 	
+	/**
+	 * @param i
+	 * @param j
+	 * checks the bot´s state
+	 */
 	public void checkstateBot(int i, int j) {
 		if (gui.controller.getBot().getPlayboard().getField()[i][j].getStat() == state.hit) {
 			fields[i + 1][j + 1].setNormalIcon(hit);
@@ -129,6 +157,11 @@ public class PlayboardPanel extends JPanel {
 		}
 	}
 	
+	/**
+	 * @param i
+	 * @param j
+	 * checks the human´s state
+	 */
 	public void checkstateHuman(int i, int j) {
 		if (gui.controller.getPlayer().getPlayboard().getField()[i][j].getStat() == state.empty) {
 		} else if (gui.controller.getPlayer().getPlayboard().getField()[i][j].getStat() == state.hit) {
