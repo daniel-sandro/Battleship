@@ -466,14 +466,6 @@ public class Controller extends Observable implements IController {
 		x = Integer.valueOf(split[0]);
 		return true;
 	}
-	
-	private boolean checkIn(int splitLen, int max) {
-		if (splitLen != THREE) {
-			setStatus("Falsche eingabe");
-			return false;
-		}
-		return true;
-	}
 
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.controller.IController#input(java.lang.String)
@@ -483,67 +475,78 @@ public class Controller extends Observable implements IController {
 		validateInput(s);
 
 		switch (step) {
-		case ZERO:
-			setHumanRowboat(x, y);
-			if (fieldsize >= THREE) {
-				setStatus("Bitte den Zerstörer setzen! (X Y \"alignment\")");
-				notifyObservers(new Event(Event.EventType.setDestructor));
-				step++;
-			} else {
+			case ZERO:
+				setHumanRowboat(x, y);
+				if (fieldsize >= THREE) {
+					setStatus("Bitte den Zerstörer setzen! (X Y \"alignment\")");
+					notifyObservers(new Event(Event.EventType.setDestructor));
+					step++;
+				} else {
+					botTurn();
+				}
+				break;
+			case ONE:
+				int t = checkSetShipPosition(1, x, y, alignment);
+				if (t != 0) {
+					correctAl = alignment;
+					correctPos = t;
+					notifyObservers(new Event(EventType.correctPosition));
+					return true;
+				}
+				setHumanDestructor(x, y, alignment);
+				if (fieldsize >= EIGHT) {
+					setStatus("Bitte den Flugzeugträger setzen! (X Y \"alignment\")");
+					notifyObservers(new Event(Event.EventType.setFlattop));
+					step++;
+				} else {
+					botTurn();
+				}
+				break;
+			case TWO: 
+				setHumanFlattop(x, y, alignment);
 				botTurn();
-			}
-			break;
-		case ONE:
-			int t = checkSetShipPosition(1, x, y, alignment);
-			if (t != 0) {
-				correctAl = alignment;
-				correctPos = t;
-				notifyObservers(new Event(EventType.correctPosition));
-				return true;
-			}
-			setHumanDestructor(x, y, alignment);
-			if (fieldsize >= EIGHT) {
-				setStatus("Bitte den Flugzeugträger setzen! (X Y \"alignment\")");
-				notifyObservers(new Event(Event.EventType.setFlattop));
+				break;
+			case THREE:
+				shootBot(y, x);
 				step++;
-			} else {
-				botTurn();
-			}
-			break;
-		case TWO: 
-			setHumanFlattop(x, y, alignment);
-			botTurn();
-			break;
-		case THREE:
-			shootBot(y, x);
-			step++;
-			gameOver();
-			input("0 0"); 
-			break;
-		case FOUR: 
-			setStatus("Der Bot ist am Zug!");
-			shootHuman();
-			notifyObservers(new Event(EventType.showMenu));
-			step++;
-			gameOver();
-			break;
-		case FIVE: 
-			if (x == ONE) {
+				gameOver();
+				input("0 0"); 
+				break;
+			case FOUR: 
+				setStatus("Der Bot ist am Zug!");
+				shootHuman();
 				notifyObservers(new Event(EventType.showMenu));
-			} else if (x == TWO) {
-				setStatus("Du bist am Zug! Schieße auf den Bot! (X/Y)");
-				step = THREE;
-			} else if (x == THREE) {
-				setStatus("Danke für's Spielen! Bis bald!");
-				sleep(EXIT);
-				return false;
-			} else if (x == FOUR) {
-				notifyObservers(new Event(EventType.cheat));
-			}
+				step++;
+				gameOver();
+				break;
+			case FIVE: 
+				if (!five()) {
+					return false;
+				}
 		}
 		notifyObservers(new Event(EventType.onRepaint));
 		if (!gameOver()) {
 			return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * Checks the input if the step is "on menu".
+	 * @return false if to exit, true if regular 
+	 */
+	private boolean five() {
+		if (x == ONE) {
+			notifyObservers(new Event(EventType.showMenu));
+		} else if (x == TWO) {
+			setStatus("Du bist am Zug! Schieße auf den Bot! (X/Y)");
+			step = THREE;
+		} else if (x == THREE) {
+			setStatus("Danke für's Spielen! Bis bald!");
+			sleep(EXIT);
+			return false;
+		} else if (x == FOUR) {
+			notifyObservers(new Event(EventType.cheat));
 		}
 		return true;
 	}

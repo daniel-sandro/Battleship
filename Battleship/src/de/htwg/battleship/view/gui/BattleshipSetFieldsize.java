@@ -3,8 +3,12 @@ package de.htwg.battleship.view.gui;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.Format;
+import java.text.NumberFormat;
+import java.util.IllegalFormatException;
 
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -36,7 +40,7 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 		setTitle("Bitte die Feldgröße eingeben!");
 		setLayout(new FlowLayout());
 		jbgo = new JButton("OK");
-		JTextField jtfsize = new JTextField(2);
+		jtfsize = new JTextField(2);
 		enterFieldsize.add(new JLabel("Feldgröße:"));
 		enterFieldsize.add(jtfsize);
 		enterFieldsize.add(jbgo);
@@ -53,9 +57,11 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == jbgo) {
-			try {  
-		        int value = Integer.valueOf(jtfsize.getText());  
-		        if(value<= 0 || value > MAX) {
+			String erg = jtfsize.getText();
+			int value;
+			try {
+				value = Integer.valueOf(erg);
+		        if(value <= 0 || value > MAX) {
 			    	BattleshipGUIUtils.fieldsizeError();
 		        } else {
 		        	controller.setFieldsize(value);
@@ -64,7 +70,7 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 		    		}
 		    		dispose();
 		        }
-		    } catch (NumberFormatException e1) {
+		    } catch (IllegalFormatException e1) {
 		    	BattleshipGUIUtils.noInputerror();
 		    }
 		}		
