@@ -20,8 +20,6 @@ import de.htwg.battleship.observer.IObserver;
 public class BattleshipGUI extends JFrame implements IObserver {
 
 	public static JPanel mainPanel;
-	// action: 0 = eigenes feld nur anzeigen; 1 = ruderboot setzen; 2 = zerstörer setzen
-	// 3 = flugzeugträger setzen; 4 = auf bot schießen
 	private int action = 0;
 	boolean cont = false;
 	private JPanel fieldsPanel;
