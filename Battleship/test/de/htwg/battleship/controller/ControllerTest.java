@@ -139,7 +139,25 @@ public class ControllerTest {
 	
 	@Test
 	public void testInput() {
-		
+		c = new Controller();
+		c.initPlayers(10);
+		c.setFieldsize(10);
+		c.setStep(3);
+		assertTrue(c.input("1 1 1"));
+		c.setStep(0);
+		assertTrue(c.input("1 1"));
+		c.setStep(1);
+		c.setFieldsize(3);
+		assertTrue(c.input("1 1 1"));
+		c.setFieldsize(8);
+		assertTrue(c.input("8 8 1"));
+		c.setStep(2);
+		assertTrue(c.input("1 1 1"));
+		c.setStep(5);
+		assertTrue(c.input("1"));
+		assertTrue(c.input("2"));
+		assertTrue(c.input("4"));
+		assertEquals(false, c.input("3"));
 	}
 	
 	@Test
@@ -147,6 +165,23 @@ public class ControllerTest {
 		c.initPlayers(c.getFieldsize());
 		assertNotNull(c.getBot());
 		assertNotNull(c.getPlayer());
+	}
+	
+	@Test
+	public void testGetStep() {
+		c.setStep(0);
+		assertEquals(0, c.getStep());
+	}
+	
+	@Test
+	public void testGetLastShotBot() {
+		c = new Controller();
+		c.setFieldsize(1);
+		c.initPlayers(1);
+		c.shootHuman();
+		int[] x = {0, 0};
+		assertEquals(x[0], c.getLastBotShot()[0]);
+		assertEquals(x[1], c.getLastBotShot()[1]);
 	}
 	
 	@Test
