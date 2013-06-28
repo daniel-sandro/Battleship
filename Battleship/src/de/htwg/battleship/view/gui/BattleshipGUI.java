@@ -30,7 +30,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	private PlayboardPanel botPanel;
     private Color background;
     private StringBuilder sb = new StringBuilder();
-	private static final int THREE = 4;
+	private static final int THREE = 3;
 	private static final int FOUR = 4;
 	private static final int COL = 255;
 	private static final int XA = 285;
@@ -182,8 +182,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 * sets action to 3 (set flattop)
 	 */
 	public void onSetFlattop() {
-		final int x = 3;
-		action = x;
+		action = THREE;
 	}
 
 	/* (non-Javadoc)

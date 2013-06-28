@@ -455,6 +455,8 @@ public class Controller extends Observable implements IController {
 				int z = Integer.valueOf(split[2]);
 				if (z == 1) {
 					alignment = true;
+				} else {
+					alignment = false;
 				}
 				break;
 			default: 
@@ -552,7 +554,7 @@ public class Controller extends Observable implements IController {
 	 */
 	private boolean five() {
 		if (x == ONE) {
-			notifyObservers(new Event(EventType.showMenu));
+			notifyObservers(new Event(EventType.showPlayersField));
 		} else if (x == TWO) {
 			setStatus("Du bist am Zug! Schieﬂe auf den Bot! (X/Y)");
 			step = THREE;
