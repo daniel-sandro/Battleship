@@ -12,7 +12,7 @@ public interface IPlayer {
 	 * @param size
 	 *            the size of the new playboard
 	 */
-	abstract void initPlayboard(int size);
+	void initPlayboard(int size);
 
 	/**
 	 * Getter for the player's number of remaining ships.
