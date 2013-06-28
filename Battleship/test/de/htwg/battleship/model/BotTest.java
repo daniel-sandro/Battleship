@@ -43,7 +43,7 @@ public class BotTest {
 	}
 	
 	@Test
-	public void testinitrandomNumber() {
+	public void testInitrandomNumber() {
 		a.initPlayboard(1);
 		assertNotNull(a);
 		int x = a.initRandomNumber();
@@ -51,14 +51,15 @@ public class BotTest {
 	}
 	
 	@Test
-	public void testsetShip(){
-		Ships b = new Rowboat();
-		a.setShip(b);
-		assertTrue(b.getPosition()[0] == 0 && b.getPosition()[1] == 0);
+	public void testSetShip() {
+		Ships c = new Destructor(true);
+		a.setShip(c);
+		assertEquals(0, c.getPosition()[0]);
+		assertEquals(0, c.getPosition()[1]);
 	}
 	
 	@Test
-	public void testvertical(){
+	public void testVertical(){
 		Bot b = new Bot(26);
 		boolean tr = false;
 		boolean fl = false;
