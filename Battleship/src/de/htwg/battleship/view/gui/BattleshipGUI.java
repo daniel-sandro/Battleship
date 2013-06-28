@@ -99,6 +99,10 @@ public class BattleshipGUI extends JFrame implements IObserver {
 		return controller.getFieldsize();
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onNotifyObservers(de.htwg.battleship.observer.Event)
+	 * reacts on the given Event
+	 */
 	public void onNotifyObservers(Event t) {
 		switch (t.getEventType()) {
 			case setFieldsize:
@@ -144,10 +148,18 @@ public class BattleshipGUI extends JFrame implements IObserver {
 		}
 	}
 	
+	/**
+	 * corrects the position of a ship
+	 */
 	public void onCorrectPosition() {
 		BattleshipGUIUtils.correctShipPosition(controller.getCorrectPos(), controller.isCorrectAl());
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
+	 * the reaction on the event to shoot at bot
+	 * shoots at bot
+	 */
 	public void onBotShoots() {
 		int[] shots = controller.getLastBotShot();
 		System.out.printf("shots[0]: %d, shots[1]: %d", shots[0], shots[1]);
@@ -157,34 +169,77 @@ public class BattleshipGUI extends JFrame implements IObserver {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onSetRowboat()
+	 * sets action to 1 (set rowboat)
+	 */
 	public void onSetRowboat () {
 		action = 1;
 		printMainFrame();
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onSetDestructor()
+	 * sets action to 2 (se destructor)
+	 */
 	public void onSetDestructor() {
 		action = 2;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onSetFlattop()
+	 * sets action to 3 (set flattop)
+	 */
 	public void onSetFlattop() {
 		action = 3;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onShowMenu()
+	 * empty function, is only implemented by TUI
+	 */
 	public void onShowMenu() {}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onAction()
+	 * sets action to 4
+	 */
 	public void onAction() {
-		// hier auf Input des Players warten
 		action = 4;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onShowPlayersField()
+	 * empty function, is only implemented by TUI
+	 */
 	public void onShowPlayersField() {}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onShowBotsField()
+	 * empty function, is only implemented by TUI
+	 */
 	public void onShowBotsField() {}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onCheat()
+	 * empty function, is only implemented by TUI
+	 */
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onCheat()
+	 * empty function, is only implemented by TUI
+	 */
 	public void onCheat() {}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onShootOnBot()
+	 * empty function, is only implemented by TUI
+	 */
 	public void onShootOnBot() {}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onStatus()
+	 * prevents deadlocks
+	 */
 	public void onStatus() {
 		SwingUtilities.invokeLater(new Runnable() {
 		    public void run() {
@@ -195,6 +250,9 @@ public class BattleshipGUI extends JFrame implements IObserver {
 		});
 	}
 	
+	/**
+	 * repaints the field after a change has been done
+	 */
 	public void repaintFields() {
 		SwingUtilities.invokeLater(new Runnable() {
 		    public void run() {
@@ -204,6 +262,9 @@ public class BattleshipGUI extends JFrame implements IObserver {
 		});
 	}
 	
+	/**
+	 * shows the players playboards
+	 */
 	public void showPlayboards() {
 		fieldsPanel = new JPanel();
 		fieldsPanel.setLayout(new BorderLayout());
@@ -220,6 +281,10 @@ public class BattleshipGUI extends JFrame implements IObserver {
 		fieldsPanel.add(right, BorderLayout.EAST);
 	}
 	
+	/**
+	 * @param x
+	 * @param y
+	 */
 	public void mouseClick(int x, int y) {
 		int align;
 		sb.append(x).append(" ").append(y);
@@ -237,14 +302,30 @@ public class BattleshipGUI extends JFrame implements IObserver {
 		sb.setLength(0);
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onGameOver()
+	 * reaction on the status gameover
+	 */
 	public void onGameOver() {
 		BattleshipGUIUtils.gameOver();
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onWon()
+	 * reaction to event won
+	 */
 	public void onWon() {
 		BattleshipGUIUtils.won();
 	}
 	
+	/**
+	 * checks if a chosen position of a ship is valid
+	 * @param ship
+	 * @param x
+	 * @param y
+	 * @param align
+	 * @return
+	 */
 	public boolean checkSetShipPosition(int ship, int x, int y, boolean align) {
 		int t = controller.checkSetShipPosition(ship, x, y, align);
 		if (t != 0) {
