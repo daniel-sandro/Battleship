@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import de.htwg.battleship.model.Bot;
 import de.htwg.battleship.model.Human;
 import de.htwg.battleship.model.Rowboat;
 import de.htwg.battleship.model.Field.state;

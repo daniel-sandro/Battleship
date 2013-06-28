@@ -140,7 +140,7 @@ public class Controller extends Observable implements IController {
 	 * @return the Bot
 	 */
 	public Bot getBot() {
-		return bot;
+		return (Bot) bot;
 	}
 
 	/**

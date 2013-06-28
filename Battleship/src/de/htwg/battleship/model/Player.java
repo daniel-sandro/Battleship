@@ -1,55 +1,42 @@
 package de.htwg.battleship.model;
 
 /**
- * @author Sandro
+ * @author Sandro, Julian
  * 
  */
-public abstract class Player {
+public abstract class Player implements IPlayer {
 
 	private int numberShips = 0;
 	private Playboard playboard;
 
-	/**
-	 * Initializer for a new playboard
-	 * 
-	 * @param size
-	 *            the size of the new playboard
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.model.IPlayer#initPlayboard(int)
 	 */
 	public abstract void initPlayboard(int size);
 
-	/**
-	 * Getter for the player's number of remaining ships.
-	 * 
-	 * @return the number of ships
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.model.IPlayer#getNumberShips()
 	 */
 	public int getNumberShips() {
 		return numberShips;
 	}
 
-	/**
-	 * Setter for the player's remaining ships.
-	 * 
-	 * @param numberShips
-	 *            the new value for the remaining ships
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.model.IPlayer#setNumberShips(int)
 	 */
 	public void setNumberShips(int numberShips) {
 		this.numberShips = numberShips;
 	}
 
-	/**
-	 * Getter for the player's playboard.
-	 * 
-	 * @return the players playboard
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.model.IPlayer#getPlayboard()
 	 */
 	public Playboard getPlayboard() {
 		return playboard;
 	}
 
-	/**
-	 * Setter for the player's playboard
-	 * 
-	 * @param playboard
-	 *            the new playboard
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.model.IPlayer#setPlayboard(de.htwg.battleship.model.Playboard)
 	 */
 	public void setPlayboard(Playboard playboard) {
 		this.playboard = playboard;

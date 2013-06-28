@@ -4,10 +4,11 @@ import java.util.Random;
 
 import de.htwg.battleship.model.Field.state;
 
+
 /**
  * @author Sandro, Julian Bot-Class. Subclass of Player. The AI.
  */
-public class Bot extends Player implements IBot{
+public class Bot extends Player {
 
 	/**
 	 * Constructor for the bot. Needs the fieldsize.

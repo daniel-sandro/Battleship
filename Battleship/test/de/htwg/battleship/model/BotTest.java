@@ -6,7 +6,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.battleship.model.Bot;
 import de.htwg.battleship.model.Playboard;
 import de.htwg.battleship.model.Rowboat;
 import de.htwg.battleship.model.Ships;
