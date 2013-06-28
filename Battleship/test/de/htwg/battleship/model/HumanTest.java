@@ -22,7 +22,7 @@ public class HumanTest {
 		b.getPlayboard().setShip(new Rowboat());
 		a.shoot(b.getPlayboard().getField()[0][0]);
 		
-		assertTrue(b.getPlayboard().getField()[0][0].getStat() == state.hit);
+		assertEquals(state.hit, b.getPlayboard().getField()[0][0].getStat());
 	}
 	
 	@Test

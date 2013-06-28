@@ -34,7 +34,7 @@ public class PlayboardTest {
 		Ships b = new Rowboat(0, 0);
 		a.setShip(b);
 		for(int i = 0; i < b.getSize(); i++){
-			assertTrue(a.getField()[b.getPosition()[0]][b.getPosition()[1]+i].getStat() == state.ship);
+			assertEquals(state.ship, a.getField()[b.getPosition()[0]][b.getPosition()[1]+i].getStat());
 		}
 		assertNotNull(a);
 	}

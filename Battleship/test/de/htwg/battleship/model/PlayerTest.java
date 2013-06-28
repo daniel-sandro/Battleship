@@ -28,20 +28,18 @@ public class PlayerTest {
 	@Test
 	public void testGetNumberShips() {
 		a.setNumberShips(2);
-		int x = a.getNumberShips();
-		assertTrue(x != 0);
+		assertEquals(2, a.getNumberShips());
 	}
 	
 	@Test
 	public void testSetNumberShips() {
-		int x = 3;
-		a.setNumberShips(x);
-		assertTrue(a.getNumberShips() == x);
+		a.setNumberShips(3);
+		assertEquals(3, a.getNumberShips());
 	}
 	
 	@Test
 	public void testSetPlayboard() {
 		a.setPlayboard(b);
-		assertTrue(a.getPlayboard() == b);
+		assertEquals(b, a.getPlayboard()); 
 	}
 }

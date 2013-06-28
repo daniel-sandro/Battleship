@@ -27,6 +27,7 @@ public class RowboatTest {
 	@Test
 	public void testSetPosition() {
 		a.setPosition(2, 2);
-		assertTrue(a.getPosition()[0] == 2 && a.getPosition()[1] == 2);
+		assertEquals(2, a.getPosition()[0]);
+		assertEquals(2, a.getPosition()[1]);
 	}
 }

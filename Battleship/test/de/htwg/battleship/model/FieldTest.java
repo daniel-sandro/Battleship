@@ -20,7 +20,7 @@ public class FieldTest {
 	public void testField() {
 		a = new Field();
 		assertNotNull(a);
-		assertTrue(a.getStat() == state.empty);
+		assertEquals(state.empty, a.getStat());
 	}
 	
 
@@ -32,16 +32,14 @@ public class FieldTest {
 	@Test
 	public void testShoot() {
 		Ships x = new Flattop(0, 0, true);
-		assertTrue(a.getStat() == state.empty);
+		assertEquals(state.empty, a.getStat());
 		a.shoot();
-		assertTrue(a.getStat() == state.emptyhit);
+		assertEquals(state.emptyhit, a.getStat());
 		a.setShip(x);
 		a.shoot();
-		assertTrue(a.getStat() == state.hit);
+		assertEquals(state.hit, a.getStat());
 		a.shoot();
-		assertTrue(a.getStat() == state.emptyhit || a.getStat() == state.hit);
-		a.shoot();
-		assertTrue(a.getStat() == state.emptyhit || a.getStat() == state.hit);
+		assertEquals(state.hit, a.getStat());
 	}
 
 	@Test

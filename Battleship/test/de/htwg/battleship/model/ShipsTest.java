@@ -15,29 +15,31 @@ public class ShipsTest {
 	
 	@Before
 	public void createRowboat(){
-		a = new Rowboat(1,1);
+		a = new Rowboat(1, 1);
 		assertNotNull(a);
 	}
 	
 	@Test
 	public void testIsHorizontal() {
-		assertFalse(!a.getAlignment());
+		assertTrue(a.getAlignment());
 	}
 
 	@Test
 	public void testGetSize() {
-		assertTrue(a.getSize() >= 1);
+		assertEquals(1, a.getSize());
 	} 
 
 	@Test
 	public void testGetPosition() {
-		assertTrue(a.getPosition()[0] == 1 && a.getPosition()[1] == 1);
+		assertEquals(1, a.getPosition()[0]);
+		assertEquals(1, a.getPosition()[1]);
 	}
 
 	@Test
 	public void testSetPosition() {
 		a.setPosition(2, 2);
-		assertTrue(a.getPosition()[0] == 2 && a.getPosition()[1] == 2);
+		assertEquals(2, a.getPosition()[0]);
+		assertEquals(2, a.getPosition()[1]);
 	}
 
 }
