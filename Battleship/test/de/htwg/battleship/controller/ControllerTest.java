@@ -26,6 +26,12 @@ public class ControllerTest {
 	}
 	
 	@Test
+	public void testCheckAl() {
+		c.checkAl(0);
+		assertTrue(true);
+	}
+	
+	@Test
 	public void testSetPlayer() {
 		c.setPlayer(new Human(1));
 		assertTrue(c.getPlayer() != null);

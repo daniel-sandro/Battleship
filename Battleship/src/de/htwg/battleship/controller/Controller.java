@@ -454,11 +454,7 @@ public class Controller extends Observable implements IController {
 				}
 				y = Integer.valueOf(split[1]);
 				int z = Integer.valueOf(split[2]);
-				if (z == 1) {
-					alignment = true;
-				} else if (z == 0) {
-					alignment = false;
-				}
+				checkAl(z);
 				break;
 			default: 
 				if (split.length == TWO) {
@@ -468,6 +464,18 @@ public class Controller extends Observable implements IController {
 		}
 		x = Integer.valueOf(split[0]);
 		return true;
+	}
+	
+	/**
+	 * Checks if the given input was horizontal or vertical
+	 * @param z - 0 for horizontal, 1 for vertical
+	 */
+	public void checkAl(int z) {
+		if (z == 1) {
+			alignment = true;
+		} else if (z == 0) {
+			alignment = false;
+		}
 	}
 	
 	private void caseZero() {
