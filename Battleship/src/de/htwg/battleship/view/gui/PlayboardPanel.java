@@ -24,7 +24,7 @@ public class PlayboardPanel extends JPanel {
     Icon pattern = new ImageIcon(getClass().getResource("/images/Pattern.jpg"));
     Icon hit = new ImageIcon(getClass().getResource("/images/Hit.jpg"));
     Icon cross = new ImageIcon(getClass().getResource("/images/cross.png"));
-    Icon pre = new ImageIcon(getClass().getResource("/images/SchiffPre.jpg"));
+    Icon pre = new ImageIcon(getClass().getResource("/images/dot_white.jpg"));
     Icon field = new ImageIcon(getClass().getResource("/images/FieldN.jpg"));
     Icon selectedField = new ImageIcon(getClass().getResource("/images/FieldS.jpg"));
     JPanel playboardPanel;
@@ -97,7 +97,7 @@ public class PlayboardPanel extends JPanel {
 						@Override
 						public void mouseClicked(java.awt.event.MouseEvent evt) {
 							JLabelE lbl = (JLabelE)evt.getSource();
-							gui.mouseClick(lbl.getXPosition(), lbl.getYPosition());
+							gui.mouseClick(lbl.getXPosition() - 1, lbl.getYPosition() - 1);
 						}
 					});
 					playboardPanel.add(fields[i][j]);

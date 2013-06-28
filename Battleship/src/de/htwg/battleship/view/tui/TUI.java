@@ -2,7 +2,12 @@ package de.htwg.battleship.view.tui;
 
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
+import com.google.inject.Inject;
+
 import de.htwg.battleship.controller.Controller;
+import de.htwg.battleship.controller.IController;
 import de.htwg.battleship.model.Field.state;
 import de.htwg.battleship.observer.Event;
 import de.htwg.battleship.observer.IObserver;
@@ -17,18 +22,14 @@ public final class TUI implements IObserver {
 	private static final int LINELEN = 9;
 	private static final String SEP = " | ";
 
-	private Controller controller;
+	private IController controller;
 	private static StringBuilder sb = new StringBuilder();
+	private static Logger logger = Logger.getLogger("de.htwg.battleship.view.tui");
 	boolean alignment;
 	int x, y;
 
-	/**
-	 * private Contructor, just for jenkins...
-	 */
-	@SuppressWarnings("unused")
-	private TUI() {}
-
-	public TUI(Controller controller) {
+	@Inject
+	public TUI(IController controller) {
 		this.controller = controller;
 		controller.addObserver(this);
 		print(controller.getStatus());
@@ -259,7 +260,7 @@ public final class TUI implements IObserver {
 	 *            the string to print
 	 */
 	private static void print(String string) {
-		System.out.printf(string);
+		logger.info(string);
 	}
 
 	public void onGameOver() {
@@ -287,4 +288,6 @@ public final class TUI implements IObserver {
 
 	public void onShootOnBot() {
 	}
+
+	public void onRepaint() {}
 }

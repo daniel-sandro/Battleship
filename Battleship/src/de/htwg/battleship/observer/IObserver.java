@@ -31,4 +31,6 @@ public interface IObserver {
 	public void onWon();
 	
 	public void onBotShoots();
+	
+	public void onRepaint();
 }

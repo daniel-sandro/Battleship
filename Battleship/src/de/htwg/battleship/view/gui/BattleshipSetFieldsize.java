@@ -10,7 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import com.google.inject.Inject;
+
 import de.htwg.battleship.controller.Controller;
+import de.htwg.battleship.controller.IController;
 
 @SuppressWarnings("serial")
 public class BattleshipSetFieldsize extends JFrame implements ActionListener {
@@ -18,9 +21,10 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 	private JButton JBgo;
 	private JTextField JTFsize;
 	private JPanel enterFieldsize;
-	private Controller controller;
+	private IController controller;
 	
-	public BattleshipSetFieldsize(final Controller controller) {
+	@Inject
+	public BattleshipSetFieldsize(final IController controller) {
 		this.controller = controller;
 		
 		enterFieldsize = new JPanel();
@@ -47,7 +51,6 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 			    	BattleshipGUIUtils.fieldsizeError();
 		        } else {
 		        	controller.setFieldsize(value);
-		    		controller.setInput(true);
 		    		synchronized (this) {
 	    				this.notify();
 		    		}

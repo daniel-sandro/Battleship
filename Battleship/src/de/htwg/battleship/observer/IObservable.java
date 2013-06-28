@@ -39,4 +39,6 @@ public interface IObservable {
 	void notifyOnGameOver();
 	
 	void notifyOnWon();
+	
+	void notifyOnRepaint();
 }

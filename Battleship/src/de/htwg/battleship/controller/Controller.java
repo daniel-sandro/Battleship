@@ -1,5 +1,8 @@
 package de.htwg.battleship.controller;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+
 import de.htwg.battleship.model.Bot;
 import de.htwg.battleship.model.Destructor;
 import de.htwg.battleship.model.Field;
@@ -15,7 +18,8 @@ import de.htwg.battleship.observer.Event.EventType;
 /**
  * @author Sandro, Julian Our Controller Class!
  */
-public class Controller extends Observable {
+@Singleton
+public class Controller extends Observable implements IController {
 
 	private int fieldsize;
 	private int input;
@@ -34,20 +38,12 @@ public class Controller extends Observable {
 	private int y = ZERO;
 	private int z = ZERO;
 	private boolean alignment = false;
+	private int correctPos;
+	private boolean correctAl;
 
 	private Human player;
 	private Bot bot;
 	private String statusLine = "Willkommen bei Battleship!";
-	// Kam schon ein Input? true = ja, false = nein
-	private boolean inp = false;
-
-	public boolean isInput() {
-		return inp;
-	}
-
-	@SuppressWarnings("unused")
-	private Controller() {
-	}
 
 	/**
 	 * Constructor for a new Controller. Needs fieldsize to create new Humans
@@ -55,7 +51,8 @@ public class Controller extends Observable {
 	 * 
 	 * @param fieldsize
 	 */
-	public Controller(int x) {
+	@Inject
+	public Controller() {
 	}
 
 	/**
@@ -104,17 +101,6 @@ public class Controller extends Observable {
 	 */
 	public int getInput() {
 		return this.input;
-	}
-
-	/**
-	 * Sets the global variable to the given input.
-	 * 
-	 * @param input
-	 *            is the user's input
-	 */
-	public void setInput(int input) {
-		this.input = input;
-		inp = true;
 	}
 
 	/**
@@ -172,13 +158,14 @@ public class Controller extends Observable {
 	 */
 	public boolean shootBot(int row, int col) {
 		player.shoot(bot.getPlayboard().getField()[row][col]);
-		if (bot.getPlayboard().getField()[row][col].getStat() == state.hit
-				&& bot.getPlayboard().getField()[row][col].getShip().getSize() == 0) {
-			bot.setNumberShips(bot.getNumberShips() - 1);
+		if (bot.getPlayboard().getField()[row][col].getStat() == state.hit) {
+			if (bot.getPlayboard().getField()[row][col].getShip().getSize() == 0) {
+				bot.setNumberShips(bot.getNumberShips() - 1);
+			}
 			setStatus("TREFFER!");
+		} else {
+			setStatus("Leider nichts getroffen...");
 		}
-		setStatus("Leider nichts getroffen...");
-		inp = true;
 		return hit(bot.getPlayboard().getField()[row][col]);
 	}
 
@@ -220,7 +207,6 @@ public class Controller extends Observable {
 	public void setHumanRowboat(int col, int row) {
 		player.getPlayboard().setShip(new Rowboat(col, row));
 		player.setNumberShips(player.getNumberShips() + 1);
-		inp = true;
 	}
 
 	/**
@@ -236,7 +222,6 @@ public class Controller extends Observable {
 	public void setHumanFlattop(int col, int row, boolean alignment) {
 		player.getPlayboard().setShip(new Flattop(col, row, alignment));
 		player.setNumberShips(player.getNumberShips() + 1);
-		inp = true;
 	}
 
 	/**
@@ -252,7 +237,6 @@ public class Controller extends Observable {
 	public void setHumanDestructor(int col, int row, boolean alignment) {
 		player.getPlayboard().setShip(new Destructor(col, row, alignment));
 		player.setNumberShips(player.getNumberShips() + 1);
-		inp = true;
 	}
 
 	/**
@@ -301,16 +285,6 @@ public class Controller extends Observable {
 	}
 
 	/**
-	 * Setter for the input. If the input is done, inp will be set true.
-	 * 
-	 * @param in
-	 *            - true if input is done, false if input is pending.
-	 */
-	public void setInput(boolean in) {
-		this.inp = in;
-	}
-
-	/**
 	 * Getter for the state of a field.
 	 * 
 	 * @param f
@@ -352,21 +326,21 @@ public class Controller extends Observable {
 		int f = player.getPlayboard().getSize() - 1;
 		if (shiptype == 1) {
 			if (!alignment) { // horizontal
-				if (x + 2 > f + 1) {
+				if (x + 2 > f) {
 					return x + 2 - f;
 				}
 			} else {
-				if (y + 2 > f + 1) {
+				if (y + 2 > f) {
 					return y + 2 - f;
 				}
 			}
 		} else if (shiptype == 2) {
 			if (!alignment) { // horizontal
-				if (x + FOUR > f + 1) {
+				if (x + FOUR > f) {
 					return x + FOUR - f;
 				}
 			} else {
-				if (y + FOUR > f + 1) {
+				if (y + FOUR > f) {
 					return y + FOUR - f;
 				}
 			}
@@ -421,8 +395,7 @@ public class Controller extends Observable {
 
 	private void botTurn() {
 		setStatus("Der Bot setzt seine Schiffe...");
-		setShipsBot();
-		sleep(1000);
+		notifyObservers(new Event(EventType.onRepaint));
 		notifyObservers(new Event(Event.EventType.onAction));
 		setStatus("Du bist am Zug! Schieﬂe auf den Bot! (X/Y)");
 		step = THREE;
@@ -433,6 +406,7 @@ public class Controller extends Observable {
 	 */
 	public void start() {
 		initPlayers(getFieldsize());
+		setShipsBot();
 		setStatus("Bitte das Ruderboot setzen!");
 		step = ZERO;
 		this.notifyObservers(new Event(Event.EventType.setRowboat));
@@ -449,6 +423,7 @@ public class Controller extends Observable {
 		String[] split = s.split(" ");
 		switch (step) {
 		case ZERO: // ruderboot setzen
+		case FOUR: // bot schieﬂt
 		case THREE: // auf bot schiessen
 			if (split.length != TWO) {
 				setStatus("Falsche eingabe");
@@ -464,14 +439,16 @@ public class Controller extends Observable {
 			}
 			y = Integer.valueOf(split[1]);
 			z = Integer.valueOf(split[2]);
-			if (z == 2) { // horizontal
+			if (z == 1) { // horizontal
 				alignment = false;
 			}
 			break;
 		default: // menu
-			if (split.length != ONE) {
-				setStatus("Falsche eingabe");
-				return false;
+			if (split.length == TWO) {
+				step = THREE;
+				y = Integer.valueOf(split[1]);
+			} else if (split.length > TWO) {
+				setStatus("Falsche Eingabe!");
 			}
 		}
 		x = Integer.valueOf(split[0]);
@@ -491,9 +468,15 @@ public class Controller extends Observable {
 			} else {
 				botTurn();
 			}
-			// notifyObservers("repaint");
 			break;
 		case ONE: // zerstˆrer setzen
+			int t;
+			if ((t = checkSetShipPosition(1, x, y, alignment)) != 0) {
+				correctAl = alignment;
+				correctPos = t;
+				notifyObservers(new Event(EventType.correctPosition));
+				return true;
+			}
 			setHumanDestructor(x, y, alignment);
 			if (fieldsize >= EIGHT) {
 				setStatus("Bitte den Flugzeugtr‰ger setzen! (X Y \"alignment\")");
@@ -508,23 +491,19 @@ public class Controller extends Observable {
 			botTurn();
 			break;
 		case THREE: // auf feld von bot schieﬂen
-			if (shootBot(y, x) == true) {
-				setStatus("TREFFER!");
-			} else {
-				setStatus("Leider nichts getroffen...");
-			}
-			sleep(WAIT);
+			shootBot(y, x);
 			step++;
+			gameOver();
 			input("0 0"); // jetzt schieﬂt der bot
 			break;
 		case FOUR: // bot schieﬂt
 			setStatus("Der Bot ist am Zug!");
 			shootHuman();
-			sleep(WAIT);
 			notifyObservers(new Event(EventType.showMenu));
 			step++;
+			gameOver();
 			break;
-		case FIVE:
+		case FIVE: // im men¸
 			if (x == ONE) {
 				notifyObservers(new Event(EventType.showMenu));
 				// eigenes feld anzeigen
@@ -541,9 +520,26 @@ public class Controller extends Observable {
 				notifyObservers(new Event(EventType.cheat));
 			}
 		}
-		if (gameOver()) {
+		notifyObservers(new Event(EventType.onRepaint));
+		if (!gameOver()) {
 			return false;
 		}
 		return true;
+	}
+
+	public int getCorrectPos() {
+		return correctPos;
+	}
+
+	public void setCorrectPos(int correctPos) {
+		this.correctPos = correctPos;
+	}
+
+	public boolean isCorrectAl() {
+		return correctAl;
+	}
+
+	public void setCorrectAl(boolean correctAl) {
+		this.correctAl = correctAl;
 	}
 }

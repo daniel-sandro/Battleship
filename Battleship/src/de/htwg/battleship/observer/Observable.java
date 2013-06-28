@@ -83,4 +83,8 @@ public class Observable implements IObservable {
 	public void notifyOnBotShoots() {
 		notifyObservers(new Event(Event.EventType.botShoots));
 	}
+	
+	public void notifyOnRepaint() {
+		notifyObservers(new Event(Event.EventType.onRepaint));
+	}
 }

@@ -25,7 +25,7 @@ public class ControllerTest {
 	
 	@Before
 	public void setup(){
-		c = new Controller(1);
+		c = new Controller();
 		assertNotNull(c);
 	}
 	
@@ -158,23 +158,6 @@ public class ControllerTest {
 	@Test
 	public void testGetInput() {
 		assertEquals(0, c.getInput());
-	}
-	
-	@Test
-	public void testSetInput() {
-		c.setInput(1);
-		assertEquals(1, c.getInput());
-	}
-	
-	@Test
-	public void testIsInput() {
-		assertFalse(c.isInput());
-	}
-	
-	@Test
-	public void testSetInp() {
-		c.setInput(true);
-		assertTrue(c.isInput());
 	}
 	
 	@Test

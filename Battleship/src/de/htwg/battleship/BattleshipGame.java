@@ -1,7 +1,14 @@
 package de.htwg.battleship;
 
 import java.util.Scanner;
+
+import org.apache.log4j.PropertyConfigurator;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+
 import de.htwg.battleship.controller.Controller;
+import de.htwg.battleship.controller.IController;
 import de.htwg.battleship.view.gui.BattleshipGUI;
 import de.htwg.battleship.view.gui.BattleshipSetFieldsize;
 import de.htwg.battleship.view.tui.TUI;
@@ -16,23 +23,25 @@ public class BattleshipGame {
 	 */
 	public static void main(String[] args) throws InterruptedException {
 
+		PropertyConfigurator.configure("log4j.properties");
+		Injector injector = Guice.createInjector(new BattleshipModule());
 		Scanner scanner = new Scanner(System.in);
-		Controller controller = new Controller(0);
 		
-		BattleshipSetFieldsize s = new BattleshipSetFieldsize(controller);
+		IController controller = injector.getInstance(IController.class);
+		
+		BattleshipSetFieldsize s = injector.getInstance(BattleshipSetFieldsize.class);
 		
 		synchronized (s) {
 			try {
 				s.wait();
 			} catch (InterruptedException e) {
-
 			}
 		}
 
 		@SuppressWarnings("unused")
-		BattleshipGUI gui = new BattleshipGUI(controller);
+		BattleshipGUI gui = injector.getInstance(BattleshipGUI.class);
 		@SuppressWarnings("unused")
-		TUI tui = new TUI(controller);
+		TUI tui = injector.getInstance(TUI.class);
 
 		controller.start();
 		

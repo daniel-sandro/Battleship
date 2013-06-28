@@ -5,7 +5,10 @@ import java.awt.Color;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
 
+import com.google.inject.Inject;
+
 import de.htwg.battleship.controller.Controller;
+import de.htwg.battleship.controller.IController;
 
 /**
  *
@@ -19,9 +22,10 @@ public class BattleshipInfos extends JPanel {
     private JFormattedTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     Color background = new Color(255, 255, 255);
-    Controller controller;
+    IController controller;
 
-    public BattleshipInfos(Controller controller) {
+    @Inject
+    public BattleshipInfos(IController controller) {
     	
     	this.controller = controller;
         

@@ -6,7 +6,7 @@ public class Event {
 	
 	public enum EventType {
 		setFieldsize, setRowboat, setDestructor, setFlattop, showMenu, onAction, showPlayersField,
-		showBotsField, onStatus, shootBot, cheat, gameOver, won, botShoots
+		showBotsField, onStatus, shootBot, cheat, gameOver, won, botShoots, onRepaint, correctPosition
 	}
 	
 	public Event(EventType t) {

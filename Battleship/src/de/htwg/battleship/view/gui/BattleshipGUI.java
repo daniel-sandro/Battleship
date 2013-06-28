@@ -8,7 +8,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import com.google.inject.Inject;
+
 import de.htwg.battleship.controller.Controller;
+import de.htwg.battleship.controller.IController;
 import de.htwg.battleship.model.Field.state;
 import de.htwg.battleship.observer.Event;
 import de.htwg.battleship.observer.IObserver;
@@ -23,14 +26,15 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	boolean cont = false;
 	private JPanel fieldsPanel;
 	BattleshipInfos infoPanel;
-	public Controller controller;
+	public IController controller;
 	private PlayboardPanel playerPanel;
 	private PlayboardPanel botPanel;
 	int i, j;
     private Color background;
     private StringBuilder sb = new StringBuilder();
  	
-	public BattleshipGUI(Controller controller) {
+    @Inject
+	public BattleshipGUI(IController controller) {
 		this.controller = controller;
 		controller.addObserver(this);
 		
@@ -79,6 +83,9 @@ public class BattleshipGUI extends JFrame implements IObserver {
 			case setFieldsize:
 				onSetFieldsize();
 				break;
+			case correctPosition:
+				onCorrectPosition();
+				break;
 			case setRowboat:
 				onSetRowboat();
 				break;
@@ -108,9 +115,16 @@ public class BattleshipGUI extends JFrame implements IObserver {
 			case botShoots:
 				onBotShoots();
 				break;
+			case onRepaint:
+				onRepaint();
+				break;
 			default:
 				break;
 		}
+	}
+	
+	public void onCorrectPosition() {
+		BattleshipGUIUtils.correctShipPosition(controller.getCorrectPos(), controller.isCorrectAl());
 	}
 	
 	public void onBotShoots() {
@@ -140,7 +154,6 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	public void onAction() {
 		// hier auf Input des Players warten
 		action = 4;
-		controller.setInput(false);
 	}
 
 	public void onShowPlayersField() {}
@@ -200,7 +213,6 @@ public class BattleshipGUI extends JFrame implements IObserver {
 			return;
 		}
 		controller.input(sb.toString());
-		action = 0;
 		sb.setLength(0);
 	}
 	
@@ -219,5 +231,9 @@ public class BattleshipGUI extends JFrame implements IObserver {
 			return false;
 		}
 		return true;
+	}
+
+	public void onRepaint() {
+		repaintFields();		
 	}
 }
