@@ -393,9 +393,13 @@ public class Controller extends Observable implements IController {
 		}
 	}
 
+	/**
+	 * Sets the status of the Controller to "Der Bot setzt seine Schiffe..."
+	 * and notifys the observers about how to treat a mouseaction
+	 * step is then THREE
+	 */
 	private void botTurn() {
 		setStatus("Der Bot setzt seine Schiffe...");
-		notifyObservers(new Event(EventType.onRepaint));
 		notifyObservers(new Event(Event.EventType.onAction));
 		setStatus("Du bist am Zug! Schieﬂe auf den Bot! (X/Y)");
 		step = THREE;
@@ -455,6 +459,10 @@ public class Controller extends Observable implements IController {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.controller.IController#input(java.lang.String)
+	 * checks which input is given and reacts accordingly
+	 */
 	public boolean input(String s) {
 		validateInput(s);
 
@@ -527,6 +535,10 @@ public class Controller extends Observable implements IController {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.controller.IController#getCorrectPos()
+	 * returns the correct position
+	 */
 	public int getCorrectPos() {
 		return correctPos;
 	}
