@@ -454,7 +454,7 @@ public class Controller extends Observable implements IController {
 				y = Integer.valueOf(split[1]);
 				int z = Integer.valueOf(split[2]);
 				if (z == 1) {
-					alignment = false;
+					alignment = true;
 				}
 				break;
 			default: 
@@ -507,7 +507,7 @@ public class Controller extends Observable implements IController {
 					correctAl = alignment;
 					correctPos = t;
 					notifyObservers(new Event(EventType.correctPosition));
-					return true;
+					return false;
 				}
 				caseOne();
 				break;
@@ -517,7 +517,7 @@ public class Controller extends Observable implements IController {
 					correctAl = alignment;
 					correctPos = tt;
 					notifyObservers(new Event(EventType.correctPosition));
-					return true;
+					return false;
 				}
 				setHumanFlattop(x, y, alignment);
 				botTurn();
@@ -535,15 +535,15 @@ public class Controller extends Observable implements IController {
 				step++;
 				break;
 			case FIVE: 
-				if (!five()) {
-					return false;
+				if (five()) {
+					return true;
 				}
 		}
 		notifyObservers(new Event(EventType.onRepaint));
 		if (gameOver()) {
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 	
 	/**
@@ -559,11 +559,11 @@ public class Controller extends Observable implements IController {
 		} else if (x == THREE) {
 			setStatus("Danke für's Spielen! Bis bald!");
 			sleep(EXIT);
-			return false;
+			return true;
 		} else if (x == FOUR) {
 			notifyObservers(new Event(EventType.cheat));
 		}
-		return true;
+		return false;
 	}
 
 	/* (non-Javadoc)

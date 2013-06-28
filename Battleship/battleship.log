@@ -1,47 +1,3 @@
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
 INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
 
 INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
@@ -59,586 +15,6 @@ INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe.
 INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
 
 INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Glückwunsch, du hast gewonnen!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - ##### Spielfeld des Bots (mit Schiffen) #####
-  | A | B | C | D
-0 | _ | _ | _ | _ | 
-1 | _ | _ | X | _ | 
-2 | S | _ | S | _ | 
-3 | _ | _ | S | _ | 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Glückwunsch, du hast gewonnen!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Falsche eingabe
 INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
 
 INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
@@ -662,370 +38,385 @@ INFO AWT-EventQueue-0 de.htwg.battleship.view.tui -
 INFO main de.htwg.battleship.view.tui - Danke für's Spielen! Bis bald!
 INFO main de.htwg.battleship.view.tui - 
 
+INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Danke für's Spielen! Bis bald!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Danke für's Spielen! Bis bald!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Danke für's Spielen! Bis bald!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Danke für's Spielen! Bis bald!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
+INFO main de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
+
+INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+
 INFO main de.htwg.battleship.view.tui - ##### Spielfeld des Bots (mit Schiffen) #####
   | A | B | C | D
-0 | _ | _ | _ | _ | 
-1 | S | S | S | S | 
-2 | O | _ | _ | _ | 
+0 | _ | S | S | S | 
+1 | _ | O | _ | _ | 
+2 | _ | _ | S | _ | 
 3 | _ | _ | _ | _ | 
 
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Danke für's Spielen! Bis bald!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Glückwunsch, du hast gewonnen!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
 INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
 INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
 
@@ -1062,154 +453,7 @@ INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
 
 INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
 
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
 INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Glückwunsch, du hast gewonnen!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
 INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
 
 INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
@@ -1229,919 +473,10 @@ INFO AWT-EventQueue-0 de.htwg.battleship.view.tui -
 
 INFO main de.htwg.battleship.view.tui - ##### Spielfeld des Bots (mit Schiffen) #####
   | A | B | C | D
-0 | _ | O | _ | _ | 
-1 | _ | X | _ | O | 
-2 | O | X | S | _ | 
-3 | _ | X | _ | O | 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Glückwunsch, du hast gewonnen!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Glückwunsch, du hast gewonnen!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Glückwunsch, du hast gewonnen!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Game Over! Der Bot hat gewonnen!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Willkommen bei Battleship!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO main de.htwg.battleship.view.tui - Bitte das Ruderboot setzen!
-INFO main de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Bitte den Zerstörer setzen! (X Y "alignment")
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot setzt seine Schiffe...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Du bist am Zug! Schieße auf den Bot! (X/Y)
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Leider nichts getroffen...
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Der Bot ist am Zug!
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - Deine Optionen im Spiel sind:
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (1) EIGENES FELD ANZEIGEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (2) AUF DAS SPIELFELD DES BOTS SCHIESSEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - (3) SPIEL BEENDEN
-
-INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 
+0 | _ | X | X | X | 
+1 | _ | O | _ | _ | 
+2 | _ | _ | S | _ | 
+3 | _ | _ | _ | _ | 
 
 INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - TREFFER!
 INFO AWT-EventQueue-0 de.htwg.battleship.view.tui - 

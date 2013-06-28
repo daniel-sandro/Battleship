@@ -149,7 +149,7 @@ public class ControllerTest {
 		c.getPlayer().setNumberShips(1);
 		c.getBot().setNumberShips(1);
 		c.setStep(0);
-		assertTrue(c.input("1 1"));
+		assertTrue(!c.input("1 1"));
 	}
 	
 	@Test
@@ -160,7 +160,7 @@ public class ControllerTest {
 		c.getPlayer().setNumberShips(1);
 		c.getBot().setNumberShips(1);
 		c.setFieldsize(2);
-		assertTrue(c.input("1 1"));
+		assertTrue(!c.input("1 1"));
 	}
 	
 	@Test
@@ -177,7 +177,7 @@ public class ControllerTest {
 		c.initPlayers(10);
 		c.setFieldsize(10);
 		c.setStep(2);
-		assertTrue(!c.input("1 1 1"));
+		assertTrue(c.input("1 1 1"));
 	}
 	
 	@Test
@@ -186,7 +186,7 @@ public class ControllerTest {
 		c.initPlayers(10);
 		c.setFieldsize(10);
 		c.setStep(1);
-		assertTrue(!c.input("1 1 1"));
+		assertTrue(c.input("1 1 1"));
 	}
 	
 	@Test
@@ -195,7 +195,7 @@ public class ControllerTest {
 		c.initPlayers(5);
 		c.setFieldsize(6);
 		c.setStep(1);
-		assertTrue(!c.input("1 1 1"));
+		assertTrue(c.input("1 1 1"));
 	}
 	
 	@Test
@@ -204,7 +204,7 @@ public class ControllerTest {
 		c.initPlayers(8);
 		c.setFieldsize(8);
 		c.setStep(1);
-		assertTrue(c.input("7 7 1"));
+		assertTrue(!c.input("7 7 1"));
 	}
 	
 	@Test
@@ -213,7 +213,7 @@ public class ControllerTest {
 		c.initPlayers(8);
 		c.setFieldsize(8);
 		c.setStep(2);
-		assertTrue(c.input("7 7 1"));
+		assertTrue(!c.input("7 7 1"));
 	}
 	
 	@Test
@@ -224,7 +224,7 @@ public class ControllerTest {
 		c.getBot().setNumberShips(0);
 		c.getPlayer().setNumberShips(0);
 		c.setStep(3);
-		assertEquals(false, c.input("0 0"));
+		assertEquals(true, c.input("0 0"));
 	}
 	
 	@Test
@@ -236,7 +236,7 @@ public class ControllerTest {
 		c.input("2");
 		c.input("3");
 		c.input("4");
-		assertTrue(!c.input("3"));
+		assertTrue(c.input("3"));
 	}
 	
 	@Test
