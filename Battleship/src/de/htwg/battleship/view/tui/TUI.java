@@ -25,6 +25,10 @@ public final class TUI implements IObserver {
 	boolean alignment;
 	int x, y;
 
+	/**
+	 * @param controller
+	 * constructor
+	 */
 	@Inject
 	public TUI(IController controller) {
 		this.controller = controller;
@@ -33,6 +37,10 @@ public final class TUI implements IObserver {
 		print("\n");
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onNotifyObservers(de.htwg.battleship.observer.Event)
+	 * reaction on event to notify the observer
+	 */
 	public void onNotifyObservers(Event t) {
 		switch (t.getEventType()) {
 		case setRowboat:
@@ -76,13 +84,25 @@ public final class TUI implements IObserver {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onSetFieldsize()
+	 * empty implementation
+	 */
 	public void onSetFieldsize() {}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onStatus()
+	 * reaction on event to give out the status
+	 */
 	public void onStatus() {
 		print(controller.getStatus());
 		print("\n");
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onShowMenu()
+	 * giving out the options of the player
+	 */
 	public void onShowMenu() {
 		print("\n");
 		print("Deine Optionen im Spiel sind:\n");
@@ -92,16 +112,28 @@ public final class TUI implements IObserver {
 		print("\n");
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onCheat()
+	 * reaction on event to print out cheat
+	 */
 	public void onCheat() {
 		print(showField(true, true).toString());
 		sb.setLength(0);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onShowPlayersField()
+	 * reaction on event to show the players field
+	 */
 	public void onShowPlayersField() {
 		print(showField(false, false).toString());
 		sb.setLength(0);
 	}
-
+	
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onShowPlayersField()
+	 * reaction on event to show the bots field
+	 */
 	public void onShowBotsField() {
 		print(showField(true, false).toString());
 		sb.setLength(0);
@@ -231,31 +263,67 @@ public final class TUI implements IObserver {
 		logger.info(string);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onGameOver()
+	 * reaction on event to exit the game
+	 */
 	public void onGameOver() {
 		System.exit(0);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onWon()
+	 * reaction on event that player has won
+	 */
 	public void onWon() {
 		System.exit(0);
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
+	 * empty implementation Guispecific
+	 */
 	public void onBotShoots() {
 	}
-
+	
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
+	 * empty implementation Guispecific
+	 */
 	public void onSetRowboat() {
 	}
-
+	
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
+	 * empty implementation Guispecific
+	 */
 	public void onSetDestructor() {
 	}
-
+	
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
+	 * empty implementation Guispecific
+	 */
 	public void onSetFlattop() {
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
+	 * empty implementation Guispecific
+	 */
 	public void onAction() {
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
+	 * empty implementation Guispecific
+	 */
 	public void onShootOnBot() {
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
+	 * empty implementation Guispecific
+	 */
 	public void onRepaint() {}
 }
