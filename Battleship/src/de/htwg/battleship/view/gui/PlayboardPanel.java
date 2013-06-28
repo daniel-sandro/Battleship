@@ -167,8 +167,7 @@ public class PlayboardPanel extends JPanel {
 	 * checks the human´s state
 	 */
 	public void checkstateHuman(int i, int j) {
-		if (gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == state.empty) {
-		} else if (gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == state.hit) {
+		if (gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == state.hit) {
 			fields[i + 1][j + 1].setNormalIcon(hit);
 			fields[i + 1][j + 1].setSelectedIcon(hit);
 		} else if (gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
