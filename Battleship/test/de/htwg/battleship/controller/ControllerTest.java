@@ -49,81 +49,57 @@ public class ControllerTest {
 	 
 	@Test
 	public void testShootBot() {
-		assertTrue(c.getBot().getPlayboard().getField()[0][0].getStat() == state.empty);
-		c.shootBot(0, 0);
-		assertTrue(c.getBot().getPlayboard().getField()[0][0].getStat() == state.emptyhit);
-		c.setBotRowboat();
-		assertTrue(c.getBot().getPlayboard().getField()[0][0].getStat() == state.emptyhit ||
-				c.getBot().getPlayboard().getField()[0][0].getStat() == state.empty ||
-				c.getBot().getPlayboard().getField()[0][0].getStat() == state.ship);
-		int x = c.getBot().getNumberShips();
-		c.shootBot(0, 0);
-		assertTrue(c.getBot().getPlayboard().getField()[0][0].getStat() == state.hit);
+		Controller con = new Controller();
+		con.setFieldsize(1);
+		con.initPlayers(con.getFieldsize());
+		con.shootBot(0, 0);
+		assertEquals(state.emptyhit, con.getBot().getPlayboard().getField()[0][0].getStat());
+		con.setBotRowboat();
+		con.shootBot(0, 0);
+		assertEquals(state.hit, con.getBot().getPlayboard().getField()[0][0].getStat());
 	}
 	
 	@Test
 	public void testShootHuman() {
-		assertTrue(c.getPlayer().getPlayboard().getField()[0][0].getStat() == state.empty);
-		c.shootHuman();
-		assertTrue(c.getPlayer().getPlayboard().getField()[0][0].getStat() == state.emptyhit);
-		c.setHumanRowboat(0, 0);
-		assertTrue(c.getPlayer().getPlayboard().getField()[0][0].getStat() == state.emptyhit ||
-				c.getPlayer().getPlayboard().getField()[0][0].getStat() == state.empty ||
-				c.getPlayer().getPlayboard().getField()[0][0].getStat() == state.ship);
-		int x = c.getPlayer().getNumberShips();
-		c.shootHuman();
-		assertTrue(c.getPlayer().getPlayboard().getField()[0][0].getStat() == state.hit);
-		assertTrue(c.getPlayer().getNumberShips() == 0);
+		Controller con = new Controller();
+		con.initPlayers(1);
+		con.setHumanRowboat(0, 0);
+		con.shootHuman();
+		assertEquals(0, con.getPlayer().getNumberShips());
 	}
 	
 	@Test
 	public void testSetHumanFlattop() {
-		c.getPlayer().initPlayboard(10);
+		c = new Controller();
+		c.initPlayers(5);
 		c.setHumanFlattop(0, 0, true);
-		assertTrue(c.getPlayer().getPlayboard().getField()[0][0]. getStat() == state.ship);
+		assertEquals(state.ship, c.getPlayer().getPlayboard().getField()[0][0]. getStat());
+		assertEquals(1, c.getPlayer().getNumberShips());
 	}
 	
 	@Test
 	public void testSetHumanDestructor() {
-		c.getPlayer().initPlayboard(3);
+		c = new Controller();
+		c.initPlayers(3);
 		c.setHumanDestructor(0, 0, true);
-		assertTrue(c.getPlayer().getPlayboard().getField()[0][0]. getStat() == state.ship);
-	}
-	
-	@Test
-	public void testSetHumanRowboat() {
-		c.getPlayer().initPlayboard(1);
-		c.setHumanRowboat(0, 0);
-		assertTrue(c.getPlayer().getPlayboard().getField()[0][0]. getStat() == state.ship);
+		assertEquals(state.ship, c.getPlayer().getPlayboard().getField()[0][0]. getStat());
+		assertEquals(1, c.getPlayer().getNumberShips());
 	}
 	
 	@Test
 	public void testSetBotFlattop() {
-		c.getBot().initPlayboard(5);
-		c.setBotFlattop(true);
-		assertTrue(c.getBot().getPlayboard().getField()[0][0]. getStat() == state.ship);
-	}
-	
-	@Test
-	public void testSetBotRowboat(){
-		c.getBot().initPlayboard(1);
-		c.setBotRowboat();
-		assertTrue(c.getBot().getPlayboard().getField()[0][0]. getStat() == state.ship);
+		c = new Controller();
+		c.initPlayers(5);
+		c.setBotFlattop(false);
+		assertEquals(1, c.getBot().getNumberShips());
 	}
 	
 	@Test
 	public void testSetBotDestructor() {
-		c.getBot().initPlayboard(3);
-		c.setBotDestructor(true);
-		assertTrue(c.getBot().getPlayboard().getField()[0][0]. getStat() == state.ship);
-	}
-	
-	@Test
-	public void testGetLastShot() {
-		int[] x = { 0, 0 };
-		c.initPlayers(1);
-		c.shootHuman();
-		assertEquals(x, c.getLastBotShot());
+		c = new Controller();
+		c.initPlayers(3);
+		c.setBotDestructor(false);
+		assertEquals(1, c.getBot().getNumberShips());
 	}
 	
 	@Test
@@ -133,10 +109,77 @@ public class ControllerTest {
 	}
 	
 	@Test
+	public void testSetShipsBot() {
+		c = new Controller();
+		c.setFieldsize(10);
+		c.initPlayers(10);
+		c.setShipsBot();
+		assertEquals(3, c.getBot().getNumberShips());
+	}
+	
+	@Test
+	public void testCheckSetShipPosition() {
+		c = new Controller();
+		c.initPlayers(5);
+		assertEquals(1, c.checkSetShipPosition(1, 3, 3, true));
+		assertEquals(1, c.checkSetShipPosition(1, 3, 3, false));
+		assertEquals(3, c.checkSetShipPosition(2, 3, 3, true));
+		assertEquals(3, c.checkSetShipPosition(2, 3, 3, false));
+		assertEquals(0, c.checkSetShipPosition(1, 0, 0, true));
+	}
+	
+	@Test
+	public void testValidateInput() {
+		assertTrue(c.validateInput("1 1 1"));
+		assertFalse(c.validateInput("1 1"));
+		assertTrue(c.validateInput("1 1"));
+		assertTrue(c.validateInput("1"));
+	}
+	
+	@Test
 	public void testInitPlayers() {
 		c.initPlayers(c.getFieldsize());
 		assertNotNull(c.getBot());
 		assertNotNull(c.getPlayer());
+	}
+	
+	@Test
+	public void testSleep() {
+		c.sleep(1);
+		assertTrue(true);
+	}
+	
+	@Test
+	public void testIsGameOver() {
+		c.initPlayers(1);
+		assertEquals(2, c.isGameOver());
+		assertEquals(true, c.gameOver());
+		c.setHumanRowboat(0, 0);
+		assertEquals(true, c.gameOver());
+		assertEquals(1, c.isGameOver());
+		c.setBotRowboat();
+		assertEquals(0, c.isGameOver());
+		assertEquals(false, c.gameOver());
+	}
+	
+	@Test
+	public void testStart() {
+		c = new Controller();
+		c.start();
+		assertEquals("Bitte das Ruderboot setzen!",c.getStatus());
+		assertTrue(true);
+	}
+	
+	@Test
+	public void testSetCorrectPos() {
+		c.setCorrectPos(1);
+		assertEquals(1, c.getCorrectPos());
+	}
+	
+	@Test
+	public void testSetCorrectAl() {
+		c.setCorrectAl(true);
+		assertEquals(true, c.isCorrectAl());
 	}
 	
 	@Test

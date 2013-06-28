@@ -52,10 +52,14 @@ public class BotTest {
 	
 	@Test
 	public void testSetShip() {
-		Ships c = new Destructor(true);
-		a.setShip(c);
-		assertEquals(0, c.getPosition()[0]);
-		assertEquals(0, c.getPosition()[1]);
+		Bot x = new Bot(3);
+		Ships r = new Rowboat();
+		Ships r2 = new Destructor(false);
+		int xpo = r2.getPosition()[0];
+		int ypo = r2.getPosition()[1];
+		x.setShip(r2);
+		a.setShip(r);
+		assertEquals(state.ship, a.getPlayboard().getField()[0][0].getStat());
 	}
 	
 	@Test
@@ -73,5 +77,17 @@ public class BotTest {
 				assertTrue(i == true || i == false);
 			}
 		}
+	}
+	
+	@Test
+	public void testCheck() {
+		Bot b = new Bot(3);
+		Ships x1 = new Rowboat();
+		Ships x2 = new Rowboat();
+		b.setShip(x1);
+		b.setShip(x2);
+		Ships d = new Destructor(false);
+		b.setShip(d);
+		assertTrue(true);
 	}
 }

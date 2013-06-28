@@ -265,4 +265,8 @@ public interface IController extends IObservable {
 	 * sets the correct alignment
 	 */
 	void setCorrectAl(boolean correctAl);
+	
+	public int getStep();
+
+	public void setStep(int step);
 }
