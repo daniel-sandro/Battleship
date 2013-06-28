@@ -11,7 +11,6 @@ import javax.swing.SwingUtilities;
 import com.google.inject.Inject;
 
 import de.htwg.battleship.controller.IController;
-import de.htwg.battleship.model.Field.state;
 import de.htwg.battleship.observer.Event;
 import de.htwg.battleship.observer.IObserver;
 

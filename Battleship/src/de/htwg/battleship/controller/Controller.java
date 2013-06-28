@@ -54,10 +54,16 @@ public class Controller extends Observable implements IController {
 	public Controller() {
 	}
 	
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.controller.IController#getStep()
+	 */
 	public int getStep() {
 		return step;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.controller.IController#setStep(int)
+	 */
 	public void setStep(int step) {
 		this.step = step;
 	}
@@ -430,36 +436,42 @@ public class Controller extends Observable implements IController {
 	public boolean validateInput(String s) {
 		String[] split = s.split(" ");
 		switch (step) {
-		case ZERO: 
-		case FOUR:
-		case THREE:
-			if (split.length != TWO) {
-				setStatus("Falsche eingabe");
-				return false;
-			}
-			y = Integer.valueOf(split[1]);
-			break;
-		case ONE:
-		case TWO:
-			if (split.length != THREE) {
-				setStatus("Falsche eingabe");
-				return false;
-			}
-			y = Integer.valueOf(split[1]);
-			int z = Integer.valueOf(split[2]);
-			if (z == 1) {
-				alignment = false;
-			}
-			break;
-		default: 
-			if (split.length == TWO) {
-				step = THREE;
+			case ZERO: 
+			case FOUR:
+			case THREE:
+				if (split.length != TWO) {
+					setStatus("Falsche eingabe");
+					return false;
+				}
 				y = Integer.valueOf(split[1]);
-			} else if (split.length > TWO) {
-				setStatus("Falsche Eingabe!");
-			}
+				break;
+			case ONE:
+			case TWO:
+				if (split.length != THREE) {
+					setStatus("Falsche eingabe");
+					return false;
+				}
+				y = Integer.valueOf(split[1]);
+				int z = Integer.valueOf(split[2]);
+				if (z == 1) {
+					alignment = false;
+				}
+				break;
+			default: 
+				if (split.length == TWO) {
+					step = THREE;
+					y = Integer.valueOf(split[1]);
+				}
 		}
 		x = Integer.valueOf(split[0]);
+		return true;
+	}
+	
+	private boolean checkIn(int splitLen, int max) {
+		if (splitLen != THREE) {
+			setStatus("Falsche eingabe");
+			return false;
+		}
 		return true;
 	}
 
