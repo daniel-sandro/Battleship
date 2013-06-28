@@ -12,6 +12,11 @@ import de.htwg.battleship.view.gui.BattleshipGUI;
 import de.htwg.battleship.view.gui.BattleshipSetFieldsize;
 import de.htwg.battleship.view.tui.TUI;
 
+/**
+ * @author Sandro, Julian
+ * The Game Class. starts a controller, gui, tui and runs the game-loop
+ *
+ */
 public final class BattleshipGame {
 	
 	private BattleshipGame() {}
