@@ -308,7 +308,7 @@ public class Controller extends Observable implements IController {
 		setBotRowboat();
 		if (fieldsize >= THREE) {
 			setBotDestructor(bot.vertical());
-			if (fieldsize >= 8) {
+			if (fieldsize >= EIGHT) {
 				setBotFlattop(bot.vertical());
 			}
 		}

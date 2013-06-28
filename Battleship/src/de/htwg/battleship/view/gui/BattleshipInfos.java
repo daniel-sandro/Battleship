@@ -19,6 +19,7 @@ public class BattleshipInfos extends JPanel {
 
 	private JFormattedTextField jTextField2;
     private static final int COL = 255;
+    private static final int TF = 12;
     private static final int XA = 14;
     private static final int XB = 102;
     private static final int XC = 140;
@@ -67,8 +68,8 @@ public class BattleshipInfos extends JPanel {
         jTextField3.setText("Flotte des Bots");
         jTextField3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextField3.setPreferredSize(new java.awt.Dimension(XD, XG));
-        jTextField3.setSelectionEnd(12);
-        jTextField3.setSelectionStart(12);
+        jTextField3.setSelectionEnd(TF);
+        jTextField3.setSelectionStart(TF);
 
         jTextField1.setEditable(false);
         jTextField1.setBackground(background);
