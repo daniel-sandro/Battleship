@@ -511,7 +511,14 @@ public class Controller extends Observable implements IController {
 				}
 				caseOne();
 				break;
-			case TWO: 
+			case TWO:
+				int tt = checkSetShipPosition(2, x, y, alignment);
+				if (tt != 0) {
+					correctAl = alignment;
+					correctPos = tt;
+					notifyObservers(new Event(EventType.correctPosition));
+					return true;
+				}
 				setHumanFlattop(x, y, alignment);
 				botTurn();
 				break;
