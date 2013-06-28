@@ -466,6 +466,30 @@ public class Controller extends Observable implements IController {
 		x = Integer.valueOf(split[0]);
 		return true;
 	}
+	
+	private void caseZero() {
+		setHumanRowboat(x, y);
+		if (fieldsize >= THREE) {
+			setStatus("Bitte den Zerstörer setzen! (X Y \"alignment\")");
+			notifyObservers(new Event(Event.EventType.setDestructor));
+			step++;
+		} else {
+			botTurn();
+		}
+		return;
+	}
+	
+	private void caseOne() {
+		setHumanDestructor(x, y, alignment);
+		if (fieldsize >= EIGHT) {
+			setStatus("Bitte den Flugzeugträger setzen! (X Y \"alignment\")");
+			notifyObservers(new Event(Event.EventType.setFlattop));
+			step++;
+		} else {
+			botTurn();
+		}
+		return;
+	}
 
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.controller.IController#input(java.lang.String)
@@ -473,17 +497,9 @@ public class Controller extends Observable implements IController {
 	 */
 	public boolean input(String s) {
 		validateInput(s);
-
 		switch (step) {
 			case ZERO:
-				setHumanRowboat(x, y);
-				if (fieldsize >= THREE) {
-					setStatus("Bitte den Zerstörer setzen! (X Y \"alignment\")");
-					notifyObservers(new Event(Event.EventType.setDestructor));
-					step++;
-				} else {
-					botTurn();
-				}
+				caseZero();
 				break;
 			case ONE:
 				int t = checkSetShipPosition(1, x, y, alignment);
@@ -493,14 +509,7 @@ public class Controller extends Observable implements IController {
 					notifyObservers(new Event(EventType.correctPosition));
 					return true;
 				}
-				setHumanDestructor(x, y, alignment);
-				if (fieldsize >= EIGHT) {
-					setStatus("Bitte den Flugzeugträger setzen! (X Y \"alignment\")");
-					notifyObservers(new Event(Event.EventType.setFlattop));
-					step++;
-				} else {
-					botTurn();
-				}
+				caseOne();
 				break;
 			case TWO: 
 				setHumanFlattop(x, y, alignment);
@@ -559,14 +568,23 @@ public class Controller extends Observable implements IController {
 		return correctPos;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.controller.IController#setCorrectPos(int)
+	 */
 	public void setCorrectPos(int correctPos) {
 		this.correctPos = correctPos;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.controller.IController#isCorrectAl()
+	 */
 	public boolean isCorrectAl() {
 		return correctAl;
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.battleship.controller.IController#setCorrectAl(boolean)
+	 */
 	public void setCorrectAl(boolean correctAl) {
 		this.correctAl = correctAl;
 	}
