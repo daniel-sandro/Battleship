@@ -12,14 +12,14 @@ public interface IPlayer {
 	 * @param size
 	 *            the size of the new playboard
 	 */
-	public abstract void initPlayboard(int size);
+	abstract void initPlayboard(int size);
 
 	/**
 	 * Getter for the player's number of remaining ships.
 	 * 
 	 * @return the number of ships
 	 */
-	public int getNumberShips();
+	int getNumberShips();
 
 	/**
 	 * Setter for the player's remaining ships.
@@ -27,14 +27,14 @@ public interface IPlayer {
 	 * @param numberShips
 	 *            the new value for the remaining ships
 	 */
-	public void setNumberShips(int numberShips);
+	void setNumberShips(int numberShips);
 	
 	/**
 	 * Getter for the player's playboard.
 	 * 
 	 * @return the players playboard
 	 */
-	public Playboard getPlayboard();
+	Playboard getPlayboard();
 
 	/**
 	 * Setter for the player's playboard
@@ -42,5 +42,5 @@ public interface IPlayer {
 	 * @param playboard
 	 *            the new playboard
 	 */
-	public void setPlayboard(Playboard playboard);
+	void setPlayboard(Playboard playboard);
 }
