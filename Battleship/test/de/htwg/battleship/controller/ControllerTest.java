@@ -43,8 +43,8 @@ public class ControllerTest {
 	
 	@Test
 	public void testController()  {
+		c = new Controller();
 		assertNotNull(c);
-		assertTrue(c.getPlayer() != null && c.getBot() != null);
 	}
 	 
 	@Test
@@ -130,10 +130,20 @@ public class ControllerTest {
 	
 	@Test
 	public void testValidateInput() {
-		assertTrue(c.validateInput("1 1 1"));
-		assertFalse(c.validateInput("1 1"));
+		c.setStep(0);
 		assertTrue(c.validateInput("1 1"));
-		assertTrue(c.validateInput("1"));
+		assertFalse(c.validateInput("1"));
+		c.setStep(2);
+		assertFalse(c.validateInput("2 2"));
+		assertTrue(c.validateInput("2 2 1"));
+		c.setStep(8);
+		assertTrue(c.validateInput("2 2 1"));
+		assertTrue(c.validateInput("2 2"));
+	}
+	
+	@Test
+	public void testInput() {
+		
 	}
 	
 	@Test
@@ -165,8 +175,9 @@ public class ControllerTest {
 	@Test
 	public void testStart() {
 		c = new Controller();
+		c.initPlayers(10);
+		c.setFieldsize(10);
 		c.start();
-		assertEquals("Bitte das Ruderboot setzen!",c.getStatus());
 		assertTrue(true);
 	}
 	
