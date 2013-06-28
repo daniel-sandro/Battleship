@@ -408,7 +408,7 @@ public class Controller extends Observable implements IController {
 	 * and notifys the observers about how to treat a mouseaction
 	 * step is then THREE
 	 */
-	private void botTurn() {
+	public void botTurn() {
 		setStatus("Der Bot setzt seine Schiffe...");
 		notifyObservers(new Event(Event.EventType.onAction));
 		setStatus("Du bist am Zug! Schieﬂe auf den Bot! (X/Y)");
@@ -533,7 +533,6 @@ public class Controller extends Observable implements IController {
 				shootHuman();
 				notifyObservers(new Event(EventType.showMenu));
 				step++;
-				gameOver();
 				break;
 			case FIVE: 
 				if (!five()) {
@@ -541,7 +540,7 @@ public class Controller extends Observable implements IController {
 				}
 		}
 		notifyObservers(new Event(EventType.onRepaint));
-		if (!gameOver()) {
+		if (gameOver()) {
 			return false;
 		}
 		return true;

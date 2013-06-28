@@ -40,8 +40,8 @@ public class FieldTest {
 		assertTrue(a.getStat() == state.hit);
 		a.shoot();
 		assertTrue(a.getStat() == state.emptyhit || a.getStat() == state.hit);
-		
-		
+		a.shoot();
+		assertTrue(a.getStat() == state.emptyhit || a.getStat() == state.hit);
 	}
 
 	@Test

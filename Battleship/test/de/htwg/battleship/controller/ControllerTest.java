@@ -139,25 +139,104 @@ public class ControllerTest {
 	
 	@Test
 	public void testInput() {
+	}
+	
+	@Test
+	public void testInput0() {
+		c = new Controller();
+		c.initPlayers(2);
+		c.setFieldsize(4);
+		c.getPlayer().setNumberShips(1);
+		c.getBot().setNumberShips(1);
+		c.setStep(0);
+		assertTrue(c.input("1 1"));
+	}
+	
+	@Test
+	public void testInput01() {
+		c = new Controller();
+		c.initPlayers(2);
+		c.setFieldsize(4);
+		c.getPlayer().setNumberShips(1);
+		c.getBot().setNumberShips(1);
+		c.setFieldsize(2);
+		assertTrue(c.input("1 1"));
+	}
+	
+	@Test
+	public void testBotTurn() {
+		c = new Controller();
+		c.initPlayers(2);
+		c.botTurn();
+		assertTrue(true);
+	}
+	
+	@Test
+	public void testInput1() {
 		c = new Controller();
 		c.initPlayers(10);
 		c.setFieldsize(10);
-		c.setStep(3);
-		assertTrue(c.input("1 1 1"));
-		c.setStep(0);
-		assertTrue(c.input("1 1"));
-		c.setStep(1);
-		c.setFieldsize(3);
-		assertTrue(c.input("1 1 1"));
-		c.setFieldsize(8);
-		assertTrue(c.input("8 8 1"));
 		c.setStep(2);
-		assertTrue(c.input("1 1 1"));
+		assertTrue(!c.input("1 1 1"));
+	}
+	
+	@Test
+	public void testCaseOne() {
+		c = new Controller();
+		c.initPlayers(10);
+		c.setFieldsize(10);
+		c.setStep(1);
+		assertTrue(!c.input("1 1 1"));
+	}
+	
+	@Test
+	public void testCaseOne1() {
+		c = new Controller();
+		c.initPlayers(5);
+		c.setFieldsize(6);
+		c.setStep(1);
+		assertTrue(!c.input("1 1 1"));
+	}
+	
+	@Test
+	public void testInput2() {
+		c = new Controller();
+		c.initPlayers(8);
+		c.setFieldsize(8);
+		c.setStep(1);
+		assertTrue(c.input("7 7 1"));
+	}
+	
+	@Test
+	public void testInput3() {
+		c = new Controller();
+		c.initPlayers(8);
+		c.setFieldsize(8);
+		c.setStep(2);
+		assertTrue(c.input("7 7 1"));
+	}
+	
+	@Test
+	public void testInput4() {
+		c = new Controller();
+		c.setFieldsize(1);
+		c.initPlayers(1);
+		c.getBot().setNumberShips(0);
+		c.getPlayer().setNumberShips(0);
+		c.setStep(3);
+		assertEquals(false, c.input("0 0"));
+	}
+	
+	@Test
+	public void testFive() {
+		c = new Controller();
+		c.initPlayers(4);
 		c.setStep(5);
-		assertTrue(c.input("1"));
-		assertTrue(c.input("2"));
-		assertTrue(c.input("4"));
-		assertEquals(false, c.input("3"));
+		c.input("1");
+		c.input("2");
+		c.input("3");
+		c.input("4");
+		assertTrue(!c.input("3"));
 	}
 	
 	@Test
