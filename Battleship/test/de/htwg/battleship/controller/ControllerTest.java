@@ -206,7 +206,6 @@ public class ControllerTest {
 	
 	@Test
 	public void howManyShipsHuman() {
-		
 	}
 	
 	@Test
