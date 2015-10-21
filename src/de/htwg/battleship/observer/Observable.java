@@ -46,7 +46,7 @@ public class Observable implements IObservable {
 	
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObservable#notifyOnSetFieldsize()
-	 * signalisiert auf die änderung der fieldsize
+	 * signalisiert auf die Ã¤nderung der fieldsize
 	 */
 	public void notifyOnSetFieldsize() {
 		notifyObservers(new Event(Event.EventType.setFieldsize));
@@ -54,7 +54,7 @@ public class Observable implements IObservable {
 
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObservable#notifyOnSetRowboat()
-	 * berichtet die observer darüber dass ein rowboat gesetzt wurde
+	 * berichtet die observer darÃ¼ber dass ein rowboat gesetzt wurde
 	 */
 	public void notifyOnSetRowboat() {
 		notifyObservers(new Event(Event.EventType.setRowboat));
@@ -62,7 +62,7 @@ public class Observable implements IObservable {
 
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObservable#notifyOnSetDestructor()
-	 * berichtet die observer darüber dass ein destructor gesetzt wurde
+	 * berichtet die observer darÃ¼ber dass ein destructor gesetzt wurde
 	 */
 	public void notifyOnSetDestructor() {
 		notifyObservers(new Event(Event.EventType.setDestructor));
@@ -70,7 +70,7 @@ public class Observable implements IObservable {
 
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObservable#notifyOnSetFlattop()
-	 * berichtet die observer darüber dass ein flattop gesetzt wurde
+	 * berichtet die observer darÃ¼ber dass ein flattop gesetzt wurde
 	 */
 	public void notifyOnSetFlattop() {
 		notifyObservers(new Event(Event.EventType.setFlattop));
@@ -78,7 +78,7 @@ public class Observable implements IObservable {
 	
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObservable#notifyOnShowMenu()
-	 * signalisiert dass das menü aufgerufen werden soll
+	 * signalisiert dass das menÃ¼ aufgerufen werden soll
 	 */
 	public void notifyOnShowMenu() {
 		notifyObservers(new Event(Event.EventType.showMenu));
@@ -118,7 +118,7 @@ public class Observable implements IObservable {
 	
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObservable#notifyOnStatus()
-	 * signalisiert eine statusänderung
+	 * signalisiert eine statusÃ¤nderung
 	 */
 	public void notifyOnStatus() {
 		notifyObservers(new Event(Event.EventType.onStatus));
@@ -150,7 +150,7 @@ public class Observable implements IObservable {
 	
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObservable#notifyOnBotShoots()
-	 * signalisiert dass der bot schießt
+	 * signalisiert dass der bot schieÃŸt
 	 */
 	public void notifyOnBotShoots() {
 		notifyObservers(new Event(Event.EventType.botShoots));

@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: guice-3.0.jar javax.inject-1.jar aopalliance-1.0.jar junit
+ -4.8.1.jar log4j-1.2.17.jar javaee-api-5.0-2.jar
+Main-Class: de.htwg.battleship.BattleshipGame
+

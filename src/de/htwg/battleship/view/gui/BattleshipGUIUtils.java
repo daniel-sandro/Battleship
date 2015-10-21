@@ -11,7 +11,7 @@ public class BattleshipGUIUtils extends JFrame {
 	 * gives out an errorquote for the case that a ship has been placed badly
 	 */
 	public static void fieldsizeError() {
-		JOptionPane.showMessageDialog(BattleshipGUI.getMainPanel(), "Bitte eine Feldgröße zwischen 1 und 26" +
+		JOptionPane.showMessageDialog(BattleshipGUI.getMainPanel(), "Bitte eine FeldgrÃ¶ÃŸe zwischen 1 und 26" +
 				" eingeben!", "Fehler!", JOptionPane.ERROR_MESSAGE);
 	}
 	
@@ -57,9 +57,9 @@ public class BattleshipGUIUtils extends JFrame {
 	public static boolean setShip(int x) {
 		String s = " das Ruderboot ";
 		if (x == 1) {
-			s = " den Zerstörer ";
+			s = " den ZerstÃ¶rer ";
 		} else if (x == 2) {
-			s = " den Flugzeugträger ";
+			s = " den FlugzeugtrÃ¤ger ";
 		}
 		BattleshipGUIUtils.setShip(s);
 		return true;
@@ -109,7 +109,7 @@ public class BattleshipGUIUtils extends JFrame {
 	 */
 	public static void won() {
 		Object[] options = {"YAY!"};
-		JOptionPane.showOptionDialog(null, "Glückwunsch, du hast alle Schiffe des Bots versenkt! Du hast gewonnen!", 
+		JOptionPane.showOptionDialog(null, "GlÃ¼ckwunsch, du hast alle Schiffe des Bots versenkt! Du hast gewonnen!",
 			"Gewonnen!", JOptionPane.YES_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
 	}
 }

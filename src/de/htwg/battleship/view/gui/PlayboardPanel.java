@@ -19,12 +19,12 @@ public class PlayboardPanel extends JPanel {
     private static final int XA = 135;
     private static final int XB = 180;
     private static final int WH = 255;
-    private Icon pattern = new ImageIcon("/images/Pattern.jpg");
-    private Icon hit = new ImageIcon("/images/Hit.jpg");
-    private Icon cross = new ImageIcon("/images/cross.png");
-    private Icon pre = new ImageIcon("/images/dot_white.jpg");
-    private Icon field = new ImageIcon("/images/FieldN.jpg");
-    private Icon selectedField = new ImageIcon("/images/FieldS.jpg");
+    private Icon pattern = new ImageIcon(this.getClass().getResource("/images/Pattern.jpg"));
+    private Icon hit = new ImageIcon(this.getClass().getResource("/images/Hit.jpg"));
+    private Icon cross = new ImageIcon(this.getClass().getResource("/images/cross.png"));
+    private Icon pre = new ImageIcon(this.getClass().getResource("/images/dot_white.jpg"));
+    private Icon field = new ImageIcon(this.getClass().getResource("/images/FieldN.jpg"));
+    private Icon selectedField = new ImageIcon(this.getClass().getResource("/images/FieldS.jpg"));
     private JPanel playboardPanel;
 	
 	/**

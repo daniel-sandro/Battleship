@@ -365,7 +365,7 @@ public class Controller extends Observable implements IController {
 			setStatus("Game Over! Der Bot hat gewonnen!");
 			return 2;
 		} else if (bot.getNumberShips() == 0) {
-			setStatus("Gl�ckwunsch, du hast gewonnen!");
+			setStatus("Glückwunsch, du hast gewonnen!");
 			return 1;
 		}
 		return 0;
@@ -478,7 +478,7 @@ public class Controller extends Observable implements IController {
 	private void caseZero() {
 		setHumanRowboat(x, y);
 		if (fieldsize >= THREE) {
-			setStatus("Bitte den Zerst�rer setzen! (X Y \"alignment\")");
+			setStatus("Bitte den Zerstörer setzen! (X Y \"alignment\")");
 			notifyObservers(new Event(Event.EventType.setDestructor));
 			step++;
 		} else {
@@ -490,7 +490,7 @@ public class Controller extends Observable implements IController {
 	private void caseOne() {
 		setHumanDestructor(x, y, alignment);
 		if (fieldsize >= EIGHT) {
-			setStatus("Bitte den Flugzeugtr�ger setzen! (X Y \"alignment\")");
+			setStatus("Bitte den Flugzeugträger setzen! (X Y \"alignment\")");
 			notifyObservers(new Event(Event.EventType.setFlattop));
 			step++;
 		} else {
@@ -562,10 +562,10 @@ public class Controller extends Observable implements IController {
 		if (x == ONE) {
 			notifyObservers(new Event(EventType.showPlayersField));
 		} else if (x == TWO) {
-			setStatus("Du bist am Zug! Schie�e auf den Bot! (X/Y)");
+			setStatus("Du bist am Zug! Schieße auf den Bot! (X/Y)");
 			step = THREE;
 		} else if (x == THREE) {
-			setStatus("Danke f�r's Spielen! Bis bald!");
+			setStatus("Danke für's Spielen! Bis bald!");
 			sleep(EXIT);
 			return true;
 		} else if (x == FOUR) {
