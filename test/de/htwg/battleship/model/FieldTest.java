@@ -6,9 +6,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.battleship.model.Field;
-import de.htwg.battleship.model.Flattop;
-import de.htwg.battleship.model.Ships;
 import de.htwg.battleship.model.Field.state;
 
 
@@ -31,7 +28,7 @@ public class FieldTest {
 	
 	@Test
 	public void testShoot() {
-		Ships x = new Flattop(0, 0, true);
+		Ship x = new Flattop(0, 0, true);
 		assertEquals(state.empty, a.getStat());
 		a.shoot();
 		assertEquals(state.emptyhit, a.getStat());
@@ -50,7 +47,7 @@ public class FieldTest {
 
 	@Test
 	public void testSetShip() {
-		Ships b = new Flattop(1, 1, true);
+		Ship b = new Flattop(1, 1, true);
 		assertNotNull(b);
 		a.setShip(b);	
 		assertNotNull(a.getShip());

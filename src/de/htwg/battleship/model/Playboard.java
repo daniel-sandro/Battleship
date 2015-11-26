@@ -38,7 +38,7 @@ public class Playboard {
 	 * 
 	 * @param s
 	 */
-	public void setShip(Ships s) {
+	public void setShip(Ship s) {
 		int[] posi = s.getPosition();
 		if (s.getAlignment()) {
 			for (int i = 0; i < s.getSize(); i++) {

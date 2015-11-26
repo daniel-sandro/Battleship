@@ -6,13 +6,10 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.battleship.model.Flattop;
-import de.htwg.battleship.model.Ships;
-
 
 public class FlattopTest {
 	
-	Ships a;
+	Ship a;
 	
 	@Before
 	public void setUp(){

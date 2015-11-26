@@ -62,7 +62,7 @@ public class Bot extends Player {
 	 * 
 	 * @param s
 	 */
-	public void setShip(Ships s) {
+	public void setShip(Ship s) {
 		int[] posi = { 0, 0 };
 		do {
 			if (!s.getAlignment()) {
@@ -92,7 +92,7 @@ public class Bot extends Player {
 	 *            the ship
 	 * @return false if there was a ship.
 	 */
-	public boolean check(int x, int y, Ships s) {
+	public boolean check(int x, int y, Ship s) {
 		if (!s.getAlignment()) {
 			for (int i = 0; i < s.getSize(); i++) {
 				if (getPlayboard().getField()[x + i][y].getStat() == state.ship) {

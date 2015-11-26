@@ -4,7 +4,7 @@ package de.htwg.battleship.model;
  * @author Sandro
  * 
  */
-public abstract class Ships {
+public abstract class Ship {
 
 	private int size;
 	private int[] position = new int[2];

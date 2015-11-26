@@ -6,12 +6,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.battleship.model.Destructor;
-import de.htwg.battleship.model.Ships;
-
 
 public class DestructorTest {
-	Ships a;
+	Ship a;
 	
 	@Before
 	public void setUp(){

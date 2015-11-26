@@ -10,7 +10,7 @@ public class Field {
 		empty, ship, hit, emptyhit, rowboat
 	}
 
-	private Ships ship;
+	private Ship ship;
 	private state stat;
 
 	/**
@@ -54,7 +54,7 @@ public class Field {
 	 * 
 	 * @return the containing Ship
 	 */
-	public Ships getShip() {
+	public Ship getShip() {
 		return ship;
 	}
 
@@ -64,7 +64,7 @@ public class Field {
 	 * 
 	 * @param ship
 	 */
-	public void setShip(Ships ship) {
+	public void setShip(Ship ship) {
 		this.ship = ship;
 		this.stat = state.ship;
 	}

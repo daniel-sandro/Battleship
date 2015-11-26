@@ -2,9 +2,9 @@ package de.htwg.battleship.model;
 
 /**
  * @author Sandro, Julian 
- * Destructor Class. Subclass of Ships.
+ * Destructor Class. Subclass of Ship.
  */
-public class Destructor extends Ships {
+public class Destructor extends Ship {
 
 	private static final int SIZE = 3;
 

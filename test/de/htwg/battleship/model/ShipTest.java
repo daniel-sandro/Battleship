@@ -10,7 +10,7 @@ import org.junit.Test;
 import de.htwg.battleship.model.Rowboat;
 
 
-public class ShipsTest {
+public class ShipTest {
 	public Rowboat a;
 	
 	@Before

@@ -6,9 +6,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.battleship.model.Playboard;
-import de.htwg.battleship.model.Rowboat;
-import de.htwg.battleship.model.Ships;
 import de.htwg.battleship.model.Field.state;
 
 
@@ -52,8 +49,8 @@ public class BotTest {
 	@Test
 	public void testSetShip() {
 		Bot x = new Bot(3);
-		Ships r = new Rowboat();
-		Ships r2 = new Destructor(false);
+		Ship r = new Rowboat();
+		Ship r2 = new Destructor(false);
 		int xpo = r2.getPosition()[0];
 		int ypo = r2.getPosition()[1];
 		x.setShip(r2);
@@ -72,10 +69,10 @@ public class BotTest {
 	public void testCheck() {
 		
 		Bot b = new Bot(4);
-		Ships x1 = new Rowboat();
+		Ship x1 = new Rowboat();
 		b.setShip(x1);
-		Ships d = new Destructor(false);
-		Ships e = new Destructor(true);
+		Ship d = new Destructor(false);
+		Ship e = new Destructor(true);
 		b.setShip(e);
 		b.setShip(d);
 		assertTrue(true);

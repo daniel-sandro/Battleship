@@ -1,10 +1,10 @@
 package de.htwg.battleship.model;
 
-public class Rowboat extends Ships {
+public class Rowboat extends Ship {
 
 	/**
 	 * @author Sandro, Julian 
-	 * Rowboat Class. Subclass of Ships.
+	 * Rowboat Class. Subclass of Ship.
 	 */
 	private static final int SIZE = 1;
 	private static final boolean ALIGNMENT = true;

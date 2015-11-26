@@ -27,7 +27,7 @@ public class PlayboardTest {
 
 	@Test
 	public void testSetShip() {
-		Ships b = new Rowboat(0, 0);
+		Ship b = new Rowboat(0, 0);
 		a.setShip(b);
 		for(int i = 0; i < b.getSize(); i++){
 			assertEquals(state.ship, a.getField()[b.getPosition()[0]][b.getPosition()[1]+i].getStat());

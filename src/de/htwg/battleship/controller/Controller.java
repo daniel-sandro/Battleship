@@ -9,7 +9,7 @@ import de.htwg.battleship.model.Field;
 import de.htwg.battleship.model.Flattop;
 import de.htwg.battleship.model.Human;
 import de.htwg.battleship.model.Rowboat;
-import de.htwg.battleship.model.Ships;
+import de.htwg.battleship.model.Ship;
 import de.htwg.battleship.model.Field.state;
 import de.htwg.battleship.observer.Event;
 import de.htwg.battleship.observer.Observable;
@@ -250,7 +250,7 @@ public class Controller extends Observable implements IController {
 	 * Sets a Rowboat onto the Bot's Playboard.
 	 */
 	public void setBotRowboat() {
-		Ships r = new Rowboat();
+		Ship r = new Rowboat();
 		bot.setShip(r);
 		bot.setNumberShips(bot.getNumberShips() + 1);
 	}

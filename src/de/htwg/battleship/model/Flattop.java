@@ -2,9 +2,9 @@ package de.htwg.battleship.model;
 
 /**
  * @author Sandro, Julian 
- * Flattop Class. Subclass of Ships.
+ * Flattop Class. Subclass of Ship.
  */
-public class Flattop extends Ships {
+public class Flattop extends Ship {
 
 	private static final int SIZE = 5;
 
