@@ -1,11 +1,11 @@
 package de.htwg.battleship.view.tui;
 
+import de.htwg.battleship.model.Field;
 import org.apache.log4j.Logger;
 
 import com.google.inject.Inject;
 
 import de.htwg.battleship.controller.IController;
-import de.htwg.battleship.model.Field.state;
 import de.htwg.battleship.observer.Event;
 import de.htwg.battleship.observer.IObserver;
 
@@ -196,19 +196,19 @@ public final class TUI implements IObserver {
 	 *            if ships shall be shown
 	 */
 	private void checkStateBot(int i, int j, boolean ship) {
-		if (controller.getBot().getPlayboard().getField()[i][j].getStat() == state.empty) {
+		if (controller.getBot().getPlayboard().getField()[i][j].getStat() == Field.State.empty) {
 			sb.append("_ | ");
 		} else if (controller.getBot().getPlayboard().getField()[i][j]
-				.getStat() == state.ship && !ship) {
+				.getStat() == Field.State.ship && !ship) {
 			sb.append("_ | ");
 		} else if (controller.getBot().getPlayboard().getField()[i][j]
-				.getStat() == state.emptyhit) {
+				.getStat() == Field.State.emptyhit) {
 			sb.append("O | ");
 		} else if (controller.getBot().getPlayboard().getField()[i][j]
-				.getStat() == state.hit) {
+				.getStat() == Field.State.hit) {
 			sb.append("X | ");
 		} else if (controller.getBot().getPlayboard().getField()[i][j]
-				.getStat() == state.ship && ship) {
+				.getStat() == Field.State.ship && ship) {
 			sb.append("S | ");
 		}
 	}
@@ -222,16 +222,16 @@ public final class TUI implements IObserver {
 	 *            the y-coordinate
 	 */
 	private void checkStateHuman(int i, int j) {
-		if (controller.getPlayer().getPlayboard().getField()[i][j].getStat() == state.empty) {
+		if (controller.getPlayer().getPlayboard().getField()[i][j].getStat() == Field.State.empty) {
 			sb.append("~ | ");
 		} else if (controller.getPlayer().getPlayboard().getField()[i][j]
-				.getStat() == state.emptyhit) {
+				.getStat() == Field.State.emptyhit) {
 			sb.append("O | ");
 		} else if (controller.getPlayer().getPlayboard().getField()[i][j]
-				.getStat() == state.hit) {
+				.getStat() == Field.State.hit) {
 			sb.append("X | ");
 		} else if (controller.getPlayer().getPlayboard().getField()[i][j]
-				.getStat() == state.ship) {
+				.getStat() == Field.State.ship) {
 			sb.append("S | ");
 		}
 	}

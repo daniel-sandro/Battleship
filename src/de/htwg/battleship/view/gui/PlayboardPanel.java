@@ -1,6 +1,6 @@
 package de.htwg.battleship.view.gui;
 
-import de.htwg.battleship.model.Field.state;
+import de.htwg.battleship.model.Field.State;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -143,13 +143,13 @@ public class PlayboardPanel extends JPanel {
 	/**
 	 * @param i
 	 * @param j
-	 * checks the bot�s state
+	 * checks the bot�s State
 	 */
 	public void checkstateBot(int i, int j) {
-		if (gui.getController().getBot().getPlayboard().getField()[i][j].getStat() == state.hit) {
+		if (gui.getController().getBot().getPlayboard().getField()[i][j].getStat() == State.hit) {
 			fields[i + 1][j + 1].setNormalIcon(hit);
 			fields[i + 1][j + 1].setSelectedIcon(hit);
-		} else if (gui.getController().getBot().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
+		} else if (gui.getController().getBot().getPlayboard().getField()[i][j].getStat() == State.emptyhit) {
 			fields[i + 1][j + 1].setNormalIcon(cross);
 			fields[i + 1][j + 1].setSelectedIcon(cross);
 		}
@@ -158,16 +158,16 @@ public class PlayboardPanel extends JPanel {
 	/**
 	 * @param i
 	 * @param j
-	 * checks the human�s state
+	 * checks the human�s State
 	 */
 	public void checkstateHuman(int i, int j) {
-		if (gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == state.hit) {
+		if (gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == State.hit) {
 			fields[i + 1][j + 1].setNormalIcon(hit);
 			fields[i + 1][j + 1].setSelectedIcon(hit);
-		} else if (gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == state.emptyhit) {
+		} else if (gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == State.emptyhit) {
 			fields[i + 1][j + 1].setNormalIcon(cross);
 			fields[i + 1][j + 1].setSelectedIcon(cross);
-		} else if(gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == state.ship) {
+		} else if(gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == State.ship) {
 			fields[i + 1][j + 1].setNormalIcon(pre);
 			fields[i + 1][j + 1].setSelectedIcon(pre);
 		}
