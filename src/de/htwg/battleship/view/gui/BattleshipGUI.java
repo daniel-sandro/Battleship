@@ -1,7 +1,5 @@
 package de.htwg.battleship.view.gui;
 
-import com.google.inject.Inject;
-import de.htwg.battleship.controller.BattleshipController;
 import de.htwg.battleship.controller.JavaBattleshipController;
 import de.htwg.battleship.model.Position;
 import de.htwg.battleship.model.Ship;
@@ -11,8 +9,12 @@ import de.htwg.battleship.model.ship.Rowboat;
 import de.htwg.battleship.observer.Event;
 import de.htwg.battleship.observer.IObserver;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 
 /**
  * @author Sandro, Julian
@@ -41,7 +43,6 @@ public class BattleshipGUI extends JFrame implements IObserver {
      * sets up the constructor of a BattleshipGUI and
      * initializes its controller varibale woth the argument
      */
-    @Inject
 	public BattleshipGUI(JavaBattleshipController controller) {
 		this.controller = controller;
 		controller.addObserver(this);

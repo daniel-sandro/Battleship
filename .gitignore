@@ -122,6 +122,7 @@ atlassian-ide-plugin.xml
 # Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
 crashlytics.properties
+/battleship.log
 crashlytics-build.properties
 
 # Created by .ignore support plugin (hsz.mobi)

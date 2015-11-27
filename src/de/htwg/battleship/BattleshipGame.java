@@ -1,8 +1,5 @@
 package de.htwg.battleship;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import de.htwg.battleship.controller.BattleshipController;
 import de.htwg.battleship.controller.JavaBattleshipController;
 import de.htwg.battleship.model.Bot;
 import de.htwg.battleship.model.Human;
@@ -36,28 +33,27 @@ public final class BattleshipGame {
 	public static void main(String[] args) throws InterruptedException {
 
 		PropertyConfigurator.configure("log4j.properties");
-		Injector injector = Guice.createInjector();
-		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 
-		BattleshipSetFieldsize s = injector.getInstance(BattleshipSetFieldsize.class);
-		
-		synchronized (s) {
+		BattleshipSetFieldsize sfs = new BattleshipSetFieldsize();
+		sfs.setVisible(true);
+
+		synchronized (sfs) {
 			try {
-				s.wait();
+				sfs.wait();
 			} catch (InterruptedException e) {
 			}
 		}
 
-		@SuppressWarnings("unused")
-		BattleshipGUI gui = injector.getInstance(BattleshipGUI.class);
-		@SuppressWarnings("unused")
-		TUI tui = injector.getInstance(TUI.class);
-
 		Human human = new Human(fieldSize);
 		Bot bot = new Bot(fieldSize);
-		BattleshipController controller = new JavaBattleshipController(human, bot);
+		JavaBattleshipController controller = new JavaBattleshipController(human, bot);
+
+		BattleshipGUI gui = new BattleshipGUI(controller);
+		TUI tui = new TUI(controller);
+
 		controller.startGame();
+		gui.setVisible(true);
 		
 		/*boolean finished = false;
 		while (!finished) {
