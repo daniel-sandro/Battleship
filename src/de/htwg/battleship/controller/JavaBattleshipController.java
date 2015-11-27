@@ -16,6 +16,7 @@ public class JavaBattleshipController implements BattleshipController {
     }
 
     public boolean placeShip(Playboard playboard, Ship ship, Position p, boolean horizontal) {
+        // TODO: check events that must be triggered
         // Check coordinates are within the playboard boundaries
         if (p.getRow() >= playboard.getSize() || p.getRow() < 0 ||
                 p.getCol() < 0 || p.getCol() >= playboard.getSize()) {

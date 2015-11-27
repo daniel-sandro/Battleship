@@ -114,31 +114,31 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 */
 	public void onNotifyObservers(Event t) {
 		switch (t.getEventType()) {
-			case correctPosition:
+			case CORRECT_POSITION:
 				onCorrectPosition();
 				break;
-			case setRowboat:
+			case SET_ROWBOAT:
 				onSetRowboat();
 				break;
-			case setDestructor:
+			case SET_DESTRUCTOR:
 				onSetDestructor();
 				break;
-			case setFlattop:
+			case SET_FLATTOP:
 				onSetFlattop();
 				break;
-			case onAction:
+			case ON_ACTION:
 				onAction();
 				break;
-			case onStatus:
+			case ON_STATUS:
 				onStatus();
 				break;
-			case gameOver:
+			case GAME_OVER:
 				onGameOver();
 				break;
-			case won:
+			case WON:
 				onWon();
 				break;
-			case onRepaint:
+			case ON_REPAINT:
 				onRepaint();
 				break;
 			default:
@@ -192,7 +192,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	public void onShowMenu() {}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onAction()
+	 * @see de.htwg.battleship.observer.IObserver#ON_ACTION()
 	 * sets action to 4
 	 */
 	public void onAction() {
@@ -229,7 +229,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	public void onShootOnBot() {}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onStatus()
+	 * @see de.htwg.battleship.observer.IObserver#ON_STATUS()
 	 * prevents deadlocks
 	 */
 	public void onStatus() {
@@ -304,7 +304,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObserver#onWon()
-	 * reaction to event won
+	 * reaction to event WON
 	 */
 	public void onWon() {
 		BattleshipGUIUtils.won();
@@ -328,7 +328,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onRepaint()
+	 * @see de.htwg.battleship.observer.IObserver#ON_REPAINT()
 	 * reaction on the event repaint
 	 */
 	public void onRepaint() {

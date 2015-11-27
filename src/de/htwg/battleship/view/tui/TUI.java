@@ -41,25 +41,25 @@ public final class TUI implements IObserver {
 	 */
 	public void onNotifyObservers(Event t) {
 		switch (t.getEventType()) {
-		case showBotsField:
+		case SHOW_BOTS_FIELD:
 			onShowBotsField();
 			break;
-		case showPlayersField:
+		case SHOW_PLAYERS_FIELD:
 			onShowPlayersField();
 			break;
-		case gameOver:
+		case GAME_OVER:
 			onGameOver();
 			break;
-		case won:
+		case WON:
 			onWon();
 			break;
-		case showMenu:
+		case SHOW_MENU:
 			onShowMenu();
 			break;
-		case onStatus:
+		case ON_STATUS:
 			onStatus();
 			break;
-		case cheat:
+		case CHEAT:
 			onCheat();
 			break;
 		default:
@@ -74,7 +74,7 @@ public final class TUI implements IObserver {
 	public void onSetFieldsize() {}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onStatus()
+	 * @see de.htwg.battleship.observer.IObserver#ON_STATUS()
 	 * reaction on event to give out the status
 	 */
 	public void onStatus() {
@@ -97,7 +97,7 @@ public final class TUI implements IObserver {
 
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObserver#onCheat()
-	 * reaction on event to print out cheat
+	 * reaction on event to print out CHEAT
 	 */
 	public void onCheat() {
 		print(showField(true, true).toString());
@@ -256,7 +256,7 @@ public final class TUI implements IObserver {
 
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObserver#onWon()
-	 * reaction on event that player has won
+	 * reaction on event that player has WON
 	 */
 	public void onWon() {
 		System.exit(0);

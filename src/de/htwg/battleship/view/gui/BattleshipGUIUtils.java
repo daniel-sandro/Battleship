@@ -105,7 +105,7 @@ public class BattleshipGUIUtils extends JFrame {
 	}
 	
 	/**
-	 * gives out a 'you have won' message
+	 * gives out a 'you have WON' message
 	 */
 	public static void won() {
 		Object[] options = {"YAY!"};

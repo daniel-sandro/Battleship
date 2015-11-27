@@ -13,8 +13,22 @@ public class Event {
 	 * The EventType - for notifications
 	 */
 	public enum EventType {
-		setFieldsize, setRowboat, setDestructor, setFlattop, showMenu, onAction, showPlayersField, showBotsField, onStatus, shootBot, cheat, gameOver, won, botShoots, 
-		onRepaint, correctPosition
+		SET_FIELDSIZE,
+		SET_ROWBOAT,
+		SET_DESTRUCTOR,
+		SET_FLATTOP,
+		SHOW_MENU,
+		ON_ACTION,
+		SHOW_PLAYERS_FIELD,
+		SHOW_BOTS_FIELD,
+		ON_STATUS,
+		SHOOT_BOT,
+		CHEAT,
+		GAME_OVER,
+		WON,
+		BOT_SHOOTS,
+		ON_REPAINT,
+		CORRECT_POSITION
 	}
 
 	/**
