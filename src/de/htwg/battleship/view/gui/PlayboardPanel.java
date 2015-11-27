@@ -143,7 +143,7 @@ public class PlayboardPanel extends JPanel {
 	/**
 	 * @param i
 	 * @param j
-	 * checks the bot�s State
+	 * checks the bot's State
 	 */
 	public void checkstateBot(int i, int j) {
 		if (gui.getController().getBot().getPlayboard().getField()[i][j].getStat() == State.hit) {
@@ -158,7 +158,7 @@ public class PlayboardPanel extends JPanel {
 	/**
 	 * @param i
 	 * @param j
-	 * checks the human�s State
+	 * checks the human's State
 	 */
 	public void checkstateHuman(int i, int j) {
 		if (gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == State.hit) {

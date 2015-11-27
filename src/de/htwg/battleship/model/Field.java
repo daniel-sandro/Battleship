@@ -21,4 +21,8 @@ public class Field {
 		this.ship = ship;
 		this.state = State.SHIP;
 	}
+
+	public void setState(State newState) {
+		this.state = newState;
+	}
 }

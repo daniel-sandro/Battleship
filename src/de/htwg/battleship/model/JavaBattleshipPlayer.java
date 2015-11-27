@@ -13,15 +13,23 @@ public abstract class JavaBattleshipPlayer implements BattleshipPlayer {
         playboard = new Playboard(playboardSize);
     }
 
+    @Override
     public Playboard getPlayboard() {
         return playboard;
     }
 
+    @Override
     public Set<Pair<Ship, Pair<Position, Boolean>>> initialState() {
         return controller.generateInitialState();
     }
 
+    @Override
     public Position nextShot() {
         return controller.generateNextShot();
+    }
+
+    @Override
+    public PlayerController getController() {
+        return controller;
     }
 }

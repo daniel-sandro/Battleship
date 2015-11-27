@@ -6,6 +6,6 @@ public class Bot extends JavaBattleshipPlayer {
 
 	public Bot(int playboardSize) {
 		super(playboardSize);
-		super.controller = new BotController();
+		super.controller = new BotController(this);
 	}
 }

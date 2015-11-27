@@ -7,7 +7,19 @@ import de.htwg.battleship.model.Ship;
 
 public interface BattleshipController {
 
+    /**
+     * Returns the players playing the game.
+     * @return An array with the players.
+     */
     public BattleshipPlayer[] getPlayers();
+
+    public BattleshipPlayer getTurn();
+
+    public BattleshipPlayer startGame();
+
+    public boolean isGameFinished();
+
+    public BattleshipPlayer getWinner();
 
     /**
      * Places a ship in the playboard.
@@ -19,5 +31,10 @@ public interface BattleshipController {
      */
     public boolean placeShip(Playboard playboard, Ship ship, Position p, boolean horizontal);
 
-    public void shoot(Playboard playboard, Position p);
+    /**
+     * Shoots a position in a playboard.
+     * @param playboard The playboard to shoot.
+     * @param p The targeted position.
+     */
+    public boolean shoot(Playboard playboard, Position p);
 }

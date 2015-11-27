@@ -16,7 +16,15 @@ public class Playboard {
 		return field[row][col];
 	}
 
+	public Field getField(Position p) {
+		return field[p.getRow()][p.getCol()];
+	}
+
 	public int getSize() {
 		return field.length;
+	}
+
+	public boolean validPosition(Position p) {
+		return p.getRow() >= 0 && p.getRow() < getSize() && p.getCol() >= 0 && p.getCol() < getSize();
 	}
 }

@@ -5,6 +5,7 @@ import de.htwg.battleship.model.Ship;
 public class Destructor implements Ship {
     private static final int LENGTH = 3;
 
+    @Override
     public int getLength() {
         return LENGTH;
     }
