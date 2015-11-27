@@ -4,8 +4,9 @@ import de.htwg.battleship.model.BattleshipPlayer;
 import de.htwg.battleship.model.Playboard;
 import de.htwg.battleship.model.Position;
 import de.htwg.battleship.model.Ship;
+import de.htwg.battleship.observer.IObservable;
 
-public interface BattleshipController {
+public interface BattleshipController extends IObservable {
 
     /**
      * Returns the players playing the game.
@@ -14,6 +15,10 @@ public interface BattleshipController {
     public BattleshipPlayer[] getPlayers();
 
     public BattleshipPlayer getTurn();
+
+    public String getStatus();
+
+    public int getFieldSize();
 
     public BattleshipPlayer startGame();
 

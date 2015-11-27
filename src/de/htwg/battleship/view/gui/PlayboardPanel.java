@@ -1,6 +1,6 @@
 package de.htwg.battleship.view.gui;
 
-import de.htwg.battleship.model.Field.State;
+import de.htwg.battleship.model.Playboard;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -34,7 +34,7 @@ public class PlayboardPanel extends JPanel {
 	public PlayboardPanel(BattleshipGUI gui) {
 		this.gui = gui;
 		playboardPanel = new JPanel();
-		fieldsize = gui.getController().getFieldsize();
+		fieldsize = gui.getController().getFieldSize();
 		printPlayboard();
 	}
 	
@@ -146,10 +146,11 @@ public class PlayboardPanel extends JPanel {
 	 * checks the bot's State
 	 */
 	public void checkstateBot(int i, int j) {
-		if (gui.getController().getBot().getPlayboard().getField()[i][j].getStat() == State.hit) {
+		Playboard botPlayboard = gui.getController().getBot().getPlayboard();
+		if (botPlayboard.getField(i, j).isHit()) {
 			fields[i + 1][j + 1].setNormalIcon(hit);
 			fields[i + 1][j + 1].setSelectedIcon(hit);
-		} else if (gui.getController().getBot().getPlayboard().getField()[i][j].getStat() == State.emptyhit) {
+		} else if (botPlayboard.getField(i, j).isMissed()) {
 			fields[i + 1][j + 1].setNormalIcon(cross);
 			fields[i + 1][j + 1].setSelectedIcon(cross);
 		}
@@ -161,13 +162,14 @@ public class PlayboardPanel extends JPanel {
 	 * checks the human's State
 	 */
 	public void checkstateHuman(int i, int j) {
-		if (gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == State.hit) {
+		Playboard humanPlayboard = gui.getController().getHuman().getPlayboard();
+		if (humanPlayboard.getField(i, j).isHit()) {
 			fields[i + 1][j + 1].setNormalIcon(hit);
 			fields[i + 1][j + 1].setSelectedIcon(hit);
-		} else if (gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == State.emptyhit) {
+		} else if (humanPlayboard.getField(i, j).isMissed()) {
 			fields[i + 1][j + 1].setNormalIcon(cross);
 			fields[i + 1][j + 1].setSelectedIcon(cross);
-		} else if(gui.getController().getPlayer().getPlayboard().getField()[i][j].getStat() == State.ship) {
+		} else if(humanPlayboard.getField(i, j).isNotHit()) {
 			fields[i + 1][j + 1].setNormalIcon(pre);
 			fields[i + 1][j + 1].setSelectedIcon(pre);
 		}

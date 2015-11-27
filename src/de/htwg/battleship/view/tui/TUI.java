@@ -1,13 +1,11 @@
 package de.htwg.battleship.view.tui;
 
-import de.htwg.battleship.model.Field;
-import org.apache.log4j.Logger;
-
 import com.google.inject.Inject;
-
-import de.htwg.battleship.controller.IController;
+import de.htwg.battleship.controller.JavaBattleshipController;
+import de.htwg.battleship.model.Playboard;
 import de.htwg.battleship.observer.Event;
 import de.htwg.battleship.observer.IObserver;
+import org.apache.log4j.Logger;
 
 /**
  * @author Sandro, Julian
@@ -19,7 +17,7 @@ public final class TUI implements IObserver {
 	private static final int LINELEN = 9;
 	private static final String SEP = " | ";
 
-	private IController controller;
+	private JavaBattleshipController controller;
 	private static StringBuilder sb = new StringBuilder();
 	private static Logger logger = Logger.getLogger("de.htwg.battleship.view.tui");
 
@@ -28,7 +26,7 @@ public final class TUI implements IObserver {
 	 * constructor
 	 */
 	@Inject
-	public TUI(IController controller) {
+	public TUI(JavaBattleshipController controller) {
 		this.controller = controller;
 		controller.addObserver(this);
 		print(controller.getStatus());
@@ -133,9 +131,9 @@ public final class TUI implements IObserver {
 	 */
 	public StringBuilder showField(boolean bot, boolean ship) {
 		printHeader(bot, ship);
-		for (int i = 0; i < controller.getFieldsize(); i++) {
+		for (int i = 0; i < controller.getFieldSize(); i++) {
 			printPattern(i);
-			for (int j = 0; j < controller.getFieldsize(); j++) {
+			for (int j = 0; j < controller.getFieldSize(); j++) {
 				if (bot) {
 					checkStateBot(i, j, ship);
 				} else {
@@ -173,7 +171,7 @@ public final class TUI implements IObserver {
 	private void printPattern(int i) {
 		if (i == 0) {
 			sb.append(" ");
-			for (int k = HEX; k < controller.getFieldsize() + HEX; k++) {
+			for (int k = HEX; k < controller.getFieldSize() + HEX; k++) {
 				sb.append(SEP).append((char) k);
 			}
 			sb.append("\n");
@@ -196,19 +194,16 @@ public final class TUI implements IObserver {
 	 *            if ships shall be shown
 	 */
 	private void checkStateBot(int i, int j, boolean ship) {
-		if (controller.getBot().getPlayboard().getField()[i][j].getStat() == Field.State.empty) {
+		Playboard playboard = controller.getBot().getPlayboard();
+		if (playboard.getField(i, j).isEmpty()) {
 			sb.append("_ | ");
-		} else if (controller.getBot().getPlayboard().getField()[i][j]
-				.getStat() == Field.State.ship && !ship) {
+		} else if (playboard.getField(i, j).isNotHit() && !ship) {
 			sb.append("_ | ");
-		} else if (controller.getBot().getPlayboard().getField()[i][j]
-				.getStat() == Field.State.emptyhit) {
+		} else if (playboard.getField(i, j).isMissed()) {
 			sb.append("O | ");
-		} else if (controller.getBot().getPlayboard().getField()[i][j]
-				.getStat() == Field.State.hit) {
+		} else if (playboard.getField(i, j).isHit()) {
 			sb.append("X | ");
-		} else if (controller.getBot().getPlayboard().getField()[i][j]
-				.getStat() == Field.State.ship && ship) {
+		} else if (playboard.getField(i, j).isNotHit() && ship) {
 			sb.append("S | ");
 		}
 	}
@@ -222,16 +217,14 @@ public final class TUI implements IObserver {
 	 *            the y-coordinate
 	 */
 	private void checkStateHuman(int i, int j) {
-		if (controller.getPlayer().getPlayboard().getField()[i][j].getStat() == Field.State.empty) {
+		Playboard playboard = controller.getHuman().getPlayboard();
+		if (playboard.getField(i, j).isEmpty()) {
 			sb.append("~ | ");
-		} else if (controller.getPlayer().getPlayboard().getField()[i][j]
-				.getStat() == Field.State.emptyhit) {
+		} else if (playboard.getField(i, j).isMissed()) {
 			sb.append("O | ");
-		} else if (controller.getPlayer().getPlayboard().getField()[i][j]
-				.getStat() == Field.State.hit) {
+		} else if (playboard.getField(i, j).isHit()) {
 			sb.append("X | ");
-		} else if (controller.getPlayer().getPlayboard().getField()[i][j]
-				.getStat() == Field.State.ship) {
+		} else if (playboard.getField(i, j).isNotHit()) {
 			sb.append("S | ");
 		}
 	}

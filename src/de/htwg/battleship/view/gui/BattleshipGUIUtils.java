@@ -86,12 +86,12 @@ public class BattleshipGUIUtils extends JFrame {
 	 * gives out a quote that askes to decide whether a ship is placed vertical or hotizontal
 	 * @return
 	 */
-	public static int setAlignment() {
+	public static boolean setAlignment() {
 		Object[] options = {"Horizontal", "Vertikal"};
         int selected = JOptionPane.showOptionDialog(null, "Schiff horizontal oder vertikal setzen?",
         		"Ausrichtung", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, 
         		null, options, options[0]);
-        return selected;
+        return selected == 0;
 	}
 	
 	/**

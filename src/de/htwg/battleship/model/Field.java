@@ -2,7 +2,7 @@ package de.htwg.battleship.model;
 
 public class Field {
 
-	public enum State {
+	private enum State {
 		EMPTY, SHIP, HIT, EMPTYHIT
 	}
 
@@ -17,12 +17,29 @@ public class Field {
 		return state == State.EMPTY;
 	}
 
+	public boolean isHit() {
+		return state == State.HIT;
+	}
+
+	public boolean isMissed() {
+		return state == State.EMPTYHIT;
+	}
+
+	public boolean isNotHit() {
+		return state == State.SHIP;
+	}
+
 	public void setShip(Ship ship) {
 		this.ship = ship;
 		this.state = State.SHIP;
 	}
 
-	public void setState(State newState) {
-		this.state = newState;
+	public void setMissed() {
+		state = State.EMPTYHIT;
 	}
+
+	public void setHit() {
+		state = State.HIT;
+	}
+
 }

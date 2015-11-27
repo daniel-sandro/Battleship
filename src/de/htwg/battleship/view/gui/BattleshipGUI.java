@@ -1,18 +1,18 @@
 package de.htwg.battleship.view.gui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-
 import com.google.inject.Inject;
-
-import de.htwg.battleship.controller.IController;
+import de.htwg.battleship.controller.BattleshipController;
+import de.htwg.battleship.controller.JavaBattleshipController;
+import de.htwg.battleship.model.Position;
+import de.htwg.battleship.model.Ship;
+import de.htwg.battleship.model.ship.Destructor;
+import de.htwg.battleship.model.ship.Flattop;
+import de.htwg.battleship.model.ship.Rowboat;
 import de.htwg.battleship.observer.Event;
 import de.htwg.battleship.observer.IObserver;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author Sandro, Julian
@@ -25,11 +25,10 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	private int action = 0;
 	private JPanel fieldsPanel;
 	private BattleshipInfos infoPanel;
-	private IController controller;
+	private JavaBattleshipController controller;
 	private PlayboardPanel playerPanel;
 	private PlayboardPanel botPanel;
     private Color background;
-    private StringBuilder sb = new StringBuilder();
 	private static final int THREE = 3;
 	private static final int FOUR = 4;
 	private static final int COL = 255;
@@ -43,18 +42,18 @@ public class BattleshipGUI extends JFrame implements IObserver {
      * initializes its controller varibale woth the argument
      */
     @Inject
-	public BattleshipGUI(IController controller) {
+	public BattleshipGUI(JavaBattleshipController controller) {
 		this.controller = controller;
 		controller.addObserver(this);
 		
 		background = new Color(COL, COL, COL);
 	}
     
-    public IController getController() {
+    public JavaBattleshipController getController() {
 		return controller;
 	}
 
-	public void setController(IController controller) {
+	public void setController(JavaBattleshipController controller) {
 		this.controller = controller;
 	}
 	
@@ -99,15 +98,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 * calls the printMainFrame function
 	 */
 	public void onSetFieldsize() {}
-	
-	/**
-	 * gtter for the fieldsize
-	 * @return
-	 */
-	public int getFieldsize() {
-		return controller.getFieldsize();
-	}
-	
+
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObserver#onNotifyObservers(de.htwg.battleship.observer.Event)
 	 * reacts on the given Event
@@ -115,7 +106,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	public void onNotifyObservers(Event t) {
 		switch (t.getEventType()) {
 			case CORRECT_POSITION:
-				onCorrectPosition();
+				//onCorrectPosition();
 				break;
 			case SET_ROWBOAT:
 				onSetRowboat();
@@ -149,9 +140,9 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	/**
 	 * corrects the position of a ship
 	 */
-	public void onCorrectPosition() {
+	/*public void onCorrectPosition() {
 		BattleshipGUIUtils.correctShipPosition(controller.getCorrectPos(), controller.isCorrectAl());
-	}
+	}*/
 	
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
@@ -278,20 +269,29 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 * @param y
 	 */
 	public void mouseClick(int x, int y) {
-		int align;
-		sb.append(x).append(" ").append(y);
-		if (action == 1 || action == FOUR) {
-			controller.input(sb.toString());
-			sb.setLength(0);
-			return;
-		} else if (action == 2 || action == THREE) {
-			align = BattleshipGUIUtils.setAlignment();
-			sb.append(" ").append(align);
-		} else if (action == 0) {
-			return;
+		Position p = new Position(x, y);
+		switch (action) {
+			case 0:	// No action
+				break;
+			case 1:	// Set rowboat
+				Ship ship = new Rowboat();
+				boolean horizontal = BattleshipGUIUtils.setAlignment();
+				controller.placeHumanShip(ship, p, horizontal);
+				break;
+			case 2:	// Set destructor
+				ship = new Destructor();
+				horizontal = BattleshipGUIUtils.setAlignment();
+				controller.placeHumanShip(ship, p, horizontal);
+				break;
+			case 3:	// Set flattop
+				ship = new Flattop();
+				horizontal = BattleshipGUIUtils.setAlignment();
+				controller.placeHumanShip(ship, p, horizontal);
+				break;
+			case 4:	// Shoot
+				controller.humanShoot(p);
+				break;
 		}
-		controller.input(sb.toString());
-		sb.setLength(0);
 	}
 	
 	/* (non-Javadoc)
@@ -308,23 +308,6 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 */
 	public void onWon() {
 		BattleshipGUIUtils.won();
-	}
-	
-	/**
-	 * checks if a chosen position of a ship is valid
-	 * @param ship
-	 * @param x
-	 * @param y
-	 * @param align
-	 * @return
-	 */
-	public boolean checkSetShipPosition(int ship, int x, int y, boolean align) {
-		int t = controller.checkSetShipPosition(ship, x, y, align);
-		if (t != 0) {
-			BattleshipGUIUtils.correctShipPosition(t, align);
-			return false;
-		}
-		return true;
 	}
 
 	/* (non-Javadoc)

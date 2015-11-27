@@ -6,6 +6,6 @@ public class Human extends JavaBattleshipPlayer {
 
     public Human(int playboardSize) {
         super(playboardSize);
-        super.controller = new HumanController();
+        super.controller = new HumanController(this);
     }
 }

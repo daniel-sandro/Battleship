@@ -1,14 +1,10 @@
 package de.htwg.battleship.view.gui;
 
-import java.awt.Color;
-
-import javax.swing.JFormattedTextField;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
 import com.google.inject.Inject;
+import de.htwg.battleship.controller.BattleshipController;
 
-import de.htwg.battleship.controller.IController;
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -31,14 +27,14 @@ public class BattleshipInfos extends JPanel {
     private static final int XI = 39;
     
     private Color background = new Color(COL, COL, COL);
-    private IController controller;
+    private BattleshipController controller;
 
     /**
      * declares some minor attributes/options/information
      * @param controller
      */
     @Inject
-    public BattleshipInfos(IController controller) {
+    public BattleshipInfos(BattleshipController controller) {
     	
     	this.controller = controller;
         
@@ -113,7 +109,7 @@ public class BattleshipInfos extends JPanel {
     }
     
     /**
-     * asks the controller for it´s statusline
+     * asks the controller for it's statusline
      */
     public void update() {
     	jTextField2.setValue(controller.getStatus());
