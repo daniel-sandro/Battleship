@@ -1,6 +1,10 @@
 package de.htwg.battleship.controller;
 
 import de.htwg.battleship.model.*;
+import de.htwg.battleship.model.ship.Destructor;
+import de.htwg.battleship.model.ship.Flattop;
+import de.htwg.battleship.model.ship.Rowboat;
+import de.htwg.battleship.observer.Event;
 import de.htwg.battleship.observer.Observable;
 import javafx.util.Pair;
 
@@ -42,8 +46,16 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
     @Override
     public BattleshipPlayer startGame() {
         // TODO: check events that must be triggered
-        initializeBoard(player1);
+        // TODO: bugfix, manage in HumanController!
+        //initializeBoard(player1);
+        synchronized (this) {
+            try {
+                this.wait();
+            } catch (InterruptedException e) {
+            }
+        }
         initializeBoard(player2);
+        notifyObservers(new Event(Event.EventType.ON_ACTION));
         while (!hasWon(player1) && !hasWon(player1)) {
             if (turn == player1) {
                 Position p = player1.getController().generateNextShot();
@@ -81,6 +93,7 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
             // Check that the ship fits in the chosen position and there's
             // nothing in its way
             if (p.getCol() + ship.getLength() >= playboard.getSize()) {
+                notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
                 return false;
             }
             for (int i = 0; i < ship.getLength() && placed; i++) {
@@ -91,11 +104,14 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
                 for (int i = 0; i < ship.getLength() && placed; i++) {
                     playboard.getField(p.getRow(), p.getCol() + i).setShip(ship);
                 }
+            } else {
+                notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
             }
         } else {
             // Check that the ship fits in the chosen position and there's
             // nothing in its way
             if (p.getRow() + ship.getLength() > playboard.getSize()) {
+                notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
                 return false;
             }
             for (int i = 0; i < ship.getLength() && placed; i++) {
@@ -106,13 +122,31 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
                 for (int i = 0; i < ship.getLength() && placed; i++) {
                     playboard.getField(p.getRow() + i, p.getCol()).setShip(ship);
                 }
+            } else {
+                notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
             }
         }
+        notifyObservers(new Event(Event.EventType.ON_REPAINT));
         return placed;
     }
 
     public boolean placeHumanShip(Ship ship, Position p, boolean horizontal) {
-        return placeShip(player1.getPlayboard(), ship, p, horizontal);
+        boolean res = placeShip(player1.getPlayboard(), ship, p, horizontal);
+        if (ship instanceof Rowboat) {
+            notifyObservers(new Event(Event.EventType.SET_ROWBOAT));
+            if (getFieldSize() < 3) {
+                this.notify();
+            }
+        } else if (ship instanceof Destructor) {
+            notifyObservers(new Event(Event.EventType.SET_DESTRUCTOR));
+            if (getFieldSize() < 8) {
+                this.notify();
+            }
+        } else if (ship instanceof Flattop) {
+            notifyObservers(new Event(Event.EventType.SET_FLATTOP));
+            this.notify();
+        }
+        return res;
     }
 
     @Override
@@ -127,6 +161,8 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
             } else {
                 f.setHit();
             }
+            notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
+            notifyObservers(new Event(Event.EventType.ON_REPAINT));
             return true;
         }
     }
@@ -156,8 +192,10 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
         }
         if (player == player1) {
             winner = player2;
+            notifyObservers(new Event(Event.EventType.GAME_OVER));
             return true;
         } else if (player == player2) {
+            notifyObservers(new Event(Event.EventType.WON));
             winner = player1;
             return true;
         } else {

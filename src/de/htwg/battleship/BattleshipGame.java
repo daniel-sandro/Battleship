@@ -49,16 +49,15 @@ public final class BattleshipGame {
 		Bot bot = new Bot(fieldSize);
 		JavaBattleshipController controller = new JavaBattleshipController(human, bot);
 
-		BattleshipGUI gui = new BattleshipGUI(controller);
+		final BattleshipGUI gui = new BattleshipGUI(controller);
 		TUI tui = new TUI(controller);
 
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				gui.setVisible(true);
+			}
+		}).start();
 		controller.startGame();
-		gui.setVisible(true);
-		
-		/*boolean finished = false;
-		while (!finished) {
-			finished = controller.input(scanner.nextLine());
-		}
-		System.exit(0);*/
 	}
 }

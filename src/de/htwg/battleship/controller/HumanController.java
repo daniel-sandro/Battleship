@@ -3,11 +3,12 @@ package de.htwg.battleship.controller;
 import de.htwg.battleship.model.Human;
 import de.htwg.battleship.model.Position;
 import de.htwg.battleship.model.Ship;
+import de.htwg.battleship.observer.Observable;
 import javafx.util.Pair;
 
 import java.util.Set;
 
-public class HumanController implements PlayerController {
+public class HumanController extends Observable implements PlayerController {
     private Human human;
 
     public HumanController(Human human) {

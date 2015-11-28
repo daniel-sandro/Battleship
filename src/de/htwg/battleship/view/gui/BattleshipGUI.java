@@ -46,8 +46,17 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	public BattleshipGUI(JavaBattleshipController controller) {
 		this.controller = controller;
 		controller.addObserver(this);
+
+		mainPanel = new JPanel();
+		fieldsPanel = new JPanel();
+		infoPanel = new BattleshipInfos(controller);
+		playerPanel = new PlayboardPanel(this);
+		botPanel = new PlayboardPanel(this);
 		
 		background = new Color(COL, COL, COL);
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		pack();
 	}
     
     public JavaBattleshipController getController() {
