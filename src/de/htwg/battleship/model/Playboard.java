@@ -27,4 +27,15 @@ public class Playboard {
 	public boolean validPosition(Position p) {
 		return p.getRow() >= 0 && p.getRow() < getSize() && p.getCol() >= 0 && p.getCol() < getSize();
 	}
+
+	@Override
+	public String toString() {
+		String s = "";
+		for (int i = 0; i < field.length; i++) {
+			for (int j = 0; j < field[0].length; j++) {
+				s += field[i][j].toString();
+			}
+		}
+		return s;
+	}
 }

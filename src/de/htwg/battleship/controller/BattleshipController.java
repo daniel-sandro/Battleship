@@ -8,6 +8,8 @@ import de.htwg.battleship.observer.IObservable;
 
 public interface BattleshipController extends IObservable {
 
+    public void setFieldSize(int fieldSize);
+
     /**
      * Returns the players playing the game.
      * @return An array with the players.

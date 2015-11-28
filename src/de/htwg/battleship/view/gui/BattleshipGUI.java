@@ -1,5 +1,6 @@
 package de.htwg.battleship.view.gui;
 
+import com.google.inject.Inject;
 import de.htwg.battleship.controller.JavaBattleshipController;
 import de.htwg.battleship.model.Position;
 import de.htwg.battleship.model.Ship;
@@ -43,20 +44,12 @@ public class BattleshipGUI extends JFrame implements IObserver {
      * sets up the constructor of a BattleshipGUI and
      * initializes its controller varibale woth the argument
      */
+	@Inject
 	public BattleshipGUI(JavaBattleshipController controller) {
 		this.controller = controller;
 		controller.addObserver(this);
 
-		mainPanel = new JPanel();
-		fieldsPanel = new JPanel();
-		infoPanel = new BattleshipInfos(controller);
-		playerPanel = new PlayboardPanel(this);
-		botPanel = new PlayboardPanel(this);
-		
 		background = new Color(COL, COL, COL);
-
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		pack();
 	}
     
     public JavaBattleshipController getController() {
@@ -279,7 +272,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 * @param y
 	 */
 	public void mouseClick(int x, int y) {
-		Position p = new Position(x, y);
+		Position p = new Position(y, x);
 		switch (action) {
 			case 0:	// No action
 				break;

@@ -1,13 +1,10 @@
 package de.htwg.battleship.view.gui;
 
-import de.htwg.battleship.BattleshipGame;
+import com.google.inject.Inject;
+import de.htwg.battleship.controller.JavaBattleshipController;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import java.awt.FlowLayout;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.IllegalFormatException;
@@ -17,11 +14,15 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 	
 	private JButton jbgo;
 	private JTextField jtfsize;
+	private JavaBattleshipController controller;
 	private static final int MAX = 26;
 	private static final int XX = 350;
 	private static final int XY = 80;
 
-	public BattleshipSetFieldsize() {
+	@Inject
+	public BattleshipSetFieldsize(final JavaBattleshipController controller) {
+		this.controller = controller;
+
 		JPanel enterFieldsize = new JPanel();
 		setTitle("Bitte die Feldgröße eingeben!");
 		setLayout(new FlowLayout());
@@ -50,7 +51,7 @@ public class BattleshipSetFieldsize extends JFrame implements ActionListener {
 		        if(value <= 0 || value > MAX) {
 			    	BattleshipGUIUtils.fieldsizeError();
 		        } else {
-					BattleshipGame.setFieldSize(value);
+					controller.setFieldSize(value);
 					synchronized(this) {
 						this.notify();
 					}

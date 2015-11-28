@@ -1,8 +1,8 @@
 package de.htwg.battleship;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import de.htwg.battleship.controller.JavaBattleshipController;
-import de.htwg.battleship.model.Bot;
-import de.htwg.battleship.model.Human;
 import de.htwg.battleship.view.gui.BattleshipGUI;
 import de.htwg.battleship.view.gui.BattleshipSetFieldsize;
 import de.htwg.battleship.view.tui.TUI;
@@ -16,13 +16,8 @@ import java.util.Scanner;
  *
  */
 public final class BattleshipGame {
-	private static int fieldSize;
 	
 	private BattleshipGame() {}
-
-	public static void setFieldSize(int fieldSize) {
-		BattleshipGame.fieldSize = fieldSize;
-	}
 
 	/**
 	 * Main for the Battleship. Runs the game.
@@ -33,31 +28,26 @@ public final class BattleshipGame {
 	public static void main(String[] args) throws InterruptedException {
 
 		PropertyConfigurator.configure("log4j.properties");
+		Injector injector = Guice.createInjector();
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 
-		BattleshipSetFieldsize sfs = new BattleshipSetFieldsize();
-		sfs.setVisible(true);
+		JavaBattleshipController controller = injector.getInstance(JavaBattleshipController.class);
 
-		synchronized (sfs) {
+		BattleshipSetFieldsize s = injector.getInstance(BattleshipSetFieldsize.class);
+		// TODO: create player here and inject them into the controllerBugfix
+		
+		synchronized (s) {
 			try {
-				sfs.wait();
+				s.wait();
 			} catch (InterruptedException e) {
 			}
 		}
 
-		Human human = new Human(fieldSize);
-		Bot bot = new Bot(fieldSize);
-		JavaBattleshipController controller = new JavaBattleshipController(human, bot);
+		BattleshipGUI gui = injector.getInstance(BattleshipGUI.class);
+		TUI tui = injector.getInstance(TUI.class);
 
-		final BattleshipGUI gui = new BattleshipGUI(controller);
-		TUI tui = new TUI(controller);
-
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				gui.setVisible(true);
-			}
-		}).start();
 		controller.startGame();
+		
 	}
 }

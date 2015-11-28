@@ -42,4 +42,20 @@ public class Field {
 		state = State.HIT;
 	}
 
+	@Override
+	public String toString() {
+		switch (state) {
+			case EMPTY:
+				return "E";
+			case SHIP:
+				return "S";
+			case HIT:
+				return "H";
+			case EMPTYHIT:
+				return "X";
+			default:
+				return "?";
+		}
+	}
+
 }

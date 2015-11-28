@@ -1,5 +1,7 @@
 package de.htwg.battleship.controller;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import de.htwg.battleship.model.*;
 import de.htwg.battleship.model.ship.Destructor;
 import de.htwg.battleship.model.ship.Flattop;
@@ -10,17 +12,30 @@ import javafx.util.Pair;
 
 import java.util.Set;
 
+@Singleton
 public class JavaBattleshipController extends Observable implements BattleshipController {
-    private final Human player1;
-    private final Bot player2;
+    private Human player1;
+    private Bot player2;
     private BattleshipPlayer turn;
     private BattleshipPlayer winner;
     private String status;
+
+    @Inject
+    public JavaBattleshipController() {
+
+    }
 
     public JavaBattleshipController(Human player1, Bot player2) {
         this.player1 = player1;
         this.player2 = player2;
         this.turn = player1;
+    }
+
+    @Override
+    public void setFieldSize(int fieldSize) {
+        player1 = new Human(fieldSize);
+        player2 = new Bot(fieldSize);
+        turn = player1;
     }
 
     @Override
@@ -46,7 +61,9 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
     @Override
     public BattleshipPlayer startGame() {
         // TODO: check events that must be triggered
-        // TODO: bugfix, manage in HumanController!
+        initializeBoard(player2);
+        // TODO: workaround, manage in HumanController!
+        notifyObservers(new Event(Event.EventType.SET_ROWBOAT));
         //initializeBoard(player1);
         synchronized (this) {
             try {
@@ -54,10 +71,9 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
             } catch (InterruptedException e) {
             }
         }
-        initializeBoard(player2);
-        notifyObservers(new Event(Event.EventType.ON_ACTION));
         while (!hasWon(player1) && !hasWon(player1)) {
             if (turn == player1) {
+                // TODO: implement
                 Position p = player1.getController().generateNextShot();
                 shoot(player2.getPlayboard(), p);
                 turn = player2;
@@ -133,18 +149,20 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
     public boolean placeHumanShip(Ship ship, Position p, boolean horizontal) {
         boolean res = placeShip(player1.getPlayboard(), ship, p, horizontal);
         if (ship instanceof Rowboat) {
-            notifyObservers(new Event(Event.EventType.SET_ROWBOAT));
+            notifyObservers(new Event(Event.EventType.SET_DESTRUCTOR));
             if (getFieldSize() < 3) {
                 this.notify();
             }
         } else if (ship instanceof Destructor) {
-            notifyObservers(new Event(Event.EventType.SET_DESTRUCTOR));
+            notifyObservers(new Event(Event.EventType.SET_FLATTOP));
             if (getFieldSize() < 8) {
                 this.notify();
             }
         } else if (ship instanceof Flattop) {
-            notifyObservers(new Event(Event.EventType.SET_FLATTOP));
-            this.notify();
+            notifyObservers(new Event(Event.EventType.ON_ACTION));
+            synchronized (this) {
+                this.notify();
+            }
         }
         return res;
     }
@@ -185,22 +203,23 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
     private boolean hasWon(BattleshipPlayer player) {
         Playboard playboard = player.getPlayboard();
         boolean playerLost = false;
-        for (int i = 0; i < playboard.getSize() && !playerLost; i++) {
-            for (int j = 0; j < playboard.getSize() && !playerLost; j++) {
-                playerLost = playboard.getField(i, j).isNotHit();
+        for (int i = 0; i < playboard.getSize(); i++) {
+            for (int j = 0; j < playboard.getSize(); j++) {
+                playerLost &= playboard.getField(i, j).isEmpty() || playboard.getField(i, j).isHit();
             }
         }
-        if (player == player1) {
-            winner = player2;
-            notifyObservers(new Event(Event.EventType.GAME_OVER));
-            return true;
-        } else if (player == player2) {
-            notifyObservers(new Event(Event.EventType.WON));
-            winner = player1;
-            return true;
-        } else {
-            return false;
+        if (playerLost) {
+            if (player == player1) {
+                winner = player2;
+                notifyObservers(new Event(Event.EventType.GAME_OVER));
+                return true;
+            } else if (player == player2) {
+                notifyObservers(new Event(Event.EventType.WON));
+                winner = player1;
+                return true;
+            }
         }
+        return false;
     }
 
     public BattleshipPlayer getHuman() {

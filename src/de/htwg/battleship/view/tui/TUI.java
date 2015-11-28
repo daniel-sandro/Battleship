@@ -1,5 +1,6 @@
 package de.htwg.battleship.view.tui;
 
+import com.google.inject.Inject;
 import de.htwg.battleship.controller.JavaBattleshipController;
 import de.htwg.battleship.model.Playboard;
 import de.htwg.battleship.observer.Event;
@@ -24,6 +25,7 @@ public final class TUI implements IObserver {
 	 * @param controller
 	 * constructor
 	 */
+	@Inject
 	public TUI(JavaBattleshipController controller) {
 		this.controller = controller;
 		controller.addObserver(this);
