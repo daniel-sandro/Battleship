@@ -138,27 +138,6 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
         return placed;
     }
 
-    /*public boolean placeHumanShip(Ship ship, Position p, boolean horizontal) {
-        boolean res = placeShip(player1.getPlayboard(), ship, p, horizontal);
-        if (ship instanceof Rowboat) {
-            notifyObservers(new Event(Event.EventType.SET_DESTRUCTOR));
-            if (getFieldSize() < 3) {
-                this.notify();
-            }
-        } else if (ship instanceof Destructor) {
-            notifyObservers(new Event(Event.EventType.SET_FLATTOP));
-            if (getFieldSize() < 8) {
-                this.notify();
-            }
-        } else if (ship instanceof Flattop) {
-            notifyObservers(new Event(Event.EventType.ON_ACTION));
-            synchronized (this) {
-                this.notify();
-            }
-        }
-        return res;
-    }*/
-
     @Override
     public boolean shoot(Playboard playboard, Position p) {
         // TODO: check events that must be triggered
@@ -167,9 +146,9 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
             return false;
         } else {
             Field f = playboard.getField(p);
-            if (f.isEmpty()) {
+            if (f.isEmpty() || f.isMissed()) {
                 f.setMissed();
-            } else {
+            } else if (f.isNotHit() || f.isHit()) {
                 f.setHit();
             }
             notifyObservers(new Event(Event.EventType.ON_REPAINT));
