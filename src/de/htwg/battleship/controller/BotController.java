@@ -9,19 +9,26 @@ import de.htwg.battleship.model.ship.Flattop;
 import de.htwg.battleship.model.ship.Rowboat;
 import javafx.util.Pair;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.Random;
+import java.util.*;
 
 public class BotController implements PlayerController {
     private Bot bot;
     private Random rnd;
     private Playboard opponentPlayboard;
+    private Vector<Position> notTargetedPositions;
 
     public BotController(Bot bot) {
         this.bot = bot;
         this.rnd = new Random();
         this.opponentPlayboard = new Playboard(bot.getPlayboard().getSize());
+        int playboardSize = bot.getPlayboard().getSize();
+        this.notTargetedPositions = new Vector<>(playboardSize * playboardSize);
+        for (int i = 0; i < playboardSize; i++) {
+            for (int j = 0; j < playboardSize; j++) {
+                Position p = new Position(i, j);
+                notTargetedPositions.add(p);
+            }
+        }
     }
 
     @Override
@@ -53,9 +60,7 @@ public class BotController implements PlayerController {
     @Override
     public Position getNextShot() {
         // TODO: subscribe to events to know the result of the shooting
-        // TODO: implement
-        int playboardSize = bot.getPlayboard().getSize();
-        Position p = new Position(rnd.nextInt(playboardSize), rnd.nextInt(playboardSize));
+        Position p = notTargetedPositions.remove(rnd.nextInt(notTargetedPositions.size()));
         return p;
     }
 
