@@ -64,7 +64,7 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
         notifyObservers(new Event(Event.EventType.SET_ROWBOAT));
         initializeBoard(player1);
         initializeBoard(player2);
-        while (!hasWon(player1) && !hasWon(player1)) {
+        while ((turn == player2 && !hasWon(player1)) || (turn == player1 && !hasWon(player2))) {
             if (turn == player1) {
                 Position p = player1.getController().getNextShot();
                 shoot(player2.getPlayboard(), p);
@@ -199,10 +199,11 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
 
     private boolean hasWon(BattleshipPlayer player) {
         Playboard playboard = player.getPlayboard();
-        boolean playerLost = false;
-        for (int i = 0; i < playboard.getSize(); i++) {
-            for (int j = 0; j < playboard.getSize(); j++) {
-                playerLost &= playboard.getField(i, j).isEmpty() || playboard.getField(i, j).isHit();
+        boolean playerLost = true;
+        for (int i = 0; i < playboard.getSize() && playerLost; i++) {
+            for (int j = 0; j < playboard.getSize() && playerLost; j++) {
+                Field f = playboard.getField(i, j);
+                playerLost &= !f.isNotHit();
             }
         }
         if (playerLost) {
