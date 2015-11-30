@@ -39,11 +39,6 @@ public class HumanController extends Observable implements PlayerController {
         }
     }
 
-    @Override
-    public boolean isAutonomous() {
-        return false;
-    }
-
     public void placeShip(Ship ship, Position p, boolean horizontal) {
         try {
             initialState.put(new Pair<>(ship, new Pair<>(p, horizontal)));

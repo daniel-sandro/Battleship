@@ -9,7 +9,6 @@ import javafx.util.Pair;
 
 import java.util.Queue;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Semaphore;
 
 @Singleton
 public class JavaBattleshipController extends Observable implements BattleshipController {
@@ -18,11 +17,9 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
     private BattleshipPlayer turn;
     private BattleshipPlayer winner;
     private String status;
-    private Semaphore s;
 
     @Inject
     public JavaBattleshipController() {
-        s = new Semaphore(0);
     }
 
     public JavaBattleshipController(Human player1, Bot player2) {
@@ -159,18 +156,10 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
 
     private void initializeBoard(BattleshipPlayer player) {
         final Playboard playboard = player.getPlayboard();
-        if (player.getController().isAutonomous()) {
-            // Non-blocking behaviour
-            Queue<Pair<Ship, Pair<Position, Boolean>>> initialState = player.getController().getInitialState();
-            for (Pair<Ship, Pair<Position, Boolean>> config : initialState) {
-                Ship ship = config.getKey();
-                Position p = config.getValue().getKey();
-                boolean horizontal = config.getValue().getValue();
-                placeShip(playboard, ship, p, horizontal);
-            }
-        } else {
+        if (player.getController() instanceof HumanController) {
             // Blocking behaviour
-            BlockingQueue<Pair<Ship, Pair<Position, Boolean>>> initialState = (BlockingQueue<Pair<Ship,Pair<Position,Boolean>>>) player.getController().getInitialState();
+            HumanController controller = (HumanController) player.getController();
+            BlockingQueue<Pair<Ship, Pair<Position, Boolean>>> initialState = controller.getInitialState();
             int playboardSize = player.getPlayboard().getSize();
             int numShips;
             if (playboardSize < 3) {
@@ -193,6 +182,15 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            }
+        } else {
+            // Non-blocking behaviour
+            Queue<Pair<Ship, Pair<Position, Boolean>>> initialState = player.getController().getInitialState();
+            for (Pair<Ship, Pair<Position, Boolean>> config : initialState) {
+                Ship ship = config.getKey();
+                Position p = config.getValue().getKey();
+                boolean horizontal = config.getValue().getValue();
+                placeShip(playboard, ship, p, horizontal);
             }
         }
     }

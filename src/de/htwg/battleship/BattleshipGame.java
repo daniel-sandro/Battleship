@@ -45,6 +45,7 @@ public final class BattleshipGame {
 		}
 
 		BattleshipGUI gui = injector.getInstance(BattleshipGUI.class);
+		// TODO: fix TUI
 		TUI tui = injector.getInstance(TUI.class);
 
 		controller.startGame();

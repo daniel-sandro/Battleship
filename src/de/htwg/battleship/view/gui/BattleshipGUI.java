@@ -282,6 +282,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 			case 0:	// No action
 				break;
 			case 1:	// Set rowboat
+				// TODO: control when the ship wasn't correctly positioned (overlaps another ship, etc)
 				Ship ship = new Rowboat();
 				boolean horizontal = BattleshipGUIUtils.setAlignment();
 				humanController.placeShip(ship, p, horizontal);

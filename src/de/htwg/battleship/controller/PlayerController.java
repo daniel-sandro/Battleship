@@ -20,5 +20,4 @@ public interface PlayerController {
      */
     public Position getNextShot();
 
-    public boolean isAutonomous();
 }

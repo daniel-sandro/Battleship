@@ -64,11 +64,6 @@ public class BotController implements PlayerController {
         return p;
     }
 
-    @Override
-    public boolean isAutonomous() {
-        return true;
-    }
-
     private Pair<Position, Boolean> randomPosition(Ship ship, int playboardSize) {
         boolean horizontal = rnd.nextBoolean();
         int row = horizontal ? rnd.nextInt(playboardSize) : rnd.nextInt(playboardSize - ship.getLength());
