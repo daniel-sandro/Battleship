@@ -35,7 +35,7 @@ public final class BattleshipGame {
 		JavaBattleshipController controller = injector.getInstance(JavaBattleshipController.class);
 
 		BattleshipSetFieldsize s = injector.getInstance(BattleshipSetFieldsize.class);
-		// TODO: create player here and inject them into the controllerBugfix
+		// TODO: create players here and inject them into the controller
 		
 		synchronized (s) {
 			try {

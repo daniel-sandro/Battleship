@@ -3,14 +3,13 @@ package de.htwg.battleship.controller;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import de.htwg.battleship.model.*;
-import de.htwg.battleship.model.ship.Destructor;
-import de.htwg.battleship.model.ship.Flattop;
-import de.htwg.battleship.model.ship.Rowboat;
 import de.htwg.battleship.observer.Event;
 import de.htwg.battleship.observer.Observable;
 import javafx.util.Pair;
 
-import java.util.Set;
+import java.util.Queue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Semaphore;
 
 @Singleton
 public class JavaBattleshipController extends Observable implements BattleshipController {
@@ -19,10 +18,11 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
     private BattleshipPlayer turn;
     private BattleshipPlayer winner;
     private String status;
+    private Semaphore s;
 
     @Inject
     public JavaBattleshipController() {
-
+        s = new Semaphore(0);
     }
 
     public JavaBattleshipController(Human player1, Bot player2) {
@@ -61,24 +61,16 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
     @Override
     public BattleshipPlayer startGame() {
         // TODO: check events that must be triggered
-        initializeBoard(player2);
-        // TODO: workaround, manage in HumanController!
         notifyObservers(new Event(Event.EventType.SET_ROWBOAT));
-        //initializeBoard(player1);
-        synchronized (this) {
-            try {
-                this.wait();
-            } catch (InterruptedException e) {
-            }
-        }
+        initializeBoard(player1);
+        initializeBoard(player2);
         while (!hasWon(player1) && !hasWon(player1)) {
             if (turn == player1) {
-                // TODO: implement
-                Position p = player1.getController().generateNextShot();
+                Position p = player1.getController().getNextShot();
                 shoot(player2.getPlayboard(), p);
                 turn = player2;
             } else if (turn == player2) {
-                Position p = player2.getController().generateNextShot();
+                Position p = player2.getController().getNextShot();
                 shoot(player1.getPlayboard(), p);
                 turn = player1;
             }
@@ -146,7 +138,7 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
         return placed;
     }
 
-    public boolean placeHumanShip(Ship ship, Position p, boolean horizontal) {
+    /*public boolean placeHumanShip(Ship ship, Position p, boolean horizontal) {
         boolean res = placeShip(player1.getPlayboard(), ship, p, horizontal);
         if (ship instanceof Rowboat) {
             notifyObservers(new Event(Event.EventType.SET_DESTRUCTOR));
@@ -165,12 +157,13 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
             }
         }
         return res;
-    }
+    }*/
 
     @Override
     public boolean shoot(Playboard playboard, Position p) {
         // TODO: check events that must be triggered
         if (!playboard.validPosition(p)) {
+            notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
             return false;
         } else {
             Field f = playboard.getField(p);
@@ -179,24 +172,49 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
             } else {
                 f.setHit();
             }
-            notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
             notifyObservers(new Event(Event.EventType.ON_REPAINT));
             return true;
         }
     }
 
-    public boolean humanShoot(Position p) {
-        return shoot(player2.getPlayboard(), p);
-    }
 
     private void initializeBoard(BattleshipPlayer player) {
         final Playboard playboard = player.getPlayboard();
-        Set<Pair<Ship, Pair<Position, Boolean>>> initialState = player.getController().generateInitialState();
-        for (Pair<Ship, Pair<Position, Boolean>> config : initialState) {
-            Ship ship = config.getKey();
-            Position p = config.getValue().getKey();
-            boolean horizontal = config.getValue().getValue();
-            placeShip(playboard, ship, p, horizontal);
+        if (player.getController().isAutonomous()) {
+            // Non-blocking behaviour
+            Queue<Pair<Ship, Pair<Position, Boolean>>> initialState = player.getController().getInitialState();
+            for (Pair<Ship, Pair<Position, Boolean>> config : initialState) {
+                Ship ship = config.getKey();
+                Position p = config.getValue().getKey();
+                boolean horizontal = config.getValue().getValue();
+                placeShip(playboard, ship, p, horizontal);
+            }
+        } else {
+            // Blocking behaviour
+            BlockingQueue<Pair<Ship, Pair<Position, Boolean>>> initialState = (BlockingQueue<Pair<Ship,Pair<Position,Boolean>>>) player.getController().getInitialState();
+            int playboardSize = player.getPlayboard().getSize();
+            int numShips;
+            if (playboardSize < 3) {
+                // Place one ship
+                numShips = 1;
+            } else if (playboardSize < 8) {
+                // Place two ships
+                numShips = 2;
+            } else {
+                // Place three ships
+                numShips = 3;
+            }
+            try {
+                for (int i = 0; i < numShips; i++) {
+                    Pair<Ship, Pair<Position, Boolean>> config = initialState.take();
+                    Ship ship = config.getKey();
+                    Position p = config.getValue().getKey();
+                    boolean horizontal = config.getValue().getValue();
+                    placeShip(playboard, ship, p, horizontal);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -222,11 +240,11 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
         return false;
     }
 
-    public BattleshipPlayer getHuman() {
+    public Human getHuman() {
         return player1;
     }
 
-    public BattleshipPlayer getBot() {
+    public Bot getBot() {
         return player2;
     }
 }

@@ -1,6 +1,7 @@
 package de.htwg.battleship.view.gui;
 
 import com.google.inject.Inject;
+import de.htwg.battleship.controller.HumanController;
 import de.htwg.battleship.controller.JavaBattleshipController;
 import de.htwg.battleship.model.Position;
 import de.htwg.battleship.model.Ship;
@@ -29,6 +30,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	private JPanel fieldsPanel;
 	private BattleshipInfos infoPanel;
 	private JavaBattleshipController controller;
+	private HumanController humanController;
 	private PlayboardPanel playerPanel;
 	private PlayboardPanel botPanel;
     private Color background;
@@ -48,6 +50,9 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	public BattleshipGUI(JavaBattleshipController controller) {
 		this.controller = controller;
 		controller.addObserver(this);
+
+		this.humanController = controller.getHuman().getController();
+		humanController.addObserver(this);
 
 		background = new Color(COL, COL, COL);
 	}
@@ -279,20 +284,20 @@ public class BattleshipGUI extends JFrame implements IObserver {
 			case 1:	// Set rowboat
 				Ship ship = new Rowboat();
 				boolean horizontal = BattleshipGUIUtils.setAlignment();
-				controller.placeHumanShip(ship, p, horizontal);
+				humanController.placeShip(ship, p, horizontal);
 				break;
 			case 2:	// Set destructor
 				ship = new Destructor();
 				horizontal = BattleshipGUIUtils.setAlignment();
-				controller.placeHumanShip(ship, p, horizontal);
+				humanController.placeShip(ship, p, horizontal);
 				break;
 			case 3:	// Set flattop
 				ship = new Flattop();
 				horizontal = BattleshipGUIUtils.setAlignment();
-				controller.placeHumanShip(ship, p, horizontal);
+				humanController.placeShip(ship, p, horizontal);
 				break;
 			case 4:	// Shoot
-				controller.humanShoot(p);
+				humanController.shoot(p);
 				break;
 		}
 	}

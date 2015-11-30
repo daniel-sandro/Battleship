@@ -3,7 +3,7 @@ package de.htwg.battleship.model;
 import de.htwg.battleship.controller.PlayerController;
 import javafx.util.Pair;
 
-import java.util.Set;
+import java.util.Queue;
 
 public abstract class JavaBattleshipPlayer implements BattleshipPlayer {
     protected PlayerController controller;
@@ -19,13 +19,13 @@ public abstract class JavaBattleshipPlayer implements BattleshipPlayer {
     }
 
     @Override
-    public Set<Pair<Ship, Pair<Position, Boolean>>> initialState() {
-        return controller.generateInitialState();
+    public Queue<Pair<Ship, Pair<Position, Boolean>>> initialState() {
+        return controller.getInitialState();
     }
 
     @Override
     public Position nextShot() {
-        return controller.generateNextShot();
+        return controller.getNextShot();
     }
 
     @Override
