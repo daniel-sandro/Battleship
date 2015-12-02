@@ -10,13 +10,8 @@ public class JavaBattleshipController extends GenericBattleshipController<Human,
 
     @Inject
     public JavaBattleshipController() {
-    }
-
-    @Override
-    public void setFieldSize(int fieldSize) {
-        // TODO: workaround; (better to use the constructor?)
-        player1 = new Human(fieldSize, this);
-        player2 = new Bot(fieldSize, this);
+        super.player1 = new Human(this);
+        super.player2 = new Bot(this);
         super.turn = player1;
     }
 

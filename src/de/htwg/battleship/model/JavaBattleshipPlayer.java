@@ -9,8 +9,9 @@ public abstract class JavaBattleshipPlayer <K extends PlayerController> implemen
     protected K controller;
     private Playboard playboard;
 
-    public JavaBattleshipPlayer(int playboardSize) {
-        playboard = new Playboard(playboardSize);
+    @Override
+    public void setFieldSize(int fieldSize) {
+        playboard = new Playboard(fieldSize);
     }
 
     @Override

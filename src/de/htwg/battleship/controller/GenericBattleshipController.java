@@ -1,6 +1,5 @@
 package de.htwg.battleship.controller;
 
-import com.google.inject.Inject;
 import de.htwg.battleship.model.*;
 import de.htwg.battleship.observer.Event;
 import de.htwg.battleship.observer.Observable;
@@ -16,7 +15,6 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
     private BattleshipPlayer winner;
     private String status;
 
-    @Inject
     public GenericBattleshipController() {
     }
 
@@ -27,8 +25,10 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
     }
 
     @Override
-    // NOTE: to create the players the field size needs to be known
-    public abstract void setFieldSize(int fieldSize);
+    public void setFieldSize(int fieldSize) {
+        player1.setFieldSize(fieldSize);
+        player2.setFieldSize(fieldSize);
+    }
 
     @Override
     public BattleshipPlayer[] getPlayers() {

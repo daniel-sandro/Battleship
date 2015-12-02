@@ -22,8 +22,12 @@ public class BotController implements PlayerController {
         this.controller = controller;
         this.bot = bot;
         this.rnd = new Random();
-        this.opponentPlayboard = new Playboard(bot.getPlayboard().getSize());
-        int playboardSize = bot.getPlayboard().getSize();
+    }
+
+    @Override
+    public Queue<Pair<Ship, Pair<Position, Boolean>>> getInitialState() {
+        this.opponentPlayboard = new Playboard(controller.getFieldSize());
+        int playboardSize = controller.getFieldSize();
         this.notTargetedPositions = new Vector<>(playboardSize * playboardSize);
         for (int i = 0; i < playboardSize; i++) {
             for (int j = 0; j < playboardSize; j++) {
@@ -31,12 +35,8 @@ public class BotController implements PlayerController {
                 notTargetedPositions.add(p);
             }
         }
-    }
 
-    @Override
-    public Queue<Pair<Ship, Pair<Position, Boolean>>> getInitialState() {
         Queue<Pair<Ship, Pair<Position, Boolean>>> ships = new ArrayDeque<>();
-        int playboardSize = bot.getPlayboard().getSize();
         if (playboardSize < 3) {
             // Place one rowboat
             Ship rowboat = new Rowboat();
