@@ -105,7 +105,7 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
         if (horizontal) {
             // Check that the ship fits in the chosen position and there's
             // nothing in its way
-            if (p.getCol() + ship.getLength() >= playboard.getSize()) {
+            if (p.getCol() + ship.getLength() > playboard.getSize()) {
                 setStatus("Position not valid");
                 notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
                 return false;
@@ -224,9 +224,9 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
                 notifyObservers(new Event(Event.EventType.GAME_OVER));
                 return true;
             } else if (player == player2) {
+                winner = player1;
                 setStatus("Congratulations, you won!");
                 notifyObservers(new Event(Event.EventType.WON));
-                winner = player1;
                 return true;
             }
         }

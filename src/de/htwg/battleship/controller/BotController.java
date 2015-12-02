@@ -68,8 +68,8 @@ public class BotController implements PlayerController {
 
     private Pair<Position, Boolean> randomPosition(Ship ship, int playboardSize) {
         boolean horizontal = rnd.nextBoolean();
-        int row = horizontal ? rnd.nextInt(playboardSize) : rnd.nextInt(playboardSize - ship.getLength());
-        int col = horizontal ? rnd.nextInt(playboardSize - ship.getLength()) : rnd.nextInt(playboardSize);
+        int row = horizontal ? rnd.nextInt(playboardSize) : rnd.nextInt(playboardSize - ship.getLength() + 1);
+        int col = horizontal ? rnd.nextInt(playboardSize - ship.getLength() + 1) : rnd.nextInt(playboardSize);
         Position p = new Position(row, col);
         return new Pair<>(p, horizontal);
     }
