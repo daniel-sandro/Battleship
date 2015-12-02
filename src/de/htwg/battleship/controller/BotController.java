@@ -13,11 +13,13 @@ import java.util.*;
 
 public class BotController implements PlayerController {
     private Bot bot;
+    private BattleshipController controller;
     private Random rnd;
     private Playboard opponentPlayboard;
     private Vector<Position> notTargetedPositions;
 
-    public BotController(Bot bot) {
+    public BotController(Bot bot, BattleshipController controller) {
+        this.controller = controller;
         this.bot = bot;
         this.rnd = new Random();
         this.opponentPlayboard = new Playboard(bot.getPlayboard().getSize());

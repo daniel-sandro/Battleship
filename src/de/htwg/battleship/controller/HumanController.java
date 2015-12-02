@@ -15,11 +15,13 @@ import java.util.concurrent.SynchronousQueue;
 
 public class HumanController extends Observable implements PlayerController {
     private Human human;
+    private BattleshipController controller;
     private BlockingQueue<Pair<Ship, Pair<Position, Boolean>>> initialState;
     private BlockingQueue<Position> shoots;
 
-    public HumanController(Human human) {
+    public HumanController(Human human, BattleshipController controller) {
         this.human = human;
+        this.controller = controller;
         this.initialState = new SynchronousQueue<>();
         this.shoots = new SynchronousQueue<>();
     }
@@ -43,10 +45,13 @@ public class HumanController extends Observable implements PlayerController {
         try {
             initialState.put(new Pair<>(ship, new Pair<>(p, horizontal)));
             if (ship instanceof Rowboat) {
+                controller.setStatus("Place your destructor");
                 notifyObservers(new Event(Event.EventType.SET_DESTRUCTOR));
             } else if (ship instanceof Destructor) {
+                controller.setStatus("Place your flattop");
                 notifyObservers(new Event(Event.EventType.SET_FLATTOP));
             } else if (ship instanceof Flattop) {
+                controller.setStatus("Shoot your opponent");
                 notifyObservers(new Event(Event.EventType.ON_ACTION));
             }
         } catch (InterruptedException e) {

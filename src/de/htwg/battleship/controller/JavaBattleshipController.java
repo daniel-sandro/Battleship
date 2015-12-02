@@ -30,8 +30,9 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
 
     @Override
     public void setFieldSize(int fieldSize) {
-        player1 = new Human(fieldSize);
-        player2 = new Bot(fieldSize);
+        // TODO: workaround; (better to use the constructor?)
+        player1 = new Human(fieldSize, this);
+        player2 = new Bot(fieldSize, this);
         turn = player1;
     }
 
@@ -51,6 +52,12 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
     }
 
     @Override
+    public void setStatus(String status) {
+        this.status = status;
+        notifyObservers(new Event(Event.EventType.ON_STATUS));
+    }
+
+    @Override
     public int getFieldSize() {
         return player1.getPlayboard().getSize();
     }
@@ -58,6 +65,7 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
     @Override
     public BattleshipPlayer startGame() {
         // TODO: check events that must be triggered
+        setStatus("Place your rowboat");
         notifyObservers(new Event(Event.EventType.SET_ROWBOAT));
         initializeBoard(player1);
         initializeBoard(player2);
@@ -98,6 +106,7 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
             // Check that the ship fits in the chosen position and there's
             // nothing in its way
             if (p.getCol() + ship.getLength() >= playboard.getSize()) {
+                setStatus("Position not valid");
                 notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
                 return false;
             }
@@ -110,12 +119,14 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
                     playboard.getField(p.getRow(), p.getCol() + i).setShip(ship);
                 }
             } else {
+                setStatus("Position not valid");
                 notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
             }
         } else {
             // Check that the ship fits in the chosen position and there's
             // nothing in its way
             if (p.getRow() + ship.getLength() > playboard.getSize()) {
+                setStatus("Position not valid");
                 notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
                 return false;
             }
@@ -128,6 +139,7 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
                     playboard.getField(p.getRow() + i, p.getCol()).setShip(ship);
                 }
             } else {
+                setStatus("Position not valid");
                 notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
             }
         }
@@ -139,6 +151,7 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
     public boolean shoot(Playboard playboard, Position p) {
         // TODO: check events that must be triggered
         if (!playboard.validPosition(p)) {
+            setStatus("Position not valid");
             notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
             return false;
         } else {
@@ -207,9 +220,11 @@ public class JavaBattleshipController extends Observable implements BattleshipCo
         if (playerLost) {
             if (player == player1) {
                 winner = player2;
+                setStatus("Game over!");
                 notifyObservers(new Event(Event.EventType.GAME_OVER));
                 return true;
             } else if (player == player2) {
+                setStatus("Congratulations, you won!");
                 notifyObservers(new Event(Event.EventType.WON));
                 winner = player1;
                 return true;

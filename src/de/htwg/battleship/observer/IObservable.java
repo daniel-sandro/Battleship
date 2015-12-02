@@ -26,32 +26,32 @@ public interface IObservable {
 	void notifyObservers(Event e);
 	
 	/**
-	 * signal für die Fieldsize
+	 * signal fÃ¼r die Fieldsize
 	 */
 	void notifyOnSetFieldsize();
 
 	/**
-	 * Signale für das Setzen eines Rowboats
+	 * Signale fÃ¼r das Setzen eines Rowboats
 	 */
 	void notifyOnSetRowboat();
 	
 	/**
-	 * Signale für das Setzen eines Destrutors
+	 * Signale fÃ¼r das Setzen eines Destrutors
 	 */
 	void notifyOnSetDestructor();
 	
 	/**
-	 * Signale für das Setzen eiens Flattops
+	 * Signale fÃ¼r das Setzen eiens Flattops
 	 */
 	void notifyOnSetFlattop();
 	
 	/**
-	 * Signal für das Zeigen eines Menüs
+	 * Signal fÃ¼r das Zeigen eines MenÃ¼s
 	 */
 	void notifyOnShowMenu();
 	
 	/**
-	 * setzt die Action für die Gui, damit diese weiß was sie machen soll
+	 * setzt die Action fÃ¼r die Gui, damit diese weiÃ¼ was sie machen soll
 	 */
 	void notifyOnAction();
 	
@@ -71,27 +71,27 @@ public interface IObservable {
 	void notifyCheat();
 	
 	/**
-	 * Signal zum schießen auf den bot
+	 * Signal zum schieÃ¼en auf den bot
 	 */
 	void notifyOnShootOnBot();
 	
 	/**
-	 * Signal -> Bot schießt auf Human
+	 * Signal -> Bot schieÃ¼t auf Human
 	 */
 	void notifyOnBotShoots();
 	
 	/**
-	 * Signal zum übermitteln eines Status
+	 * Signal zum Ã¼bermitteln eines Status
 	 */
 	void notifyOnStatus();
 	
 	/**
-	 * Signal für ein Spielende
+	 * Signal fÃ¼r ein Spielende
 	 */
 	void notifyOnGameOver();
 	
 	/**
-	 * Signal für ein gewonnenes Spiel
+	 * Signal fÃ¼r ein gewonnenes Spiel
 	 */
 	void notifyOnWon();
 	
