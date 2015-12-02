@@ -5,8 +5,8 @@ import javafx.util.Pair;
 
 import java.util.Queue;
 
-public abstract class JavaBattleshipPlayer implements BattleshipPlayer {
-    protected PlayerController controller;
+public abstract class JavaBattleshipPlayer <K extends PlayerController> implements BattleshipPlayer {
+    protected K controller;
     private Playboard playboard;
 
     public JavaBattleshipPlayer(int playboardSize) {
@@ -29,7 +29,7 @@ public abstract class JavaBattleshipPlayer implements BattleshipPlayer {
     }
 
     @Override
-    public PlayerController getController() {
+    public K getController() {
         return controller;
     }
 }
