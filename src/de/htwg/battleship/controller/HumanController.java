@@ -4,7 +4,6 @@ import de.htwg.battleship.model.Human;
 import de.htwg.battleship.model.Position;
 import de.htwg.battleship.model.Ship;
 import de.htwg.battleship.model.ship.Destructor;
-import de.htwg.battleship.model.ship.Flattop;
 import de.htwg.battleship.model.ship.Rowboat;
 import de.htwg.battleship.observer.Event;
 import de.htwg.battleship.observer.Observable;
@@ -44,13 +43,13 @@ public class HumanController extends Observable implements PlayerController {
     public void placeShip(Ship ship, Position p, boolean horizontal) {
         try {
             initialState.put(new Pair<>(ship, new Pair<>(p, horizontal)));
-            if (ship instanceof Rowboat) {
+            if (ship instanceof Rowboat && controller.getFieldSize() >= 3) {
                 controller.setStatus("Place your destructor");
                 notifyObservers(new Event(Event.EventType.SET_DESTRUCTOR));
-            } else if (ship instanceof Destructor) {
+            } else if (ship instanceof Destructor && controller.getFieldSize() >= 8) {
                 controller.setStatus("Place your flattop");
                 notifyObservers(new Event(Event.EventType.SET_FLATTOP));
-            } else if (ship instanceof Flattop) {
+            } else {
                 controller.setStatus("Shoot your opponent");
                 notifyObservers(new Event(Event.EventType.ON_ACTION));
             }

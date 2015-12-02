@@ -24,9 +24,15 @@ import java.awt.Dimension;
  */
 @SuppressWarnings("serial")
 public class BattleshipGUI extends JFrame implements IObserver {
+	private enum HumanAction {
+		PLACE_ROWBOAT,
+		PLACE_DESTRUCTOR,
+		PLACE_FLATTOP,
+		SHOOT
+	}
 
 	private static JPanel mainPanel;
-	private int action = 0;
+	private HumanAction action = HumanAction.PLACE_ROWBOAT;
 	private JPanel fieldsPanel;
 	private BattleshipInfos infoPanel;
 	private JavaBattleshipController controller;
@@ -163,8 +169,8 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 * @see de.htwg.battleship.observer.IObserver#onSetRowboat()
 	 * sets action to 1 (set rowboat)
 	 */
-	public void onSetRowboat () {
-		action = 1;
+	public void onSetRowboat() {
+		action = HumanAction.PLACE_ROWBOAT;
 		printMainFrame();
 	}
 
@@ -173,7 +179,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 * sets action to 2 (se destructor)
 	 */
 	public void onSetDestructor() {
-		action = 2;
+		action = HumanAction.PLACE_DESTRUCTOR;
 	}
 
 	/* (non-Javadoc)
@@ -181,7 +187,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 * sets action to 3 (set flattop)
 	 */
 	public void onSetFlattop() {
-		action = THREE;
+		action = HumanAction.PLACE_FLATTOP;
 	}
 
 	/* (non-Javadoc)
@@ -195,8 +201,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	 * sets action to 4
 	 */
 	public void onAction() {
-		final int x = 4;
-		action = x;
+		action = HumanAction.SHOOT;
 	}
 
 	/* (non-Javadoc)
@@ -279,25 +284,23 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	public void mouseClick(int x, int y) {
 		Position p = new Position(y, x);
 		switch (action) {
-			case 0:	// No action
-				break;
-			case 1:	// Set rowboat
-				// TODO: control when the ship wasn't correctly positioned (overlaps another ship, etc)
+			case PLACE_ROWBOAT:
+				// TODO: control when the ship wasn't placed correctly (overlaps another ship, etc)
 				Ship ship = new Rowboat();
 				boolean horizontal = BattleshipGUIUtils.setAlignment();
 				humanController.placeShip(ship, p, horizontal);
 				break;
-			case 2:	// Set destructor
+			case PLACE_DESTRUCTOR:
 				ship = new Destructor();
 				horizontal = BattleshipGUIUtils.setAlignment();
 				humanController.placeShip(ship, p, horizontal);
 				break;
-			case 3:	// Set flattop
+			case PLACE_FLATTOP:
 				ship = new Flattop();
 				horizontal = BattleshipGUIUtils.setAlignment();
 				humanController.placeShip(ship, p, horizontal);
 				break;
-			case 4:	// Shoot
+			case SHOOT:	// Shoot
 				humanController.shoot(p);
 				break;
 		}
