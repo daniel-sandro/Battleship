@@ -13,6 +13,7 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
     protected P2 player2;
     protected BattleshipPlayer turn;
     private BattleshipPlayer winner;
+    // TODO: the status mustn't go here! Move to the player's controller
     private String status;
 
     public GenericBattleshipController() {
@@ -31,8 +32,8 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
     }
 
     @Override
-    public BattleshipPlayer[] getPlayers() {
-        return new BattleshipPlayer[]{ player1, player2 };
+    public Pair<P1, P2> getPlayers() {
+        return new Pair<>(player1, player2);
     }
 
     @Override
@@ -58,7 +59,6 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
 
     @Override
     public BattleshipPlayer startGame() {
-        // TODO: check events that must be triggered
         setStatus("Place your rowboat");
         notifyObservers(Event.SET_ROWBOAT);
         initializeBoard(player1);
@@ -154,7 +154,7 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
     }
 
 
-    private void initializeBoard(BattleshipPlayer player) {
+    protected void initializeBoard(BattleshipPlayer player) {
         final Playboard playboard = player.getPlayboard();
         if (player.getController() instanceof HumanController) {
             // Blocking behaviour
@@ -195,7 +195,7 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
         }
     }
 
-    private boolean hasLost(BattleshipPlayer player) {
+    protected boolean hasLost(BattleshipPlayer player) {
         Playboard playboard = player.getPlayboard();
         boolean playerLost = true;
         for (int i = 0; i < playboard.getSize() && playerLost; i++) {

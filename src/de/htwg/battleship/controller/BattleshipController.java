@@ -5,6 +5,7 @@ import de.htwg.battleship.model.Playboard;
 import de.htwg.battleship.model.Position;
 import de.htwg.battleship.model.Ship;
 import de.htwg.battleship.observer.IObservable;
+import javafx.util.Pair;
 
 public interface BattleshipController extends IObservable {
 
@@ -14,7 +15,7 @@ public interface BattleshipController extends IObservable {
      * Returns the players playing the game.
      * @return An array with the players.
      */
-    public BattleshipPlayer[] getPlayers();
+    public Pair<? extends BattleshipPlayer, ? extends BattleshipPlayer> getPlayers();
 
     public BattleshipPlayer getTurn();
 

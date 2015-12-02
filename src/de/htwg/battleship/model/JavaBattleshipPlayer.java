@@ -33,4 +33,9 @@ public abstract class JavaBattleshipPlayer <K extends PlayerController> implemen
     public K getController() {
         return controller;
     }
+
+    @Override
+    public void setController(PlayerController controller) {
+        this.controller = (K) controller;
+    }
 }

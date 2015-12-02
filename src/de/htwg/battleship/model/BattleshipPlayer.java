@@ -15,4 +15,6 @@ public interface BattleshipPlayer {
     public Position nextShot();
 
     public PlayerController getController();
+
+    public <K extends PlayerController> void setController(K controller);
 }
