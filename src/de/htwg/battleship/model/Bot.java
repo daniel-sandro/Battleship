@@ -6,6 +6,6 @@ import de.htwg.battleship.controller.BotController;
 public class Bot extends JavaBattleshipPlayer<BotController> {
 
 	public Bot(BattleshipController controller) {
-		super.controller = new BotController(this, controller);
+		super.controller = new BotController(controller);
 	}
 }

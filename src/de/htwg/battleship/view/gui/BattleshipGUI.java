@@ -108,20 +108,11 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onSetFieldsize()
-	 * calls the printMainFrame function
-	 */
-	public void onSetFieldsize() {}
-
-	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObserver#onNotifyObservers(de.htwg.battleship.observer.Event)
 	 * reacts on the given Event
 	 */
-	public void onNotifyObservers(Event t) {
-		switch (t.getEventType()) {
-			case CORRECT_POSITION:
-				//onCorrectPosition();
-				break;
+	public void onNotifyObservers(Event e) {
+		switch (e) {
 			case SET_ROWBOAT:
 				onSetRowboat();
 				break;
@@ -146,25 +137,9 @@ public class BattleshipGUI extends JFrame implements IObserver {
 			case ON_REPAINT:
 				onRepaint();
 				break;
-			default:
-				break;
 		}
 	}
-	
-	/**
-	 * corrects the position of a ship
-	 */
-	/*public void onCorrectPosition() {
-		BattleshipGUIUtils.correctShipPosition(controller.getCorrectPos(), controller.isCorrectAl());
-	}*/
-	
-	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
-	 * the reaction on the event to shoot at bot
-	 * shoots at bot
-	 */
-	public void onBotShoots() {}
-	
+
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObserver#onSetRowboat()
 	 * sets action to 1 (set rowboat)
@@ -191,46 +166,12 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onShowMenu()
-	 * empty function, is only implemented by TUI
-	 */
-	public void onShowMenu() {}
-
-	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObserver#ON_ACTION()
 	 * sets action to 4
 	 */
 	public void onAction() {
 		action = HumanAction.SHOOT;
 	}
-
-	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onShowPlayersField()
-	 * empty function, is only implemented by TUI
-	 */
-	public void onShowPlayersField() {}
-
-	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onShowBotsField()
-	 * empty function, is only implemented by TUI
-	 */
-	public void onShowBotsField() {}
-	
-	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onCheat()
-	 * empty function, is only implemented by TUI
-	 */
-	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onCheat()
-	 * empty function, is only implemented by TUI
-	 */
-	public void onCheat() {}
-
-	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onShootOnBot()
-	 * empty function, is only implemented by TUI
-	 */
-	public void onShootOnBot() {}
 
 	/* (non-Javadoc)
 	 * @see de.htwg.battleship.observer.IObserver#ON_STATUS()

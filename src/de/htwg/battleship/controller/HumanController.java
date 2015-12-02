@@ -1,6 +1,5 @@
 package de.htwg.battleship.controller;
 
-import de.htwg.battleship.model.Human;
 import de.htwg.battleship.model.Position;
 import de.htwg.battleship.model.Ship;
 import de.htwg.battleship.model.ship.Destructor;
@@ -13,13 +12,11 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.SynchronousQueue;
 
 public class HumanController extends Observable implements PlayerController {
-    private Human human;
-    private BattleshipController controller;
+    protected BattleshipController controller;
     private BlockingQueue<Pair<Ship, Pair<Position, Boolean>>> initialState;
     private BlockingQueue<Position> shoots;
 
-    public HumanController(Human human, BattleshipController controller) {
-        this.human = human;
+    public HumanController(BattleshipController controller) {
         this.controller = controller;
         this.initialState = new SynchronousQueue<>();
         this.shoots = new SynchronousQueue<>();
@@ -45,13 +42,13 @@ public class HumanController extends Observable implements PlayerController {
             initialState.put(new Pair<>(ship, new Pair<>(p, horizontal)));
             if (ship instanceof Rowboat && controller.getFieldSize() >= 3) {
                 controller.setStatus("Place your destructor");
-                notifyObservers(new Event(Event.EventType.SET_DESTRUCTOR));
+                notifyObservers(Event.SET_DESTRUCTOR);
             } else if (ship instanceof Destructor && controller.getFieldSize() >= 8) {
                 controller.setStatus("Place your flattop");
-                notifyObservers(new Event(Event.EventType.SET_FLATTOP));
+                notifyObservers(Event.SET_FLATTOP);
             } else {
                 controller.setStatus("Shoot your opponent");
-                notifyObservers(new Event(Event.EventType.ON_ACTION));
+                notifyObservers(Event.ON_ACTION);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

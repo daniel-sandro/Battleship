@@ -48,7 +48,7 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
     @Override
     public void setStatus(String status) {
         this.status = status;
-        notifyObservers(new Event(Event.EventType.ON_STATUS));
+        notifyObservers(Event.ON_STATUS);
     }
 
     @Override
@@ -60,7 +60,7 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
     public BattleshipPlayer startGame() {
         // TODO: check events that must be triggered
         setStatus("Place your rowboat");
-        notifyObservers(new Event(Event.EventType.SET_ROWBOAT));
+        notifyObservers(Event.SET_ROWBOAT);
         initializeBoard(player1);
         initializeBoard(player2);
         while ((turn == player1 && !hasLost(player1)) || (turn == player2 && !hasLost(player2))) {
@@ -89,7 +89,6 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
 
     @Override
     public boolean placeShip(Playboard playboard, Ship ship, Position p, boolean horizontal) {
-        // TODO: check events that must be triggered
         // Check coordinates are within the playboard boundaries
         if (!playboard.validPosition(p)) {
             return false;
@@ -101,7 +100,6 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
             // nothing in its way
             if (p.getCol() + ship.getLength() > playboard.getSize()) {
                 setStatus("Position not valid");
-                notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
                 return false;
             }
             for (int i = 0; i < ship.getLength() && placed; i++) {
@@ -114,14 +112,12 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
                 }
             } else {
                 setStatus("Position not valid");
-                notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
             }
         } else {
             // Check that the ship fits in the chosen position and there's
             // nothing in its way
             if (p.getRow() + ship.getLength() > playboard.getSize()) {
                 setStatus("Position not valid");
-                notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
                 return false;
             }
             for (int i = 0; i < ship.getLength() && placed; i++) {
@@ -134,19 +130,16 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
                 }
             } else {
                 setStatus("Position not valid");
-                notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
             }
         }
-        notifyObservers(new Event(Event.EventType.ON_REPAINT));
+        notifyObservers(Event.ON_REPAINT);
         return placed;
     }
 
     @Override
     public boolean shoot(Playboard playboard, Position p) {
-        // TODO: check events that must be triggered
         if (!playboard.validPosition(p)) {
             setStatus("Position not valid");
-            notifyObservers(new Event(Event.EventType.CORRECT_POSITION));
             return false;
         } else {
             Field f = playboard.getField(p);
@@ -155,7 +148,7 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
             } else if (f.isNotHit() || f.isHit()) {
                 f.setHit();
             }
-            notifyObservers(new Event(Event.EventType.ON_REPAINT));
+            notifyObservers(Event.ON_REPAINT);
             return true;
         }
     }
@@ -215,12 +208,12 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
             if (player == player1) {
                 winner = player2;
                 setStatus("Game over!");
-                notifyObservers(new Event(Event.EventType.GAME_OVER));
+                notifyObservers(Event.GAME_OVER);
                 return true;
             } else if (player == player2) {
                 winner = player1;
                 setStatus("Congratulations, you won!");
-                notifyObservers(new Event(Event.EventType.WON));
+                notifyObservers(Event.WON);
                 return true;
             }
         }

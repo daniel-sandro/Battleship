@@ -19,7 +19,7 @@ public final class TUI implements IObserver {
 
 	private JavaBattleshipController controller;
 	private static StringBuilder sb = new StringBuilder();
-	private static Logger logger = Logger.getLogger("de.htwg.battleship.view.tui");
+	private static Logger logger = Logger.getLogger(TUI.class.getName());
 
 	/**
 	 * @param controller
@@ -37,8 +37,8 @@ public final class TUI implements IObserver {
 	 * @see de.htwg.battleship.observer.IObserver#onNotifyObservers(de.htwg.battleship.observer.Event)
 	 * reaction on event to notify the observer
 	 */
-	public void onNotifyObservers(Event t) {
-		switch (t.getEventType()) {
+	public void onNotifyObservers(Event e) {
+		switch (e) {
 		case SHOW_BOTS_FIELD:
 			onShowBotsField();
 			break;
@@ -59,8 +59,6 @@ public final class TUI implements IObserver {
 			break;
 		case CHEAT:
 			onCheat();
-			break;
-		default:
 			break;
 		}
 	}
@@ -255,51 +253,4 @@ public final class TUI implements IObserver {
 		System.exit(0);
 	}
 
-	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
-	 * empty implementation Guispecific
-	 */
-	public void onBotShoots() {
-	}
-	
-	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
-	 * empty implementation Guispecific
-	 */
-	public void onSetRowboat() {
-	}
-	
-	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
-	 * empty implementation Guispecific
-	 */
-	public void onSetDestructor() {
-	}
-	
-	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
-	 * empty implementation Guispecific
-	 */
-	public void onSetFlattop() {
-	}
-
-	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
-	 * empty implementation Guispecific
-	 */
-	public void onAction() {
-	}
-
-	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
-	 * empty implementation Guispecific
-	 */
-	public void onShootOnBot() {
-	}
-
-	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onBotShoots()
-	 * empty implementation Guispecific
-	 */
-	public void onRepaint() {}
 }

@@ -6,6 +6,6 @@ import de.htwg.battleship.controller.HumanController;
 public class Human extends JavaBattleshipPlayer<HumanController> {
 
     public Human(BattleshipController controller) {
-        super.controller = new HumanController(this, controller);
+        super.controller = new HumanController(controller);
     }
 }

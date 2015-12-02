@@ -1,6 +1,5 @@
 package de.htwg.battleship.controller;
 
-import de.htwg.battleship.model.Bot;
 import de.htwg.battleship.model.Playboard;
 import de.htwg.battleship.model.Position;
 import de.htwg.battleship.model.Ship;
@@ -9,18 +8,19 @@ import de.htwg.battleship.model.ship.Flattop;
 import de.htwg.battleship.model.ship.Rowboat;
 import javafx.util.Pair;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.Random;
+import java.util.Vector;
 
 public class BotController implements PlayerController {
-    private Bot bot;
-    private BattleshipController controller;
+    protected BattleshipController controller;
     private Random rnd;
     private Playboard opponentPlayboard;
     private Vector<Position> notTargetedPositions;
 
-    public BotController(Bot bot, BattleshipController controller) {
+    public BotController(BattleshipController controller) {
         this.controller = controller;
-        this.bot = bot;
         this.rnd = new Random();
     }
 
