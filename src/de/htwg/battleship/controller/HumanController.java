@@ -15,6 +15,7 @@ public class HumanController extends Observable implements PlayerController {
     protected BattleshipController controller;
     private BlockingQueue<Pair<Ship, Pair<Position, Boolean>>> initialState;
     private BlockingQueue<Position> shoots;
+    private String status;
 
     public HumanController(BattleshipController controller) {
         this.controller = controller;
@@ -37,17 +38,28 @@ public class HumanController extends Observable implements PlayerController {
         }
     }
 
+    @Override
+    public String getStatus() {
+        return status;
+    }
+
+    @Override
+    public void setStatus(String status) {
+        this.status = status;
+        notifyObservers(Event.ON_STATUS);
+    }
+
     public void placeShip(Ship ship, Position p, boolean horizontal) {
         try {
             initialState.put(new Pair<>(ship, new Pair<>(p, horizontal)));
             if (ship instanceof Rowboat && controller.getFieldSize() >= 3) {
-                controller.setStatus("Place your destructor");
+                setStatus("Place your destructor");
                 notifyObservers(Event.SET_DESTRUCTOR);
             } else if (ship instanceof Destructor && controller.getFieldSize() >= 8) {
-                controller.setStatus("Place your flattop");
+                setStatus("Place your flattop");
                 notifyObservers(Event.SET_FLATTOP);
             } else {
-                controller.setStatus("Shoot your opponent");
+                setStatus("Shoot your opponent");
                 notifyObservers(Event.ON_ACTION);
             }
         } catch (InterruptedException e) {

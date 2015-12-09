@@ -20,4 +20,16 @@ public interface PlayerController {
      */
     public Position getNextShot();
 
+    /**
+     * Returns the current status of the game for a player.
+     * @return The status of the game.
+     */
+    public String getStatus();
+
+    /**
+     * Sets the new status.
+     * @param status The new status.
+     */
+    public void setStatus(String status);
+
 }

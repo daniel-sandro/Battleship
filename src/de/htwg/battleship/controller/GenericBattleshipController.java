@@ -13,8 +13,6 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
     protected P2 player2;
     protected BattleshipPlayer turn;
     private BattleshipPlayer winner;
-    // TODO: the status mustn't go here! Move to the player's controller
-    private String status;
 
     public GenericBattleshipController() {
     }
@@ -42,14 +40,8 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
     }
 
     @Override
-    public String getStatus() {
-        return status;
-    }
-
-    @Override
-    public void setStatus(String status) {
-        this.status = status;
-        notifyObservers(Event.ON_STATUS);
+    public String getStatus(BattleshipPlayer player) {
+        return player.getController().getStatus();
     }
 
     @Override
@@ -59,7 +51,8 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
 
     @Override
     public BattleshipPlayer startGame() {
-        setStatus("Place your rowboat");
+        player1.getController().setStatus("Place your rowboat");
+        player2.getController().setStatus("Place your rowboat");
         notifyObservers(Event.SET_ROWBOAT);
         initializeBoard(player1);
         initializeBoard(player2);
@@ -89,8 +82,16 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
 
     @Override
     public boolean placeShip(Playboard playboard, Ship ship, Position p, boolean horizontal) {
+        BattleshipPlayer player = null;
+        if (player1.getPlayboard() == playboard) {
+            player = player1;
+        } else if (player2.getPlayboard() == playboard) {
+            player = player2;
+        }
+
         // Check coordinates are within the playboard boundaries
         if (!playboard.validPosition(p)) {
+            player.getController().setStatus("Position not valid");
             return false;
         }
 
@@ -99,7 +100,7 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
             // Check that the ship fits in the chosen position and there's
             // nothing in its way
             if (p.getCol() + ship.getLength() > playboard.getSize()) {
-                setStatus("Position not valid");
+                player.getController().setStatus("Position not valid");
                 return false;
             }
             for (int i = 0; i < ship.getLength() && placed; i++) {
@@ -111,13 +112,13 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
                     playboard.getField(p.getRow(), p.getCol() + i).setShip(ship);
                 }
             } else {
-                setStatus("Position not valid");
+                player.getController().setStatus("Position not valid");
             }
         } else {
             // Check that the ship fits in the chosen position and there's
             // nothing in its way
             if (p.getRow() + ship.getLength() > playboard.getSize()) {
-                setStatus("Position not valid");
+                player.getController().setStatus("Position not valid");
                 return false;
             }
             for (int i = 0; i < ship.getLength() && placed; i++) {
@@ -129,7 +130,7 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
                     playboard.getField(p.getRow() + i, p.getCol()).setShip(ship);
                 }
             } else {
-                setStatus("Position not valid");
+                player.getController().setStatus("Position not valid");
             }
         }
         notifyObservers(Event.ON_REPAINT);
@@ -138,8 +139,15 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
 
     @Override
     public boolean shoot(Playboard playboard, Position p) {
+        BattleshipPlayer player = null;
+        if (player1.getPlayboard() == playboard) {
+            player = player1;
+        } else if (player2.getPlayboard() == playboard) {
+            player = player2;
+        }
+
         if (!playboard.validPosition(p)) {
-            setStatus("Position not valid");
+            player.getController().setStatus("Position not valid");
             return false;
         } else {
             Field f = playboard.getField(p);
@@ -195,6 +203,7 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
         }
     }
 
+    // TODO: replace events GAME_OVER and WON for generic GAME_FINISHED and check winner
     protected boolean hasLost(BattleshipPlayer player) {
         Playboard playboard = player.getPlayboard();
         boolean playerLost = true;
@@ -207,12 +216,14 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
         if (playerLost) {
             if (player == player1) {
                 winner = player2;
-                setStatus("Game over!");
+                player1.getController().setStatus("Game over!");
+                player2.getController().setStatus("Congratulations, you won!");
                 notifyObservers(Event.GAME_OVER);
                 return true;
             } else if (player == player2) {
                 winner = player1;
-                setStatus("Congratulations, you won!");
+                player1.getController().setStatus("Congratulations, you won!");
+                player2.getController().setStatus("Game over!");
                 notifyObservers(Event.WON);
                 return true;
             }

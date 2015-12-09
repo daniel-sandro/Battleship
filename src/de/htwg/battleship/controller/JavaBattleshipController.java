@@ -22,4 +22,9 @@ public class JavaBattleshipController extends GenericBattleshipController<Human,
     public Bot getBot() {
         return super.player2;
     }
+
+    public String getStatus() {
+        return player1.getController().getStatus();
+    }
+
 }

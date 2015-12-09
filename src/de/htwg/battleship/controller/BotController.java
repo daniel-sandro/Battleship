@@ -66,6 +66,18 @@ public class BotController implements PlayerController {
         return p;
     }
 
+    // NOTE: Ununsed
+    @Override
+    public String getStatus() {
+        return null;
+    }
+
+    // NOTE: Ununsed
+    @Override
+    public void setStatus(String status) {
+
+    }
+
     private Pair<Position, Boolean> randomPosition(Ship ship, int playboardSize) {
         boolean horizontal = rnd.nextBoolean();
         int row = horizontal ? rnd.nextInt(playboardSize) : rnd.nextInt(playboardSize - ship.getLength() + 1);

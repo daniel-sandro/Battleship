@@ -1,7 +1,7 @@
 package de.htwg.battleship.view.gui;
 
 import com.google.inject.Inject;
-import de.htwg.battleship.controller.BattleshipController;
+import de.htwg.battleship.controller.JavaBattleshipController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,14 +27,14 @@ public class BattleshipInfos extends JPanel {
     private static final int XI = 39;
     
     private Color background = new Color(COL, COL, COL);
-    private BattleshipController controller;
+    private JavaBattleshipController controller;
 
     /**
      * declares some minor attributes/options/information
      * @param controller
      */
     @Inject
-    public BattleshipInfos(BattleshipController controller) {
+    public BattleshipInfos(JavaBattleshipController controller) {
     	
     	this.controller = controller;
         

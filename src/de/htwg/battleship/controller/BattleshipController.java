@@ -19,9 +19,7 @@ public interface BattleshipController extends IObservable {
 
     public BattleshipPlayer getTurn();
 
-    public String getStatus();
-
-    void setStatus(String status);
+    public String getStatus(BattleshipPlayer player);
 
     public int getFieldSize();
 
