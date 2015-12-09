@@ -13,7 +13,7 @@ import java.util.concurrent.SynchronousQueue;
 
 public class HumanController extends Observable implements PlayerController {
     protected BattleshipController controller;
-    private BlockingQueue<Pair<Ship, Pair<Position, Boolean>>> initialState;
+    protected BlockingQueue<Pair<Ship, Pair<Position, Boolean>>> initialState;
     private BlockingQueue<Position> shoots;
     private String status;
 
