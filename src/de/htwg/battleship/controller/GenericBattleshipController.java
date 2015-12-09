@@ -218,13 +218,13 @@ public abstract class GenericBattleshipController <P1 extends BattleshipPlayer, 
                 winner = player2;
                 player1.getController().setStatus("Game over!");
                 player2.getController().setStatus("Congratulations, you won!");
-                notifyObservers(Event.GAME_OVER);
+                notifyObservers(Event.GAME_FINISHED);
                 return true;
             } else if (player == player2) {
                 winner = player1;
                 player1.getController().setStatus("Congratulations, you won!");
                 player2.getController().setStatus("Game over!");
-                notifyObservers(Event.WON);
+                notifyObservers(Event.GAME_FINISHED);
                 return true;
             }
         }

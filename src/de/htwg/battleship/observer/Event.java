@@ -10,7 +10,6 @@ public enum Event {
 	SHOW_BOTS_FIELD,
 	ON_STATUS,
 	CHEAT,
-	GAME_OVER,
-	WON,
+	GAME_FINISHED,
 	ON_REPAINT
 }

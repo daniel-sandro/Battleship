@@ -45,11 +45,12 @@ public final class TUI implements IObserver {
 		case SHOW_PLAYERS_FIELD:
 			onShowPlayersField();
 			break;
-		case GAME_OVER:
-			onGameOver();
-			break;
-		case WON:
-			onWon();
+		case GAME_FINISHED:
+			if (controller.getWinner().equals(controller.getHuman())) {
+				onWon();
+			} else {
+				onGameOver();
+			}
 			break;
 		case SHOW_MENU:
 			onShowMenu();
