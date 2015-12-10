@@ -1,10 +1,10 @@
 package de.htwg.battleship.view.tui;
 
-import com.google.inject.Inject;
 import de.htwg.battleship.controller.JavaBattleshipController;
-import de.htwg.battleship.model.Playboard;
 import de.htwg.battleship.observer.Event;
 import de.htwg.battleship.observer.IObserver;
+import com.google.inject.Inject;
+import de.htwg.battleship.model.Playboard;
 import org.apache.log4j.Logger;
 
 /**
@@ -34,7 +34,7 @@ public final class TUI implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onNotifyObservers(de.htwg.battleship.observer.Event)
+	 * @see IObserver#onNotifyObservers(Event)
 	 * reaction on event to notify the observer
 	 */
 	public void onNotifyObservers(Event e) {
@@ -65,13 +65,13 @@ public final class TUI implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onSetFieldsize()
+	 * @see IObserver#onSetFieldsize()
 	 * empty implementation
 	 */
 	public void onSetFieldsize() {}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#ON_STATUS()
+	 * @see IObserver#ON_STATUS()
 	 * reaction on event to give out the status
 	 */
 	public void onStatus() {
@@ -80,7 +80,7 @@ public final class TUI implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onShowMenu()
+	 * @see IObserver#onShowMenu()
 	 * giving out the options of the player
 	 */
 	public void onShowMenu() {
@@ -93,7 +93,7 @@ public final class TUI implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onCheat()
+	 * @see IObserver#onCheat()
 	 * reaction on event to print out CHEAT
 	 */
 	public void onCheat() {
@@ -102,7 +102,7 @@ public final class TUI implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onShowPlayersField()
+	 * @see IObserver#onShowPlayersField()
 	 * reaction on event to show the players field
 	 */
 	public void onShowPlayersField() {
@@ -111,7 +111,7 @@ public final class TUI implements IObserver {
 	}
 	
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onShowPlayersField()
+	 * @see IObserver#onShowPlayersField()
 	 * reaction on event to show the bots field
 	 */
 	public void onShowBotsField() {
@@ -239,7 +239,7 @@ public final class TUI implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onGameOver()
+	 * @see IObserver#onGameOver()
 	 * reaction on event to exit the game
 	 */
 	public void onGameOver() {
@@ -247,7 +247,7 @@ public final class TUI implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onWon()
+	 * @see IObserver#onWon()
 	 * reaction on event that player has WON
 	 */
 	public void onWon() {

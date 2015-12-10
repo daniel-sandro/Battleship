@@ -1,10 +1,10 @@
 package de.htwg.battleship;
 
+import de.htwg.battleship.view.gui.BattleshipGUI;
+import de.htwg.battleship.view.gui.BattleshipSetFieldsize;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import de.htwg.battleship.controller.JavaBattleshipController;
-import de.htwg.battleship.view.gui.BattleshipGUI;
-import de.htwg.battleship.view.gui.BattleshipSetFieldsize;
 import de.htwg.battleship.view.tui.TUI;
 import org.apache.log4j.PropertyConfigurator;
 

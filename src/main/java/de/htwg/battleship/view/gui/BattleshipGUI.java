@@ -1,5 +1,7 @@
 package de.htwg.battleship.view.gui;
 
+import de.htwg.battleship.observer.Event;
+import de.htwg.battleship.observer.IObserver;
 import com.google.inject.Inject;
 import de.htwg.battleship.controller.HumanController;
 import de.htwg.battleship.controller.JavaBattleshipController;
@@ -8,8 +10,6 @@ import de.htwg.battleship.model.Ship;
 import de.htwg.battleship.model.ship.Destructor;
 import de.htwg.battleship.model.ship.Flattop;
 import de.htwg.battleship.model.ship.Rowboat;
-import de.htwg.battleship.observer.Event;
-import de.htwg.battleship.observer.IObserver;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -108,7 +108,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onNotifyObservers(de.htwg.battleship.observer.Event)
+	 * @see IObserver#onNotifyObservers(Event)
 	 * reacts on the given Event
 	 */
 	public void onNotifyObservers(Event e) {
@@ -142,7 +142,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onSetRowboat()
+	 * @see IObserver#onSetRowboat()
 	 * sets action to 1 (set rowboat)
 	 */
 	public void onSetRowboat() {
@@ -151,7 +151,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onSetDestructor()
+	 * @see IObserver#onSetDestructor()
 	 * sets action to 2 (se destructor)
 	 */
 	public void onSetDestructor() {
@@ -159,7 +159,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onSetFlattop()
+	 * @see IObserver#onSetFlattop()
 	 * sets action to 3 (set flattop)
 	 */
 	public void onSetFlattop() {
@@ -167,7 +167,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#ON_ACTION()
+	 * @see IObserver#ON_ACTION()
 	 * sets action to 4
 	 */
 	public void onAction() {
@@ -175,7 +175,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#ON_STATUS()
+	 * @see IObserver#ON_STATUS()
 	 * prevents deadlocks
 	 */
 	public void onStatus() {
@@ -249,7 +249,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	}
 	
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onGameOver()
+	 * @see IObserver#onGameOver()
 	 * reaction on the status gameover
 	 */
 	public void onGameOver() {
@@ -257,7 +257,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	}
 	
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#onWon()
+	 * @see IObserver#onWon()
 	 * reaction to event WON
 	 */
 	public void onWon() {
@@ -265,7 +265,7 @@ public class BattleshipGUI extends JFrame implements IObserver {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObserver#ON_REPAINT()
+	 * @see IObserver#ON_REPAINT()
 	 * reaction on the event repaint
 	 */
 	public void onRepaint() {

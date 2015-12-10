@@ -1,11 +1,11 @@
 package de.htwg.battleship.controller;
 
+import de.htwg.battleship.observer.Event;
+import de.htwg.battleship.observer.Observable;
 import de.htwg.battleship.model.Position;
 import de.htwg.battleship.model.Ship;
 import de.htwg.battleship.model.ship.Destructor;
 import de.htwg.battleship.model.ship.Rowboat;
-import de.htwg.battleship.observer.Event;
-import de.htwg.battleship.observer.Observable;
 import javafx.util.Pair;
 
 import java.util.concurrent.BlockingQueue;

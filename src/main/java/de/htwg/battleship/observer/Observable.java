@@ -10,7 +10,7 @@ public class Observable implements IObservable {
 	private List<IObserver> subscribers = new ArrayList<>();
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObservable#addObserver(de.htwg.battleship.observer.IObserver)
+	 * @see IObservable#addObserver(IObserver)
 	 * adds an observer
 	 */
 	public void addObserver(IObserver s) {
@@ -18,7 +18,7 @@ public class Observable implements IObservable {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObservable#removeObserver(de.htwg.battleship.observer.IObserver)
+	 * @see IObservable#removeObserver(IObserver)
 	 * removes an observer
 	 */
 	public void removeObserver(IObserver s) {
@@ -26,7 +26,7 @@ public class Observable implements IObservable {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObservable#removeAllObservers()
+	 * @see IObservable#removeAllObservers()
 	 * removes all observers
 	 */
 	public void removeAllObservers() {
@@ -34,7 +34,7 @@ public class Observable implements IObservable {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.htwg.battleship.observer.IObservable#notifyObservers(de.htwg.battleship.observer.Event)
+	 * @see IObservable#notifyObservers(Event)
 	 * signalisiert allen observern ein Event
 	 */
 	public void notifyObservers(Event t) {

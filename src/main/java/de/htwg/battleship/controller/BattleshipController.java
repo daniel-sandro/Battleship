@@ -1,10 +1,10 @@
 package de.htwg.battleship.controller;
 
-import de.htwg.battleship.model.BattleshipPlayer;
-import de.htwg.battleship.model.Playboard;
 import de.htwg.battleship.model.Position;
 import de.htwg.battleship.model.Ship;
 import de.htwg.battleship.observer.IObservable;
+import de.htwg.battleship.model.BattleshipPlayer;
+import de.htwg.battleship.model.Playboard;
 import javafx.util.Pair;
 
 public interface BattleshipController extends IObservable {
