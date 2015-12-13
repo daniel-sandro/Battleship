@@ -10,5 +10,6 @@ libraryDependencies ++= Seq(
   "log4j" % "log4j" % "1.2.17",
   "com.google.inject" % "guice" % "3.0",
   "com.fasterxml" % "jackson-xml-databind" % "0.6.2",
-  "junit" % "junit" % "4.8.2" % "test"
+  "junit" % "junit" % "4.8.2" % "test",
+  "net.java.openjfx.backport" %"openjfx-78-backport" %"1.8.0-ea-b96.1"
 )
